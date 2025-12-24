@@ -1,28 +1,63 @@
-const config = {
-  title: 'BrewKits', // Tên thương hiệu
-  tagline: 'The Traffic Control System for your App Architecture', // Slogan ngầu của bạn
-  favicon: 'img/favicon.ico', // Nhớ thay logo ly cafe vào đây
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
 
-  // QUAN TRỌNG: Cấu hình Domain
-  url: 'https://brewkits.dev', 
+const config: Config = {
+  title: 'BrewKits',
+  tagline: 'The Traffic Control System for your App Architecture',
+  favicon: 'img/favicon.ico',
+
+  // Cấu hình URL quan trọng
+  url: 'https://brewkits.dev',
   baseUrl: '/',
 
   // Cấu hình GitHub Deployment
   organizationName: 'brewkits',
   projectName: 'brewkits.github.io',
-  deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+
+  // Cấu hình ngôn ngữ (mặc định tiếng Anh)
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.ts',
+        },
+        blog: {
+          showReadingTime: true,
+        },
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
+
   themeConfig: {
-    // Sửa Navbar
+    // Ảnh đại diện khi share link lên Facebook/Twitter
+    image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'BrewKits',
       logo: {
         alt: 'BrewKits Logo',
-        src: 'img/logo.svg', // Thay logo của bạn vào folder static/img
+        src: 'img/logo.svg', // Bạn nhớ thay file logo.svg vào folder static/img sau nhé
       },
       items: [
-        {to: '/docs/intro', label: 'Docs', position: 'left'},
+        {
+          type: 'docSidebar',
+          sidebarId: 'tutorialSidebar',
+          position: 'left',
+          label: 'Docs',
+        },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/brewkits',
@@ -31,16 +66,41 @@ const config = {
         },
       ],
     },
-    // Chân trang
     footer: {
       style: 'dark',
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Introduction',
+              to: '/docs/intro',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'GitHub',
+              href: 'https://github.com/brewkits',
+            },
+          ],
+        },
+      ],
       copyright: `Copyright © ${new Date().getFullYear()} BrewKits. Built with Docusaurus.`,
     },
-    // Mặc định Dark Mode cho ngầu
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['dart', 'yaml'], // Hỗ trợ highlight code Dart/Flutter
+    },
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: 'dark', // Mặc định Dark mode cho ngầu
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
-  },
+  } satisfies Preset.ThemeConfig,
 };
+
+export default config;
