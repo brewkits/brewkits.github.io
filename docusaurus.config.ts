@@ -14,6 +14,7 @@ const config: Config = {
   // Cấu hình GitHub Deployment
   organizationName: 'brewkits',
   projectName: 'brewkits.github.io',
+  deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
