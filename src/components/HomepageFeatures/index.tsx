@@ -11,32 +11,32 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Flutter Libraries',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Publishing high-quality Flutter packages to pub.dev with best practices,
+        comprehensive documentation, and reliable maintenance.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Kotlin Multiplatform',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Crafting KMP libraries for klibs.io with cross-platform excellence,
+        supporting Android, iOS, and beyond.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Open Source Excellence',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Committed to building trusted, well-documented libraries that developers
+        can rely on. Join us in creating better mobile experiences.
       </>
     ),
   },

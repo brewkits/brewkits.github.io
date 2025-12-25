@@ -2,46 +2,58 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Welcome to BrewKits
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to **BrewKits** - your trusted source for high-quality Flutter and Kotlin Multiplatform libraries.
 
-## Getting Started
+## About BrewKits Team
 
-Get started by **creating a new site**.
+BrewKits Team is dedicated to creating and maintaining excellent open-source libraries for the mobile development community. We focus on delivering reliable, well-documented, and thoroughly tested packages that developers can trust.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+### Our Mission
 
-### What you'll need
+- **Quality First**: Every library we publish undergoes rigorous testing and code review
+- **Developer Experience**: Clear documentation, practical examples, and responsive support
+- **Cross-Platform Excellence**: Leveraging Flutter and Kotlin Multiplatform to build once, deploy everywhere
+- **Community Driven**: Open source at heart, building tools that solve real problems
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## What We Do
 
-## Generate a new site
+### Flutter Packages (pub.dev)
 
-Generate a new Docusaurus site using the **classic template**.
+We publish Flutter packages that help developers build better apps faster. Our packages are designed with best practices, comprehensive documentation, and regular maintenance.
 
-The classic template will automatically be added to your project after you run the command:
+**Coming Soon**: Check back soon for our upcoming Flutter packages!
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+### Kotlin Multiplatform Libraries (klibs.io)
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Our KMP libraries enable true cross-platform development with native performance. Share your business logic across Android, iOS, Web, and Desktop while maintaining platform-specific optimizations.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+**Coming Soon**: Exciting KMP libraries are in development!
 
-## Start your site
+## Get Involved
 
-Run the development server:
+### Support Our Work
 
-```bash
-cd my-website
-npm run start
-```
+If you find our libraries useful, consider supporting our work:
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+- Star our repositories on [GitHub](https://github.com/brewkits)
+- Share our libraries with your team
+- Contribute to our projects
+- Buy us a coffee to fuel our development
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+### Stay Updated
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- Follow our [Blog](/blog) for updates, tutorials, and insights
+- Watch our GitHub repositories for new releases
+- Join discussions and ask questions in our GitHub Discussions
+
+## Quick Links
+
+- **GitHub Organization**: [github.com/brewkits](https://github.com/brewkits)
+- **Blog**: [Read our latest posts](/blog)
+- **Documentation**: Browse the sidebar for guides and resources
+
+---
+
+*Building the future of mobile development, one library at a time.*

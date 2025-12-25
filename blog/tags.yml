@@ -1,19 +1,44 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+announcement:
+  label: Announcement
+  permalink: /announcement
+  description: BrewKits announcements and updates
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+brewkits:
+  label: BrewKits
+  permalink: /brewkits
+  description: Posts about BrewKits organization
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+flutter:
+  label: Flutter
+  permalink: /flutter
+  description: Flutter development and packages
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+kmp:
+  label: KMP
+  permalink: /kmp
+  description: Kotlin Multiplatform development
+
+kotlin:
+  label: Kotlin
+  permalink: /kotlin
+  description: Kotlin programming language
+
+multiplatform:
+  label: Multiplatform
+  permalink: /multiplatform
+  description: Cross-platform development
+
+publishing:
+  label: Publishing
+  permalink: /publishing
+  description: Publishing libraries and packages
+
+pub.dev:
+  label: pub.dev
+  permalink: /pub-dev
+  description: Flutter package publishing on pub.dev
+
+tutorial:
+  label: Tutorial
+  permalink: /tutorial
+  description: Step-by-step tutorials and guides

@@ -4,8 +4,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'BrewKits',
-  tagline: 'The Traffic Control System for your App Architecture',
-  favicon: 'img/favicon.ico',
+  tagline: 'Publishing Excellence for Flutter & Kotlin Multiplatform Libraries',
+  favicon: 'img/icon.png',
 
   // Cấu hình URL quan trọng
   url: 'https://brewkits.dev',
@@ -44,12 +44,12 @@ const config: Config = {
 
   themeConfig: {
     // Ảnh đại diện khi share link lên Facebook/Twitter
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/banner.png',
     navbar: {
       title: 'BrewKits',
       logo: {
         alt: 'BrewKits Logo',
-        src: 'img/logo.svg', // Bạn nhớ thay file logo.svg vào folder static/img sau nhé
+        src: 'img/logo.png',
       },
       items: [
         {
