@@ -1,0 +1,68 @@
+{
+  "permalink": "/blog/welcome-to-brewkits",
+  "source": "@site/blog/2024-12-01-welcome-to-brewkits.md",
+  "title": "Welcome to BrewKits",
+  "description": "We're excited to launch BrewKits - your trusted source for high-quality Flutter and Kotlin Multiplatform libraries!",
+  "date": "2024-12-01T00:00:00.000Z",
+  "tags": [
+    {
+      "inline": false,
+      "label": "Announcement",
+      "permalink": "/blog/tags/announcement",
+      "description": "BrewKits announcements and updates"
+    },
+    {
+      "inline": false,
+      "label": "BrewKits",
+      "permalink": "/blog/tags/brewkits",
+      "description": "Posts about BrewKits organization"
+    },
+    {
+      "inline": false,
+      "label": "Flutter",
+      "permalink": "/blog/tags/flutter",
+      "description": "Flutter development and packages"
+    },
+    {
+      "inline": false,
+      "label": "KMP",
+      "permalink": "/blog/tags/kmp",
+      "description": "Kotlin Multiplatform development"
+    }
+  ],
+  "readingTime": 1.07,
+  "hasTruncateMarker": true,
+  "authors": [
+    {
+      "name": "BrewKits Team",
+      "title": "Mobile Development Enthusiasts",
+      "url": "https://github.com/brewkits",
+      "page": {
+        "permalink": "/blog/authors/brewkits"
+      },
+      "socials": {
+        "github": "https://github.com/brewkits"
+      },
+      "imageURL": "https://github.com/brewkits.png",
+      "key": "brewkits"
+    }
+  ],
+  "frontMatter": {
+    "slug": "welcome-to-brewkits",
+    "title": "Welcome to BrewKits",
+    "authors": [
+      "brewkits"
+    ],
+    "tags": [
+      "announcement",
+      "brewkits",
+      "flutter",
+      "kmp"
+    ]
+  },
+  "unlisted": false,
+  "prevItem": {
+    "title": "The Complete Guide to Publishing Flutter Packages",
+    "permalink": "/blog/flutter-publishing-guide"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Recent posts",
+  "items": [
+    {
+      "title": "Getting Started with Kotlin Multiplatform",
+      "permalink": "/blog/kmp-getting-started",
+      "unlisted": false,
+      "date": "2024-12-15T00:00:00.000Z"
+    },
+    {
+      "title": "The Complete Guide to Publishing Flutter Packages",
+      "permalink": "/blog/flutter-publishing-guide",
+      "unlisted": false,
+      "date": "2024-12-10T00:00:00.000Z"
+    },
+    {
+      "title": "Welcome to BrewKits",
+      "permalink": "/blog/welcome-to-brewkits",
+      "unlisted": false,
+      "date": "2024-12-01T00:00:00.000Z"
+    }
+  ]
+}
