@@ -1,7 +1,7 @@
 import type {ReactNode} from 'react';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import SponsorshipTiers from '@site/src/components/SponsorshipTiers';
+// import SponsorshipTiers from '@site/src/components/SponsorshipTiers';
 import styles from './sponsors.module.css';
 
 function SponsorsHeader() {
@@ -12,7 +12,7 @@ function SponsorsHeader() {
           Become a Sponsor
         </Heading>
         <p className={styles.headerSubtitle}>
-          Help us maintain and improve world-class libraries for Flutter & Kotlin Multiplatform
+          Brewing Production-Ready Infrastructure for Mobile Developers
         </p>
       </div>
     </header>
@@ -68,25 +68,58 @@ function WhySponsor() {
 function OurLibraries() {
   const libraries = [
     {
-      name: 'Throttle & Debounce Universal',
+      name: 'flutter_debounce_throttle',
       icon: '🎯',
-      description: 'The most comprehensive throttle/debounce solution. Prevents thousands of redundant API calls.',
-      impact: 'Used in production apps with 1M+ users',
+      description: 'Traffic Control System for your app. Stop double-taps, spam API calls, and button hammering. Zero dependencies, 500+ tests.',
+      impact: 'Prevents payment duplicates & saves API costs',
       gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      link: 'https://github.com/brewkits/flutter_debounce_throttle',
+      platform: 'Flutter',
     },
     {
-      name: 'HTML Viewer Pro',
-      icon: '🎨',
-      description: 'Rendering HTML in Flutter is hell. We solved it with the highest-quality solution available.',
-      impact: 'Handles complex HTML that others break on',
+      name: 'native_workmanager',
+      icon: '⚡',
+      description: 'Background tasks without Flutter Engine. Native Workers save 90% RAM. Perfect for sync, downloads, and file processing.',
+      impact: 'Survives app kills, reboots & force-quits',
       gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      link: 'https://github.com/brewkits/native_workmanager',
+      platform: 'Flutter',
     },
     {
-      name: 'KMP WorkManager',
-      icon: '⚙️',
-      description: 'Best-in-class background task manager for Kotlin Multiplatform. One code, works everywhere.',
-      impact: 'Unified background jobs for Android & iOS',
+      name: 'Grant',
+      icon: '🛡️',
+      description: 'Headless Permission Manager for KMP. Fixes Android Dead Clicks, validates iOS Info.plist, no Fragment/Activity needed.',
+      impact: 'Works in ViewModels & Composables',
       gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      link: 'https://github.com/brewkits/Grant',
+      platform: 'KMP',
+    },
+    {
+      name: 'kmpworkmanager',
+      icon: '⚙️',
+      description: 'Unified API for background tasks on Android & iOS. One codebase for WorkManager + BGTaskScheduler. Task Chains included.',
+      impact: '60-86% faster HTTP operations',
+      gradient: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
+      link: 'https://github.com/brewkits/kmpworkmanager',
+      platform: 'KMP',
+    },
+    {
+      name: 'KRelay',
+      icon: '🔗',
+      description: 'Type-safe bridge from shared KMP code to native platforms. Dispatch UI commands without memory leaks or lost events.',
+      impact: 'Perfect for Toast, Navigation, Permissions',
+      gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+      link: 'https://github.com/brewkits/KRelay',
+      platform: 'KMP',
+    },
+    {
+      name: 'dart_debounce_throttle',
+      icon: '🎲',
+      description: 'Pure Dart traffic control for servers, CLI tools, and backend services. Same power as Flutter version, zero UI dependencies.',
+      impact: 'Rate limiting for Dart Frog & Shelf servers',
+      gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+      link: 'https://github.com/brewkits/flutter_debounce_throttle',
+      platform: 'Dart',
     },
   ];
 
@@ -102,16 +135,30 @@ function OurLibraries() {
         <div className="row">
           {libraries.map((lib, idx) => (
             <div key={idx} className="col col--4" style={{marginBottom: '2rem'}}>
-              <div className={styles.libraryCard}>
-                <div className={styles.libraryIcon} style={{background: lib.gradient}}>
-                  {lib.icon}
+              <a href={lib.link} target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>
+                <div className={styles.libraryCard}>
+                  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem'}}>
+                    <div className={styles.libraryIcon} style={{background: lib.gradient}}>
+                      {lib.icon}
+                    </div>
+                    <span style={{
+                      fontSize: '0.75rem',
+                      padding: '0.25rem 0.5rem',
+                      borderRadius: '4px',
+                      background: 'var(--ifm-color-primary-lightest)',
+                      color: 'var(--ifm-color-primary-darkest)',
+                      fontWeight: 600
+                    }}>
+                      {lib.platform}
+                    </span>
+                  </div>
+                  <Heading as="h3" className={styles.libraryName}>{lib.name}</Heading>
+                  <p className={styles.libraryDescription}>{lib.description}</p>
+                  <div className={styles.libraryImpact}>
+                    <span className={styles.impactBadge}>💪 {lib.impact}</span>
+                  </div>
                 </div>
-                <Heading as="h3" className={styles.libraryName}>{lib.name}</Heading>
-                <p className={styles.libraryDescription}>{lib.description}</p>
-                <div className={styles.libraryImpact}>
-                  <span className={styles.impactBadge}>💪 {lib.impact}</span>
-                </div>
-              </div>
+              </a>
             </div>
           ))}
         </div>
@@ -128,14 +175,46 @@ function CurrentSponsors() {
           Our Amazing Sponsors
         </Heading>
         <p className={styles.sectionSubtitle}>
-          Thank you to these individuals and companies who believe in our mission
+          Thank you to everyone who supports BrewKits
         </p>
         <div className={styles.sponsorsGrid}>
           <div className={styles.sponsorPlaceholder}>
             <div className={styles.placeholderIcon}>🚀</div>
             <p className={styles.placeholderText}>Be the first sponsor!</p>
-            <p className={styles.placeholderSubtext}>Your name or logo could be here</p>
+            <p className={styles.placeholderSubtext}>Join us in building better mobile infrastructure</p>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SupportCTA() {
+  return (
+    <section className={styles.supportCTA}>
+      <div className="container">
+        <div className={styles.ctaContent}>
+          <Heading as="h2" className={styles.ctaTitle}>
+            Support BrewKits Development
+          </Heading>
+          <p className={styles.ctaDescription}>
+            If our libraries save you time and add value to your projects, consider buying me a coffee!
+            Every contribution helps maintain and improve these tools.
+          </p>
+          <div className={styles.ctaButtons}>
+            <a
+              href="https://www.buymeacoffee.com/brewkits"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button button--primary button--lg"
+              style={{fontSize: '1.2rem', padding: '1rem 2rem'}}
+            >
+              ☕ Buy Me a Coffee
+            </a>
+          </div>
+          <p className={styles.ctaNote}>
+            One-time or monthly support - whatever works for you!
+          </p>
         </div>
       </div>
     </section>
@@ -151,7 +230,8 @@ export default function Sponsors(): ReactNode {
       <main>
         <WhySponsor />
         <OurLibraries />
-        <SponsorshipTiers />
+        <SupportCTA />
+        {/* <SponsorshipTiers /> */}
         <CurrentSponsors />
       </main>
     </Layout>

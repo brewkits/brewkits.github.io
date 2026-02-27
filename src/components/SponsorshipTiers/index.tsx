@@ -16,50 +16,44 @@ type TierItem = {
 
 const TiersList: TierItem[] = [
   {
-    name: 'Casual Brewer',
+    name: 'Coffee Mate',
     price: '$5',
     icon: '☕',
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     benefits: [
-      'Supporter badge on Discord',
-      'Name in CONTRIBUTORS.md',
-      'Early access to updates',
-      'Support indie development',
+      'Access to exclusive posts & updates',
+      'Supporter Badge on profile',
     ],
-    ctaText: 'Buy Me a Coffee',
+    ctaText: 'Become Coffee Mate',
     ctaLink: 'https://www.buymeacoffee.com/brewkits',
   },
   {
-    name: 'Silver Partner',
-    price: '$50',
-    icon: '🥈',
+    name: 'Pro Brewer',
+    price: '$10',
+    icon: '🚀',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     popular: true,
     benefits: [
-      'All Casual Brewer benefits',
-      'Company logo in README',
-      'Priority issue response',
-      'Monthly project updates',
-      'Feature voting rights',
+      'All Coffee Mate benefits',
+      'Priority Issue Review for faster responses on issues/PRs',
+      'Early access to beta/pre-release versions',
     ],
-    ctaText: 'Become Silver Partner',
-    ctaLink: 'https://github.com/sponsors/brewkits',
+    ctaText: 'Become Pro Brewer',
+    ctaLink: 'https://www.buymeacoffee.com/brewkits',
   },
   {
-    name: 'Gold Partner',
-    price: '$100+',
-    icon: '🥇',
-    gradient: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
+    name: 'Enterprise Sponsor',
+    price: '$50',
+    icon: '🏢',
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     benefits: [
-      'All Silver Partner benefits',
-      'Large logo on brewkits.dev',
-      'Dedicated support channel',
-      'Custom feature requests',
-      'SLA guarantee',
-      'Annual consultation call',
+      'All Pro Brewer benefits',
+      'Logo placement on popular repository READMEs',
+      'Direct support channel',
+      'Influence on roadmap priorities',
     ],
-    ctaText: 'Contact for Gold',
-    ctaLink: 'mailto:contact@brewkits.dev',
+    ctaText: 'Become Enterprise Sponsor',
+    ctaLink: 'https://www.buymeacoffee.com/brewkits',
   },
 ];
 
@@ -116,8 +110,8 @@ export default function SponsorshipTiers(): ReactNode {
         </div>
         <div className={styles.tiersFooter}>
           <p className={styles.footerNote}>
-            💼 <strong>Enterprise solutions?</strong> We offer custom licensing and dedicated support for companies.
-            <a href="mailto:contact@brewkits.dev"> Contact us</a> for a tailored plan.
+            ☕ All memberships are managed through <strong>Buy Me a Coffee</strong>.
+            Choose a tier that fits your needs and join our community of supporters.
           </p>
         </div>
       </div>
