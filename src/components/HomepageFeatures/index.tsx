@@ -5,14 +5,16 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: string;
   description: ReactNode;
+  gradient: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
     title: 'Flutter Libraries',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    icon: '🦋',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     description: (
       <>
         Publishing high-quality Flutter packages to pub.dev with best practices,
@@ -22,7 +24,8 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Kotlin Multiplatform',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    icon: '🚀',
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     description: (
       <>
         Crafting KMP libraries for klibs.io with cross-platform excellence,
@@ -32,7 +35,8 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Open Source Excellence',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    icon: '⭐',
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     description: (
       <>
         Committed to building trusted, well-documented libraries that developers
@@ -42,15 +46,17 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, icon, description, gradient}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx('col col--4', styles.featureCol)}>
+      <div className={styles.featureCard}>
+        <div className={styles.featureIcon} style={{ background: gradient }}>
+          {icon}
+        </div>
+        <div className="text--center padding-horiz--md">
+          <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+          <p className={styles.featureDescription}>{description}</p>
+        </div>
       </div>
     </div>
   );
@@ -60,6 +66,14 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.featuresHeader}>
+          <Heading as="h2" className={styles.featuresTitle}>
+            Why Choose BrewKits?
+          </Heading>
+          <p className={styles.featuresSubtitle}>
+            We brew the finest libraries for your mobile applications
+          </p>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

@@ -60,6 +60,7 @@ const config: Config = {
           label: 'Docs',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/sponsors', label: '❤️ Sponsors', position: 'left'},
         {
           href: 'https://github.com/brewkits',
           label: 'GitHub',
@@ -85,6 +86,23 @@ const config: Config = {
             {
               label: 'GitHub',
               href: 'https://github.com/brewkits',
+            },
+            {
+              label: 'Sponsors',
+              to: '/sponsors',
+            },
+          ],
+        },
+        {
+          title: 'Support',
+          items: [
+            {
+              label: 'Buy Me a Coffee',
+              href: 'https://www.buymeacoffee.com/brewkits',
+            },
+            {
+              label: 'Patreon',
+              href: 'https://www.patreon.com/brewkits',
             },
           ],
         },

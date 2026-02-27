@@ -45,13 +45,52 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <section style={{background: 'var(--ifm-background-surface-color)', paddingBottom: '2rem'}}>
+        <section className={styles.valueSection}>
           <div className="container">
-            <h2 style={{textAlign: 'center', marginBottom: '1rem'}}>Support Our Work</h2>
-            <p style={{textAlign: 'center', marginBottom: '1.5rem', color: 'var(--ifm-color-emphasis-600)'}}>
-              If you find our libraries useful, consider buying us a coffee to support continued development!
-            </p>
-            <BuyMeACoffee />
+            <div className={styles.valueContent}>
+              <div className={styles.valueIcon}>💡</div>
+              <Heading as="h2" className={styles.valueTitle}>
+                Your App Uses Our Libraries in Production?
+              </Heading>
+              <p className={styles.valueDescription}>
+                Our libraries save you <strong>weeks of development time</strong>. A $5 coffee is cheaper than 1 hour of developer salary.
+                Help us maintain and improve these tools that power your business.
+              </p>
+              <div className={styles.valueStats}>
+                <div className={styles.statItem}>
+                  <div className={styles.statNumber}>10,000+</div>
+                  <div className={styles.statLabel}>Hours Saved</div>
+                </div>
+                <div className={styles.statItem}>
+                  <div className={styles.statNumber}>1M+</div>
+                  <div className={styles.statLabel}>End Users</div>
+                </div>
+                <div className={styles.statItem}>
+                  <div className={styles.statNumber}>100%</div>
+                  <div className={styles.statLabel}>Production Ready</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className={styles.supportSection}>
+          <div className="container">
+            <div className={styles.supportContent}>
+              <h2 className={styles.supportTitle}>Support Independent Development</h2>
+              <p className={styles.supportDescription}>
+                BrewKits is <strong>independently maintained</strong>. Your sponsorship ensures these libraries stay updated,
+                secure, and free for everyone. Companies using our libraries in commercial apps should consider sponsoring.
+              </p>
+              <div className={styles.ctaButtons}>
+                <Link
+                  className="button button--primary button--lg"
+                  to="/sponsors"
+                  style={{marginRight: '1rem'}}>
+                  ⭐ View Sponsorship Tiers
+                </Link>
+                <BuyMeACoffee />
+              </div>
+            </div>
           </div>
         </section>
       </main>
