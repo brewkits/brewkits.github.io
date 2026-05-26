@@ -2,85 +2,83 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Lam — Máy ảnh cơ có linh hồn · A film camera with soul</title>
+<title>Lam — A film camera with soul</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="6 classic cameras with soul. Real Tone for Asia, Honest LOG, recorded shutter audio. $29.99 one-time. No subscription. No account. No tracking.">
-<meta property="og:title" content="Lam — Máy ảnh cơ có linh hồn">
-<meta property="og:description" content="6 máy ảnh cổ điển có linh hồn. Skin tune cho da Châu Á. $29.99 vĩnh viễn. Không subscription.">
+<meta name="description" content="6 classic cameras with soul. Real Tone for Asia, Honest LOG, recorded shutter audio. One-time purchase, no subscription, no account, no tracking.">
+<meta property="og:title" content="Lam — A film camera with soul">
+<meta property="og:description" content="6 classic cameras with soul. Real Tone for Asia. One-time, no subscription.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://brewkits.dev/lam/">
 <link rel="icon" href="/img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@500;700&family=Noto+Sans+KR:wght@500;700&family=Noto+Sans+SC:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme:dark;
-    --amber:#FFC107;          /* v1 punchier brass — web readability */
-    --brass:#D4AF37;          /* app-side 18k gold — accents */
+    --amber:#FFC107; --brass:#D4AF37;
     --ms:'IBM Plex Mono',ui-monospace,monospace;
-    --sys:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+    --sys:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Noto Sans SC','Noto Sans JP','Noto Sans KR',Arial,sans-serif;
     --max:980px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{margin:0;padding:0;background:#000;color:#f5f5f5;font-family:var(--sys);line-height:1.55;-webkit-font-smoothing:antialiased}
   a{color:var(--amber)}
-  .btn{cursor:pointer;transition:transform .12s ease,filter .12s ease}
-  .btn:hover{filter:brightness(1.08)}
-  .btn:active{transform:translateY(1px)}
   ::selection{background:#FFC107;color:#000}
   section{border-top:1px solid #1a1a1a}
-  h1,h2,h3{font-family:var(--sys)}
   .wrap{max-width:var(--max);margin:0 auto}
   .pill{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid var(--amber);color:var(--amber);
     font-family:var(--ms);font-size:10px;letter-spacing:.8px;text-transform:uppercase;line-height:1.2}
   .center{text-align:center}
-  .vi{color:#bbb;font-style:italic}
+  .btn{cursor:pointer;transition:transform .12s ease,filter .12s ease;padding:13px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;font-family:var(--sys);display:inline-block}
+  .btn:hover{filter:brightness(1.08)} .btn:active{transform:translateY(1px)}
+  .btn-fill{background:var(--amber);color:#000}
+  .btn-out{background:transparent;color:var(--amber);border:1px solid var(--amber);font-weight:600}
+  /* language switcher */
+  .langbar{position:fixed;top:12px;right:12px;z-index:60;display:flex;gap:4px;background:rgba(0,0,0,.6);
+    border:1px solid #2a2a2a;border-radius:999px;padding:4px;backdrop-filter:blur(8px)}
+  .langbar button{font-family:var(--ms);font-size:11px;letter-spacing:.3px;color:#aaa;background:transparent;border:0;
+    padding:6px 10px;border-radius:999px;cursor:pointer;transition:all .12s ease}
+  .langbar button:hover{color:#fff}
+  .langbar button.on{background:var(--amber);color:#000;font-weight:700}
   /* hero */
   .hero{padding:88px 24px 56px;text-align:center;background:#000;position:relative;overflow:hidden}
   .hero img.icon{width:132px;height:132px;border-radius:30px;box-shadow:0 8px 32px rgba(255,193,7,.28)}
   .hero h1{margin:28px 0 8px;font-size:56px;font-weight:800;letter-spacing:-1px;color:var(--amber);line-height:1}
-  .tag-vi{font-size:22px;color:#fff;font-weight:500;line-height:1.3;letter-spacing:-.2px}
-  .tag-en{font-size:18px;color:#ddd;font-style:italic;line-height:1.45;max-width:640px;margin:6px auto 0}
+  .tag-main{font-size:22px;color:#fff;font-weight:500;line-height:1.3;letter-spacing:-.2px}
+  .tag-sub{font-size:17px;color:#ddd;line-height:1.5;max-width:640px;margin:8px auto 0}
   .cta{margin-top:36px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .btn{padding:13px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;font-family:var(--sys)}
-  .btn-fill{background:var(--amber);color:#000}
-  .btn-out{background:transparent;color:var(--amber);border:1px solid var(--amber);font-weight:600}
   .stats{margin-top:56px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-family:var(--ms);
     font-size:11px;color:#999;letter-spacing:.6px;text-transform:uppercase}
   .stats b{color:var(--amber);font-weight:600}
-  /* section shells */
   .sec{padding:72px 24px;background:#000}
   .sec h2{color:#fff;font-size:38px;font-weight:800;letter-spacing:-.5px;line-height:1.1;margin:14px 0 6px}
-  .sec h2.amber{color:var(--amber)}
-  .sec h2.sm{font-size:32px}
-  .sub-en{color:#bbb;font-size:17px;font-style:italic;margin:0 0 8px}
+  .sec h2.amber{color:var(--amber)} .sec h2.sm{font-size:32px}
+  .sub-en{color:#bbb;font-size:17px;margin:0 0 8px}
   .sub-vi{color:#888;font-size:14px;margin:0}
-  /* real tone */
   .tones{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:40px}
   .tone{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:18px;text-align:center}
   .tone .sw{width:56px;height:56px;border-radius:28px;margin:0 auto 12px;border:2px solid rgba(255,193,7,.3)}
   .tone .n{font-size:14px;color:#fff;font-weight:600;letter-spacing:.3px}
   .tone .v{font-family:var(--ms);font-size:10px;color:#888;margin-top:4px;letter-spacing:.3px}
-  /* math */
   .math{max-width:720px;margin:0 auto}
   .cards2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .rcard{padding:24px;background:#0e0e0e;border-radius:14px}
   .rcard.lam{border:2px solid var(--amber);box-shadow:0 12px 36px rgba(255,193,7,.18)}
   .rcard.sub{border:1px solid #2a2a2a;opacity:.85}
   .rlabel{font-family:var(--ms);font-size:10px;letter-spacing:.8px;margin-bottom:12px}
-  .rprice{font-size:46px;font-weight:800;line-height:1;letter-spacing:-1px}
+  .rprice{font-size:44px;font-weight:800;line-height:1;letter-spacing:-1px}
   .rnote{font-family:var(--ms);font-size:11px;letter-spacing:.6px;margin-top:4px}
   .rrow{display:flex;justify-content:space-between;font-family:var(--ms);font-size:12px;padding:4px 0}
   .rbody{border-top:1px solid #222;margin-top:20px;padding-top:16px}
   .ribbon{margin-top:18px;padding:14px 18px;background:var(--amber);color:#000;border-radius:10px;
     display:flex;justify-content:space-between;align-items:center;font-family:var(--ms);letter-spacing:.6px}
-  .ribbon .k{font-weight:700;font-size:13px}.ribbon .v{font-weight:800;font-size:22px}
+  .ribbon .k{font-weight:700;font-size:13px}.ribbon .v{font-weight:800;font-size:20px}
   .fineprint{text-align:center;margin-top:24px;font-family:var(--ms);font-size:11px;color:#666;letter-spacing:.4px;line-height:1.6}
+  .ccy-note{text-align:center;font-family:var(--ms);font-size:10px;color:#555;letter-spacing:.4px;margin-top:10px}
   .sec-cta{text-align:center;margin-top:36px}
   .sec-cta .hint{font-family:var(--ms);font-size:11px;color:#777;letter-spacing:.5px;margin-top:12px}
-  /* wedges + bodies grids */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:40px}
   .wedge{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:22px}
   .wedge.lead{border:1px solid var(--amber);box-shadow:0 8px 28px rgba(255,193,7,.15)}
@@ -90,7 +88,7 @@
   .wtag.lead{color:var(--amber);border-color:var(--amber)}
   .wedge h3{font-size:17px;margin:0 0 2px;font-weight:700;color:#fff}
   .wedge h3.amber{color:var(--amber)}
-  .wedge .wvi{font-family:var(--ms);font-size:11px;color:#888;letter-spacing:.3px;margin-bottom:10px;font-style:italic}
+  .wedge .wvi{font-family:var(--ms);font-size:11px;color:#888;letter-spacing:.3px;margin-bottom:10px}
   .wedge p{color:#bbb;font-size:13.5px;margin:0;line-height:1.55}
   .bodies{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}
   .bcard{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px}
@@ -100,31 +98,18 @@
   .bnum{position:absolute;bottom:4px;left:8px;font-family:var(--ms);font-size:8px;letter-spacing:.6px;opacity:.7}
   .bname{font-size:17px;color:#fff;font-weight:700;line-height:1.2}
   .bera{font-family:var(--ms);font-size:11px;color:var(--amber);letter-spacing:.4px;margin-top:4px;line-height:1.4}
-  .ben{font-size:13px;color:#888;margin-top:6px;font-style:italic;line-height:1.4}
-  /* founder */
-  .founder{max-width:760px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start}
-  .polaroid{width:178px;background:#EFE8D9;padding:8px 8px 22px;transform:rotate(-2.5deg);box-shadow:0 18px 40px rgba(0,0,0,.6);margin:0 auto}
-  .polaroid .ph{width:100%;height:158px;background:linear-gradient(135deg,#6B5B43,#3a2a1a);position:relative;overflow:hidden}
-  .polaroid .cap{font-family:var(--ms);font-size:9px;color:#3a2a1a;letter-spacing:.4px;text-align:center;margin-top:8px}
-  .letter h2{color:var(--amber);font-size:30px;margin:0 0 18px;font-weight:800;letter-spacing:-.5px;line-height:1.15}
-  .bicol{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px}
-  .lbl{font-family:var(--ms);font-size:9px;color:#888;letter-spacing:.8px;margin-bottom:6px}
-  .letter p{margin:0;line-height:1.6}
+  .ben{font-size:13px;color:#888;margin-top:6px;line-height:1.4}
   .quote-line{color:#ddd;font-size:14px;line-height:1.6;padding:12px 16px;border-left:2px solid var(--amber);
-    background:rgba(255,193,7,.04);margin:0 0 10px}
-  .sig{font-family:var(--ms);font-size:11px;color:var(--amber);letter-spacing:.6px;margin-top:6px}
-  /* FAQ */
+    background:rgba(255,193,7,.04);margin:0 auto;max-width:560px;text-align:left;display:inline-block}
   .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
   details{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:10px;padding:14px 18px}
   summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:14px}
   summary::-webkit-details-marker{display:none}
   .qen{color:var(--amber);font-size:15px;font-weight:600}
-  .qvi{color:#888;font-size:12px;font-style:italic;margin-top:2px}
   .plus{font-family:var(--ms);font-size:16px;color:var(--amber);line-height:1;transition:transform .18s ease}
   details[open] .plus{transform:rotate(45deg)}
   details .ans{margin-top:12px;padding-top:12px;border-top:1px dashed #2a2a2a}
-  details .ans p{margin:0 0 8px;line-height:1.6}
-  /* waitlist + footer */
+  details .ans p{margin:0;line-height:1.6;color:#ddd;font-size:14px}
   .wl{padding:88px 24px;text-align:center}
   .wl .box{max-width:540px;margin:0 auto}
   .wl h2{color:var(--amber);font-size:38px;margin:0 0 10px;font-weight:800;letter-spacing:-.5px;line-height:1.1}
@@ -134,208 +119,467 @@
   .wl .micro{color:#666;font-size:12px;margin-top:16px;font-family:var(--ms);letter-spacing:.4px}
   footer{padding:40px 24px 60px;background:#000;border-top:1px solid #1a1a1a;color:#666;font-size:12px;text-align:center}
   footer .brand{font-family:var(--ms);color:var(--amber);font-size:11px;letter-spacing:1.5px}
-  footer .legal{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+  footer .legal{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}
   footer .legal a{color:var(--amber);text-decoration:none;font-family:var(--ms);font-size:11px;letter-spacing:.4px;
-    border:1px solid rgba(255,193,7,.35);padding:7px 14px;border-radius:8px;transition:background .12s ease}
+    border:1px solid rgba(255,193,7,.35);padding:7px 14px;border-radius:8px}
   footer .legal a:hover{background:rgba(255,193,7,.08)}
   footer .links{margin-top:2px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
   footer .links a{color:#888;text-decoration:none}
-  footer .copy{font-family:var(--ms);font-size:10px;color:#444;letter-spacing:.4px;margin-top:6px}
-  @media(max-width:640px){
-    .cards2{grid-template-columns:1fr}
-    .founder{grid-template-columns:1fr}
-    .bicol{grid-template-columns:1fr}
-    .hero h1{font-size:46px}
-  }
+  footer .copy{font-family:var(--ms);font-size:10px;color:#444;letter-spacing:.4px;margin-top:8px}
+  @media(max-width:640px){.cards2{grid-template-columns:1fr}.hero h1{font-size:46px}}
 </style>
 </head>
 <body>
 
-<!-- ───── HERO ───── -->
+<nav class="langbar" aria-label="Language">
+  <button data-lang="en" class="on">EN</button>
+  <button data-lang="vi">VI</button>
+  <button data-lang="zh">中文</button>
+  <button data-lang="ja">日本語</button>
+  <button data-lang="ko">한국어</button>
+</nav>
+
+<!-- HERO -->
 <section class="hero">
-  <div style="margin-bottom:28px"><span class="pill">● Pre-launch · App Store coming July 2026</span></div>
+  <div style="margin-bottom:28px"><span class="pill" data-i18n="prelaunch"></span></div>
   <img class="icon" src="icon-1024.png" alt="Lam — brass aperture on black">
   <h1>Lam</h1>
   <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:6px">
-    <div class="tag-vi">Máy ảnh cơ có linh hồn.</div>
-    <div class="tag-en">A film camera with soul. 6 classic bodies, Real Tone for Asian skin, recorded shutter audio, Honest LOG. Crafted, not catalog.</div>
+    <div class="tag-main" data-i18n="tagMain"></div>
+    <div class="tag-sub" data-i18n="tagSub"></div>
   </div>
   <div class="cta">
-    <a class="btn btn-fill" href="#download">Join the waitlist · Đăng ký chờ</a>
-    <a class="btn btn-out" href="#wedges">Why Lam · Vì sao Lam ↓</a>
+    <a class="btn btn-fill" href="#download" data-i18n="ctaPrimary"></a>
+    <a class="btn btn-out" href="#wedges" data-i18n="ctaSecondary"></a>
   </div>
   <div class="stats">
-    <span><b>$29.99</b> · one-time</span>
-    <span><b>0</b> · subscriptions</span>
-    <span><b>6</b> · camera bodies</span>
-    <span><b>5</b> · skin tone modes</span>
+    <span><b data-price="one"></b> · <span data-i18n="statOnce"></span></span>
+    <span><b>0</b> · <span data-i18n="statSubs"></span></span>
+    <span><b>6</b> · <span data-i18n="statBodies"></span></span>
+    <span><b>5</b> · <span data-i18n="statTones"></span></span>
   </div>
 </section>
 
-<!-- ───── REAL TONE (LEAD) ───── -->
+<!-- REAL TONE -->
 <section class="sec">
   <div class="wrap">
     <div class="center"><span class="pill">Wedge · LEAD</span></div>
-    <h2 class="center">Skin tune cho người Châu Á.</h2>
-    <p class="sub-en center">Real Tone — 5 modes calibrated for Southeast Asian complexions.</p>
-    <p class="sub-vi center" style="max-width:580px;margin:0 auto">Mỗi filter app khác xử lý da châu Á bằng Western default. Lam có 5 mode riêng — và 1 mode AUTO quét da bạn trong 2 giây ngay lúc onboarding.</p>
+    <h2 class="center" data-i18n="rtHead"></h2>
+    <p class="sub-en center" data-i18n="rtSub"></p>
+    <p class="sub-vi center" style="max-width:580px;margin:0 auto" data-i18n="rtBody"></p>
     <div class="tones">
-      <div class="tone"><div class="sw" style="background:#E8C9A8"></div><div class="n">Warm SEA</div><div class="v">Da nâu ấm</div></div>
-      <div class="tone"><div class="sw" style="background:#D9B889"></div><div class="n">Golden Hour</div><div class="v">Vàng nâu</div></div>
-      <div class="tone"><div class="sw" style="background:#D7C2A8"></div><div class="n">Neutral</div><div class="v">Trung tính</div></div>
-      <div class="tone"><div class="sw" style="background:#EAD9C8"></div><div class="n">Cool Neutral</div><div class="v">Lạnh trung</div></div>
-      <div class="tone"><div class="sw" style="background:linear-gradient(135deg,#E8C9A8,#D9B889 50%,#EAD9C8)"></div><div class="n">AUTO</div><div class="v">Tự phát hiện</div></div>
+      <div class="tone"><div class="sw" style="background:#E8C9A8"></div><div class="n">Warm SEA</div><div class="v" data-i18n="toneWarm"></div></div>
+      <div class="tone"><div class="sw" style="background:#D9B889"></div><div class="n">Golden Hour</div><div class="v" data-i18n="toneGolden"></div></div>
+      <div class="tone"><div class="sw" style="background:#D7C2A8"></div><div class="n">Neutral</div><div class="v" data-i18n="toneNeutral"></div></div>
+      <div class="tone"><div class="sw" style="background:#EAD9C8"></div><div class="n">Cool Neutral</div><div class="v" data-i18n="toneCool"></div></div>
+      <div class="tone"><div class="sw" style="background:linear-gradient(135deg,#E8C9A8,#D9B889 50%,#EAD9C8)"></div><div class="n">AUTO</div><div class="v" data-i18n="toneAuto"></div></div>
     </div>
   </div>
 </section>
 
-<!-- ───── RECEIPT MATH ───── -->
+<!-- MATH -->
 <section class="sec">
   <div class="math">
     <div class="center"><span class="pill">Wedge · Conversion</span></div>
-    <h2 class="center">Mua một lần. Vĩnh viễn.</h2>
-    <p class="sub-en center" style="margin-bottom:44px">Buy once. Yours forever. No subscription tricks.</p>
+    <h2 class="center" data-i18n="mathHead"></h2>
+    <p class="sub-en center" style="margin-bottom:44px" data-i18n="mathSub"></p>
     <div class="cards2">
       <div class="rcard lam">
         <div class="rlabel" style="color:var(--amber)">LAM</div>
-        <div class="rprice" style="color:var(--amber)">$29.99</div>
-        <div class="rnote" style="color:var(--amber)">ONCE · VĨNH VIỄN</div>
+        <div class="rprice" style="color:var(--amber)" data-price="one"></div>
+        <div class="rnote" style="color:var(--amber)" data-i18n="mathOnce"></div>
         <div class="rbody">
-          <div class="rrow" style="color:#bbb;border-bottom:1px dotted #2a2a2a"><span>Year 1</span><span>$29.99</span></div>
-          <div class="rrow" style="color:#bbb;border-bottom:1px dotted #2a2a2a"><span>Year 2</span><span>$0.00</span></div>
-          <div class="rrow" style="color:#bbb;border-bottom:1px dotted #2a2a2a"><span>Year 3</span><span>$0.00</span></div>
-          <div class="rrow" style="color:var(--amber);font-weight:700"><span>3-yr total</span><span>$29.99</span></div>
+          <div class="rrow" style="color:#bbb;border-bottom:1px dotted #2a2a2a"><span data-i18n="y1"></span><span data-price="one"></span></div>
+          <div class="rrow" style="color:#bbb;border-bottom:1px dotted #2a2a2a"><span data-i18n="y2"></span><span data-price="zero"></span></div>
+          <div class="rrow" style="color:#bbb;border-bottom:1px dotted #2a2a2a"><span data-i18n="y3"></span><span data-price="zero"></span></div>
+          <div class="rrow" style="color:var(--amber);font-weight:700"><span data-i18n="total3"></span><span data-price="one"></span></div>
         </div>
       </div>
       <div class="rcard sub">
-        <div class="rlabel" style="color:#888">SUBSCRIPTION CAMS · avg</div>
-        <div class="rprice" style="color:#666;text-decoration:line-through">$107.64</div>
-        <div class="rnote" style="color:#666">+ $35.88 EVERY YEAR</div>
+        <div class="rlabel" style="color:#888" data-i18n="subLabel"></div>
+        <div class="rprice" style="color:#666;text-decoration:line-through" data-price="sub3"></div>
+        <div class="rnote" style="color:#666" data-i18n="subEvery"></div>
         <div class="rbody">
-          <div class="rrow" style="color:#888;border-bottom:1px dotted #2a2a2a"><span>Year 1</span><span>$35.88</span></div>
-          <div class="rrow" style="color:#888;border-bottom:1px dotted #2a2a2a"><span>Year 2</span><span>$35.88</span></div>
-          <div class="rrow" style="color:#888;border-bottom:1px dotted #2a2a2a"><span>Year 3</span><span>$35.88</span></div>
-          <div class="rrow" style="color:#fff;font-weight:700"><span>3-yr total</span><span>$107.64</span></div>
+          <div class="rrow" style="color:#888;border-bottom:1px dotted #2a2a2a"><span data-i18n="y1"></span><span data-price="subY"></span></div>
+          <div class="rrow" style="color:#888;border-bottom:1px dotted #2a2a2a"><span data-i18n="y2"></span><span data-price="subY"></span></div>
+          <div class="rrow" style="color:#888;border-bottom:1px dotted #2a2a2a"><span data-i18n="y3"></span><span data-price="subY"></span></div>
+          <div class="rrow" style="color:#fff;font-weight:700"><span data-i18n="total3"></span><span data-price="sub3"></span></div>
         </div>
       </div>
     </div>
-    <div class="ribbon"><span class="k">YOU SAVE · TIẾT KIỆM</span><span class="v">$77.65+ / 3 YR</span></div>
-    <p class="fineprint">Dazz Cam $35.88/yr · Huji $19.99/yr · OldRoll $29.99/yr · averaged.<br>No account · No ads · No data harvesting · No follow-up popups.</p>
+    <div class="ribbon"><span class="k" data-i18n="save"></span><span class="v"><span data-price="save"></span> <span data-i18n="per3yr"></span></span></div>
+    <p class="ccy-note" data-i18n="ccyNote"></p>
     <div class="sec-cta">
-      <a class="btn btn-fill" href="#download">Đăng ký chờ ra mắt · Join the waitlist</a>
-      <div class="hint">App Store + Google Play · July 2026 · one email, then never again</div>
+      <a class="btn btn-fill" href="#download" data-i18n="ctaPrimary"></a>
+      <div class="hint" data-i18n="ctaHint"></div>
     </div>
   </div>
 </section>
 
-<!-- ───── WEDGES ───── -->
+<!-- WEDGES -->
 <section class="sec" id="wedges">
   <div class="wrap">
-    <h2 class="sm center">Six wedges no competitor ships.</h2>
-    <p class="sub-vi center">Sáu lý do không app camera nào trên store có cả.</p>
+    <h2 class="sm center" data-i18n="wHead"></h2>
+    <p class="sub-vi center" data-i18n="wSub"></p>
     <div class="grid">
-      <div class="wedge lead"><div class="top"><span class="e">🧬</span><span class="wtag lead">LEAD</span></div><h3 class="amber">Real Tone for Asia</h3><div class="wvi">Skin tune cho da Châu Á</div><p>5 skin modes calibrated for Southeast Asian complexions. AUTO mode detects in real-time.</p></div>
-      <div class="wedge"><div class="top"><span class="e">📖</span><span class="wtag">RETENTION</span></div><h3>6 cameras, 6 souls</h3><div class="wvi">Sáu máy, sáu linh hồn</div><p>Lam 16mm honours Trần Anh Hùng cinema. Lam CCD anchors Saigon Y2K. Each body carries an era.</p></div>
-      <div class="wedge"><div class="top"><span class="e">💰</span><span class="wtag">CONVERSION</span></div><h3>One-time $29.99</h3><div class="wvi">Mua một lần $29.99</div><p>No subscription. No ads. No account. No data harvesting. No follow-up popups.</p></div>
-      <div class="wedge"><div class="top"><span class="e">🎯</span><span class="wtag">PRO ONLY</span></div><h3>Honest LOG</h3><div class="wvi">LOG thật</div><p>pow(rgb, 0.45) preview shaping — the captured file is truly flat. Not fake-LOG curve.</p></div>
-      <div class="wedge"><div class="top"><span class="e">🔊</span><span class="wtag">DELIGHT</span></div><h3>Recorded shutter audio</h3><div class="wvi">Tiếng máy ảnh thật</div><p>Cloth-thunk Classic, plastic-click Disposable, electronic-beep CCD, motor-whir 16mm. Recorded, not synthesised.</p></div>
-      <div class="wedge"><div class="top"><span class="e">🎞️</span><span class="wtag">NARRATIVE</span></div><h3>Crafted, not catalog</h3><div class="wvi">Làm sâu, không làm nhiều</div><p>6 deeply-built bodies, not 50 shallow filters. No investors. No marketing team. No analytics dashboard watching you.</p></div>
+      <div class="wedge lead"><div class="top"><span class="e">🧬</span><span class="wtag lead">LEAD</span></div><h3 class="amber" data-i18n="w1h"></h3><div class="wvi" data-i18n="w1v"></div><p data-i18n="w1p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">📖</span><span class="wtag">RETENTION</span></div><h3 data-i18n="w2h"></h3><div class="wvi" data-i18n="w2v"></div><p data-i18n="w2p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">💰</span><span class="wtag">CONVERSION</span></div><h3 data-i18n="w3h"></h3><div class="wvi" data-i18n="w3v"></div><p data-i18n="w3p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">🎯</span><span class="wtag">PRO ONLY</span></div><h3 data-i18n="w4h"></h3><div class="wvi" data-i18n="w4v"></div><p data-i18n="w4p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">🔊</span><span class="wtag">DELIGHT</span></div><h3 data-i18n="w5h"></h3><div class="wvi" data-i18n="w5v"></div><p data-i18n="w5p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">🎞️</span><span class="wtag">NARRATIVE</span></div><h3 data-i18n="w6h"></h3><div class="wvi" data-i18n="w6v"></div><p data-i18n="w6p"></p></div>
     </div>
   </div>
 </section>
 
-<!-- ───── 6 BODIES ───── -->
+<!-- BODIES -->
 <section class="sec">
   <div class="wrap">
-    <h2 class="amber sm center">Six bodies. Six eras.</h2>
-    <p class="sub-en center">Mỗi máy có một câu chuyện văn hoá thật.</p>
+    <h2 class="amber sm center" data-i18n="bHead"></h2>
+    <p class="sub-en center" data-i18n="bSub"></p>
     <div class="bodies">
-      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #D4AF37"></div><div class="bdot" style="background:#D4AF37"></div><div class="bnum" style="color:#D4AF37">01/6</div></div><div><div class="bname">Lam Classic</div><div class="bera">Phim Việt thập 90s</div><div class="ben">35mm color negative</div></div></div>
-      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #E8C9A8"></div><div class="bdot" style="background:#E8C9A8"></div><div class="bnum" style="color:#E8C9A8">02/6</div></div><div><div class="bname">Lam Disposable</div><div class="bera">Polaroid Y2K · điện thoại nắp gập</div><div class="ben">Plastic-lens disposable</div></div></div>
-      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #FFC107"></div><div class="bdot" style="background:#FFC107"></div><div class="bnum" style="color:#FFC107">03/6</div></div><div><div class="bname">Lam 16mm Cine</div><div class="bera">Cine · Trần Anh Hùng era</div><div class="ben">16mm motion film</div></div></div>
-      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #bdbdbd"></div><div class="bdot" style="background:#bdbdbd"></div><div class="bnum" style="color:#bdbdbd">04/6</div></div><div><div class="bname">Lam CCD</div><div class="bera">Saigon Y2K · 2003</div><div class="ben">Asian Y2K digicam</div></div></div>
-      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #FFB6A0"></div><div class="bdot" style="background:#FFB6A0"></div><div class="bnum" style="color:#FFB6A0">05/6</div></div><div><div class="bname">Lam Polaroid</div><div class="bera">Instant warm</div><div class="ben">Square instant film</div></div></div>
-      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #A0A0A0"></div><div class="bdot" style="background:#A0A0A0"></div><div class="bnum" style="color:#A0A0A0">06/6</div></div><div><div class="bname">Lam Rangefinder</div><div class="bera">Đường phố Hà Nội</div><div class="ben">Leica M6 mood</div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #D4AF37"></div><div class="bdot" style="background:#D4AF37"></div><div class="bnum" style="color:#D4AF37">01/6</div></div><div><div class="bname">Lam Classic</div><div class="bera" data-i18n="b1e"></div><div class="ben" data-i18n="b1d"></div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #E8C9A8"></div><div class="bdot" style="background:#E8C9A8"></div><div class="bnum" style="color:#E8C9A8">02/6</div></div><div><div class="bname">Lam Disposable</div><div class="bera" data-i18n="b2e"></div><div class="ben" data-i18n="b2d"></div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #FFC107"></div><div class="bdot" style="background:#FFC107"></div><div class="bnum" style="color:#FFC107">03/6</div></div><div><div class="bname">Lam 16mm Cine</div><div class="bera" data-i18n="b3e"></div><div class="ben" data-i18n="b3d"></div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #bdbdbd"></div><div class="bdot" style="background:#bdbdbd"></div><div class="bnum" style="color:#bdbdbd">04/6</div></div><div><div class="bname">Lam CCD</div><div class="bera" data-i18n="b4e"></div><div class="ben" data-i18n="b4d"></div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #FFB6A0"></div><div class="bdot" style="background:#FFB6A0"></div><div class="bnum" style="color:#FFB6A0">05/6</div></div><div><div class="bname">Lam Polaroid</div><div class="bera" data-i18n="b5e"></div><div class="ben" data-i18n="b5d"></div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #A0A0A0"></div><div class="bdot" style="background:#A0A0A0"></div><div class="bnum" style="color:#A0A0A0">06/6</div></div><div><div class="bname">Lam Rangefinder</div><div class="bera" data-i18n="b6e"></div><div class="ben" data-i18n="b6d"></div></div></div>
     </div>
-    <div class="sec-cta">
-      <a class="btn btn-out" href="#download">Báo tin khi ra mắt · Notify me at launch ↓</a>
-    </div>
+    <div class="sec-cta"><a class="btn btn-out" href="#download" data-i18n="ctaNotify"></a></div>
   </div>
 </section>
 
-<!-- ───── PHILOSOPHY (depersonalized — no founder identity) ───── -->
+<!-- PHILOSOPHY -->
 <section class="sec" style="padding:88px 24px;text-align:center">
   <div style="max-width:640px;margin:0 auto">
-    <div style="margin-bottom:12px"><span class="pill">Philosophy</span></div>
-    <h2 class="amber" style="margin:0 0 18px">Buy once. Yours forever.</h2>
-    <p class="quote-line" style="text-align:left;display:inline-block;max-width:560px"><b style="color:var(--amber)">Mua một lần. Dùng cả đời.</b> <span style="color:#bbb;font-style:italic">— No investors, no marketing team, no analytics dashboard watching you. Just a camera that respects your photos.</span></p>
-    <p class="sub-vi" style="margin-top:14px">Không nhà đầu tư · Không theo dõi · Không bán dữ liệu.</p>
+    <div style="margin-bottom:12px"><span class="pill" data-i18n="philPill"></span></div>
+    <h2 class="amber" style="margin:0 0 18px" data-i18n="philHead"></h2>
+    <p class="quote-line" data-i18n="philQuote"></p>
+    <p class="sub-vi" style="margin-top:14px" data-i18n="philSub"></p>
   </div>
 </section>
 
-<!-- ───── FAQ ───── -->
+<!-- FAQ -->
 <section class="sec">
-  <div class="center"><h2 class="sm" style="display:inline-block">Honest questions.</h2></div>
-  <p class="sub-vi center" style="margin-bottom:36px">Câu hỏi thường gặp.</p>
+  <div class="center"><h2 class="sm" style="display:inline-block" data-i18n="faqHead"></h2></div>
+  <p class="sub-vi center" style="margin-bottom:36px" data-i18n="faqSub"></p>
   <div class="faq">
-    <details><summary><div><div class="qen">Is this really one-time?</div><div class="qvi">Thật sự chỉ trả 1 lần?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">Yes. $29.99 covers all 6 cameras, Pro Mode, Real Tone, and every v1.x update. No annual renewal, no cloud tier.</p><p style="color:#888;font-size:13px;font-style:italic">Đúng. $29.99 cover hết 6 máy, Pro Mode, Real Tone, và mọi update v1.x. Không gia hạn, không cloud tier.</p></div></details>
-    <details><summary><div><div class="qen">Do I need an account?</div><div class="qvi">Có cần tạo tài khoản không?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">No. Lam never asks for one. Captures stay on your phone unless you choose to share.</p><p style="color:#888;font-size:13px;font-style:italic">Không. Lam không hỏi. Ảnh ở luôn trên máy bạn, trừ khi bạn share.</p></div></details>
-    <details><summary><div><div class="qen">Does Lam upload my photos?</div><div class="qvi">Lam có upload ảnh không?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">No. Real Tone runs on-device. The skin-scan during onboarding never leaves your phone.</p><p style="color:#888;font-size:13px;font-style:italic">Không. Real Tone chạy trên máy bạn. Skin-scan lúc onboarding không bao giờ rời máy.</p></div></details>
-    <details><summary><div><div class="qen">What's the Food Pack?</div><div class="qvi">Food Pack là gì?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">A $4.99 one-time add-on for food creators — Tungsten Restaurant Lock + top-down 3×3 grid. Optional. Independent of Pro.</p><p style="color:#888;font-size:13px;font-style:italic">Add-on $4.99 cho food creator — Tungsten Lock + 3×3 grid. Tuỳ chọn. Độc lập với Pro.</p></div></details>
-    <details><summary><div><div class="qen">Is the Pro Mode behind a paywall?</div><div class="qvi">Pro Mode có paywall không?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">No. Long-press any body wheel cell to unlock Focus Peaking, Zebra, False Color, Flat preview, Manual ISO. Free with the app.</p><p style="color:#888;font-size:13px;font-style:italic">Không. Long-press body wheel để mở Focus Peaking, Zebra, False Color, Flat, Manual ISO. Free với app.</p></div></details>
-    <details><summary><div><div class="qen">When does it ship?</div><div class="qvi">Khi nào ra mắt?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">July 2026. App Store + Google Play simultaneously. The waitlist gets a launch-day email — that's the only email Lam will ever send you.</p><p style="color:#888;font-size:13px;font-style:italic">Tháng 7, 2026. App Store + Google Play cùng lúc. Waitlist có email ra mắt — đó là email duy nhất Lam gửi cho bạn.</p></div></details>
+    <details><summary><div class="qen" data-i18n="q1"></div><span class="plus">+</span></summary><div class="ans"><p data-i18n="a1"></p></div></details>
+    <details><summary><div class="qen" data-i18n="q2"></div><span class="plus">+</span></summary><div class="ans"><p data-i18n="a2"></p></div></details>
+    <details><summary><div class="qen" data-i18n="q3"></div><span class="plus">+</span></summary><div class="ans"><p data-i18n="a3"></p></div></details>
+    <details><summary><div class="qen" data-i18n="q4"></div><span class="plus">+</span></summary><div class="ans"><p data-i18n="a4"></p></div></details>
+    <details><summary><div class="qen" data-i18n="q5"></div><span class="plus">+</span></summary><div class="ans"><p data-i18n="a5"></p></div></details>
+    <details><summary><div class="qen" data-i18n="q6"></div><span class="plus">+</span></summary><div class="ans"><p data-i18n="a6"></p></div></details>
   </div>
 </section>
 
-<!-- ───── WAITLIST ───── -->
+<!-- WAITLIST -->
 <section class="sec wl" id="download">
   <div class="box">
-    <div style="margin-bottom:24px"><span class="pill">July 2026 · App Store + Play</span></div>
-    <h2>Đăng ký chờ ra mắt.</h2>
-    <p class="sub-en" style="margin-bottom:30px">Join the launch-day waitlist. One email when Lam goes live — then never again.</p>
+    <div style="margin-bottom:24px"><span class="pill" data-i18n="wlPill"></span></div>
+    <h2 data-i18n="wlHead"></h2>
+    <p class="sub-en" style="margin-bottom:30px" data-i18n="wlSub"></p>
     <form id="wl-form">
-      <input id="wl-email" type="email" name="email" placeholder="email@anh.vn" required>
-      <button type="submit">Notify me · Báo tin</button>
+      <input id="wl-email" type="email" name="email" placeholder="email@example.com" required>
+      <button type="submit" data-i18n="wlBtn"></button>
     </form>
-    <p class="micro" id="wl-note">ONE EMAIL · NO TRACKING · NO LISTS SOLD</p>
+    <p class="micro" id="wl-note" data-i18n="wlMicro"></p>
   </div>
 </section>
 
-<!-- ───── FOOTER ───── -->
 <footer>
   <div class="wrap" style="display:flex;flex-direction:column;gap:12px">
     <div class="brand">BREW KITS</div>
-    <div>Lam · Máy ảnh cơ có linh hồn · A film camera with soul.</div>
+    <div data-i18n="footTag"></div>
     <div class="legal">
-      <a href="/lam/privacy.html">Privacy Policy · Chính sách bảo mật</a>
-      <a href="/lam/terms.html">Terms of Service · Điều khoản</a>
+      <a href="/lam/privacy.html" data-i18n="footPrivacy"></a>
+      <a href="/lam/terms.html" data-i18n="footTerms"></a>
     </div>
     <div class="links">
       <a href="https://github.com/brewkits/KMP-VisionX">KMP-VisionX SDK</a>
       <a href="mailto:lam@brewkits.dev">Contact · lam@brewkits.dev</a>
     </div>
-    <div class="copy">© 2026 BREW KITS · NO COOKIES · NO ANALYTICS · NO ACCOUNT REQUIRED</div>
+    <div class="copy" data-i18n="footCopy"></div>
   </div>
 </footer>
 
 <script>
-  // Waitlist: no backend — open the user's mail client pre-addressed to the
-  // real inbox, then confirm. Keeps the "one email, no tracking" promise (no
-  // list stored anywhere) while making the button actually do something.
-  (function () {
-    var form = document.getElementById('wl-form');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = (document.getElementById('wl-email').value || '').trim();
-      if (!email) return;
-      var subject = encodeURIComponent('Lam waitlist · ' + email);
-      var body = encodeURIComponent('Please add me to the Lam launch-day waitlist.\n\nEmail: ' + email);
-      window.location.href = 'mailto:lam@brewkits.dev?subject=' + subject + '&body=' + body;
-      var note = document.getElementById('wl-note');
-      if (note) { note.textContent = 'OPENING YOUR EMAIL APP… · ĐANG MỞ ỨNG DỤNG EMAIL…'; note.style.color = '#FFC107'; }
-    });
-  })();
+/* ── i18n + currency. EN is the default + fallback. Prices are approximate
+   App Store / Play regional tiers for the $29.99 USD tier — the exact local
+   price is shown at checkout in each store (see ccyNote). ───────────────── */
+var PRICES = {
+  en: { one:'$29.99', zero:'$0.00', subY:'$35.88', sub3:'$107.64', save:'$77.65+' },
+  vi: { one:'799.000₫', zero:'0₫', subY:'950.000₫', sub3:'2.850.000₫', save:'2.000.000₫+' },
+  zh: { one:'¥223', zero:'¥0', subY:'¥268', sub3:'¥804', save:'¥581+' },
+  ja: { one:'¥4,500', zero:'¥0', subY:'¥5,400', sub3:'¥16,200', save:'¥11,700+' },
+  ko: { one:'₩44,000', zero:'₩0', subY:'₩52,000', sub3:'₩156,000', save:'₩112,000+' }
+};
+var I18N = {
+  en: {
+    prelaunch:'● Pre-launch · App Store coming July 2026',
+    tagMain:'A film camera with soul.',
+    tagSub:'6 classic bodies, Real Tone for Asian skin, recorded shutter audio, Honest LOG. Crafted, not catalog.',
+    ctaPrimary:'Join the waitlist', ctaSecondary:'Why Lam ↓', ctaNotify:'Notify me at launch ↓',
+    statOnce:'one-time', statSubs:'subscriptions', statBodies:'camera bodies', statTones:'skin tone modes',
+    rtHead:'Skin tone tuned for Asia.', rtSub:'Real Tone — 5 modes calibrated for Southeast Asian complexions.',
+    rtBody:'Other filter apps process Asian skin with a Western default. Lam ships 5 dedicated modes — plus an AUTO mode that scans your skin in 2 seconds during onboarding.',
+    toneWarm:'Warm brown', toneGolden:'Golden brown', toneNeutral:'Neutral', toneCool:'Cool neutral', toneAuto:'Auto-detect',
+    mathHead:'Buy once. Forever.', mathSub:'No subscription tricks.',
+    mathOnce:'ONCE · FOREVER', subLabel:'SUBSCRIPTION CAMS · avg', subEvery:'+ EVERY YEAR',
+    y1:'Year 1', y2:'Year 2', y3:'Year 3', total3:'3-yr total',
+    save:'YOU SAVE', per3yr:'/ 3 YR',
+    ccyNote:'Prices are approximate regional store tiers — the exact local price is shown at checkout. No account · No ads · No data harvesting.',
+    ctaHint:'App Store + Google Play · July 2026 · one email, then never again',
+    wHead:'Six wedges no competitor ships.', wSub:'Six things no camera app on the store does together.',
+    w1h:'Real Tone for Asia', w1v:'Asian skin tone tuning', w1p:'5 skin modes calibrated for Southeast Asian complexions. AUTO mode detects in real-time.',
+    w2h:'6 cameras, 6 souls', w2v:'Six bodies, six eras', w2p:'Lam 16mm honours Trần Anh Hùng cinema. Lam CCD anchors Saigon Y2K. Each body carries an era.',
+    w3h:'One-time purchase', w3v:'Buy once', w3p:'No subscription. No ads. No account. No data harvesting. No follow-up popups.',
+    w4h:'Honest LOG', w4v:'Real flat curve', w4p:'pow(rgb, 0.45) preview shaping — the captured file is truly flat. Not a fake-LOG curve.',
+    w5h:'Recorded shutter audio', w5v:'Real camera sound', w5p:'Cloth-thunk Classic, plastic-click Disposable, electronic-beep CCD, motor-whir 16mm. Recorded, not synthesised.',
+    w6h:'Crafted, not catalog', w6v:'Deep, not many', w6p:'6 deeply-built bodies, not 50 shallow filters. No investors. No marketing team. No analytics dashboard watching you.',
+    bHead:'Six bodies. Six eras.', bSub:'Each body carries a real cultural story.',
+    b1e:'Vietnamese film · 1990s', b1d:'35mm color negative',
+    b2e:'Polaroid Y2K · flip-phone era', b2d:'Plastic-lens disposable',
+    b3e:'Cinema · Trần Anh Hùng era', b3d:'16mm motion film',
+    b4e:'Saigon Y2K · 2003', b4d:'Asian Y2K digicam',
+    b5e:'Instant warm', b5d:'Square instant film',
+    b6e:'Hanoi streets', b6d:'Leica M6 mood',
+    philPill:'Philosophy', philHead:'Buy once. Yours forever.',
+    philQuote:'No investors, no marketing team, no analytics dashboard watching you. Just a camera that respects your photos.',
+    philSub:'No investors · No tracking · No data sold.',
+    faqHead:'Honest questions.', faqSub:'Frequently asked.',
+    q1:'Is this really one-time?', a1:'Yes. One purchase covers all 6 cameras, Pro Mode, Real Tone, and every v1.x update. No annual renewal, no cloud tier.',
+    q2:'Do I need an account?', a2:'No. Lam never asks for one. Captures stay on your phone unless you choose to share.',
+    q3:'Does Lam upload my photos?', a3:'No. Real Tone runs on-device. The skin-scan during onboarding never leaves your phone.',
+    q4:'What is the Food Pack?', a4:'A small one-time add-on for food creators — Tungsten Restaurant Lock + top-down 3×3 grid. Optional. Independent of Pro.',
+    q5:'Is Pro Mode behind a paywall?', a5:'No. Long-press any body to unlock Focus Peaking, Zebra, False Color, Flat preview, Manual ISO. Free with the app.',
+    q6:'When does it ship?', a6:'July 2026, App Store + Google Play simultaneously. The waitlist gets a launch-day email — the only email Lam will ever send you.',
+    wlPill:'July 2026 · App Store + Play', wlHead:'Join the launch waitlist.',
+    wlSub:'One email when Lam goes live — then never again.',
+    wlBtn:'Notify me', wlMicro:'ONE EMAIL · NO TRACKING · NO LISTS SOLD',
+    footTag:'Lam · A film camera with soul.', footPrivacy:'Privacy Policy', footTerms:'Terms of Service',
+    footCopy:'© 2026 BREW KITS · NO COOKIES · NO ANALYTICS · NO ACCOUNT REQUIRED'
+  },
+  vi: {
+    prelaunch:'● Sắp ra mắt · App Store tháng 7, 2026',
+    tagMain:'Máy ảnh cơ có linh hồn.',
+    tagSub:'6 thân máy cổ điển, Real Tone cho da châu Á, tiếng màn trập thật, Honest LOG. Làm sâu, không làm nhiều.',
+    ctaPrimary:'Đăng ký chờ ra mắt', ctaSecondary:'Vì sao Lam ↓', ctaNotify:'Báo tin khi ra mắt ↓',
+    statOnce:'trả 1 lần', statSubs:'subscription', statBodies:'thân máy', statTones:'chế độ da',
+    rtHead:'Skin tune cho người châu Á.', rtSub:'Real Tone — 5 chế độ hiệu chỉnh cho làn da Đông Nam Á.',
+    rtBody:'Các app filter khác xử lý da châu Á bằng default phương Tây. Lam có 5 chế độ riêng — và 1 chế độ AUTO quét da bạn trong 2 giây ngay lúc onboarding.',
+    toneWarm:'Da nâu ấm', toneGolden:'Vàng nâu', toneNeutral:'Trung tính', toneCool:'Lạnh trung', toneAuto:'Tự phát hiện',
+    mathHead:'Mua một lần. Vĩnh viễn.', mathSub:'Không chiêu trò subscription.',
+    mathOnce:'MỘT LẦN · VĨNH VIỄN', subLabel:'APP THUÊ BAO · trung bình', subEvery:'+ MỖI NĂM',
+    y1:'Năm 1', y2:'Năm 2', y3:'Năm 3', total3:'Tổng 3 năm',
+    save:'BẠN TIẾT KIỆM', per3yr:'/ 3 NĂM',
+    ccyNote:'Giá là mức tham khảo theo vùng — giá chính xác hiện lúc thanh toán trên store. Không tài khoản · Không quảng cáo · Không thu thập dữ liệu.',
+    ctaHint:'App Store + Google Play · Tháng 7, 2026 · một email, rồi không bao giờ nữa',
+    wHead:'Sáu lợi thế không đối thủ nào có đủ.', wSub:'Sáu thứ không app camera nào trên store có cùng lúc.',
+    w1h:'Real Tone cho châu Á', w1v:'Skin tune cho da châu Á', w1p:'5 chế độ da hiệu chỉnh cho làn da Đông Nam Á. AUTO phát hiện theo thời gian thực.',
+    w2h:'6 máy, 6 linh hồn', w2v:'Sáu máy, sáu thời đại', w2p:'Lam 16mm tri ân điện ảnh Trần Anh Hùng. Lam CCD neo về Saigon Y2K. Mỗi máy mang một thời đại.',
+    w3h:'Mua một lần', w3v:'Trả 1 lần', w3p:'Không subscription. Không quảng cáo. Không tài khoản. Không thu thập dữ liệu. Không popup làm phiền.',
+    w4h:'Honest LOG', w4v:'LOG thật', w4p:'Đường cong pow(rgb, 0.45) trên preview — file quay ra phẳng thật. Không phải LOG giả.',
+    w5h:'Tiếng màn trập thật', w5v:'Âm thanh máy thật', w5p:'Tiếng vải Classic, click nhựa Disposable, beep điện tử CCD, tiếng motor 16mm. Thu thật, không tổng hợp.',
+    w6h:'Làm sâu, không làm nhiều', w6v:'Sâu hơn, không nhiều hơn', w6p:'6 thân máy làm kỹ, không phải 50 filter hời hợt. Không nhà đầu tư. Không team marketing. Không dashboard theo dõi bạn.',
+    bHead:'Sáu thân máy. Sáu thời đại.', bSub:'Mỗi máy mang một câu chuyện văn hoá thật.',
+    b1e:'Phim Việt thập niên 90', b1d:'Phim âm bản màu 35mm',
+    b2e:'Polaroid Y2K · điện thoại nắp gập', b2d:'Máy dùng-một-lần ống kính nhựa',
+    b3e:'Điện ảnh · thời Trần Anh Hùng', b3d:'Phim điện ảnh 16mm',
+    b4e:'Saigon Y2K · 2003', b4d:'Digicam Y2K châu Á',
+    b5e:'Instant ấm', b5d:'Phim instant vuông',
+    b6e:'Đường phố Hà Nội', b6d:'Chất Leica M6',
+    philPill:'Triết lý', philHead:'Mua một lần. Dùng cả đời.',
+    philQuote:'Không nhà đầu tư, không team marketing, không dashboard analytics theo dõi bạn. Chỉ là một chiếc máy ảnh tôn trọng ảnh của bạn.',
+    philSub:'Không nhà đầu tư · Không theo dõi · Không bán dữ liệu.',
+    faqHead:'Câu hỏi thật.', faqSub:'Câu hỏi thường gặp.',
+    q1:'Thật sự chỉ trả 1 lần?', a1:'Đúng. Một lần mua cover hết 6 máy, Pro Mode, Real Tone, và mọi update v1.x. Không gia hạn năm, không cloud tier.',
+    q2:'Có cần tạo tài khoản không?', a2:'Không. Lam không hỏi. Ảnh ở luôn trên máy bạn, trừ khi bạn chọn share.',
+    q3:'Lam có upload ảnh không?', a3:'Không. Real Tone chạy trên máy. Skin-scan lúc onboarding không bao giờ rời máy bạn.',
+    q4:'Food Pack là gì?', a4:'Một add-on nhỏ trả 1 lần cho food creator — Tungsten Restaurant Lock + lưới 3×3 từ trên xuống. Tuỳ chọn. Độc lập với Pro.',
+    q5:'Pro Mode có paywall không?', a5:'Không. Long-press thân máy để mở Focus Peaking, Zebra, False Color, Flat preview, Manual ISO. Free với app.',
+    q6:'Khi nào ra mắt?', a6:'Tháng 7, 2026, App Store + Google Play cùng lúc. Waitlist nhận email ngày ra mắt — email duy nhất Lam gửi bạn.',
+    wlPill:'Tháng 7, 2026 · App Store + Play', wlHead:'Đăng ký chờ ra mắt.',
+    wlSub:'Một email khi Lam ra mắt — rồi không bao giờ nữa.',
+    wlBtn:'Báo tin cho tôi', wlMicro:'MỘT EMAIL · KHÔNG THEO DÕI · KHÔNG BÁN DANH SÁCH',
+    footTag:'Lam · Máy ảnh cơ có linh hồn.', footPrivacy:'Chính sách bảo mật', footTerms:'Điều khoản',
+    footCopy:'© 2026 BREW KITS · KHÔNG COOKIE · KHÔNG ANALYTICS · KHÔNG CẦN TÀI KHOẢN'
+  },
+  zh: {
+    prelaunch:'● 即将上线 · App Store 2026年7月',
+    tagMain:'有灵魂的胶片相机。',
+    tagSub:'6 款经典机身，为亚洲肤色调校的 Real Tone，真实快门声，Honest LOG。精做，而非堆量。',
+    ctaPrimary:'加入等候名单', ctaSecondary:'为什么选 Lam ↓', ctaNotify:'上线时通知我 ↓',
+    statOnce:'一次性', statSubs:'订阅', statBodies:'机身', statTones:'肤色模式',
+    rtHead:'为亚洲肤色调校。', rtSub:'Real Tone — 为东南亚肤色校准的 5 种模式。',
+    rtBody:'其他滤镜应用用西方默认值处理亚洲肤色。Lam 提供 5 种专属模式 — 还有一个 AUTO 模式在引导时 2 秒内扫描你的肤色。',
+    toneWarm:'暖棕', toneGolden:'金棕', toneNeutral:'中性', toneCool:'冷中性', toneAuto:'自动识别',
+    mathHead:'买断一次。永久使用。', mathSub:'没有订阅套路。',
+    mathOnce:'一次 · 永久', subLabel:'订阅制相机 · 平均', subEvery:'+ 每年',
+    y1:'第 1 年', y2:'第 2 年', y3:'第 3 年', total3:'3 年合计',
+    save:'你省下', per3yr:'/ 3 年',
+    ccyNote:'价格为各地区商店的近似档位 — 确切本地价格在结算时显示。无账户 · 无广告 · 不收集数据。',
+    ctaHint:'App Store + Google Play · 2026年7月 · 仅一封邮件，之后不再打扰',
+    wHead:'六项没有对手能凑齐的优势。', wSub:'商店里没有任何相机应用能同时做到的六件事。',
+    w1h:'亚洲 Real Tone', w1v:'亚洲肤色调校', w1p:'为东南亚肤色校准的 5 种肤色模式。AUTO 模式实时识别。',
+    w2h:'6 台相机，6 种灵魂', w2v:'六款机身，六个时代', w2p:'Lam 16mm 致敬陈英雄的电影。Lam CCD 锚定西贡 Y2K。每款机身承载一个时代。',
+    w3h:'一次性买断', w3v:'买断一次', w3p:'无订阅。无广告。无账户。不收集数据。无后续弹窗。',
+    w4h:'Honest LOG', w4v:'真正的平直曲线', w4p:'pow(rgb, 0.45) 预览塑形 — 拍出的文件真正平直。不是假 LOG 曲线。',
+    w5h:'真实快门音', w5v:'真实相机声', w5p:'Classic 的布帘声、Disposable 的塑料咔哒、CCD 的电子哔、16mm 的马达声。真实录制，非合成。',
+    w6h:'精做，而非堆量', w6v:'做深，不做多', w6p:'6 款精心打造的机身，而非 50 个肤浅滤镜。没有投资人。没有营销团队。没有盯着你的数据看板。',
+    bHead:'六款机身。六个时代。', bSub:'每款机身都承载真实的文化故事。',
+    b1e:'90 年代越南胶片', b1d:'35mm 彩色负片',
+    b2e:'Polaroid Y2K · 翻盖机时代', b2d:'塑料镜头一次性相机',
+    b3e:'电影 · 陈英雄时代', b3d:'16mm 电影胶片',
+    b4e:'西贡 Y2K · 2003', b4d:'亚洲 Y2K 数码相机',
+    b5e:'即影暖调', b5d:'方形拍立得胶片',
+    b6e:'河内街头', b6d:'徕卡 M6 气质',
+    philPill:'理念', philHead:'买断一次。永久属于你。',
+    philQuote:'没有投资人，没有营销团队，没有盯着你的数据看板。只是一台尊重你照片的相机。',
+    philSub:'无投资人 · 无追踪 · 不出售数据。',
+    faqHead:'诚实的问题。', faqSub:'常见问题。',
+    q1:'真的只付一次吗？', a1:'是的。一次购买涵盖全部 6 台相机、Pro 模式、Real Tone，以及所有 v1.x 更新。无年度续费，无云端套餐。',
+    q2:'需要注册账户吗？', a2:'不需要。Lam 从不索取账户。除非你选择分享，照片都留在你的手机上。',
+    q3:'Lam 会上传我的照片吗？', a3:'不会。Real Tone 在设备端运行。引导时的肤色扫描永不离开你的手机。',
+    q4:'Food Pack 是什么？', a4:'面向美食创作者的小额一次性附加包 — 钨丝灯餐厅锁定 + 俯拍 3×3 网格。可选。独立于 Pro。',
+    q5:'Pro 模式需要付费墙吗？', a5:'不需要。长按任意机身即可解锁 Focus Peaking、斑马纹、伪色、Flat 预览、手动 ISO。随应用免费。',
+    q6:'什么时候上线？', a6:'2026年7月，App Store 与 Google Play 同步。等候名单会收到上线当天的邮件 — 这是 Lam 唯一会发给你的邮件。',
+    wlPill:'2026年7月 · App Store + Play', wlHead:'加入上线等候名单。',
+    wlSub:'Lam 上线时发一封邮件 — 之后不再打扰。',
+    wlBtn:'通知我', wlMicro:'仅一封邮件 · 无追踪 · 不出售名单',
+    footTag:'Lam · 有灵魂的胶片相机。', footPrivacy:'隐私政策', footTerms:'服务条款',
+    footCopy:'© 2026 BREW KITS · 无 COOKIE · 无 ANALYTICS · 无需账户'
+  },
+  ja: {
+    prelaunch:'● 近日公開 · App Store 2026年7月',
+    tagMain:'魂を宿すフィルムカメラ。',
+    tagSub:'6つのクラシックボディ、アジアの肌に合わせた Real Tone、本物のシャッター音、Honest LOG。量より深さ。',
+    ctaPrimary:'ウェイトリストに登録', ctaSecondary:'Lam の理由 ↓', ctaNotify:'公開時に通知 ↓',
+    statOnce:'買い切り', statSubs:'サブスク', statBodies:'ボディ', statTones:'肌トーン',
+    rtHead:'アジアの肌に合わせて。', rtSub:'Real Tone — 東南アジアの肌色に合わせた5モード。',
+    rtBody:'他のフィルターアプリは欧米基準でアジアの肌を処理します。Lam は専用の5モードを搭載 — さらにオンボーディング時に2秒で肌を読み取る AUTO モードも。',
+    toneWarm:'暖かいブラウン', toneGolden:'ゴールデンブラウン', toneNeutral:'ニュートラル', toneCool:'クールニュートラル', toneAuto:'自動検出',
+    mathHead:'一度買えば、ずっと。', mathSub:'サブスクの仕掛けなし。',
+    mathOnce:'一度 · 永久', subLabel:'サブスク型カメラ · 平均', subEvery:'+ 毎年',
+    y1:'1年目', y2:'2年目', y3:'3年目', total3:'3年合計',
+    save:'お得額', per3yr:'/ 3年',
+    ccyNote:'価格は各地域ストアのおおよその価格帯です — 正確な現地価格は購入時に表示されます。アカウント不要 · 広告なし · データ収集なし。',
+    ctaHint:'App Store + Google Play · 2026年7月 · メールは1通だけ、その後は送りません',
+    wHead:'競合が揃えられない6つの強み。', wSub:'ストアのどのカメラアプリも同時には実現していない6つ。',
+    w1h:'アジア向け Real Tone', w1v:'アジアの肌トーン調整', w1p:'東南アジアの肌色に合わせた5つの肌モード。AUTO モードがリアルタイムで検出。',
+    w2h:'6台のカメラ、6つの魂', w2v:'6ボディ、6つの時代', w2p:'Lam 16mm はチャン・アン・ユンの映画へのオマージュ。Lam CCD はサイゴン Y2K。各ボディが時代を宿します。',
+    w3h:'買い切り', w3v:'一度だけ購入', w3p:'サブスクなし。広告なし。アカウントなし。データ収集なし。追従ポップアップなし。',
+    w4h:'Honest LOG', w4v:'本物のフラットカーブ', w4p:'pow(rgb, 0.45) のプレビュー整形 — 記録ファイルは本当にフラット。偽 LOG カーブではありません。',
+    w5h:'本物のシャッター音', w5v:'本物のカメラ音', w5p:'Classic の布幕音、Disposable のプラスチック音、CCD の電子音、16mm のモーター音。合成ではなく実録音。',
+    w6h:'量より深さ', w6v:'多くより深く', w6p:'浅い50のフィルターではなく、深く作り込んだ6ボディ。投資家なし。マーケチームなし。あなたを見張る分析ダッシュボードもなし。',
+    bHead:'6つのボディ。6つの時代。', bSub:'各ボディが本物の文化的物語を宿します。',
+    b1e:'90年代ベトナムのフィルム', b1d:'35mm カラーネガ',
+    b2e:'Polaroid Y2K · ガラケー時代', b2d:'プラレンズ使い捨て',
+    b3e:'映画 · チャン・アン・ユンの時代', b3d:'16mm 映画フィルム',
+    b4e:'サイゴン Y2K · 2003', b4d:'アジアの Y2K デジカメ',
+    b5e:'インスタント暖色', b5d:'スクエアのインスタントフィルム',
+    b6e:'ハノイの街', b6d:'ライカ M6 の雰囲気',
+    philPill:'哲学', philHead:'一度買えば、ずっとあなたのもの。',
+    philQuote:'投資家なし、マーケチームなし、あなたを見張る分析ダッシュボードもなし。あなたの写真を尊重するカメラがあるだけ。',
+    philSub:'投資家なし · 追跡なし · データ販売なし。',
+    faqHead:'正直な質問。', faqSub:'よくある質問。',
+    q1:'本当に買い切りですか？', a1:'はい。一度の購入で6台すべて、Pro モード、Real Tone、すべての v1.x アップデートが含まれます。年間更新もクラウド課金もありません。',
+    q2:'アカウントは必要ですか？', a2:'いいえ。Lam が求めることはありません。共有しない限り、撮影は端末内に留まります。',
+    q3:'Lam は写真をアップロードしますか？', a3:'いいえ。Real Tone は端末内で動作します。オンボーディング時の肌スキャンは端末から出ません。',
+    q4:'Food Pack とは？', a4:'フード系クリエイター向けの少額・買い切りアドオン — タングステンのレストランロック + 真上からの3×3グリッド。任意。Pro とは独立。',
+    q5:'Pro モードは課金の壁の向こう？', a5:'いいえ。どのボディも長押しで Focus Peaking、ゼブラ、フォルスカラー、Flat プレビュー、マニュアル ISO が解放されます。アプリに無料で付属。',
+    q6:'いつ公開ですか？', a6:'2026年7月、App Store と Google Play 同時。ウェイトリストには公開日のメールが届きます — Lam が送る唯一のメールです。',
+    wlPill:'2026年7月 · App Store + Play', wlHead:'公開ウェイトリストに登録。',
+    wlSub:'Lam 公開時にメールを1通 — その後は送りません。',
+    wlBtn:'通知を受け取る', wlMicro:'メール1通 · 追跡なし · リスト販売なし',
+    footTag:'Lam · 魂を宿すフィルムカメラ。', footPrivacy:'プライバシーポリシー', footTerms:'利用規約',
+    footCopy:'© 2026 BREW KITS · COOKIE なし · ANALYTICS なし · アカウント不要'
+  },
+  ko: {
+    prelaunch:'● 출시 예정 · App Store 2026년 7월',
+    tagMain:'영혼이 담긴 필름 카메라.',
+    tagSub:'6개의 클래식 바디, 아시아 피부톤에 맞춘 Real Tone, 실제 셔터음, Honest LOG. 많이가 아니라 깊이.',
+    ctaPrimary:'대기자 명단 등록', ctaSecondary:'왜 Lam 인가 ↓', ctaNotify:'출시 시 알림 받기 ↓',
+    statOnce:'한 번 결제', statSubs:'구독', statBodies:'카메라 바디', statTones:'피부톤 모드',
+    rtHead:'아시아 피부톤에 맞춤.', rtSub:'Real Tone — 동남아시아 피부톤에 맞춘 5가지 모드.',
+    rtBody:'다른 필터 앱은 서구 기준으로 아시아 피부를 처리합니다. Lam 은 전용 5모드를 제공 — 온보딩 때 2초 만에 피부를 스캔하는 AUTO 모드까지.',
+    toneWarm:'따뜻한 브라운', toneGolden:'골든 브라운', toneNeutral:'뉴트럴', toneCool:'쿨 뉴트럴', toneAuto:'자동 감지',
+    mathHead:'한 번 사면, 평생.', mathSub:'구독 꼼수 없음.',
+    mathOnce:'한 번 · 평생', subLabel:'구독형 카메라 · 평균', subEvery:'+ 매년',
+    y1:'1년차', y2:'2년차', y3:'3년차', total3:'3년 합계',
+    save:'절약액', per3yr:'/ 3년',
+    ccyNote:'가격은 지역 스토어의 대략적인 가격대입니다 — 정확한 현지 가격은 결제 시 표시됩니다. 계정 불필요 · 광고 없음 · 데이터 수집 없음.',
+    ctaHint:'App Store + Google Play · 2026년 7월 · 이메일 한 통, 그 후로는 없음',
+    wHead:'경쟁사가 다 갖추지 못한 6가지.', wSub:'스토어의 어떤 카메라 앱도 동시에 못 하는 6가지.',
+    w1h:'아시아 Real Tone', w1v:'아시아 피부톤 조정', w1p:'동남아시아 피부톤에 맞춘 5가지 피부 모드. AUTO 모드가 실시간 감지.',
+    w2h:'6대의 카메라, 6개의 영혼', w2v:'6바디, 6시대', w2p:'Lam 16mm 은 쩐아인훙 영화에 대한 오마주. Lam CCD 는 사이공 Y2K. 각 바디가 한 시대를 담습니다.',
+    w3h:'한 번 결제', w3v:'한 번만 구매', w3p:'구독 없음. 광고 없음. 계정 없음. 데이터 수집 없음. 후속 팝업 없음.',
+    w4h:'Honest LOG', w4v:'진짜 플랫 커브', w4p:'pow(rgb, 0.45) 프리뷰 셰이핑 — 촬영 파일이 진짜 플랫. 가짜 LOG 커브가 아닙니다.',
+    w5h:'실제 셔터음', w5v:'진짜 카메라 소리', w5p:'Classic 의 천막 소리, Disposable 의 플라스틱 클릭, CCD 의 전자음, 16mm 의 모터음. 합성이 아닌 실제 녹음.',
+    w6h:'많이가 아니라 깊이', w6v:'넓게보다 깊게', w6p:'얕은 50개 필터가 아닌, 깊게 만든 6바디. 투자자 없음. 마케팅 팀 없음. 당신을 지켜보는 분석 대시보드도 없음.',
+    bHead:'6개의 바디. 6개의 시대.', bSub:'각 바디가 진짜 문화적 이야기를 담습니다.',
+    b1e:'90년대 베트남 필름', b1d:'35mm 컬러 네거티브',
+    b2e:'Polaroid Y2K · 폴더폰 시대', b2d:'플라스틱 렌즈 일회용',
+    b3e:'영화 · 쩐아인훙 시대', b3d:'16mm 무비 필름',
+    b4e:'사이공 Y2K · 2003', b4d:'아시아 Y2K 디카',
+    b5e:'인스턴트 웜톤', b5d:'정사각 인스턴트 필름',
+    b6e:'하노이 거리', b6d:'라이카 M6 무드',
+    philPill:'철학', philHead:'한 번 사면, 평생 당신의 것.',
+    philQuote:'투자자도, 마케팅 팀도, 당신을 지켜보는 분석 대시보드도 없습니다. 당신의 사진을 존중하는 카메라가 있을 뿐.',
+    philSub:'투자자 없음 · 추적 없음 · 데이터 판매 없음.',
+    faqHead:'솔직한 질문.', faqSub:'자주 묻는 질문.',
+    q1:'정말 한 번만 결제하나요?', a1:'네. 한 번 구매로 6대 전부, Pro 모드, Real Tone, 모든 v1.x 업데이트가 포함됩니다. 연간 갱신도, 클라우드 등급도 없습니다.',
+    q2:'계정이 필요한가요?', a2:'아니요. Lam 은 요구하지 않습니다. 공유하지 않는 한 촬영물은 휴대폰에 남습니다.',
+    q3:'Lam 이 제 사진을 업로드하나요?', a3:'아니요. Real Tone 은 기기에서 동작합니다. 온보딩 때의 피부 스캔은 휴대폰을 떠나지 않습니다.',
+    q4:'Food Pack 이 뭔가요?', a4:'푸드 크리에이터용 소액 일회성 추가 기능 — 텅스텐 레스토랑 락 + 탑다운 3×3 그리드. 선택. Pro 와 독립.',
+    q5:'Pro 모드는 유료 장벽인가요?', a5:'아니요. 아무 바디나 길게 누르면 Focus Peaking, 지브라, 폴스 컬러, Flat 프리뷰, 수동 ISO 가 열립니다. 앱에 무료 포함.',
+    q6:'언제 출시되나요?', a6:'2026년 7월, App Store 와 Google Play 동시. 대기자 명단에는 출시일 이메일이 갑니다 — Lam 이 보내는 유일한 이메일입니다.',
+    wlPill:'2026년 7월 · App Store + Play', wlHead:'출시 대기자 명단 등록.',
+    wlSub:'Lam 출시 때 이메일 한 통 — 그 후로는 없습니다.',
+    wlBtn:'알림 받기', wlMicro:'이메일 한 통 · 추적 없음 · 명단 판매 없음',
+    footTag:'Lam · 영혼이 담긴 필름 카메라.', footPrivacy:'개인정보 처리방침', footTerms:'이용약관',
+    footCopy:'© 2026 BREW KITS · 쿠키 없음 · ANALYTICS 없음 · 계정 불필요'
+  }
+};
+
+function applyLang(lang){
+  if(!I18N[lang]) lang='en';
+  document.documentElement.lang = lang;
+  var d = I18N[lang], en = I18N.en, p = PRICES[lang] || PRICES.en;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    el.textContent = (d[k] != null ? d[k] : en[k]) || '';
+  });
+  document.querySelectorAll('[data-price]').forEach(function(el){
+    el.textContent = p[el.getAttribute('data-price')] || '';
+  });
+  document.querySelectorAll('.langbar button').forEach(function(b){
+    b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+  });
+  try { localStorage.setItem('lam_lang', lang); } catch(e){}
+}
+
+(function(){
+  var saved; try { saved = localStorage.getItem('lam_lang'); } catch(e){}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  var initial = saved || (I18N[nav] ? nav : 'en');   // EN is the default
+  document.querySelectorAll('.langbar button').forEach(function(b){
+    b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); });
+  });
+  applyLang(initial);
+
+  // Waitlist: no backend — open the mail client pre-addressed, keep the
+  // "one email, no tracking" promise (nothing stored anywhere).
+  var form = document.getElementById('wl-form');
+  if(form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = (document.getElementById('wl-email').value || '').trim();
+    if(!email) return;
+    var subject = encodeURIComponent('Lam waitlist · ' + email);
+    var body = encodeURIComponent('Please add me to the Lam launch-day waitlist.\n\nEmail: ' + email);
+    window.location.href = 'mailto:lam@brewkits.dev?subject=' + subject + '&body=' + body;
+  });
+})();
 </script>
 
 </body>
