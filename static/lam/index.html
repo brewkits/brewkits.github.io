@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lam — Classic Film Camera</title>
+<meta name="description" content="6 classic cameras with soul. Real Tone for Asian skin, Pro Mode by long-press, Honest LOG, recorded shutter audio. $29.99 one-time. No subscription.">
+<meta property="og:title" content="Lam — Classic Film Camera">
+<meta property="og:description" content="6 máy ảnh cổ điển có linh hồn. Skin tune cho da Châu Á. $29.99 vĩnh viễn. Không subscription.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brewkits.dev/lam/">
+<link rel="icon" href="/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --amber:#FFC107; --amber-light:#FFD54F; --amber-glow:rgba(255,193,7,.22);
+    --bg:#000; --bg-elev:#0e0e0e; --card:#16110a; --border:#2a2a2a;
+    --fg:#f5f5f5; --fg-soft:#ddd; --fg-mute:#aaa; --fg-dim:#666;
+    --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --display:'Bebas Neue',Impact,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--amber);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);font-weight:500}
+  section{padding:64px 0;border-top:1px solid var(--border)}
+  h2{font-family:var(--display);font-size:clamp(40px,8vw,88px);line-height:.92;letter-spacing:.01em;margin:14px 0 8px}
+  h2 .gold{color:var(--amber)}
+  .sub{color:var(--fg-mute);font-size:16px;max-width:640px;margin:0}
+
+  /* hero */
+  .hero{padding:92px 0 64px;display:flex;gap:48px;align-items:center;flex-wrap:wrap}
+  .hero-left{flex:1;min-width:280px}
+  .hero h1{font-family:var(--display);font-size:clamp(96px,22vw,184px);color:var(--amber);line-height:.82;margin:10px 0 14px;letter-spacing:.02em}
+  .hero h1 .period{color:var(--amber-light)}
+  .hero-tag-vi{font-size:22px;color:var(--fg-soft);margin:0 0 10px;font-weight:600}
+  .hero-tag-en{font-size:15px;color:var(--fg-mute);max-width:520px;margin:0}
+  .aperture{flex:0 0 200px;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .aperture svg{filter:drop-shadow(0 12px 40px var(--amber-glow))}
+  .aperture .cap{font-family:var(--mono);font-size:11px;color:var(--fg-dim);letter-spacing:.08em}
+
+  /* meta strip */
+  .meta-strip{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:8px}
+  .meta-cell{flex:1;min-width:130px;padding:14px 18px;border-right:1px solid var(--border)}
+  .meta-cell:last-child{border-right:0}
+  .meta-cell .k{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--fg-dim);text-transform:uppercase;margin-bottom:4px}
+  .meta-cell .v{font-size:14px;color:var(--fg);font-weight:600}
+
+  /* CTA */
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;align-items:center}
+  .btn{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;
+    padding:13px 22px;border-radius:10px;border:1px solid var(--amber);display:inline-block}
+  .btn.primary{background:var(--amber);color:#000;border-color:var(--amber)}
+  .btn.primary:hover{background:var(--amber-light);text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--amber)}
+  .btn.ghost:hover{text-decoration:none;background:rgba(255,193,7,.08)}
+  .soon{font-family:var(--mono);font-size:12px;color:var(--fg-dim);letter-spacing:.06em}
+
+  /* wedges */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:28px}
+  .wedge{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px}
+  .wedge .emoji{font-size:30px;display:block;margin-bottom:10px}
+  .wedge h3{font-size:17px;margin:0 0 6px;color:var(--fg)}
+  .wedge p{font-size:14px;color:var(--fg-mute);margin:0}
+
+  /* bodies */
+  .bodies{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:28px}
+  .body-card{background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;padding:18px}
+  .body-card .era{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.04em;text-transform:uppercase}
+  .body-card h3{font-family:var(--display);font-size:30px;line-height:.95;margin:8px 0 8px;letter-spacing:.02em}
+  .body-card .quote{font-size:14px;color:var(--fg-mute);margin:0}
+
+  /* pricing */
+  .price-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px}
+  .price-card{flex:1;min-width:280px;background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;padding:26px}
+  .price-card.featured{border-color:var(--amber);box-shadow:0 12px 40px var(--amber-glow)}
+  .price-card h3{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-mute);margin:0 0 6px}
+  .price-card .price{font-family:var(--display);font-size:64px;color:var(--amber);line-height:1;margin:0 0 6px}
+  .price-card .note{font-family:var(--mono);font-size:11px;color:var(--fg-dim);letter-spacing:.04em;margin:0 0 16px;text-transform:uppercase}
+  .price-card ul{list-style:none;padding:0;margin:0}
+  .price-card li{font-size:14px;color:var(--fg-soft);padding:7px 0 7px 22px;position:relative;border-top:1px solid var(--border)}
+  .price-card li:before{content:"›";position:absolute;left:2px;color:var(--amber)}
+
+  footer{border-top:1px solid var(--border);padding:40px 0 64px;color:var(--fg-dim);font-size:13px}
+  footer .links{font-family:var(--mono);letter-spacing:.04em}
+  footer .links a{color:var(--fg-mute);text-decoration:underline;margin-right:18px}
+  .madeby{margin-top:14px;color:var(--fg-dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-left">
+      <span class="kicker">Brew Kits · Lam · v1.0</span>
+      <h1>LAM<span class="period">.</span></h1>
+      <p class="hero-tag-vi">Máy ảnh cơ có linh hồn.</p>
+      <p class="hero-tag-en">A film camera with soul. 6 classic cameras · Real Tone for Asian skin · Pro Mode by long-press · Honest LOG. Made by one Vietnamese developer.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#pricing">$29.99 · One-time</a>
+        <a class="btn ghost" href="#bodies">See the 6 bodies</a>
+        <span class="soon">iOS &amp; Android · Coming 2026</span>
+      </div>
+    </div>
+    <div class="aperture" aria-hidden="true">
+      <svg width="170" height="170" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="47" stroke="#FFC107" stroke-width="1.5" opacity=".5"/>
+        <g stroke="#FFC107" stroke-width="2" stroke-linejoin="round" fill="rgba(255,193,7,0.06)">
+          <polygon points="50,12 73,25 73,50"/>
+          <polygon points="73,25 88,50 73,62"/>
+          <polygon points="88,50 75,75 62,68"/>
+          <polygon points="75,75 50,88 50,72"/>
+          <polygon points="50,88 25,75 38,68"/>
+          <polygon points="25,75 12,50 27,62"/>
+          <polygon points="12,50 27,25 38,32"/>
+          <polygon points="27,25 50,12 50,28"/>
+        </g>
+        <circle cx="50" cy="50" r="13" fill="#000" stroke="#FFD54F" stroke-width="1.5"/>
+      </svg>
+      <span class="cap">6-blade brass aperture</span>
+    </div>
+  </header>
+
+  <!-- WEDGES -->
+  <section id="wedges">
+    <span class="kicker">The Wedges · 6 of them</span>
+    <h2>No competitor<br><span class="gold">ships these.</span></h2>
+    <p class="sub">Less, but each is real. Six things the catalog-bloat apps don't do.</p>
+    <div class="grid">
+      <div class="wedge"><span class="emoji">🔊</span><h3>Recorded shutter, per body</h3><p>Each camera's click is sampled from the real machine — not a synthesized beep.</p></div>
+      <div class="wedge"><span class="emoji">🧬</span><h3>Real Tone for Asia</h3><p>5 SEA-tuned skin modes + AUTO. Not a Western default forced onto every face.</p></div>
+      <div class="wedge"><span class="emoji">🔒</span><h3>Pro Mode by long-press</h3><p>Hold a body to unlock Focus Peaking, dual-IRE Zebra, False Color, Flat preview.</p></div>
+      <div class="wedge"><span class="emoji">🎯</span><h3>Honest LOG</h3><p>A real pow(0.45) preview curve matched to the recorded file — not a fake-flat LUT.</p></div>
+      <div class="wedge"><span class="emoji">⚙️</span><h3>Process Zero</h3><p>A raw passthrough that adds no processing — anti-AI, what the sensor actually sees.</p></div>
+      <div class="wedge"><span class="emoji">📖</span><h3>Cultural era per body</h3><p>Every camera carries a real era and story, not a generic "vintage filter" name.</p></div>
+    </div>
+  </section>
+
+  <!-- BODIES -->
+  <section id="bodies">
+    <span class="kicker">The Bodies</span>
+    <h2>6 <span class="gold">souls.</span></h2>
+    <p class="sub">Each body carries a cultural era — not a generic name.</p>
+    <div class="bodies">
+      <div class="body-card"><span class="era">Kodak FunSaver · USA 1990s</span><h3>LAM DISPOSABLE</h3><p class="quote">Heavy vignette, plastic-click, wait-and-hope.</p></div>
+      <div class="body-card"><span class="era">Leica M3 · 1960s</span><h3>LAM CLASSIC</h3><p class="quote">Cloth-curtain shutter, deliberate single frame.</p></div>
+      <div class="body-card"><span class="era">Cyber-shot · Y2K 2003</span><h3>LAM CCD</h3><p class="quote">Magenta highlights, CCD noise, electronic beep.</p></div>
+      <div class="body-card"><span class="era">Bolex · Cinema</span><h3>LAM 16MM</h3><p class="quote">Soft motion blur, motor-whir, 24fps cinema.</p></div>
+      <div class="body-card"><span class="era">Polaroid i-Zone · 1999</span><h3>LAM Y2K</h3><p class="quote">Pink compact, kitschy ka-CHIK, sticker prints.</p></div>
+      <div class="body-card"><span class="era">Hasselblad 500CM · 1995</span><h3>LAM MEDIUM</h3><p class="quote">6×6 crop, 12-shot constraint, mirror slap.</p></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <span class="kicker">Pricing · Buy once</span>
+    <h2>Yours <span class="gold">forever.</span></h2>
+    <p class="sub">No subscription tricks. No ads. No account required. No data harvesting.</p>
+    <div class="price-row">
+      <div class="price-card featured">
+        <h3>Lam Lifetime Pro</h3>
+        <div class="price">$29.99</div>
+        <p class="note">One-time · non-consumable</p>
+        <ul>
+          <li>6 named camera bodies</li>
+          <li>Real Tone skin Asia tune (5 modes)</li>
+          <li>Pro Mode — Focus Peaking, Zebra dual-IRE, False Color, Flat preview</li>
+          <li>Recorded shutter audio per body</li>
+          <li>Honest LOG (pow 0.45 — not fake)</li>
+          <li>All future updates included</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <h3>Food Pack add-on</h3>
+        <div class="price">$4.99</div>
+        <p class="note">Optional · one-time</p>
+        <ul>
+          <li>Tungsten Restaurant Lock (WB 3200K + EV +0.5)</li>
+          <li>Top-down 3×3 grid + center cross-hair</li>
+          <li>Bound to the tungsten body</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-row">
+      <span class="soon">App Store &amp; Google Play · Coming 2026</span>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="https://brewkits.dev/lam/privacy.html">Privacy Policy</a>
+      <a href="https://brewkits.dev/lam/terms.html">Terms of Service</a>
+      <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a>
+      <a href="https://brewkits.dev">BrewKits</a>
+    </div>
+    <p class="madeby">Lam — Classic Film Camera. Built on KMP-VisionX. Made by one Vietnamese developer. © 2026 BrewKits.</p>
+  </footer>
+
+</div>
+</body>
+</html>
