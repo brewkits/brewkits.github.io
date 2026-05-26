@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Lam — Máy ảnh cơ có linh hồn · A film camera with soul</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="6 classic cameras with soul. Real Tone for Asia, Honest LOG, recorded shutter audio. $29.99 one-time. No subscription. Made by one Vietnamese developer.">
+<meta name="description" content="6 classic cameras with soul. Real Tone for Asia, Honest LOG, recorded shutter audio. $29.99 one-time. No subscription. No account. No tracking.">
 <meta property="og:title" content="Lam — Máy ảnh cơ có linh hồn">
 <meta property="og:description" content="6 máy ảnh cổ điển có linh hồn. Skin tune cho da Châu Á. $29.99 vĩnh viễn. Không subscription.">
 <meta property="og:type" content="website">
@@ -23,8 +23,12 @@
     --max:980px;
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   html,body{margin:0;padding:0;background:#000;color:#f5f5f5;font-family:var(--sys);line-height:1.55;-webkit-font-smoothing:antialiased}
   a{color:var(--amber)}
+  .btn{cursor:pointer;transition:transform .12s ease,filter .12s ease}
+  .btn:hover{filter:brightness(1.08)}
+  .btn:active{transform:translateY(1px)}
   ::selection{background:#FFC107;color:#000}
   section{border-top:1px solid #1a1a1a}
   h1,h2,h3{font-family:var(--sys)}
@@ -128,7 +132,11 @@
   .wl .micro{color:#666;font-size:12px;margin-top:16px;font-family:var(--ms);letter-spacing:.4px}
   footer{padding:40px 24px 60px;background:#000;border-top:1px solid #1a1a1a;color:#666;font-size:12px;text-align:center}
   footer .brand{font-family:var(--ms);color:var(--amber);font-size:11px;letter-spacing:1.5px}
-  footer .links{margin-top:6px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+  footer .legal{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+  footer .legal a{color:var(--amber);text-decoration:none;font-family:var(--ms);font-size:11px;letter-spacing:.4px;
+    border:1px solid rgba(255,193,7,.35);padding:7px 14px;border-radius:8px;transition:background .12s ease}
+  footer .legal a:hover{background:rgba(255,193,7,.08)}
+  footer .links{margin-top:2px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
   footer .links a{color:#888;text-decoration:none}
   footer .copy{font-family:var(--ms);font-size:10px;color:#444;letter-spacing:.4px;margin-top:6px}
   @media(max-width:640px){
@@ -148,7 +156,7 @@
   <h1>Lam</h1>
   <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:6px">
     <div class="tag-vi">Máy ảnh cơ có linh hồn.</div>
-    <div class="tag-en">A film camera with soul. 6 classic bodies, Real Tone for Asian skin, recorded shutter audio, Honest LOG — built by one Vietnamese dev.</div>
+    <div class="tag-en">A film camera with soul. 6 classic bodies, Real Tone for Asian skin, recorded shutter audio, Honest LOG. Crafted, not catalog.</div>
   </div>
   <div class="cta">
     <a class="btn btn-fill" href="#download">Join the waitlist · Đăng ký chờ</a>
@@ -225,7 +233,7 @@
       <div class="wedge"><div class="top"><span class="e">💰</span><span class="wtag">CONVERSION</span></div><h3>One-time $29.99</h3><div class="wvi">Mua một lần $29.99</div><p>No subscription. No ads. No account. No data harvesting. No follow-up popups.</p></div>
       <div class="wedge"><div class="top"><span class="e">🎯</span><span class="wtag">PRO ONLY</span></div><h3>Honest LOG</h3><div class="wvi">LOG thật</div><p>pow(rgb, 0.45) preview shaping — the captured file is truly flat. Not fake-LOG curve.</p></div>
       <div class="wedge"><div class="top"><span class="e">🔊</span><span class="wtag">DELIGHT</span></div><h3>Recorded shutter audio</h3><div class="wvi">Tiếng máy ảnh thật</div><p>Cloth-thunk Classic, plastic-click Disposable, electronic-beep CCD, motor-whir 16mm. Recorded, not synthesised.</p></div>
-      <div class="wedge"><div class="top"><span class="e">🇻🇳</span><span class="wtag">NARRATIVE</span></div><h3>Made by 1 Vietnamese dev</h3><div class="wvi">Một dev Việt Nam · solo</div><p>11 months of solo work. No investors. No marketing team. No analytics dashboard watching you.</p></div>
+      <div class="wedge"><div class="top"><span class="e">🎞️</span><span class="wtag">NARRATIVE</span></div><h3>Crafted, not catalog</h3><div class="wvi">Làm sâu, không làm nhiều</div><p>6 deeply-built bodies, not 50 shallow filters. No investors. No marketing team. No analytics dashboard watching you.</p></div>
     </div>
   </div>
 </section>
@@ -246,35 +254,13 @@
   </div>
 </section>
 
-<!-- ───── FOUNDER NOTE (anonymous) ───── -->
-<section class="sec" style="padding:88px 24px">
-  <div class="founder">
-    <div>
-      <div class="polaroid">
-        <div class="ph">
-          <div style="position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);width:64px;height:78px;border-radius:50% 50% 45% 45% / 60% 60% 40% 40%;background:radial-gradient(ellipse at 50% 30%,#E8C9A8,#6B5B43 70%,transparent);filter:blur(.5px)"></div>
-          <div style="position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);width:78px;height:38px;border-radius:50% 50% 20% 20%;background:#1a0a0a;filter:blur(1px)"></div>
-        </div>
-        <div class="cap">SOLO DEV · HÀ NỘI · 2026</div>
-      </div>
-    </div>
-    <div class="letter">
-      <div style="margin-bottom:12px"><span class="pill">Wedge · Narrative</span></div>
-      <h2>One dev. One country.<br>One price.</h2>
-      <div class="bicol">
-        <div>
-          <div class="lbl">VI</div>
-          <p style="color:#ddd;font-size:14px">Lam là phần mềm do một lập trình viên người Việt tự viết một mình trong 11 tháng. Không nhà đầu tư, không team marketing, không dashboard analytics.</p>
-        </div>
-        <div>
-          <div class="lbl">EN</div>
-          <p style="color:#bbb;font-size:14px;font-style:italic">Lam is software written alone by one Vietnamese developer over eleven months. No investors. No marketing team. No analytics dashboard watching you.</p>
-        </div>
-      </div>
-      <p class="quote-line"><b style="color:var(--amber)">Mua một lần. Dùng cả đời.</b> <span style="color:#bbb;font-style:italic">— Buy once. Yours forever.</span></p>
-      <svg width="100" height="22" viewBox="0 0 100 22" style="margin-top:8px"><path d="M2 16 q 6 -12 12 -2 t 14 -4 t 16 6 t 18 -8 t 16 4 t 12 -2" stroke="#FFC107" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
-      <div class="sig">— A solo developer · Brew Kits · Hà Nội</div>
-    </div>
+<!-- ───── PHILOSOPHY (depersonalized — no founder identity) ───── -->
+<section class="sec" style="padding:88px 24px;text-align:center">
+  <div style="max-width:640px;margin:0 auto">
+    <div style="margin-bottom:12px"><span class="pill">Philosophy</span></div>
+    <h2 class="amber" style="margin:0 0 18px">Buy once. Yours forever.</h2>
+    <p class="quote-line" style="text-align:left;display:inline-block;max-width:560px"><b style="color:var(--amber)">Mua một lần. Dùng cả đời.</b> <span style="color:#bbb;font-style:italic">— No investors, no marketing team, no analytics dashboard watching you. Just a camera that respects your photos.</span></p>
+    <p class="sub-vi" style="margin-top:14px">Không nhà đầu tư · Không theo dõi · Không bán dữ liệu.</p>
   </div>
 </section>
 
@@ -298,28 +284,50 @@
     <div style="margin-bottom:24px"><span class="pill">July 2026 · App Store + Play</span></div>
     <h2>Đăng ký chờ ra mắt.</h2>
     <p class="sub-en" style="margin-bottom:30px">Join the launch-day waitlist. One email when Lam goes live — then never again.</p>
-    <form action="mailto:lam@brewkits.dev" method="post" enctype="text/plain">
-      <input type="email" name="email" placeholder="email@anh.vn" required>
+    <form id="wl-form">
+      <input id="wl-email" type="email" name="email" placeholder="email@anh.vn" required>
       <button type="submit">Notify me · Báo tin</button>
     </form>
-    <p class="micro">ONE EMAIL · NO TRACKING · NO LISTS SOLD</p>
+    <p class="micro" id="wl-note">ONE EMAIL · NO TRACKING · NO LISTS SOLD</p>
   </div>
 </section>
 
 <!-- ───── FOOTER ───── -->
 <footer>
-  <div class="wrap" style="display:flex;flex-direction:column;gap:10px">
-    <div class="brand">BREW KITS · HÀ NỘI · VIỆT NAM</div>
+  <div class="wrap" style="display:flex;flex-direction:column;gap:12px">
+    <div class="brand">BREW KITS</div>
     <div>Lam · Máy ảnh cơ có linh hồn · A film camera with soul.</div>
+    <div class="legal">
+      <a href="/lam/privacy.html">Privacy Policy · Chính sách bảo mật</a>
+      <a href="/lam/terms.html">Terms of Service · Điều khoản</a>
+    </div>
     <div class="links">
-      <a href="https://brewkits.dev/lam/privacy.html">Privacy</a>
-      <a href="https://brewkits.dev/lam/terms.html">Terms</a>
       <a href="https://github.com/brewkits/KMP-VisionX">KMP-VisionX SDK</a>
-      <a href="mailto:lam@brewkits.dev">Contact</a>
+      <a href="mailto:lam@brewkits.dev">Contact · lam@brewkits.dev</a>
     </div>
     <div class="copy">© 2026 BREW KITS · NO COOKIES · NO ANALYTICS · NO ACCOUNT REQUIRED</div>
   </div>
 </footer>
+
+<script>
+  // Waitlist: no backend — open the user's mail client pre-addressed to the
+  // real inbox, then confirm. Keeps the "one email, no tracking" promise (no
+  // list stored anywhere) while making the button actually do something.
+  (function () {
+    var form = document.getElementById('wl-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = (document.getElementById('wl-email').value || '').trim();
+      if (!email) return;
+      var subject = encodeURIComponent('Lam waitlist · ' + email);
+      var body = encodeURIComponent('Please add me to the Lam launch-day waitlist.\n\nEmail: ' + email);
+      window.location.href = 'mailto:lam@brewkits.dev?subject=' + subject + '&body=' + body;
+      var note = document.getElementById('wl-note');
+      if (note) { note.textContent = 'OPENING YOUR EMAIL APP… · ĐANG MỞ ỨNG DỤNG EMAIL…'; note.style.color = '#FFC107'; }
+    });
+  })();
+</script>
 
 </body>
 </html>
