@@ -163,7 +163,7 @@
 <!-- REAL TONE -->
 <section class="sec">
   <div class="wrap">
-    <div class="center"><span class="pill">Wedge · LEAD</span></div>
+    <div class="center"><span class="pill" data-i18n="pillFeatured"></span></div>
     <h2 class="center" data-i18n="rtHead"></h2>
     <p class="sub-en center" data-i18n="rtSub"></p>
     <p class="sub-vi center" style="max-width:580px;margin:0 auto" data-i18n="rtBody"></p>
@@ -180,7 +180,7 @@
 <!-- MATH -->
 <section class="sec">
   <div class="math">
-    <div class="center"><span class="pill">Wedge · Conversion</span></div>
+    <div class="center"><span class="pill" data-i18n="pillPricing"></span></div>
     <h2 class="center" data-i18n="mathHead"></h2>
     <p class="sub-en center" style="margin-bottom:44px" data-i18n="mathSub"></p>
     <div class="cards2">
@@ -222,12 +222,12 @@
     <h2 class="sm center" data-i18n="wHead"></h2>
     <p class="sub-vi center" data-i18n="wSub"></p>
     <div class="grid">
-      <div class="wedge lead"><div class="top"><span class="e">🧬</span><span class="wtag lead">LEAD</span></div><h3 class="amber" data-i18n="w1h"></h3><div class="wvi" data-i18n="w1v"></div><p data-i18n="w1p"></p></div>
-      <div class="wedge"><div class="top"><span class="e">📖</span><span class="wtag">RETENTION</span></div><h3 data-i18n="w2h"></h3><div class="wvi" data-i18n="w2v"></div><p data-i18n="w2p"></p></div>
-      <div class="wedge"><div class="top"><span class="e">💰</span><span class="wtag">CONVERSION</span></div><h3 data-i18n="w3h"></h3><div class="wvi" data-i18n="w3v"></div><p data-i18n="w3p"></p></div>
-      <div class="wedge"><div class="top"><span class="e">🎯</span><span class="wtag">PRO ONLY</span></div><h3 data-i18n="w4h"></h3><div class="wvi" data-i18n="w4v"></div><p data-i18n="w4p"></p></div>
-      <div class="wedge"><div class="top"><span class="e">🔊</span><span class="wtag">DELIGHT</span></div><h3 data-i18n="w5h"></h3><div class="wvi" data-i18n="w5v"></div><p data-i18n="w5p"></p></div>
-      <div class="wedge"><div class="top"><span class="e">🎞️</span><span class="wtag">NARRATIVE</span></div><h3 data-i18n="w6h"></h3><div class="wvi" data-i18n="w6v"></div><p data-i18n="w6p"></p></div>
+      <div class="wedge lead"><div class="top"><span class="e">🧬</span><span class="wtag lead" data-i18n="tLead"></span></div><h3 class="amber" data-i18n="w1h"></h3><div class="wvi" data-i18n="w1v"></div><p data-i18n="w1p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">📖</span><span class="wtag" data-i18n="tRetention"></span></div><h3 data-i18n="w2h"></h3><div class="wvi" data-i18n="w2v"></div><p data-i18n="w2p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">💰</span><span class="wtag" data-i18n="tConversion"></span></div><h3 data-i18n="w3h"></h3><div class="wvi" data-i18n="w3v"></div><p data-i18n="w3p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">🎯</span><span class="wtag" data-i18n="tPro"></span></div><h3 data-i18n="w4h"></h3><div class="wvi" data-i18n="w4v"></div><p data-i18n="w4p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">🔊</span><span class="wtag" data-i18n="tDelight"></span></div><h3 data-i18n="w5h"></h3><div class="wvi" data-i18n="w5v"></div><p data-i18n="w5p"></p></div>
+      <div class="wedge"><div class="top"><span class="e">🎞️</span><span class="wtag" data-i18n="tNarrative"></span></div><h3 data-i18n="w6h"></h3><div class="wvi" data-i18n="w6v"></div><p data-i18n="w6p"></p></div>
     </div>
   </div>
 </section>
@@ -321,6 +321,8 @@ var I18N = {
     tagSub:'6 classic bodies, Real Tone for Asian skin, recorded shutter audio, Honest LOG. Crafted, not catalog.',
     ctaPrimary:'Join the waitlist', ctaSecondary:'Why Lam ↓', ctaNotify:'Notify me at launch ↓',
     statOnce:'one-time', statSubs:'subscriptions', statBodies:'camera bodies', statTones:'skin tone modes',
+    pillFeatured:'Featured', pillPricing:'Pricing',
+    tLead:'FEATURED', tRetention:'RETENTION', tConversion:'VALUE', tPro:'PRO', tDelight:'DETAIL', tNarrative:'ETHOS',
     rtHead:'Skin tone tuned for Asia.', rtSub:'Real Tone — 5 modes calibrated for Southeast Asian complexions.',
     rtBody:'Other filter apps process Asian skin with a Western default. Lam ships 5 dedicated modes — plus an AUTO mode that scans your skin in 2 seconds during onboarding.',
     toneWarm:'Warm brown', toneGolden:'Golden brown', toneNeutral:'Neutral', toneCool:'Cool neutral', toneAuto:'Auto-detect',
@@ -366,6 +368,8 @@ var I18N = {
     tagSub:'6 thân máy cổ điển, Real Tone cho da châu Á, tiếng màn trập thật, Honest LOG. Làm sâu, không làm nhiều.',
     ctaPrimary:'Đăng ký chờ ra mắt', ctaSecondary:'Vì sao Lam ↓', ctaNotify:'Báo tin khi ra mắt ↓',
     statOnce:'trả 1 lần', statSubs:'subscription', statBodies:'thân máy', statTones:'chế độ da',
+    pillFeatured:'Nổi bật', pillPricing:'Giá cả',
+    tLead:'NỔI BẬT', tRetention:'GIỮ CHÂN', tConversion:'GIÁ TRỊ', tPro:'PRO', tDelight:'TINH TẾ', tNarrative:'TRIẾT LÝ',
     rtHead:'Skin tune cho người châu Á.', rtSub:'Real Tone — 5 chế độ hiệu chỉnh cho làn da Đông Nam Á.',
     rtBody:'Các app filter khác xử lý da châu Á bằng default phương Tây. Lam có 5 chế độ riêng — và 1 chế độ AUTO quét da bạn trong 2 giây ngay lúc onboarding.',
     toneWarm:'Da nâu ấm', toneGolden:'Vàng nâu', toneNeutral:'Trung tính', toneCool:'Lạnh trung', toneAuto:'Tự phát hiện',
@@ -411,6 +415,8 @@ var I18N = {
     tagSub:'6 款经典机身，为亚洲肤色调校的 Real Tone，真实快门声，Honest LOG。精做，而非堆量。',
     ctaPrimary:'加入等候名单', ctaSecondary:'为什么选 Lam ↓', ctaNotify:'上线时通知我 ↓',
     statOnce:'一次性', statSubs:'订阅', statBodies:'机身', statTones:'肤色模式',
+    pillFeatured:'主打', pillPricing:'价格',
+    tLead:'主打', tRetention:'留存', tConversion:'价值', tPro:'专业', tDelight:'细节', tNarrative:'理念',
     rtHead:'为亚洲肤色调校。', rtSub:'Real Tone — 为东南亚肤色校准的 5 种模式。',
     rtBody:'其他滤镜应用用西方默认值处理亚洲肤色。Lam 提供 5 种专属模式 — 还有一个 AUTO 模式在引导时 2 秒内扫描你的肤色。',
     toneWarm:'暖棕', toneGolden:'金棕', toneNeutral:'中性', toneCool:'冷中性', toneAuto:'自动识别',
@@ -456,6 +462,8 @@ var I18N = {
     tagSub:'6つのクラシックボディ、アジアの肌に合わせた Real Tone、本物のシャッター音、Honest LOG。量より深さ。',
     ctaPrimary:'ウェイトリストに登録', ctaSecondary:'Lam の理由 ↓', ctaNotify:'公開時に通知 ↓',
     statOnce:'買い切り', statSubs:'サブスク', statBodies:'ボディ', statTones:'肌トーン',
+    pillFeatured:'注目', pillPricing:'価格',
+    tLead:'注目', tRetention:'継続', tConversion:'価値', tPro:'PRO', tDelight:'ディテール', tNarrative:'理念',
     rtHead:'アジアの肌に合わせて。', rtSub:'Real Tone — 東南アジアの肌色に合わせた5モード。',
     rtBody:'他のフィルターアプリは欧米基準でアジアの肌を処理します。Lam は専用の5モードを搭載 — さらにオンボーディング時に2秒で肌を読み取る AUTO モードも。',
     toneWarm:'暖かいブラウン', toneGolden:'ゴールデンブラウン', toneNeutral:'ニュートラル', toneCool:'クールニュートラル', toneAuto:'自動検出',
@@ -501,6 +509,8 @@ var I18N = {
     tagSub:'6개의 클래식 바디, 아시아 피부톤에 맞춘 Real Tone, 실제 셔터음, Honest LOG. 많이가 아니라 깊이.',
     ctaPrimary:'대기자 명단 등록', ctaSecondary:'왜 Lam 인가 ↓', ctaNotify:'출시 시 알림 받기 ↓',
     statOnce:'한 번 결제', statSubs:'구독', statBodies:'카메라 바디', statTones:'피부톤 모드',
+    pillFeatured:'핵심', pillPricing:'가격',
+    tLead:'핵심', tRetention:'리텐션', tConversion:'가치', tPro:'PRO', tDelight:'디테일', tNarrative:'철학',
     rtHead:'아시아 피부톤에 맞춤.', rtSub:'Real Tone — 동남아시아 피부톤에 맞춘 5가지 모드.',
     rtBody:'다른 필터 앱은 서구 기준으로 아시아 피부를 처리합니다. Lam 은 전용 5모드를 제공 — 온보딩 때 2초 만에 피부를 스캔하는 AUTO 모드까지.',
     toneWarm:'따뜻한 브라운', toneGolden:'골든 브라운', toneNeutral:'뉴트럴', toneCool:'쿨 뉴트럴', toneAuto:'자동 감지',

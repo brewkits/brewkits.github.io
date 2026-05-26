@@ -7,11 +7,15 @@
 <title>Lam — Privacy Policy</title>
 <meta name="description" content="Privacy Policy for Lam — Classic Film Camera by BrewKits. Photos and audio are processed on-device. No advertising IDs, no tracking.">
 <link rel="icon" href="/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
     --primary:#FFC107; --card:#0a0a0a;
-    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -22,7 +26,6 @@
   h1{font-size:clamp(34px,7vw,56px);line-height:1.05;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
   .meta{color:var(--muted);font-size:15px;margin:0 0 40px}
   h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em}
-  h3{font-size:17px;font-weight:700;margin:24px 0 6px}
   p,li{color:#e4e4e7}
   a{color:var(--primary);text-decoration:none}
   a:hover{text-decoration:underline}
@@ -39,10 +42,25 @@
   table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
   th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+  .langbar{position:fixed;top:12px;right:12px;z-index:60;display:flex;gap:4px;background:rgba(0,0,0,.6);
+    border:1px solid var(--line);border-radius:999px;padding:4px;backdrop-filter:blur(8px)}
+  .langbar button{font-family:var(--ms);font-size:11px;letter-spacing:.3px;color:#aaa;background:transparent;border:0;
+    padding:6px 12px;border-radius:999px;cursor:pointer}
+  .langbar button:hover{color:#fff}
+  .langbar button.on{background:var(--primary);color:#000;font-weight:700}
+  [data-lang-content]{display:none}
+  [data-lang-content].show{display:block}
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<nav class="langbar" aria-label="Language">
+  <button data-lang="en" class="on">EN</button>
+  <button data-lang="vi">VI</button>
+</nav>
+
+<!-- ───────────────────────── ENGLISH ───────────────────────── -->
+<div class="wrap" data-lang-content="en">
   <p class="kicker">BrewKits · Lam</p>
   <h1>Privacy Policy</h1>
   <p class="meta">Last updated: 26 May 2026 · Applies to the <strong>Lam — Classic Film Camera</strong> app for iOS and Android.</p>
@@ -108,5 +126,94 @@
     <p>Questions? <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="/lam/">Lam home</a> · <a href="/lam/terms.html">Terms of Service</a> · <a href="https://brewkits.dev">BrewKits</a></p>
   </footer>
 </div>
+
+<!-- ───────────────────────── TIẾNG VIỆT ───────────────────────── -->
+<div class="wrap" data-lang-content="vi">
+  <p class="kicker">BrewKits · Lam</p>
+  <h1>Chính sách bảo mật</h1>
+  <p class="meta">Cập nhật lần cuối: 26/05/2026 · Áp dụng cho ứng dụng <strong>Lam — Classic Film Camera</strong> trên iOS và Android.</p>
+
+  <p class="lead">Lam là ứng dụng máy ảnh xây trên một nguyên tắc: ảnh và video của bạn là của bạn. Việc xử lý hình ảnh và âm thanh diễn ra <strong>ngay trên thiết bị của bạn</strong>. Chúng tôi không dùng định danh quảng cáo, không theo dõi bạn xuyên ứng dụng, và không bao giờ bán dữ liệu của bạn.</p>
+
+  <div class="card">
+    <span class="tag">Mặc định xử lý trên máy</span>
+    <span class="tag">Không định danh quảng cáo</span>
+    <span class="tag">Không theo dõi xuyên app</span>
+    <span class="tag">Không bán dữ liệu</span>
+    <span class="tag">Mã hoá khi truyền</span>
+  </div>
+
+  <h2>1. Chúng tôi là ai</h2>
+  <p>Lam được phát triển và phát hành bởi <strong>BrewKits</strong> (một nhà phát triển độc lập). Mọi câu hỏi hoặc yêu cầu về quyền riêng tư, vui lòng liên hệ <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a>.</p>
+
+  <h2>2. Dữ liệu xử lý hoàn toàn trên thiết bị của bạn</h2>
+  <p>Những dữ liệu sau không bao giờ rời khỏi thiết bị và không bao giờ được gửi cho chúng tôi hay bất kỳ bên thứ ba nào:</p>
+  <ul>
+    <li><strong>Ảnh và video</strong> bạn chụp/quay — lưu vào thư viện trên máy. Chúng tôi không có máy chủ và không bao giờ tải chúng lên.</li>
+    <li><strong>Âm thanh micro khi quay</strong> — dùng theo thời gian thực để điều biến hiệu ứng hạt phim (film grain) và được ghi vào file video của bạn. Nó không bị stream, lưu riêng, hay truyền đi.</li>
+    <li><strong>Tuỳ chọn trong ứng dụng</strong> — loại phim, thiết lập tông da, mở khoá Pro Mode và các cài đặt khác chỉ được lưu cục bộ trên thiết bị của bạn.</li>
+  </ul>
+
+  <h2>3. Dữ liệu thu thập ngoài thiết bị (chỉ trong giới hạn dưới đây)</h2>
+  <table>
+    <tr><th>Dữ liệu</th><th>Bên xử lý</th><th>Mục đích</th></tr>
+    <tr><td>Nhật ký sự cố &amp; chẩn đoán</td><td>Firebase Crashlytics (Google)</td><td>Chẩn đoán và sửa lỗi sập app. Chỉ thu thập <strong>sau khi</strong> bạn đồng ý phân tích ở hộp thoại trong ứng dụng.</td></tr>
+    <tr><td>Sự kiện sử dụng / hoạt động ẩn danh</td><td>Firebase Analytics (Google)</td><td>Hiểu tính năng nào được dùng. Tuỳ chọn — phụ thuộc cùng hộp thoại đồng ý đó.</td></tr>
+    <tr><td>Lịch sử mua hàng</td><td>RevenueCat &amp; thanh toán Apple/Google</td><td>Xác thực giao dịch Pro một lần và khôi phục trên các thiết bị của bạn. Gắn với một ID <strong>ẩn danh</strong>, không gắn với tên hay email của bạn.</td></tr>
+    <tr><td>Định danh ứng dụng ẩn danh</td><td>Firebase install ID, RevenueCat user ID</td><td>Nhóm các sự kiện trên cho một lượt cài đặt. <strong>Không phải định danh quảng cáo</strong> và không phải IDFA.</td></tr>
+  </table>
+  <p>Chúng tôi <strong>không</strong> thu thập tên, email, địa chỉ, số điện thoại, danh bạ, vị trí chính xác, hay bất kỳ định danh sinh trắc học nào của bạn. Tông da là tuỳ chọn hiển thị cục bộ và không bao giờ gửi cho analytics.</p>
+
+  <h2>4. Sự đồng ý (GDPR / ePrivacy)</h2>
+  <p>Ở lần mở đầu tiên, analytics và báo cáo sự cố đều <strong>tắt</strong>. Lam hiển thị hộp thoại xin đồng ý; Firebase Analytics và Crashlytics chỉ được bật nếu bạn chấp nhận. Bạn có thể đổi ý bất cứ lúc nào — từ chối (hoặc rút lại) vẫn giữ ứng dụng hoạt động đầy đủ, chỉ là không có phần chẩn đoán tuỳ chọn.</p>
+
+  <h2>5. Theo dõi</h2>
+  <p>Lam <strong>không</strong> theo dõi bạn. Không có SDK quảng cáo, không dùng IDFA, và không theo dõi xuyên ứng dụng hay xuyên trang web. Chúng tôi không xây hồ sơ quảng cáo và không chia sẻ dữ liệu cho các bên môi giới dữ liệu.</p>
+
+  <h2>6. Bên xử lý thứ ba</h2>
+  <ul>
+    <li><strong>Google Firebase</strong> (Crashlytics, Analytics) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">chính sách</a></li>
+    <li><strong>RevenueCat</strong> (xác thực mua hàng) — <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">chính sách</a></li>
+    <li><strong>Apple App Store / Google Play</strong> (thanh toán) — tuân theo chính sách bảo mật tương ứng của họ.</li>
+  </ul>
+
+  <h2>7. Bảo mật &amp; lưu trữ</h2>
+  <p>Mọi dữ liệu gửi ra ngoài thiết bị đều được mã hoá khi truyền (TLS). Nội dung trên máy ở lại thiết bị của bạn chừng nào bạn còn giữ; xoá một ảnh hoặc video khỏi thư viện là gỡ bỏ nó. Dữ liệu chẩn đoán do các bên xử lý của chúng tôi nắm giữ được lưu theo khung thời gian lưu trữ tiêu chuẩn của họ.</p>
+
+  <h2>8. Quyền của bạn &amp; xoá dữ liệu</h2>
+  <p>Bạn có thể yêu cầu truy cập hoặc xoá phần dữ liệu chẩn đoán và mua hàng giới hạn gắn với lượt cài đặt của bạn bằng cách gửi email tới <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a>. Vì ảnh và video trên máy không bao giờ được gửi cho chúng tôi, bạn kiểm soát chúng trực tiếp bằng cách xoá trên thiết bị của bạn.</p>
+
+  <h2>9. Trẻ em</h2>
+  <p>Lam không hướng tới trẻ em dưới 13 tuổi và không cố ý thu thập dữ liệu từ các em.</p>
+
+  <h2>10. Thay đổi</h2>
+  <p>Nếu chính sách này thay đổi đáng kể, chúng tôi sẽ cập nhật ngày ở trên và, khi phù hợp, thông báo cho bạn trong ứng dụng. Phiên bản hiện hành luôn nằm tại <a href="https://brewkits.dev/lam/privacy.html">brewkits.dev/lam/privacy.html</a>.</p>
+
+  <hr>
+  <footer>
+    <p>Câu hỏi? <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="/lam/">Trang chủ Lam</a> · <a href="/lam/terms.html">Điều khoản dịch vụ</a> · <a href="https://brewkits.dev">BrewKits</a></p>
+  </footer>
+</div>
+
+<script>
+  // No language mixing: exactly ONE full-language block is shown at a time.
+  // Shares the landing's `lam_lang` choice. Legal pages exist in EN + VI only;
+  // any other locale (zh/ja/ko) falls back to the complete EN block.
+  (function(){
+    var btns = document.querySelectorAll('.langbar button');
+    function show(lang){
+      if(lang !== 'vi') lang = 'en';            // EN is default + fallback
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-lang-content]').forEach(function(el){
+        el.classList.toggle('show', el.getAttribute('data-lang-content') === lang);
+      });
+      btns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang') === lang); });
+      try { localStorage.setItem('lam_lang', lang); } catch(e){}
+    }
+    var saved; try { saved = localStorage.getItem('lam_lang'); } catch(e){}
+    btns.forEach(function(b){ b.addEventListener('click', function(){ show(b.getAttribute('data-lang')); }); });
+    show(saved === 'vi' ? 'vi' : 'en');
+  })();
+</script>
 </body>
 </html>

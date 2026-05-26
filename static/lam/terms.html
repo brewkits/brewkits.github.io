@@ -7,11 +7,15 @@
 <title>Lam — Terms of Service</title>
 <meta name="description" content="Terms of Service for Lam — Classic Film Camera by BrewKits. One-time purchase, no subscription.">
 <link rel="icon" href="/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
     --primary:#FFC107; --card:#0a0a0a;
-    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -33,10 +37,25 @@
   hr{border:0;border-top:1px solid var(--line);margin:48px 0}
   footer{color:var(--muted);font-size:14px;margin-top:48px}
   footer a{color:var(--muted);text-decoration:underline}
+  .langbar{position:fixed;top:12px;right:12px;z-index:60;display:flex;gap:4px;background:rgba(0,0,0,.6);
+    border:1px solid var(--line);border-radius:999px;padding:4px;backdrop-filter:blur(8px)}
+  .langbar button{font-family:var(--ms);font-size:11px;letter-spacing:.3px;color:#aaa;background:transparent;border:0;
+    padding:6px 12px;border-radius:999px;cursor:pointer}
+  .langbar button:hover{color:#fff}
+  .langbar button.on{background:var(--primary);color:#000;font-weight:700}
+  [data-lang-content]{display:none}
+  [data-lang-content].show{display:block}
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<nav class="langbar" aria-label="Language">
+  <button data-lang="en" class="on">EN</button>
+  <button data-lang="vi">VI</button>
+</nav>
+
+<!-- ───────────────────────── ENGLISH ───────────────────────── -->
+<div class="wrap" data-lang-content="en">
   <p class="kicker">BrewKits · Lam</p>
   <h1>Terms of Service</h1>
   <p class="meta">Last updated: 26 May 2026 · Applies to the <strong>Lam — Classic Film Camera</strong> app for iOS and Android.</p>
@@ -91,5 +110,83 @@
     <p><a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="/lam/">Lam home</a> · <a href="/lam/privacy.html">Privacy Policy</a> · <a href="https://brewkits.dev">BrewKits</a></p>
   </footer>
 </div>
+
+<!-- ───────────────────────── TIẾNG VIỆT ───────────────────────── -->
+<div class="wrap" data-lang-content="vi">
+  <p class="kicker">BrewKits · Lam</p>
+  <h1>Điều khoản dịch vụ</h1>
+  <p class="meta">Cập nhật lần cuối: 26/05/2026 · Áp dụng cho ứng dụng <strong>Lam — Classic Film Camera</strong> trên iOS và Android.</p>
+
+  <p class="lead">Lam là sản phẩm mua một lần. Mua một lần, dùng mãi — không subscription, không thu phí định kỳ. Khi tải hoặc sử dụng Lam, bạn đồng ý với các điều khoản này.</p>
+
+  <h2>1. Về ứng dụng</h2>
+  <p>Lam (“Ứng dụng”) là ứng dụng máy ảnh phim cổ điển do <strong>BrewKits</strong> (“chúng tôi”) phát triển và phát hành. Các Điều khoản này điều chỉnh việc bạn sử dụng Ứng dụng. Chúng bổ sung cho, và phụ thuộc vào, điều khoản tiêu chuẩn của cửa hàng nơi bạn mua (Apple App Store hoặc Google Play).</p>
+
+  <h2>2. Giấy phép</h2>
+  <p>Chúng tôi cấp cho bạn một giấy phép cá nhân, không độc quyền, không chuyển nhượng, có thể thu hồi để cài đặt và sử dụng Ứng dụng trên các thiết bị bạn sở hữu hoặc kiểm soát, phục vụ việc sáng tạo nội dung cá nhân hoặc chuyên nghiệp của bạn. Bạn không được sao chép, phân phối lại, dịch ngược (reverse-engineer) hay bán lại Ứng dụng, trừ khi hạn chế đó bị pháp luật cấm.</p>
+
+  <h2>3. Mua hàng — một lần, không subscription</h2>
+  <div class="card">
+    <p style="margin:0"><strong>Lam Lifetime Pro</strong> là <strong>giao dịch mua một lần, không tiêu hao (non-consumable) ($29.99 USD hoặc mức tương đương theo vùng)</strong>. Nó mở khoá toàn bộ thân máy, Pro Mode và các bản cập nhật trong tương lai. <strong>Không có subscription và không thu phí định kỳ.</strong></p>
+  </div>
+  <ul>
+    <li>Khoản thanh toán được tính vào tài khoản App Store hoặc Google Play của bạn khi xác nhận mua.</li>
+    <li>Giao dịch gắn với tài khoản cửa hàng của bạn và có thể <strong>khôi phục</strong> trên các thiết bị khác qua “Restore Purchases”.</li>
+    <li>Giá có thể khác nhau theo vùng và có thể thay đổi với người mua sau này; việc thay đổi không bao giờ tính phí hồi tố cho người đã sở hữu.</li>
+  </ul>
+
+  <h2>4. Hoàn tiền</h2>
+  <p>Mọi giao dịch do Apple hoặc Google xử lý. Yêu cầu hoàn tiền được xử lý <strong>bởi họ theo chính sách hoàn tiền của họ</strong> — chúng tôi không thể hoàn tiền cửa hàng trực tiếp. Apple: <a href="https://support.apple.com/billing" target="_blank" rel="noopener">reportaproblem.apple.com</a>. Google Play: <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">trợ giúp hoàn tiền Play</a>.</p>
+
+  <h2>5. Sử dụng hợp lệ</h2>
+  <p>Bạn hoàn toàn chịu trách nhiệm về nội dung mình chụp/quay và cách sử dụng, bao gồm việc xin sự đồng ý cần thiết khi chụp hoặc ghi hình người khác, và tuân thủ luật pháp tại nơi bạn ở. Không sử dụng Ứng dụng cho bất kỳ mục đích trái pháp luật nào.</p>
+
+  <h2>6. Nội dung của bạn</h2>
+  <p>Bạn sở hữu mọi thứ bạn chụp/quay bằng Lam. Chúng tôi không đòi bất kỳ quyền nào đối với ảnh hoặc video của bạn. Ứng dụng xử lý chúng trên thiết bị của bạn — xem <a href="https://brewkits.dev/lam/privacy.html">Chính sách bảo mật</a> của chúng tôi.</p>
+
+  <h2>7. Sở hữu trí tuệ</h2>
+  <p>Ứng dụng, tên gọi, thiết kế, các hệ màu phim, shader và công nghệ nền tảng thuộc sở hữu của BrewKits và được bảo hộ bởi luật sở hữu trí tuệ. Giấy phép ở Mục 2 không chuyển giao bất kỳ quyền nào trong số này cho bạn.</p>
+
+  <h2>8. Tuyên bố miễn trừ</h2>
+  <p>Ứng dụng được cung cấp <strong>“nguyên trạng” (as is)</strong> mà không có bảo đảm dưới bất kỳ hình thức nào. Hành vi của camera, dựng màu và bảo vệ nhiệt phụ thuộc vào phần cứng thiết bị và hệ điều hành của bạn; kết quả khác nhau theo thiết bị. Lam là một công cụ sáng tạo — <strong>không phải</strong> thiết bị an toàn, y tế hay đo lường. Chúng tôi không bảo đảm Ứng dụng sẽ không gián đoạn hay không có lỗi.</p>
+
+  <h2>9. Giới hạn trách nhiệm</h2>
+  <p>Trong phạm vi tối đa pháp luật cho phép, BrewKits không chịu trách nhiệm cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên hay hệ quả nào, hoặc cho bất kỳ mất mát dữ liệu hay nội dung nào, phát sinh từ việc bạn sử dụng Ứng dụng. Khi trách nhiệm không thể loại trừ, nó được giới hạn ở số tiền bạn đã trả cho Ứng dụng.</p>
+
+  <h2>10. Thay đổi</h2>
+  <p>Chúng tôi có thể cập nhật các Điều khoản này. Thay đổi đáng kể sẽ được phản ánh qua ngày ở trên và, khi phù hợp, được ghi chú trong ứng dụng. Phiên bản hiện hành luôn nằm tại <a href="https://brewkits.dev/lam/terms.html">brewkits.dev/lam/terms.html</a>.</p>
+
+  <h2>11. Luật điều chỉnh</h2>
+  <p>Các Điều khoản này được điều chỉnh bởi luật pháp tại nơi nhà phát triển cư trú (Cộng hoà Xã hội Chủ nghĩa Việt Nam), không ảnh hưởng đến bất kỳ quyền bảo vệ người tiêu dùng bắt buộc nào mà bạn có tại quốc gia cư trú của mình.</p>
+
+  <h2>12. Liên hệ</h2>
+  <p>Thắc mắc về các Điều khoản này: <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a>.</p>
+
+  <hr>
+  <footer>
+    <p><a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="/lam/">Trang chủ Lam</a> · <a href="/lam/privacy.html">Chính sách bảo mật</a> · <a href="https://brewkits.dev">BrewKits</a></p>
+  </footer>
+</div>
+
+<script>
+  // No language mixing: exactly ONE full-language block is shown at a time.
+  // Shares the landing's `lam_lang` choice. Legal pages exist in EN + VI only;
+  // any other locale (zh/ja/ko) falls back to the complete EN block.
+  (function(){
+    var btns = document.querySelectorAll('.langbar button');
+    function show(lang){
+      if(lang !== 'vi') lang = 'en';
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-lang-content]').forEach(function(el){
+        el.classList.toggle('show', el.getAttribute('data-lang-content') === lang);
+      });
+      btns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang') === lang); });
+      try { localStorage.setItem('lam_lang', lang); } catch(e){}
+    }
+    var saved; try { saved = localStorage.getItem('lam_lang'); } catch(e){}
+    btns.forEach(function(b){ b.addEventListener('click', function(){ show(b.getAttribute('data-lang')); }); });
+    show(saved === 'vi' ? 'vi' : 'en');
+  })();
+</script>
 </body>
 </html>
