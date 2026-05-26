@@ -1,208 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lam — Classic Film Camera</title>
-<meta name="description" content="6 classic cameras with soul. Real Tone for Asian skin, Pro Mode by long-press, Honest LOG, recorded shutter audio. $29.99 one-time. No subscription.">
-<meta property="og:title" content="Lam — Classic Film Camera">
+<title>Lam — Máy ảnh cơ có linh hồn · A film camera with soul</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="6 classic cameras with soul. Real Tone for Asia, Honest LOG, recorded shutter audio. $29.99 one-time. No subscription. Made by one Vietnamese developer.">
+<meta property="og:title" content="Lam — Máy ảnh cơ có linh hồn">
 <meta property="og:description" content="6 máy ảnh cổ điển có linh hồn. Skin tune cho da Châu Á. $29.99 vĩnh viễn. Không subscription.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://brewkits.dev/lam/">
 <link rel="icon" href="/img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --amber:#FFC107; --amber-light:#FFD54F; --amber-glow:rgba(255,193,7,.22);
-    --bg:#000; --bg-elev:#0e0e0e; --card:#16110a; --border:#2a2a2a;
-    --fg:#f5f5f5; --fg-soft:#ddd; --fg-mute:#aaa; --fg-dim:#666;
-    --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    --mono:'IBM Plex Mono',ui-monospace,monospace;
-    --display:'Bebas Neue',Impact,sans-serif;
+    color-scheme:dark;
+    --amber:#FFC107;          /* v1 punchier brass — web readability */
+    --brass:#D4AF37;          /* app-side 18k gold — accents */
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+    --sys:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+    --max:980px;
   }
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
-  a{color:var(--amber);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);font-weight:500}
-  section{padding:64px 0;border-top:1px solid var(--border)}
-  h2{font-family:var(--display);font-size:clamp(40px,8vw,88px);line-height:.92;letter-spacing:.01em;margin:14px 0 8px}
-  h2 .gold{color:var(--amber)}
-  .sub{color:var(--fg-mute);font-size:16px;max-width:640px;margin:0}
-
+  html,body{margin:0;padding:0;background:#000;color:#f5f5f5;font-family:var(--sys);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--amber)}
+  ::selection{background:#FFC107;color:#000}
+  section{border-top:1px solid #1a1a1a}
+  h1,h2,h3{font-family:var(--sys)}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .pill{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid var(--amber);color:var(--amber);
+    font-family:var(--ms);font-size:10px;letter-spacing:.8px;text-transform:uppercase;line-height:1.2}
+  .center{text-align:center}
+  .vi{color:#bbb;font-style:italic}
   /* hero */
-  .hero{padding:92px 0 64px;display:flex;gap:48px;align-items:center;flex-wrap:wrap}
-  .hero-left{flex:1;min-width:280px}
-  .hero h1{font-family:var(--display);font-size:clamp(96px,22vw,184px);color:var(--amber);line-height:.82;margin:10px 0 14px;letter-spacing:.02em}
-  .hero h1 .period{color:var(--amber-light)}
-  .hero-tag-vi{font-size:22px;color:var(--fg-soft);margin:0 0 10px;font-weight:600}
-  .hero-tag-en{font-size:15px;color:var(--fg-mute);max-width:520px;margin:0}
-  .aperture{flex:0 0 200px;display:flex;flex-direction:column;align-items:center;gap:12px}
-  .aperture svg{filter:drop-shadow(0 12px 40px var(--amber-glow))}
-  .aperture .cap{font-family:var(--mono);font-size:11px;color:var(--fg-dim);letter-spacing:.08em}
-
-  /* meta strip */
-  .meta-strip{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:8px}
-  .meta-cell{flex:1;min-width:130px;padding:14px 18px;border-right:1px solid var(--border)}
-  .meta-cell:last-child{border-right:0}
-  .meta-cell .k{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--fg-dim);text-transform:uppercase;margin-bottom:4px}
-  .meta-cell .v{font-size:14px;color:var(--fg);font-weight:600}
-
-  /* CTA */
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;align-items:center}
-  .btn{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;
-    padding:13px 22px;border-radius:10px;border:1px solid var(--amber);display:inline-block}
-  .btn.primary{background:var(--amber);color:#000;border-color:var(--amber)}
-  .btn.primary:hover{background:var(--amber-light);text-decoration:none}
-  .btn.ghost{background:transparent;color:var(--amber)}
-  .btn.ghost:hover{text-decoration:none;background:rgba(255,193,7,.08)}
-  .soon{font-family:var(--mono);font-size:12px;color:var(--fg-dim);letter-spacing:.06em}
-
-  /* wedges */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:28px}
-  .wedge{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px}
-  .wedge .emoji{font-size:30px;display:block;margin-bottom:10px}
-  .wedge h3{font-size:17px;margin:0 0 6px;color:var(--fg)}
-  .wedge p{font-size:14px;color:var(--fg-mute);margin:0}
-
-  /* bodies */
-  .bodies{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:28px}
-  .body-card{background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;padding:18px}
-  .body-card .era{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.04em;text-transform:uppercase}
-  .body-card h3{font-family:var(--display);font-size:30px;line-height:.95;margin:8px 0 8px;letter-spacing:.02em}
-  .body-card .quote{font-size:14px;color:var(--fg-mute);margin:0}
-
-  /* pricing */
-  .price-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px}
-  .price-card{flex:1;min-width:280px;background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;padding:26px}
-  .price-card.featured{border-color:var(--amber);box-shadow:0 12px 40px var(--amber-glow)}
-  .price-card h3{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-mute);margin:0 0 6px}
-  .price-card .price{font-family:var(--display);font-size:64px;color:var(--amber);line-height:1;margin:0 0 6px}
-  .price-card .note{font-family:var(--mono);font-size:11px;color:var(--fg-dim);letter-spacing:.04em;margin:0 0 16px;text-transform:uppercase}
-  .price-card ul{list-style:none;padding:0;margin:0}
-  .price-card li{font-size:14px;color:var(--fg-soft);padding:7px 0 7px 22px;position:relative;border-top:1px solid var(--border)}
-  .price-card li:before{content:"›";position:absolute;left:2px;color:var(--amber)}
-
-  footer{border-top:1px solid var(--border);padding:40px 0 64px;color:var(--fg-dim);font-size:13px}
-  footer .links{font-family:var(--mono);letter-spacing:.04em}
-  footer .links a{color:var(--fg-mute);text-decoration:underline;margin-right:18px}
-  .madeby{margin-top:14px;color:var(--fg-dim)}
+  .hero{padding:88px 24px 56px;text-align:center;background:#000;position:relative;overflow:hidden}
+  .hero img.icon{width:132px;height:132px;border-radius:30px;box-shadow:0 8px 32px rgba(255,193,7,.28)}
+  .hero h1{margin:28px 0 8px;font-size:56px;font-weight:800;letter-spacing:-1px;color:var(--amber);line-height:1}
+  .tag-vi{font-size:22px;color:#fff;font-weight:500;line-height:1.3;letter-spacing:-.2px}
+  .tag-en{font-size:18px;color:#ddd;font-style:italic;line-height:1.45;max-width:640px;margin:6px auto 0}
+  .cta{margin-top:36px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:13px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;font-family:var(--sys)}
+  .btn-fill{background:var(--amber);color:#000}
+  .btn-out{background:transparent;color:var(--amber);border:1px solid var(--amber);font-weight:600}
+  .stats{margin-top:56px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-family:var(--ms);
+    font-size:11px;color:#999;letter-spacing:.6px;text-transform:uppercase}
+  .stats b{color:var(--amber);font-weight:600}
+  /* section shells */
+  .sec{padding:72px 24px;background:#000}
+  .sec h2{color:#fff;font-size:38px;font-weight:800;letter-spacing:-.5px;line-height:1.1;margin:14px 0 6px}
+  .sec h2.amber{color:var(--amber)}
+  .sec h2.sm{font-size:32px}
+  .sub-en{color:#bbb;font-size:17px;font-style:italic;margin:0 0 8px}
+  .sub-vi{color:#888;font-size:14px;margin:0}
+  /* real tone */
+  .tones{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:40px}
+  .tone{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:18px;text-align:center}
+  .tone .sw{width:56px;height:56px;border-radius:28px;margin:0 auto 12px;border:2px solid rgba(255,193,7,.3)}
+  .tone .n{font-size:14px;color:#fff;font-weight:600;letter-spacing:.3px}
+  .tone .v{font-family:var(--ms);font-size:10px;color:#888;margin-top:4px;letter-spacing:.3px}
+  /* math */
+  .math{max-width:720px;margin:0 auto}
+  .cards2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .rcard{padding:24px;background:#0e0e0e;border-radius:14px}
+  .rcard.lam{border:2px solid var(--amber);box-shadow:0 12px 36px rgba(255,193,7,.18)}
+  .rcard.sub{border:1px solid #2a2a2a;opacity:.85}
+  .rlabel{font-family:var(--ms);font-size:10px;letter-spacing:.8px;margin-bottom:12px}
+  .rprice{font-size:46px;font-weight:800;line-height:1;letter-spacing:-1px}
+  .rnote{font-family:var(--ms);font-size:11px;letter-spacing:.6px;margin-top:4px}
+  .rrow{display:flex;justify-content:space-between;font-family:var(--ms);font-size:12px;padding:4px 0}
+  .rbody{border-top:1px solid #222;margin-top:20px;padding-top:16px}
+  .ribbon{margin-top:18px;padding:14px 18px;background:var(--amber);color:#000;border-radius:10px;
+    display:flex;justify-content:space-between;align-items:center;font-family:var(--ms);letter-spacing:.6px}
+  .ribbon .k{font-weight:700;font-size:13px}.ribbon .v{font-weight:800;font-size:22px}
+  .fineprint{text-align:center;margin-top:24px;font-family:var(--ms);font-size:11px;color:#666;letter-spacing:.4px;line-height:1.6}
+  /* wedges + bodies grids */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:40px}
+  .wedge{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:22px}
+  .wedge.lead{border:1px solid var(--amber);box-shadow:0 8px 28px rgba(255,193,7,.15)}
+  .wedge .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+  .wedge .e{font-size:24px;line-height:1}
+  .wtag{font-family:var(--ms);font-size:9px;letter-spacing:.8px;border:1px solid #333;padding:2px 7px;border-radius:3px;color:#aaa}
+  .wtag.lead{color:var(--amber);border-color:var(--amber)}
+  .wedge h3{font-size:17px;margin:0 0 2px;font-weight:700;color:#fff}
+  .wedge h3.amber{color:var(--amber)}
+  .wedge .wvi{font-family:var(--ms);font-size:11px;color:#888;letter-spacing:.3px;margin-bottom:10px;font-style:italic}
+  .wedge p{color:#bbb;font-size:13.5px;margin:0;line-height:1.55}
+  .bodies{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}
+  .bcard{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px}
+  .bcam{width:100%;height:70px;border-radius:8px;background:linear-gradient(180deg,#161616,#060606);position:relative;border:1px solid #1f1f1f}
+  .blens{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:18px;background:#000}
+  .bdot{position:absolute;top:8px;right:12px;width:8px;height:8px;border-radius:4px;opacity:.7}
+  .bnum{position:absolute;bottom:4px;left:8px;font-family:var(--ms);font-size:8px;letter-spacing:.6px;opacity:.7}
+  .bname{font-size:17px;color:#fff;font-weight:700;line-height:1.2}
+  .bera{font-family:var(--ms);font-size:11px;color:var(--amber);letter-spacing:.4px;margin-top:4px;line-height:1.4}
+  .ben{font-size:13px;color:#888;margin-top:6px;font-style:italic;line-height:1.4}
+  /* founder */
+  .founder{max-width:760px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start}
+  .polaroid{width:178px;background:#EFE8D9;padding:8px 8px 22px;transform:rotate(-2.5deg);box-shadow:0 18px 40px rgba(0,0,0,.6);margin:0 auto}
+  .polaroid .ph{width:100%;height:158px;background:linear-gradient(135deg,#6B5B43,#3a2a1a);position:relative;overflow:hidden}
+  .polaroid .cap{font-family:var(--ms);font-size:9px;color:#3a2a1a;letter-spacing:.4px;text-align:center;margin-top:8px}
+  .letter h2{color:var(--amber);font-size:30px;margin:0 0 18px;font-weight:800;letter-spacing:-.5px;line-height:1.15}
+  .bicol{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px}
+  .lbl{font-family:var(--ms);font-size:9px;color:#888;letter-spacing:.8px;margin-bottom:6px}
+  .letter p{margin:0;line-height:1.6}
+  .quote-line{color:#ddd;font-size:14px;line-height:1.6;padding:12px 16px;border-left:2px solid var(--amber);
+    background:rgba(255,193,7,.04);margin:0 0 10px}
+  .sig{font-family:var(--ms);font-size:11px;color:var(--amber);letter-spacing:.6px;margin-top:6px}
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  details{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:10px;padding:14px 18px}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  summary::-webkit-details-marker{display:none}
+  .qen{color:var(--amber);font-size:15px;font-weight:600}
+  .qvi{color:#888;font-size:12px;font-style:italic;margin-top:2px}
+  .plus{font-family:var(--ms);font-size:16px;color:var(--amber);line-height:1;transition:transform .18s ease}
+  details[open] .plus{transform:rotate(45deg)}
+  details .ans{margin-top:12px;padding-top:12px;border-top:1px dashed #2a2a2a}
+  details .ans p{margin:0 0 8px;line-height:1.6}
+  /* waitlist + footer */
+  .wl{padding:88px 24px;text-align:center}
+  .wl .box{max-width:540px;margin:0 auto}
+  .wl h2{color:var(--amber);font-size:38px;margin:0 0 10px;font-weight:800;letter-spacing:-.5px;line-height:1.1}
+  .wl form{display:flex;gap:8px;justify-content:center;max-width:440px;margin:0 auto;flex-wrap:wrap}
+  .wl input{flex:1 1 220px;padding:12px 16px;background:#0e0e0e;border:1px solid #2a2a2a;border-radius:8px;color:#fff;font-size:15px;font-family:var(--sys);outline:none}
+  .wl button{padding:12px 24px;background:var(--amber);color:#000;border:0;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;font-family:var(--sys)}
+  .wl .micro{color:#666;font-size:12px;margin-top:16px;font-family:var(--ms);letter-spacing:.4px}
+  footer{padding:40px 24px 60px;background:#000;border-top:1px solid #1a1a1a;color:#666;font-size:12px;text-align:center}
+  footer .brand{font-family:var(--ms);color:var(--amber);font-size:11px;letter-spacing:1.5px}
+  footer .links{margin-top:6px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+  footer .links a{color:#888;text-decoration:none}
+  footer .copy{font-family:var(--ms);font-size:10px;color:#444;letter-spacing:.4px;margin-top:6px}
+  @media(max-width:640px){
+    .cards2{grid-template-columns:1fr}
+    .founder{grid-template-columns:1fr}
+    .bicol{grid-template-columns:1fr}
+    .hero h1{font-size:46px}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-left">
-      <span class="kicker">Brew Kits · Lam · v1.0</span>
-      <h1>LAM<span class="period">.</span></h1>
-      <p class="hero-tag-vi">Máy ảnh cơ có linh hồn.</p>
-      <p class="hero-tag-en">A film camera with soul. 6 classic cameras · Real Tone for Asian skin · Pro Mode by long-press · Honest LOG. Made by one Vietnamese developer.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="#pricing">$29.99 · One-time</a>
-        <a class="btn ghost" href="#bodies">See the 6 bodies</a>
-        <span class="soon">iOS &amp; Android · Coming 2026</span>
+<!-- ───── HERO ───── -->
+<section class="hero">
+  <div style="margin-bottom:28px"><span class="pill">● Pre-launch · App Store coming July 2026</span></div>
+  <img class="icon" src="icon-1024.png" alt="Lam — brass aperture on black">
+  <h1>Lam</h1>
+  <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:6px">
+    <div class="tag-vi">Máy ảnh cơ có linh hồn.</div>
+    <div class="tag-en">A film camera with soul. 6 classic bodies, Real Tone for Asian skin, recorded shutter audio, Honest LOG — built by one Vietnamese dev.</div>
+  </div>
+  <div class="cta">
+    <a class="btn btn-fill" href="#download">Join the waitlist · Đăng ký chờ</a>
+    <a class="btn btn-out" href="#wedges">Why Lam · Vì sao Lam ↓</a>
+  </div>
+  <div class="stats">
+    <span><b>$29.99</b> · one-time</span>
+    <span><b>0</b> · subscriptions</span>
+    <span><b>6</b> · camera bodies</span>
+    <span><b>5</b> · skin tone modes</span>
+  </div>
+</section>
+
+<!-- ───── REAL TONE (LEAD) ───── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="center"><span class="pill">Wedge · LEAD</span></div>
+    <h2 class="center">Skin tune cho người Châu Á.</h2>
+    <p class="sub-en center">Real Tone — 5 modes calibrated for Southeast Asian complexions.</p>
+    <p class="sub-vi center" style="max-width:580px;margin:0 auto">Mỗi filter app khác xử lý da châu Á bằng Western default. Lam có 5 mode riêng — và 1 mode AUTO quét da bạn trong 2 giây ngay lúc onboarding.</p>
+    <div class="tones">
+      <div class="tone"><div class="sw" style="background:#E8C9A8"></div><div class="n">Warm SEA</div><div class="v">Da nâu ấm</div></div>
+      <div class="tone"><div class="sw" style="background:#D9B889"></div><div class="n">Golden Hour</div><div class="v">Vàng nâu</div></div>
+      <div class="tone"><div class="sw" style="background:#D7C2A8"></div><div class="n">Neutral</div><div class="v">Trung tính</div></div>
+      <div class="tone"><div class="sw" style="background:#EAD9C8"></div><div class="n">Cool Neutral</div><div class="v">Lạnh trung</div></div>
+      <div class="tone"><div class="sw" style="background:linear-gradient(135deg,#E8C9A8,#D9B889 50%,#EAD9C8)"></div><div class="n">AUTO</div><div class="v">Tự phát hiện</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── RECEIPT MATH ───── -->
+<section class="sec">
+  <div class="math">
+    <div class="center"><span class="pill">Wedge · Conversion</span></div>
+    <h2 class="center">Mua một lần. Vĩnh viễn.</h2>
+    <p class="sub-en center" style="margin-bottom:44px">Buy once. Yours forever. No subscription tricks.</p>
+    <div class="cards2">
+      <div class="rcard lam">
+        <div class="rlabel" style="color:var(--amber)">LAM</div>
+        <div class="rprice" style="color:var(--amber)">$29.99</div>
+        <div class="rnote" style="color:var(--amber)">ONCE · VĨNH VIỄN</div>
+        <div class="rbody">
+          <div class="rrow" style="color:#bbb;border-bottom:1px dotted #2a2a2a"><span>Year 1</span><span>$29.99</span></div>
+          <div class="rrow" style="color:#bbb;border-bottom:1px dotted #2a2a2a"><span>Year 2</span><span>$0.00</span></div>
+          <div class="rrow" style="color:#bbb;border-bottom:1px dotted #2a2a2a"><span>Year 3</span><span>$0.00</span></div>
+          <div class="rrow" style="color:var(--amber);font-weight:700"><span>3-yr total</span><span>$29.99</span></div>
+        </div>
+      </div>
+      <div class="rcard sub">
+        <div class="rlabel" style="color:#888">SUBSCRIPTION CAMS · avg</div>
+        <div class="rprice" style="color:#666;text-decoration:line-through">$107.64</div>
+        <div class="rnote" style="color:#666">+ $35.88 EVERY YEAR</div>
+        <div class="rbody">
+          <div class="rrow" style="color:#888;border-bottom:1px dotted #2a2a2a"><span>Year 1</span><span>$35.88</span></div>
+          <div class="rrow" style="color:#888;border-bottom:1px dotted #2a2a2a"><span>Year 2</span><span>$35.88</span></div>
+          <div class="rrow" style="color:#888;border-bottom:1px dotted #2a2a2a"><span>Year 3</span><span>$35.88</span></div>
+          <div class="rrow" style="color:#fff;font-weight:700"><span>3-yr total</span><span>$107.64</span></div>
+        </div>
       </div>
     </div>
-    <div class="aperture" aria-hidden="true">
-      <svg width="170" height="170" viewBox="0 0 100 100" fill="none">
-        <circle cx="50" cy="50" r="47" stroke="#FFC107" stroke-width="1.5" opacity=".5"/>
-        <g stroke="#FFC107" stroke-width="2" stroke-linejoin="round" fill="rgba(255,193,7,0.06)">
-          <polygon points="50,12 73,25 73,50"/>
-          <polygon points="73,25 88,50 73,62"/>
-          <polygon points="88,50 75,75 62,68"/>
-          <polygon points="75,75 50,88 50,72"/>
-          <polygon points="50,88 25,75 38,68"/>
-          <polygon points="25,75 12,50 27,62"/>
-          <polygon points="12,50 27,25 38,32"/>
-          <polygon points="27,25 50,12 50,28"/>
-        </g>
-        <circle cx="50" cy="50" r="13" fill="#000" stroke="#FFD54F" stroke-width="1.5"/>
-      </svg>
-      <span class="cap">6-blade brass aperture</span>
-    </div>
-  </header>
+    <div class="ribbon"><span class="k">YOU SAVE · TIẾT KIỆM</span><span class="v">$77.65+ / 3 YR</span></div>
+    <p class="fineprint">Dazz Cam $35.88/yr · Huji $19.99/yr · OldRoll $29.99/yr · averaged.<br>No account · No ads · No data harvesting · No follow-up popups.</p>
+  </div>
+</section>
 
-  <!-- WEDGES -->
-  <section id="wedges">
-    <span class="kicker">The Wedges · 6 of them</span>
-    <h2>No competitor<br><span class="gold">ships these.</span></h2>
-    <p class="sub">Less, but each is real. Six things the catalog-bloat apps don't do.</p>
+<!-- ───── WEDGES ───── -->
+<section class="sec" id="wedges">
+  <div class="wrap">
+    <h2 class="sm center">Six wedges no competitor ships.</h2>
+    <p class="sub-vi center">Sáu lý do không app camera nào trên store có cả.</p>
     <div class="grid">
-      <div class="wedge"><span class="emoji">🔊</span><h3>Recorded shutter, per body</h3><p>Each camera's click is sampled from the real machine — not a synthesized beep.</p></div>
-      <div class="wedge"><span class="emoji">🧬</span><h3>Real Tone for Asia</h3><p>5 SEA-tuned skin modes + AUTO. Not a Western default forced onto every face.</p></div>
-      <div class="wedge"><span class="emoji">🔒</span><h3>Pro Mode by long-press</h3><p>Hold a body to unlock Focus Peaking, dual-IRE Zebra, False Color, Flat preview.</p></div>
-      <div class="wedge"><span class="emoji">🎯</span><h3>Honest LOG</h3><p>A real pow(0.45) preview curve matched to the recorded file — not a fake-flat LUT.</p></div>
-      <div class="wedge"><span class="emoji">⚙️</span><h3>Process Zero</h3><p>A raw passthrough that adds no processing — anti-AI, what the sensor actually sees.</p></div>
-      <div class="wedge"><span class="emoji">📖</span><h3>Cultural era per body</h3><p>Every camera carries a real era and story, not a generic "vintage filter" name.</p></div>
+      <div class="wedge lead"><div class="top"><span class="e">🧬</span><span class="wtag lead">LEAD</span></div><h3 class="amber">Real Tone for Asia</h3><div class="wvi">Skin tune cho da Châu Á</div><p>5 skin modes calibrated for Southeast Asian complexions. AUTO mode detects in real-time.</p></div>
+      <div class="wedge"><div class="top"><span class="e">📖</span><span class="wtag">RETENTION</span></div><h3>6 cameras, 6 souls</h3><div class="wvi">Sáu máy, sáu linh hồn</div><p>Lam 16mm honours Trần Anh Hùng cinema. Lam CCD anchors Saigon Y2K. Each body carries an era.</p></div>
+      <div class="wedge"><div class="top"><span class="e">💰</span><span class="wtag">CONVERSION</span></div><h3>One-time $29.99</h3><div class="wvi">Mua một lần $29.99</div><p>No subscription. No ads. No account. No data harvesting. No follow-up popups.</p></div>
+      <div class="wedge"><div class="top"><span class="e">🎯</span><span class="wtag">PRO ONLY</span></div><h3>Honest LOG</h3><div class="wvi">LOG thật</div><p>pow(rgb, 0.45) preview shaping — the captured file is truly flat. Not fake-LOG curve.</p></div>
+      <div class="wedge"><div class="top"><span class="e">🔊</span><span class="wtag">DELIGHT</span></div><h3>Recorded shutter audio</h3><div class="wvi">Tiếng máy ảnh thật</div><p>Cloth-thunk Classic, plastic-click Disposable, electronic-beep CCD, motor-whir 16mm. Recorded, not synthesised.</p></div>
+      <div class="wedge"><div class="top"><span class="e">🇻🇳</span><span class="wtag">NARRATIVE</span></div><h3>Made by 1 Vietnamese dev</h3><div class="wvi">Một dev Việt Nam · solo</div><p>11 months of solo work. No investors. No marketing team. No analytics dashboard watching you.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- BODIES -->
-  <section id="bodies">
-    <span class="kicker">The Bodies</span>
-    <h2>6 <span class="gold">souls.</span></h2>
-    <p class="sub">Each body carries a cultural era — not a generic name.</p>
+<!-- ───── 6 BODIES ───── -->
+<section class="sec">
+  <div class="wrap">
+    <h2 class="amber sm center">Six bodies. Six eras.</h2>
+    <p class="sub-en center">Mỗi máy có một câu chuyện văn hoá thật.</p>
     <div class="bodies">
-      <div class="body-card"><span class="era">Kodak FunSaver · USA 1990s</span><h3>LAM DISPOSABLE</h3><p class="quote">Heavy vignette, plastic-click, wait-and-hope.</p></div>
-      <div class="body-card"><span class="era">Leica M3 · 1960s</span><h3>LAM CLASSIC</h3><p class="quote">Cloth-curtain shutter, deliberate single frame.</p></div>
-      <div class="body-card"><span class="era">Cyber-shot · Y2K 2003</span><h3>LAM CCD</h3><p class="quote">Magenta highlights, CCD noise, electronic beep.</p></div>
-      <div class="body-card"><span class="era">Bolex · Cinema</span><h3>LAM 16MM</h3><p class="quote">Soft motion blur, motor-whir, 24fps cinema.</p></div>
-      <div class="body-card"><span class="era">Polaroid i-Zone · 1999</span><h3>LAM Y2K</h3><p class="quote">Pink compact, kitschy ka-CHIK, sticker prints.</p></div>
-      <div class="body-card"><span class="era">Hasselblad 500CM · 1995</span><h3>LAM MEDIUM</h3><p class="quote">6×6 crop, 12-shot constraint, mirror slap.</p></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #D4AF37"></div><div class="bdot" style="background:#D4AF37"></div><div class="bnum" style="color:#D4AF37">01/6</div></div><div><div class="bname">Lam Classic</div><div class="bera">Phim Việt thập 90s</div><div class="ben">35mm color negative</div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #E8C9A8"></div><div class="bdot" style="background:#E8C9A8"></div><div class="bnum" style="color:#E8C9A8">02/6</div></div><div><div class="bname">Lam Disposable</div><div class="bera">Polaroid Y2K · điện thoại nắp gập</div><div class="ben">Plastic-lens disposable</div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #FFC107"></div><div class="bdot" style="background:#FFC107"></div><div class="bnum" style="color:#FFC107">03/6</div></div><div><div class="bname">Lam 16mm Cine</div><div class="bera">Cine · Trần Anh Hùng era</div><div class="ben">16mm motion film</div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #bdbdbd"></div><div class="bdot" style="background:#bdbdbd"></div><div class="bnum" style="color:#bdbdbd">04/6</div></div><div><div class="bname">Lam CCD</div><div class="bera">Saigon Y2K · 2003</div><div class="ben">Asian Y2K digicam</div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #FFB6A0"></div><div class="bdot" style="background:#FFB6A0"></div><div class="bnum" style="color:#FFB6A0">05/6</div></div><div><div class="bname">Lam Polaroid</div><div class="bera">Instant warm</div><div class="ben">Square instant film</div></div></div>
+      <div class="bcard"><div class="bcam"><div class="blens" style="border:2px solid #A0A0A0"></div><div class="bdot" style="background:#A0A0A0"></div><div class="bnum" style="color:#A0A0A0">06/6</div></div><div><div class="bname">Lam Rangefinder</div><div class="bera">Đường phố Hà Nội</div><div class="ben">Leica M6 mood</div></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PRICING -->
-  <section id="pricing">
-    <span class="kicker">Pricing · Buy once</span>
-    <h2>Yours <span class="gold">forever.</span></h2>
-    <p class="sub">No subscription tricks. No ads. No account required. No data harvesting.</p>
-    <div class="price-row">
-      <div class="price-card featured">
-        <h3>Lam Lifetime Pro</h3>
-        <div class="price">$29.99</div>
-        <p class="note">One-time · non-consumable</p>
-        <ul>
-          <li>6 named camera bodies</li>
-          <li>Real Tone skin Asia tune (5 modes)</li>
-          <li>Pro Mode — Focus Peaking, Zebra dual-IRE, False Color, Flat preview</li>
-          <li>Recorded shutter audio per body</li>
-          <li>Honest LOG (pow 0.45 — not fake)</li>
-          <li>All future updates included</li>
-        </ul>
-      </div>
-      <div class="price-card">
-        <h3>Food Pack add-on</h3>
-        <div class="price">$4.99</div>
-        <p class="note">Optional · one-time</p>
-        <ul>
-          <li>Tungsten Restaurant Lock (WB 3200K + EV +0.5)</li>
-          <li>Top-down 3×3 grid + center cross-hair</li>
-          <li>Bound to the tungsten body</li>
-        </ul>
+<!-- ───── FOUNDER NOTE (anonymous) ───── -->
+<section class="sec" style="padding:88px 24px">
+  <div class="founder">
+    <div>
+      <div class="polaroid">
+        <div class="ph">
+          <div style="position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);width:64px;height:78px;border-radius:50% 50% 45% 45% / 60% 60% 40% 40%;background:radial-gradient(ellipse at 50% 30%,#E8C9A8,#6B5B43 70%,transparent);filter:blur(.5px)"></div>
+          <div style="position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);width:78px;height:38px;border-radius:50% 50% 20% 20%;background:#1a0a0a;filter:blur(1px)"></div>
+        </div>
+        <div class="cap">SOLO DEV · HÀ NỘI · 2026</div>
       </div>
     </div>
-    <div class="cta-row">
-      <span class="soon">App Store &amp; Google Play · Coming 2026</span>
+    <div class="letter">
+      <div style="margin-bottom:12px"><span class="pill">Wedge · Narrative</span></div>
+      <h2>One dev. One country.<br>One price.</h2>
+      <div class="bicol">
+        <div>
+          <div class="lbl">VI</div>
+          <p style="color:#ddd;font-size:14px">Lam là phần mềm do một lập trình viên người Việt tự viết một mình trong 11 tháng. Không nhà đầu tư, không team marketing, không dashboard analytics.</p>
+        </div>
+        <div>
+          <div class="lbl">EN</div>
+          <p style="color:#bbb;font-size:14px;font-style:italic">Lam is software written alone by one Vietnamese developer over eleven months. No investors. No marketing team. No analytics dashboard watching you.</p>
+        </div>
+      </div>
+      <p class="quote-line"><b style="color:var(--amber)">Mua một lần. Dùng cả đời.</b> <span style="color:#bbb;font-style:italic">— Buy once. Yours forever.</span></p>
+      <svg width="100" height="22" viewBox="0 0 100 22" style="margin-top:8px"><path d="M2 16 q 6 -12 12 -2 t 14 -4 t 16 6 t 18 -8 t 16 4 t 12 -2" stroke="#FFC107" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+      <div class="sig">— A solo developer · Brew Kits · Hà Nội</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
+<!-- ───── FAQ ───── -->
+<section class="sec">
+  <div class="center"><h2 class="sm" style="display:inline-block">Honest questions.</h2></div>
+  <p class="sub-vi center" style="margin-bottom:36px">Câu hỏi thường gặp.</p>
+  <div class="faq">
+    <details><summary><div><div class="qen">Is this really one-time?</div><div class="qvi">Thật sự chỉ trả 1 lần?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">Yes. $29.99 covers all 6 cameras, Pro Mode, Real Tone, and every v1.x update. No annual renewal, no cloud tier.</p><p style="color:#888;font-size:13px;font-style:italic">Đúng. $29.99 cover hết 6 máy, Pro Mode, Real Tone, và mọi update v1.x. Không gia hạn, không cloud tier.</p></div></details>
+    <details><summary><div><div class="qen">Do I need an account?</div><div class="qvi">Có cần tạo tài khoản không?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">No. Lam never asks for one. Captures stay on your phone unless you choose to share.</p><p style="color:#888;font-size:13px;font-style:italic">Không. Lam không hỏi. Ảnh ở luôn trên máy bạn, trừ khi bạn share.</p></div></details>
+    <details><summary><div><div class="qen">Does Lam upload my photos?</div><div class="qvi">Lam có upload ảnh không?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">No. Real Tone runs on-device. The skin-scan during onboarding never leaves your phone.</p><p style="color:#888;font-size:13px;font-style:italic">Không. Real Tone chạy trên máy bạn. Skin-scan lúc onboarding không bao giờ rời máy.</p></div></details>
+    <details><summary><div><div class="qen">What's the Food Pack?</div><div class="qvi">Food Pack là gì?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">A $4.99 one-time add-on for food creators — Tungsten Restaurant Lock + top-down 3×3 grid. Optional. Independent of Pro.</p><p style="color:#888;font-size:13px;font-style:italic">Add-on $4.99 cho food creator — Tungsten Lock + 3×3 grid. Tuỳ chọn. Độc lập với Pro.</p></div></details>
+    <details><summary><div><div class="qen">Is the Pro Mode behind a paywall?</div><div class="qvi">Pro Mode có paywall không?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">No. Long-press any body wheel cell to unlock Focus Peaking, Zebra, False Color, Flat preview, Manual ISO. Free with the app.</p><p style="color:#888;font-size:13px;font-style:italic">Không. Long-press body wheel để mở Focus Peaking, Zebra, False Color, Flat, Manual ISO. Free với app.</p></div></details>
+    <details><summary><div><div class="qen">When does it ship?</div><div class="qvi">Khi nào ra mắt?</div></div><span class="plus">+</span></summary><div class="ans"><p style="color:#ddd;font-size:14px">July 2026. App Store + Google Play simultaneously. The waitlist gets a launch-day email — that's the only email Lam will ever send you.</p><p style="color:#888;font-size:13px;font-style:italic">Tháng 7, 2026. App Store + Google Play cùng lúc. Waitlist có email ra mắt — đó là email duy nhất Lam gửi cho bạn.</p></div></details>
+  </div>
+</section>
+
+<!-- ───── WAITLIST ───── -->
+<section class="sec wl" id="download">
+  <div class="box">
+    <div style="margin-bottom:24px"><span class="pill">July 2026 · App Store + Play</span></div>
+    <h2>Đăng ký chờ ra mắt.</h2>
+    <p class="sub-en" style="margin-bottom:30px">Join the launch-day waitlist. One email when Lam goes live — then never again.</p>
+    <form action="mailto:lam@brewkits.dev" method="post" enctype="text/plain">
+      <input type="email" name="email" placeholder="email@anh.vn" required>
+      <button type="submit">Notify me · Báo tin</button>
+    </form>
+    <p class="micro">ONE EMAIL · NO TRACKING · NO LISTS SOLD</p>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="wrap" style="display:flex;flex-direction:column;gap:10px">
+    <div class="brand">BREW KITS · HÀ NỘI · VIỆT NAM</div>
+    <div>Lam · Máy ảnh cơ có linh hồn · A film camera with soul.</div>
     <div class="links">
-      <a href="https://brewkits.dev/lam/privacy.html">Privacy Policy</a>
-      <a href="https://brewkits.dev/lam/terms.html">Terms of Service</a>
-      <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a>
-      <a href="https://brewkits.dev">BrewKits</a>
+      <a href="https://brewkits.dev/lam/privacy.html">Privacy</a>
+      <a href="https://brewkits.dev/lam/terms.html">Terms</a>
+      <a href="https://github.com/brewkits/KMP-VisionX">KMP-VisionX SDK</a>
+      <a href="mailto:lam@brewkits.dev">Contact</a>
     </div>
-    <p class="madeby">Lam — Classic Film Camera. Built on KMP-VisionX. Made by one Vietnamese developer. © 2026 BrewKits.</p>
-  </footer>
+    <div class="copy">© 2026 BREW KITS · NO COOKIES · NO ANALYTICS · NO ACCOUNT REQUIRED</div>
+  </div>
+</footer>
 
-</div>
 </body>
 </html>
