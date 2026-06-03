@@ -308,14 +308,14 @@
 
 <script>
 /* ── i18n + currency. EN is the default + fallback. Prices are approximate
-   App Store / Play regional tiers for the $29.99 USD tier — the exact local
+   App Store / Play regional tiers for the $19.99 USD tier — the exact local
    price is shown at checkout in each store (see ccyNote). ───────────────── */
 var PRICES = {
-  en: { one:'$29.99', zero:'$0.00', subY:'$35.88', sub3:'$107.64', save:'$77.65+' },
-  vi: { one:'799.000₫', zero:'0₫', subY:'950.000₫', sub3:'2.850.000₫', save:'2.000.000₫+' },
-  zh: { one:'¥223', zero:'¥0', subY:'¥268', sub3:'¥804', save:'¥581+' },
-  ja: { one:'¥4,500', zero:'¥0', subY:'¥5,400', sub3:'¥16,200', save:'¥11,700+' },
-  ko: { one:'₩44,000', zero:'₩0', subY:'₩52,000', sub3:'₩156,000', save:'₩112,000+' }
+  en: { one:'$19.99', zero:'$0.00', subY:'$35.88', sub3:'$107.64', save:'$87.65+' },
+  vi: { one:'499.000₫', zero:'0₫', subY:'950.000₫', sub3:'2.850.000₫', save:'2.350.000₫+' },
+  zh: { one:'¥148', zero:'¥0', subY:'¥268', sub3:'¥804', save:'¥656+' },
+  ja: { one:'¥3,000', zero:'¥0', subY:'¥5,400', sub3:'¥16,200', save:'¥13,200+' },
+  ko: { one:'₩28,000', zero:'₩0', subY:'₩52,000', sub3:'₩156,000', save:'₩128,000+' }
 };
 var I18N = {
   en: {
@@ -325,7 +325,7 @@ var I18N = {
     ctaPrimary:'Join the waitlist', ctaSecondary:'Why Lam ↓', ctaNotify:'Notify me at launch ↓',
     statOnce:'one-time', statSubs:'subscriptions', statBodies:'camera bodies', statTones:'skin tone modes',
     pillFeatured:'Featured', pillPricing:'Pricing',
-    tLead:'SIGNATURE', tRetention:'HERITAGE', tConversion:'OWNERSHIP', tPro:'PRO', tDelight:'CRAFT', tNarrative:'ENGINE',
+    tLead:'SIGNATURE', tRetention:'HERITAGE', tConversion:'OWNERSHIP', tPro:'CINEMA', tDelight:'CRAFT', tNarrative:'ENGINE',
     rtHead:'Skin tone tuned for Asia.', rtSub:'Real Tone — 5 modes calibrated for Southeast Asian complexions.',
     rtBody:'Other filter apps process Asian skin with a Western default. Lam ships 5 dedicated modes — plus an AUTO mode that scans your skin in 2 seconds during onboarding.',
     toneWarm:'Warm brown', toneGolden:'Golden brown', toneNeutral:'Neutral', toneCool:'Cool neutral', toneAuto:'Auto-detect',
@@ -356,7 +356,7 @@ var I18N = {
     philQuote:'No investors, no marketing team, no analytics dashboard watching you. Just a camera that respects your photos.',
     philSub:'No investors · No tracking · No data sold.',
     faqHead:'Honest questions.', faqSub:'Frequently asked.',
-    q1:'Is this really one-time?', a1:'Yes. One purchase covers all 6 cameras, Pro Mode, Real Tone, and every v1.x update. No annual renewal, no cloud tier.',
+    q1:'Is this really one-time?', a1:'Yes. One purchase covers all 9 cameras, Pro Mode, Real Tone, and every v1.x update. No annual renewal, no cloud tier.',
     q2:'Do I need an account?', a2:'No. Lam never asks for one. Captures stay on your phone unless you choose to share.',
     q3:'Does Lam upload my photos?', a3:'No. Real Tone runs on-device. The skin-scan during onboarding never leaves your phone.',
     q4:'What is the Food Pack?', a4:'A small one-time add-on for food creators — Tungsten Restaurant Lock + top-down 3×3 grid. Optional. Independent of Pro.',
@@ -375,7 +375,7 @@ var I18N = {
     ctaPrimary:'Đăng ký chờ ra mắt', ctaSecondary:'Vì sao Lam ↓', ctaNotify:'Báo tin khi ra mắt ↓',
     statOnce:'trả 1 lần', statSubs:'subscription', statBodies:'thân máy', statTones:'chế độ da',
     pillFeatured:'Nổi bật', pillPricing:'Giá cả',
-    tLead:'DẤU ẤN', tRetention:'DI SẢN', tConversion:'SỞ HỮU', tPro:'PRO', tDelight:'THỦ CÔNG', tNarrative:'ENGINE',
+    tLead:'DẤU ẤN', tRetention:'DI SẢN', tConversion:'SỞ HỮU', tPro:'CINEMA', tDelight:'THỦ CÔNG', tNarrative:'ENGINE',
     rtHead:'Skin tune cho người châu Á.', rtSub:'Real Tone — 5 chế độ hiệu chỉnh cho làn da Đông Nam Á.',
     rtBody:'Các app filter khác xử lý da châu Á bằng default phương Tây. Lam có 5 chế độ riêng — và 1 chế độ AUTO quét da bạn trong 2 giây ngay lúc onboarding.',
     toneWarm:'Da nâu ấm', toneGolden:'Vàng nâu', toneNeutral:'Trung tính', toneCool:'Lạnh trung', toneAuto:'Tự phát hiện',
@@ -406,7 +406,7 @@ var I18N = {
     philQuote:'Không nhà đầu tư, không team marketing, không dashboard analytics theo dõi bạn. Chỉ là một chiếc máy ảnh tôn trọng ảnh của bạn.',
     philSub:'Không nhà đầu tư · Không theo dõi · Không bán dữ liệu.',
     faqHead:'Câu hỏi thật.', faqSub:'Câu hỏi thường gặp.',
-    q1:'Thật sự chỉ trả 1 lần?', a1:'Đúng. Một lần mua cover hết 6 máy, Pro Mode, Real Tone, và mọi update v1.x. Không gia hạn năm, không cloud tier.',
+    q1:'Thật sự chỉ trả 1 lần?', a1:'Đúng. Một lần mua cover hết 9 máy, Pro Mode, Real Tone, và mọi update v1.x. Không gia hạn năm, không cloud tier.',
     q2:'Có cần tạo tài khoản không?', a2:'Không. Lam không hỏi. Ảnh ở luôn trên máy bạn, trừ khi bạn chọn share.',
     q3:'Lam có upload ảnh không?', a3:'Không. Real Tone chạy trên máy. Skin-scan lúc onboarding không bao giờ rời máy bạn.',
     q4:'Food Pack là gì?', a4:'Một add-on nhỏ trả 1 lần cho food creator — Tungsten Restaurant Lock + lưới 3×3 từ trên xuống. Tuỳ chọn. Độc lập với Pro.',
@@ -425,7 +425,7 @@ var I18N = {
     ctaPrimary:'加入等候名单', ctaSecondary:'为什么选 Lam ↓', ctaNotify:'上线时通知我 ↓',
     statOnce:'一次性', statSubs:'订阅', statBodies:'机身', statTones:'肤色模式',
     pillFeatured:'主打', pillPricing:'价格',
-    tLead:'招牌', tRetention:'传承', tConversion:'拥有', tPro:'专业', tDelight:'匠心', tNarrative:'引擎',
+    tLead:'招牌', tRetention:'传承', tConversion:'拥有', tPro:'电影', tDelight:'匠心', tNarrative:'引擎',
     rtHead:'为亚洲肤色调校。', rtSub:'Real Tone — 为东南亚肤色校准的 5 种模式。',
     rtBody:'其他滤镜应用用西方默认值处理亚洲肤色。Lam 提供 5 种专属模式 — 还有一个 AUTO 模式在引导时 2 秒内扫描你的肤色。',
     toneWarm:'暖棕', toneGolden:'金棕', toneNeutral:'中性', toneCool:'冷中性', toneAuto:'自动识别',
@@ -456,7 +456,7 @@ var I18N = {
     philQuote:'没有投资人，没有营销团队，没有盯着你的数据看板。只是一台尊重你照片的相机。',
     philSub:'无投资人 · 无追踪 · 不出售数据。',
     faqHead:'诚实的问题。', faqSub:'常见问题。',
-    q1:'真的只付一次吗？', a1:'是的。一次购买涵盖全部 6 台相机、Pro 模式、Real Tone，以及所有 v1.x 更新。无年度续费，无云端套餐。',
+    q1:'真的只付一次吗？', a1:'是的。一次购买涵盖全部 9 台相机、Pro 模式、Real Tone，以及所有 v1.x 更新。无年度续费，无云端套餐。',
     q2:'需要注册账户吗？', a2:'不需要。Lam 从不索取账户。除非你选择分享，照片都留在你的手机上。',
     q3:'Lam 会上传我的照片吗？', a3:'不会。Real Tone 在设备端运行。引导时的肤色扫描永不离开你的手机。',
     q4:'Food Pack 是什么？', a4:'面向美食创作者的小额一次性附加包 — 钨丝灯餐厅锁定 + 俯拍 3×3 网格。可选。独立于 Pro。',
@@ -475,7 +475,7 @@ var I18N = {
     ctaPrimary:'ウェイトリストに登録', ctaSecondary:'Lam の理由 ↓', ctaNotify:'公開時に通知 ↓',
     statOnce:'買い切り', statSubs:'サブスク', statBodies:'ボディ', statTones:'肌トーン',
     pillFeatured:'注目', pillPricing:'価格',
-    tLead:'看板', tRetention:'継承', tConversion:'所有', tPro:'PRO', tDelight:'匠', tNarrative:'エンジン',
+    tLead:'看板', tRetention:'継承', tConversion:'所有', tPro:'シネマ', tDelight:'匠', tNarrative:'エンジン',
     rtHead:'アジアの肌に合わせて。', rtSub:'Real Tone — 東南アジアの肌色に合わせた5モード。',
     rtBody:'他のフィルターアプリは欧米基準でアジアの肌を処理します。Lam は専用の5モードを搭載 — さらにオンボーディング時に2秒で肌を読み取る AUTO モードも。',
     toneWarm:'暖かいブラウン', toneGolden:'ゴールデンブラウン', toneNeutral:'ニュートラル', toneCool:'クールニュートラル', toneAuto:'自動検出',
@@ -506,7 +506,7 @@ var I18N = {
     philQuote:'投資家なし、マーケチームなし、あなたを見張る分析ダッシュボードもなし。あなたの写真を尊重するカメラがあるだけ。',
     philSub:'投資家なし · 追跡なし · データ販売なし。',
     faqHead:'正直な質問。', faqSub:'よくある質問。',
-    q1:'本当に買い切りですか？', a1:'はい。一度の購入で6台すべて、Pro モード、Real Tone、すべての v1.x アップデートが含まれます。年間更新もクラウド課金もありません。',
+    q1:'本当に買い切りですか？', a1:'はい。一度の購入で9台すべて、Pro モード、Real Tone、すべての v1.x アップデートが含まれます。年間更新もクラウド課金もありません。',
     q2:'アカウントは必要ですか？', a2:'いいえ。Lam が求めることはありません。共有しない限り、撮影は端末内に留まります。',
     q3:'Lam は写真をアップロードしますか？', a3:'いいえ。Real Tone は端末内で動作します。オンボーディング時の肌スキャンは端末から出ません。',
     q4:'Food Pack とは？', a4:'フード系クリエイター向けの少額・買い切りアドオン — タングステンのレストランロック + 真上からの3×3グリッド。任意。Pro とは独立。',
@@ -525,7 +525,7 @@ var I18N = {
     ctaPrimary:'대기자 명단 등록', ctaSecondary:'왜 Lam 인가 ↓', ctaNotify:'출시 시 알림 받기 ↓',
     statOnce:'한 번 결제', statSubs:'구독', statBodies:'카메라 바디', statTones:'피부톤 모드',
     pillFeatured:'핵심', pillPricing:'가격',
-    tLead:'시그니처', tRetention:'헤리티지', tConversion:'소유', tPro:'PRO', tDelight:'장인', tNarrative:'엔진',
+    tLead:'시그니처', tRetention:'헤리티지', tConversion:'소유', tPro:'시네마', tDelight:'장인', tNarrative:'엔진',
     rtHead:'아시아 피부톤에 맞춤.', rtSub:'Real Tone — 동남아시아 피부톤에 맞춘 5가지 모드.',
     rtBody:'다른 필터 앱은 서구 기준으로 아시아 피부를 처리합니다. Lam 은 전용 5모드를 제공 — 온보딩 때 2초 만에 피부를 스캔하는 AUTO 모드까지.',
     toneWarm:'따뜻한 브라운', toneGolden:'골든 브라운', toneNeutral:'뉴트럴', toneCool:'쿨 뉴트럴', toneAuto:'자동 감지',
@@ -556,7 +556,7 @@ var I18N = {
     philQuote:'투자자도, 마케팅 팀도, 당신을 지켜보는 분석 대시보드도 없습니다. 당신의 사진을 존중하는 카메라가 있을 뿐.',
     philSub:'투자자 없음 · 추적 없음 · 데이터 판매 없음.',
     faqHead:'솔직한 질문.', faqSub:'자주 묻는 질문.',
-    q1:'정말 한 번만 결제하나요?', a1:'네. 한 번 구매로 6대 전부, Pro 모드, Real Tone, 모든 v1.x 업데이트가 포함됩니다. 연간 갱신도, 클라우드 등급도 없습니다.',
+    q1:'정말 한 번만 결제하나요?', a1:'네. 한 번 구매로 9대 전부, Pro 모드, Real Tone, 모든 v1.x 업데이트가 포함됩니다. 연간 갱신도, 클라우드 등급도 없습니다.',
     q2:'계정이 필요한가요?', a2:'아니요. Lam 은 요구하지 않습니다. 공유하지 않는 한 촬영물은 휴대폰에 남습니다.',
     q3:'Lam 이 제 사진을 업로드하나요?', a3:'아니요. Real Tone 은 기기에서 동작합니다. 온보딩 때의 피부 스캔은 휴대폰을 떠나지 않습니다.',
     q4:'Food Pack 이 뭔가요?', a4:'푸드 크리에이터용 소액 일회성 추가 기능 — 텅스텐 레스토랑 락 + 탑다운 3×3 그리드. 선택. Pro 와 독립.',
