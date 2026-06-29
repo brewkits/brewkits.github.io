@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A Lam recipe was shared with you</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Someone shared a Lam film-camera recipe. Open it in Lam to get their exact film look, or get Lam — a live film camera with soul.">
+<meta property="og:title" content="Get this film look — shared from Lam">
+<meta property="og:description" content="A Lam recipe code was shared with you. Open it in Lam to apply the exact film look instantly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brewkits.dev/lam/r/">
+<meta property="og:image" content="https://brewkits.dev/lam/icon-1024.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{ color-scheme:dark; --amber:#FFC107; --brass:#D4AF37;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+    --sys:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;min-height:100%;background:#000;color:#f5f5f5;
+    font-family:var(--sys);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--amber);text-decoration:none}
+  ::selection{background:#FFC107;color:#000}
+  .wrap{max-width:520px;margin:0 auto;padding:48px 22px 64px;text-align:center}
+  .pill{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid var(--amber);color:var(--amber);
+    font-family:var(--ms);font-size:10px;letter-spacing:.8px;text-transform:uppercase}
+  h1{font-size:24px;margin:22px 0 6px;font-weight:700}
+  .sub{color:#bdbdbd;font-size:15px;margin:0 0 28px}
+  /* film-strip recipe card */
+  .card{position:relative;margin:0 auto 30px;max-width:340px;border-radius:14px;
+    background:linear-gradient(160deg,#171717,#0c0c0c);border:1px solid #262626;padding:26px 22px;
+    box-shadow:0 18px 50px rgba(0,0,0,.55)}
+  .perf{position:absolute;top:0;bottom:0;width:14px;background-image:radial-gradient(circle,#000 2.4px,transparent 2.6px);
+    background-size:14px 14px;background-position:center;opacity:.6}
+  .perf.l{left:6px} .perf.r{right:6px}
+  .stocklbl{font-family:var(--ms);color:var(--brass);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+  .code{font-family:var(--ms);font-weight:700;font-size:34px;letter-spacing:6px;color:#fff;margin:12px 0 4px}
+  .codehint{font-family:var(--ms);font-size:11px;color:#8a8a8a;letter-spacing:.5px}
+  .btns{display:flex;flex-direction:column;gap:12px;max-width:340px;margin:0 auto}
+  .btn{cursor:pointer;transition:transform .12s,filter .12s;padding:14px 24px;border-radius:9px;
+    font-weight:700;font-size:15px;display:block}
+  .btn:hover{filter:brightness(1.08)} .btn:active{transform:translateY(1px)}
+  .btn-fill{background:var(--amber);color:#000}
+  .btn-out{background:transparent;color:var(--amber);border:1px solid var(--amber)}
+  .foot{margin-top:34px;color:#6f6f6f;font-size:12px}
+  .foot a{color:#9a9a9a}
+  .tags{margin-top:10px;font-family:var(--ms);font-size:11px;color:#7a7a7a;letter-spacing:.5px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="pill">Lam · Film recipe</span>
+    <h1>Someone shared a film look with you</h1>
+    <p class="sub">Open it in Lam to apply this exact recipe — film stock, grain, tone &amp; skin — in one tap.</p>
+
+    <div class="card">
+      <span class="perf l"></span><span class="perf r"></span>
+      <div class="stocklbl" id="stocklbl">Lam recipe</div>
+      <div class="code" id="code">— — — —</div>
+      <div class="codehint">recipe code</div>
+    </div>
+
+    <div class="btns">
+      <a class="btn btn-fill" id="openBtn" href="#">Open in Lam</a>
+      <a class="btn btn-out" href="/lam/">Get Lam</a>
+    </div>
+
+    <div class="tags">#LamFilm · #ShotOnLam</div>
+    <p class="foot">
+      Don’t have Lam yet? <a href="/lam/">See what it is</a> — a live film camera with soul.<br>
+      Tip: install Lam, then enter the code above in the Recipe Store.
+    </p>
+  </div>
+
+<script>
+  // Recipe code comes from the share link: brewkits.dev/lam/r/?c=CODE  (also tolerates #CODE or /r/CODE).
+  (function(){
+    var p = new URLSearchParams(location.search);
+    var raw = p.get('c') || location.hash.replace(/^#/,'') ||
+              (location.pathname.match(/\/r\/([A-Za-z0-9]{4,12})\/?$/)||[])[1] || '';
+    // Lam recipe codes are 8 Base36 chars (RecipeCodec). Sanitise to that alphabet; never trust input.
+    var code = (raw || '').toUpperCase().replace(/[^0-9A-Z]/g,'').slice(0,8);
+    var openBtn = document.getElementById('openBtn');
+    if (code.length >= 6) {
+      document.getElementById('code').textContent = code;
+      openBtn.href = 'lam://recipe/' + code;
+    } else {
+      // No/garbled code — still a valid landing; route both buttons to the app page.
+      document.getElementById('code').textContent = 'LAM';
+      document.getElementById('stocklbl').textContent = 'Film camera with soul';
+      document.querySelector('.codehint').textContent = 'get the app';
+      openBtn.href = '/lam/';
+      openBtn.textContent = 'Get Lam';
+    }
+  })();
+</script>
+</body>
+</html>
