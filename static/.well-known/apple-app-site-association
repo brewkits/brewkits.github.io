@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["3XSWJLQQ9M.dev.brewkits.lam"],
+        "components": [
+          { "/": "/lam/r" },
+          { "/": "/lam/r/*" }
+        ]
+      }
+    ]
+  }
+}
