@@ -9,5 +9,15 @@
         "73:77:F3:2C:F2:DB:0A:F4:EB:FF:CF:51:9B:11:1C:20:DA:F0:51:29:D4:01:4A:6C:12:11:A5:88:E1:D6:3B:52"
       ]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.brewkits.lam.debug",
+      "sha256_cert_fingerprints": [
+        "6A:DC:3B:4D:24:6D:BF:F7:D1:17:FD:2D:86:EF:91:4C:BC:F0:4F:8B:57:60:FE:A6:E7:73:FE:0F:B4:2D:EE:32"
+      ]
+    }
   }
 ]
