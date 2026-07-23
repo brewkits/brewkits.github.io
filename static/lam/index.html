@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Lam — A film camera with soul</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="A film camera with soul. Live film grade tuned for Asian skin — Steal the Look, .cube LUT export, pro cinema controls, shareable recipe codes. On-device & private. From $14.99/yr or $39 forever.">
+<meta name="description" content="A film camera with soul. Live film grade tuned for Asian skin — Steal the Look, .cube LUT export, pro cinema controls, shareable recipe codes. On-device & private. From $14.99/yr or $19.99 forever.">
 <meta property="og:title" content="Lam — A film camera with soul">
 <meta property="og:description" content="Live film camera for Asia. Steal the Look, LUT export, recipe codes — graded live on-device, never on a server.">
 <meta property="og:type" content="website">
@@ -134,6 +134,25 @@
   .airow span:first-child{color:#fff;font-weight:600}
   .airow span:nth-child(2){color:#888}
   .airow span.amber{color:var(--amber);font-weight:600}
+  /* comparison table */
+  .comptable{max-width:880px;margin:36px auto 0;border:1px solid #1f1f1f;border-radius:14px;overflow:hidden;background:#0e0e0e}
+  .comprow{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:10px;padding:14px 18px;border-top:1px solid #1a1a1a;font-size:13.5px;align-items:center}
+  .comprow:first-child{border-top:0}
+  .comprow.comphead{font-family:var(--ms);font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:#888;background:#121212}
+  .comprow span:first-child{color:#fff;font-weight:600}
+  .comprow span{color:#aaa}
+  .comprow span.amber{color:var(--amber);font-weight:600}
+  /* themes & skins */
+  .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-top:36px}
+  .tcard{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:18px;text-align:left;position:relative}
+  .tcard .temoji{font-size:24px;margin-bottom:8px}
+  .tcard .tname{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+  .tcard .tdesc{font-size:12.5px;color:#aaa;line-height:1.45}
+  .sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:36px}
+  .scard{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:16px;text-align:left}
+  .scard .sdot{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:middle}
+  .scard .sname{font-size:15px;font-weight:700;color:#fff;display:inline-block;vertical-align:middle}
+  .scard .sdesc{font-size:12px;color:#888;margin-top:6px;line-height:1.4}
   /* pricing tiers */
   .ptiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
   .ptier{position:relative;background:#0e0e0e;border:1px solid #1f1f1f;border-radius:14px;padding:28px 22px 24px;text-align:center}
@@ -146,7 +165,9 @@
   .pdesc{color:#bbb;font-size:13px;line-height:1.55;margin-top:14px}
   .palt{font-family:var(--ms);font-size:11px;color:#777;letter-spacing:.4px;margin-top:12px}
   @media(max-width:640px){.cards2{grid-template-columns:1fr}.hero h1{font-size:46px}
-    .ptiers{grid-template-columns:1fr}.airow{font-size:11.5px;padding:11px 12px;gap:6px}}
+    .ptiers{grid-template-columns:1fr}.airow{font-size:11.5px;padding:11px 12px;gap:6px}
+    .comprow{grid-template-columns:1.1fr 0.8fr 0.8fr 1fr;font-size:11px;padding:10px 8px;gap:4px}
+    .tgrid, .sgrid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -157,6 +178,11 @@
   <button data-lang="zh">中文</button>
   <button data-lang="ja">日本語</button>
   <button data-lang="ko">한국어</button>
+  <button data-lang="th">ไทย</button>
+  <button data-lang="id">ID</button>
+  <button data-lang="ms">MS</button>
+  <button data-lang="tl">TL</button>
+  <button data-lang="zh-TW">繁體</button>
 </nav>
 
 <!-- HERO -->
@@ -263,6 +289,130 @@
   </div>
 </section>
 
+<!-- COMPARISON WITH COMPETITORS -->
+<section class="sec" id="creators">
+  <div class="wrap">
+    <div class="center"><span class="pill" data-i18n="pillFeatured"></span></div>
+    <h2 class="center sm" data-i18n="cmpHead"></h2>
+    <p class="sub-vi center" style="max-width:620px;margin:0 auto 28px" data-i18n="cmpSub"></p>
+    <div class="comptable">
+      <div class="comprow comphead">
+        <span data-i18n="cmpColFeature"></span>
+        <span data-i18n="cmpColFilterApps"></span>
+        <span data-i18n="cmpColProApps"></span>
+        <span class="amber" data-i18n="cmpColLam"></span>
+      </div>
+      <div class="comprow">
+        <span data-i18n="cmpF1"></span>
+        <span data-i18n="cmpG1"></span>
+        <span data-i18n="cmpP1"></span>
+        <span class="amber" data-i18n="cmpL1"></span>
+      </div>
+      <div class="comprow">
+        <span data-i18n="cmpF2"></span>
+        <span data-i18n="cmpG2"></span>
+        <span data-i18n="cmpP2"></span>
+        <span class="amber" data-i18n="cmpL2"></span>
+      </div>
+      <div class="comprow">
+        <span data-i18n="cmpF3"></span>
+        <span data-i18n="cmpG3"></span>
+        <span data-i18n="cmpP3"></span>
+        <span class="amber" data-i18n="cmpL3"></span>
+      </div>
+      <div class="comprow">
+        <span data-i18n="cmpF4"></span>
+        <span data-i18n="cmpG4"></span>
+        <span data-i18n="cmpP4"></span>
+        <span class="amber" data-i18n="cmpL4"></span>
+      </div>
+      <div class="comprow">
+        <span data-i18n="cmpF5"></span>
+        <span data-i18n="cmpG5"></span>
+        <span data-i18n="cmpP5"></span>
+        <span class="amber" data-i18n="cmpL5"></span>
+      </div>
+      <div class="comprow">
+        <span data-i18n="cmpF6"></span>
+        <span data-i18n="cmpG6"></span>
+        <span data-i18n="cmpP6"></span>
+        <span class="amber" data-i18n="cmpL6"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIVE THEME PERSONALITIES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="center"><span class="pill" data-i18n="pillFeatured"></span></div>
+    <h2 class="center sm amber" data-i18n="thmHead"></h2>
+    <p class="sub-en center" data-i18n="thmSub"></p>
+    <div class="tgrid">
+      <div class="tcard">
+        <div class="temoji">📷</div>
+        <div class="tname">NOIR</div>
+        <div class="tdesc" data-i18n="thmNoirDesc"></div>
+      </div>
+      <div class="tcard">
+        <div class="temoji">🌸</div>
+        <div class="tname">SAKURA</div>
+        <div class="tdesc" data-i18n="thmSakuraDesc"></div>
+      </div>
+      <div class="tcard">
+        <div class="temoji">⚡</div>
+        <div class="tname">CHROME</div>
+        <div class="tdesc" data-i18n="thmChromeDesc"></div>
+      </div>
+      <div class="tcard">
+        <div class="temoji">🌙</div>
+        <div class="tname">LUNA</div>
+        <div class="tdesc" data-i18n="thmLunaDesc"></div>
+      </div>
+      <div class="tcard">
+        <div class="temoji">🌿</div>
+        <div class="tname">JADE</div>
+        <div class="tdesc" data-i18n="thmJadeDesc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOUTIQUE LEATHER SKINS -->
+<section class="sec">
+  <div class="wrap">
+    <h2 class="center sm" data-i18n="sknHead"></h2>
+    <p class="sub-vi center" style="margin-bottom:24px" data-i18n="sknSub"></p>
+    <div class="sgrid">
+      <div class="scard">
+        <span class="sdot" style="background:#E6B022"></span>
+        <div class="sname">Titanium</div>
+        <div class="sdesc" data-i18n="skn1Desc"></div>
+      </div>
+      <div class="scard">
+        <span class="sdot" style="background:#E8E8EA"></span>
+        <div class="sname">Saddle Tan</div>
+        <div class="sdesc" data-i18n="skn2Desc"></div>
+      </div>
+      <div class="scard">
+        <span class="sdot" style="background:#34D2E8"></span>
+        <div class="sname">Pen-F</div>
+        <div class="sdesc" data-i18n="skn3Desc"></div>
+      </div>
+      <div class="scard">
+        <span class="sdot" style="background:#FF8A2A"></span>
+        <div class="sname">Safari</div>
+        <div class="sdesc" data-i18n="skn4Desc"></div>
+      </div>
+      <div class="scard">
+        <span class="sdot" style="background:#D9A24E"></span>
+        <div class="sname">Bordeaux</div>
+        <div class="sdesc" data-i18n="skn5Desc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- BODIES -->
 <section class="sec">
   <div class="wrap">
@@ -339,15 +489,19 @@
 
 <script>
 /* ── i18n + currency. EN is the default + fallback. Hybrid pricing: Pro is
-   $2.99/mo or $14.99/yr, or a one-time $39 "Forever" licence. Values are
+   $2.99/mo or $14.99/yr, or a one-time $19.99 "Forever" licence. Values are
    approximate App Store / Play regional tiers — the exact local price is
-   shown at checkout in each store (see ccyNote). ───────────────────────── */
-var PRICES = {
-  en: { month:'$2.99', year:'$14.99', life:'$39' },
-  vi: { month:'69.000₫', year:'349.000₫', life:'899.000₫' },
-  zh: { month:'¥21', year:'¥108', life:'¥288' },
-  ja: { month:'¥450', year:'¥2,200', life:'¥5,800' },
-  ko: { month:'₩4,400', year:'₩22,000', life:'₩58,000' }
+   shownvar PRICES = {
+  en: { month:'$2.99', year:'$14.99', life:'$19.99' },
+  vi: { month:'69.000₫', year:'349.000₫', life:'499.000₫' },
+  zh: { month:'¥21', year:'¥108', life:'¥148' },
+  ja: { month:'¥450', year:'¥2,200', life:'¥3,000' },
+  ko: { month:'₩4,400', year:'₩22,000', life:'₩29,000' },
+  th: { month:'฿99', year:'฿499', life:'฿699' },
+  id: { month:'Rp 49.000', year:'Rp 249.000', life:'Rp 329.000' },
+  ms: { month:'RM 14.90', year:'RM 69.90', life:'RM 99.90' },
+  tl: { month:'₱149', year:'₱899', life:'₱1,190' },
+  'zh-TW': { month:'NT$ 90', year:'NT$ 490', life:'NT$ 690' }
 };
 var I18N = {
   en: {
@@ -366,11 +520,11 @@ var I18N = {
     aiLatK:'Speed', aiLatThem:'Minutes per clip · server render', aiLatUs:'Real-time 60fps in the viewfinder',
     aiPrivK:'Privacy', aiPrivThem:'Your clip is uploaded to their cloud', aiPrivUs:'100% on-device — nothing leaves your phone',
     aiRealK:'Honesty', aiRealThem:'Invents detail · warps faces & skin', aiRealUs:'Keeps reality · simulates real film chemistry',
-    aiCostK:'Cost', aiCostThem:'$10–50/mo, metered by credits', aiCostUs:'$14.99/yr unlimited — or $39 forever',
+    aiCostK:'Cost', aiCostThem:'$10–50/mo, metered by credits', aiCostUs:'$14.99/yr unlimited — or $19.99 forever',
     prHead:'Pick how you own it.', prSub:'Try it free. Subscribe, or own it forever. No ads, no data sold — ever.',
-    prFreeName:'Free', prFreeDesc:'6 film stocks. Import any recipe code. The live engine, yours to try.',
+    prFreeName:'Free', prFreeDesc:'6 film stocks, full manual ISO/shutter controls & live monitoring. Free forever.',
     prYearBadge:'Best value · 7-day trial', prYearName:'Pro · Yearly', prPerYear:'/ year',
-    prYearDesc:'Everything: 16 stocks, Steal the Look, LUT export, pro cinema controls. New stocks every season.',
+    prYearDesc:'Everything: 16 stocks, Steal the Look, .cube LUT export, 4 Pro camera bodies. New stocks every season.',
     prPerMonth:'/ mo if you prefer monthly',
     prLifeName:'Forever', prOnce:'once', prLifeDesc:'Pay once, own it — no renewals, ever. The anti-subscription option, for people who mean it.',
     prPacks:'Optional one-time packs (Food Pack, film-stock packs) — buy only what you want.',
@@ -383,6 +537,26 @@ var I18N = {
     w4h:'Pro cinema controls', w4v:'180° rule · Honest LOG', w4p:'Manual ISO 50–6400, the 180° shutter rule auto-locked (24→1/48, 30→1/60, 60→1/120), and Honest LOG — a truly flat capture, not a fake curve.',
     w5h:'Recipe codes', w5v:'8 characters, viral', w5p:'Turn any look into an 8-character code (checksum-protected). Drop it under a TikTok — anyone pastes it into Lam and gets your exact grade. No account.',
     w6h:'Real-time film engine', w6v:'Live, not post-process', w6p:'Most film apps paste a filter onto a finished photo. Lam runs the whole film chain — LUT colour, halation, grain — live on the camera buffer at 60 fps. What you frame is exactly what you capture.',
+    cmpHead:'Built for Creator Workflows.', cmpSub:'How Lam compares to generic filter apps and complex cinema apps.',
+    cmpColFeature:'Workflow Need', cmpColFilterApps:'Filter Apps (Dazz, NOMO)', cmpColProApps:'Pro Cinema Apps', cmpColLam:'Lam Camera',
+    cmpF1:'Live Film Grade', cmpG1:'Post-capture filter only', cmpP1:'Live preview (no film look)', cmpL1:'Live 60fps film grade',
+    cmpF2:'Asian Skin Tone', cmpG2:'Western default preset', cmpP2:'None', cmpL2:'5 Real Tone modes',
+    cmpF3:'Desktop LUT Export', cmpG3:'None', cmpP3:'None', cmpL3:'.cube LUT for Resolve',
+    cmpF4:'Look Sharing', cmpG4:'None', cmpP4:'None', cmpL4:'8-char viral codes',
+    cmpF5:'Manual Controls', cmpG5:'None', cmpP5:'Pro (Complex UX)', cmpL5:'Full controls (FREE)',
+    cmpF6:'Dual Photo & Video', cmpG6:'None', cmpP6:'None', cmpL6:'SNAP while recording',
+    thmHead:'Five Themes. Five Personalities.', thmSub:'Every theme is a distinct camera personality designed for your creative style.',
+    thmNoirDesc:'Cinematic, moody, ultra-dark. Mechanical precision for film purists.',
+    thmSakuraDesc:'Light blush editorial. Dreamy serifs for beauty & portrait creators.',
+    thmChromeDesc:'Electric cyan & gunmetal. Clean HUD for video directors.',
+    thmLunaDesc:'Midnight lilac & deep indigo. Soft aesthetic for night creators.',
+    thmJadeDesc:'Espresso & jade green. Golden-hour warmth for food & travel vlogs.',
+    sknHead:'Boutique Leather Skins', sknSub:'Crafted camera body wraps inspired by iconic optical history.',
+    skn1Desc:'Leica M — vulcanite & brass (Free)',
+    skn2Desc:'Hasselblad 500C — cognac calfskin',
+    skn3Desc:'Olympus Pen-F — slate blue & chrome',
+    skn4Desc:'Leica R Safari — olive drab',
+    skn5Desc:'Rolleiflex TLR — burgundy & bronze',
     bHead:'Nine bodies. Nine eras.', bSub:'Each body carries a real cultural story.',
     b1e:'Swiss rangefinder · 1960s', b1d:'35mm rangefinder',
     b2e:'Kodak FunSaver · 1990s', b2d:'Plastic-lens disposable',
@@ -397,11 +571,11 @@ var I18N = {
     philQuote:'No investors watching you, no analytics dashboard, no frames sitting on someone\'s server. Subscribe if it suits you — or own it forever. Either way, your photos stay yours.',
     philSub:'On-device · No tracking · No data sold.',
     faqHead:'Honest questions.', faqSub:'Frequently asked.',
-    q1:'Is there a free version?', a1:'Yes. 6 film stocks, free forever, no account. Pro unlocks the other 10 stocks, Steal the Look, LUT export, and the cinema controls.',
-    q2:'Why subscription on an offline app?', a2:'Fair question. Pro funds new film stocks and lifetime v1.x updates — not servers (there are none). And if you\'d rather not subscribe, buy Forever once for $39. You choose.',
+    q1:'Is there a free version?', a1:'Yes. 6 film stocks, manual controls (ISO/shutter/WB), monitoring HUD (peaking/zebra), free forever, no account. Pro unlocks 10 extra stocks, Steal the Look, LUT export, and Pro bodies.',
+    q2:'Why subscription on an offline app?', a2:'Fair question. Pro funds new film stocks and updates — not servers. And if you\'d rather not subscribe, buy Forever once for $19.99. You choose.',
     q3:'Does Lam upload my photos?', a3:'No. Real Tone runs on-device. The skin-scan during onboarding never leaves your phone.',
-    q4:'Yearly or Forever — what\'s the difference?', a4:'Same features. Yearly ($14.99) includes every new season\'s film stocks; Forever ($39) is one payment for all current Pro features, with no renewals.',
-    q5:'What\'s free vs Pro?', a5:'Free: 6 stocks, recipe import, the live engine. Pro: all 16 stocks, Steal the Look, .cube export, manual ISO / shutter / LOG. The Food Pack stays an optional add-on.',
+    q4:'Yearly or Forever — what\'s the difference?', a4:'Same features. Yearly ($14.99) includes new season film stocks; Forever ($19.99) is a single payment for lifetime access, no renewals.',
+    q5:'What\'s free vs Pro?', a5:'Free: 6 stocks, manual controls, monitoring HUD, recipe import, live engine. Pro: all 16 stocks, Steal the Look, .cube export, Pro bodies, boutique skins.',
     q6:'When does it ship?', a6:'July 2026, App Store + Google Play simultaneously. The waitlist gets a launch-day email — the only email Lam will ever send you.',
     wlPill:'July 2026 · App Store + Play', wlHead:'Join the launch waitlist.',
     wlSub:'One email when Lam goes live — then never again.',
@@ -425,11 +599,11 @@ var I18N = {
     aiLatK:'Tốc độ', aiLatThem:'Vài phút/clip · render server', aiLatUs:'Real-time 60fps ngay trên viewfinder',
     aiPrivK:'Riêng tư', aiPrivThem:'Clip của bạn bị upload lên cloud của họ', aiPrivUs:'100% trên máy — không gì rời điện thoại',
     aiRealK:'Chân thực', aiRealThem:'Bịa chi tiết · méo mặt & da', aiRealUs:'Giữ nguyên thực tế · mô phỏng hoá học phim thật',
-    aiCostK:'Chi phí', aiCostThem:'$10–50/tháng, tính theo credit', aiCostUs:'349k/năm không giới hạn — hoặc 899k trọn đời',
+    aiCostK:'Chi phí', aiCostThem:'$10–50/tháng, tính theo credit', aiCostUs:'349k/năm không giới hạn — hoặc 499k trọn đời',
     prHead:'Chọn cách bạn sở hữu.', prSub:'Dùng thử miễn phí. Đăng ký, hoặc mua trọn đời. Không quảng cáo, không bán dữ liệu — không bao giờ.',
-    prFreeName:'Miễn phí', prFreeDesc:'6 film stock. Nhập mọi mã recipe. Engine live, cho bạn thử thoải mái.',
+    prFreeName:'Miễn phí', prFreeDesc:'6 film stock, chỉnh tay ISO/màn trập & monitoring đầy đủ. Miễn phí trọn đời.',
     prYearBadge:'Đáng giá nhất · thử 7 ngày', prYearName:'Pro · Theo năm', prPerYear:'/ năm',
-    prYearDesc:'Tất cả: 16 stock, Steal the Look, xuất LUT, bộ control cinema. Film stock mới mỗi mùa.',
+    prYearDesc:'Tất cả: 16 stock, Steal the Look, xuất LUT .cube, 4 camera body Pro. Film stock mới mỗi mùa.',
     prPerMonth:'/ tháng nếu thích trả tháng',
     prLifeName:'Trọn đời (Forever)', prOnce:'một lần', prLifeDesc:'Trả 1 lần, sở hữu mãi — không gia hạn, không bao giờ. Lựa chọn anti-subscription cho người dứt khoát.',
     prPacks:'Các gói lẻ tuỳ chọn (Food Pack, gói film stock) — chỉ mua thứ bạn cần.',
@@ -442,6 +616,26 @@ var I18N = {
     w4h:'Control cinema Pro', w4v:'Quy tắc 180° · Honest LOG', w4p:'ISO tay 50–6400, tự khóa quy tắc màn trập 180° (24→1/48, 30→1/60, 60→1/120), và Honest LOG — file quay phẳng thật, không phải LOG giả.',
     w5h:'Mã recipe', w5v:'8 ký tự, lan truyền', w5p:'Biến mọi look thành mã 8 ký tự (có checksum). Để dưới một video TikTok — ai cũng dán vào Lam để có đúng tone của bạn. Không cần tài khoản.',
     w6h:'Engine phim real-time', w6v:'Live, không phải hậu kỳ', w6p:'Hầu hết app phim dán filter lên ảnh đã chụp xong. Lam chạy cả chuỗi phim — màu LUT, halation, hạt phim — ngay trên luồng camera ở 60 fps. Khung hình bạn ngắm chính là khung hình bạn chụp.',
+    cmpHead:'Thiết kế cho Workflow Sáng tạo.', cmpSub:'So sánh Lam với app filter phổ thông và app quay phim chuyên nghiệp.',
+    cmpColFeature:'Nhu cầu Workflow', cmpColFilterApps:'App Filter (Dazz, NOMO)', cmpColProApps:'App Quay Pro', cmpColLam:'Lam Camera',
+    cmpF1:'Màu phim Live', cmpG1:'Dán filter sau khi chụp', cmpP1:'Preview live (không có màu phim)', cmpL1:'Live 60fps film grade',
+    cmpF2:'Tông da châu Á', cmpG2:'Default phương Tây', cmpP2:'Không có', cmpL2:'5 chế độ Real Tone',
+    cmpF3:'Xuất LUT Máy tính', cmpG3:'Không có', cmpP3:'Không có', cmpL3:'File .cube cho Resolve',
+    cmpF4:'Chia sẻ Look', cmpG4:'Không có', cmpP4:'Không có', cmpL4:'Mã recipe 8 ký tự',
+    cmpF5:'Chỉnh tay Thủ công', cmpG5:'Không có', cmpP5:'Có (UX phức tạp)', cmpL5:'Đầy đủ (MIỄN PHÍ)',
+    cmpF6:'Chụp & Quay song song', cmpG6:'Không có', cmpP6:'Không có', cmpL6:'SNAP ngay khi đang quay',
+    thmHead:'Năm Theme. Năm Cá tính.', thmSub:'Mỗi theme là một cá tính máy ảnh riêng biệt thiết kế cho phong cách sáng tạo của bạn.',
+    thmNoirDesc:'Điện ảnh, trầm tối. Độ chính xác cơ khí cho người mê màu phim.',
+    thmSakuraDesc:'Sắc hồng tạp chí nhẹ nhàng. Serif mộng mơ cho beauty & portrait creator.',
+    thmChromeDesc:'Xanh điện tử & nòng súng. HUD gọn gàng cho đạo diễn video.',
+    thmLunaDesc:'Tím đêm & chàm sâu. Thẩm mỹ mềm mại cho creator ban đêm.',
+    thmJadeDesc:'Cà phê & xanh ngọc. Nắng vàng ấm áp cho vlogger ẩm thực & du lịch.',
+    sknHead:'Bao da Boutique', sknSub:'Lớp bọc thân máy thủ công lấy cảm hứng từ lịch sử quang học biểu tượng.',
+    skn1Desc:'Leica M — vulcanite & đồng (Miễn phí)',
+    skn2Desc:'Hasselblad 500C — da bò cognac',
+    skn3Desc:'Olympus Pen-F — xanh đá & chrome',
+    skn4Desc:'Leica R Safari — xanh quân đội',
+    skn5Desc:'Rolleiflex TLR — đỏ rượu & đồng cổ',
     bHead:'Chín thân máy. Chín thời đại.', bSub:'Mỗi máy mang một câu chuyện văn hoá thật.',
     b1e:'Rangefinder Thụy Sĩ · 196x', b1d:'Rangefinder 35mm',
     b2e:'Kodak FunSaver · thập niên 90', b2d:'Máy dùng-một-lần ống nhựa',
@@ -456,11 +650,11 @@ var I18N = {
     philQuote:'Không nhà đầu tư theo dõi bạn, không dashboard analytics, không khung hình nào nằm trên server của ai. Đăng ký nếu hợp — hoặc mua trọn đời. Kiểu gì thì ảnh của bạn vẫn là của bạn.',
     philSub:'Trên máy · Không theo dõi · Không bán dữ liệu.',
     faqHead:'Câu hỏi thật.', faqSub:'Câu hỏi thường gặp.',
-    q1:'Có bản miễn phí không?', a1:'Có. 6 film stock, miễn phí trọn đời, không cần tài khoản. Pro mở 10 stock còn lại, Steal the Look, xuất LUT, và bộ control cinema.',
-    q2:'Sao app offline lại subscription?', a2:'Câu hỏi đúng. Pro nuôi film stock mới + update trọn đời v1.x — không phải nuôi server (vốn không có). Và nếu bạn không thích đăng ký, mua Forever một lần 899k. Bạn chọn.',
+    q1:'Có bản miễn phí không?', a1:'Có. 6 film stock, chỉnh tay (ISO/màn trập/WB), monitoring HUD (peaking/zebra) miễn phí trọn đời, không tài khoản. Pro mở 10 stock còn lại, Steal the Look, xuất LUT, và body Pro.',
+    q2:'Sao app offline lại subscription?', a2:'Câu hỏi đúng. Pro nuôi film stock mới + update trọn đời — không phải nuôi server. Và nếu không thích đăng ký, mua Forever một lần 499k. Bạn chọn.',
     q3:'Lam có upload ảnh không?', a3:'Không. Real Tone chạy trên máy. Skin-scan lúc onboarding không bao giờ rời máy bạn.',
-    q4:'Theo năm hay Forever — khác gì?', a4:'Cùng tính năng. Theo năm (349k) gồm film stock mới mỗi mùa; Forever (899k) trả 1 lần cho mọi tính năng Pro hiện có, không gia hạn.',
-    q5:'Miễn phí và Pro khác gì?', a5:'Miễn phí: 6 stock, nhập recipe, engine live. Pro: cả 16 stock, Steal the Look, xuất .cube, ISO/màn trập/LOG thủ công. Food Pack vẫn là add-on tuỳ chọn.',
+    q4:'Theo năm hay Forever — khác gì?', a4:'Cùng tính năng. Theo năm (349k) gồm film stock mới mỗi mùa; Forever (499k) trả 1 lần sở hữu trọn đời, không gia hạn.',
+    q5:'Miễn phí và Pro khác gì?', a5:'Miễn phí: 6 stock, chỉnh tay ISO/màn trập, monitoring HUD, nhập recipe, engine live. Pro: cả 16 stock, Steal the Look, xuất .cube, body Pro, bao da boutique.',
     q6:'Khi nào ra mắt?', a6:'Tháng 7, 2026, App Store + Google Play cùng lúc. Waitlist nhận email ngày ra mắt — email duy nhất Lam gửi bạn.',
     wlPill:'Tháng 7, 2026 · App Store + Play', wlHead:'Đăng ký chờ ra mắt.',
     wlSub:'Một email khi Lam ra mắt — rồi không bao giờ nữa.',
@@ -484,11 +678,11 @@ var I18N = {
     aiLatK:'速度', aiLatThem:'每段数分钟 · 服务器渲染', aiLatUs:'取景器内实时 60fps',
     aiPrivK:'隐私', aiPrivThem:'你的素材被上传到他们的云', aiPrivUs:'100% 设备端 —— 不离开手机',
     aiRealK:'真实', aiRealThem:'编造细节 · 扭曲面部与皮肤', aiRealUs:'保留真实 · 模拟真实胶片化学反应',
-    aiCostK:'价格', aiCostThem:'$10–50/月，按额度计费', aiCostUs:'¥108/年 无限量 —— 或 ¥288 永久',
+    aiCostK:'价格', aiCostThem:'$10–50/月，按额度计费', aiCostUs:'¥108/年 无限量 —— 或 ¥148 永久',
     prHead:'选择你拥有它的方式。', prSub:'免费试用。订阅，或永久买断。无广告、不出售数据 —— 永不。',
-    prFreeName:'免费', prFreeDesc:'6 款胶片。导入任意 recipe 代码。实时引擎，随你试用。',
+    prFreeName:'免费', prFreeDesc:'6 款胶片，全手动 ISO/快门控制与实时监视。永久免费。',
     prYearBadge:'最超值 · 7 天试用', prYearName:'Pro · 年付', prPerYear:'/ 年',
-    prYearDesc:'全部：16 款胶片、Steal the Look、LUT 导出、专业电影控制。每季新增胶片。',
+    prYearDesc:'全部：16 款胶片、Steal the Look、.cube LUT 导出、4 款专业机身。每季新增胶片。',
     prPerMonth:'/ 月（如偏好月付）',
     prLifeName:'永久（Forever）', prOnce:'一次', prLifeDesc:'付一次，永久拥有 —— 永不续费。给认真的人的反订阅之选。',
     prPacks:'可选的一次性扩展包（Food Pack、胶片包）—— 只买你需要的。',
@@ -501,6 +695,26 @@ var I18N = {
     w4h:'专业电影控制', w4v:'180° 规则 · Honest LOG', w4p:'手动 ISO 50–6400，自动锁定 180° 快门规则（24→1/48、30→1/60、60→1/120），以及 Honest LOG —— 拍出真正平直的文件，不是假 LOG。',
     w5h:'Recipe 代码', w5v:'8 个字符，可传播', w5p:'把任意 look 变成 8 字符代码（带校验）。贴在 TikTok 下 —— 任何人粘进 Lam 就得到你的精确色调。无需账户。',
     w6h:'实时胶片引擎', w6v:'实时处理，非后期', w6p:'多数胶片应用只是把滤镜贴到拍好的照片上。Lam 在相机缓冲区以 60 fps 实时运行完整胶片链 — LUT 调色、光晕、颗粒。所见即所拍。',
+    cmpHead:'专为创作者工作流打造。', cmpSub:'对比 Lam 与普通滤镜 App 及复杂专业电影 App。',
+    cmpColFeature:'工作流需求', cmpColFilterApps:'滤镜 App (Dazz, NOMO)', cmpColProApps:'专业电影 App', cmpColLam:'Lam Camera',
+    cmpF1:'实时胶片调色', cmpG1:'仅拍后加滤镜', cmpP1:'实时预览 (无胶片质感)', cmpL1:'实时 60fps 胶片调色',
+    cmpF2:'亚洲肤色模式', cmpG2:'西方默认预设', cmpP2:'无', cmpL2:'5 种 Real Tone 模式',
+    cmpF3:'桌面 LUT 导出', cmpG3:'无', cmpP3:'无', cmpL3:'.cube LUT 导出',
+    cmpF4:'Look 色彩分享', cmpG4:'无', cmpP4:'无', cmpL4:'8 字符口令',
+    cmpF5:'手动专业控制', cmpG5:'无', cmpP5:'有 (交互复杂)', cmpL5:'全功能 (免费)',
+    cmpF6:'边拍视频边拍照片', cmpG6:'无', cmpP6:'无', cmpL6:'SNAP 拍照不中断视频',
+    thmHead:'五款主题。五种个性。', thmSub:'每款主题都是专为你的创作风格设计的独特相机个性。',
+    thmNoirDesc:'电影质感、深邃复古。胶片纯粹主义者的机械精度。',
+    thmSakuraDesc:'淡粉杂志质感。美妆与人像创作者的梦幻衬线。',
+    thmChromeDesc:'电光青与枪色。视频导演的干练 HUD 界面。',
+    thmLunaDesc:'深夜紫罗兰与深蓝。夜间创作者的柔和美学。',
+    thmJadeDesc:'浓缩咖啡与翡翠绿。美食与旅游 Vlogger 的暖阳色调。',
+    sknHead:'精品复古皮革外壳', sknSub:'汲取经典光学相机历史灵感的精制机身饰皮。',
+    skn1Desc:'徕卡 M — 硫化皮与黄铜 (免费)',
+    skn2Desc:'哈苏 500C — 干邑色小牛皮',
+    skn3Desc:'奥林巴斯 Pen-F — 板岩蓝与铬合金',
+    skn4Desc:'徕卡 R Safari — 军绿色',
+    skn5Desc:'禄来 TLR — 酒红与古铜',
     bHead:'九款机身。九个时代。', bSub:'每款机身都承载真实的文化故事。',
     b1e:'瑞士旁轴 · 1960s', b1d:'35mm 旁轴',
     b2e:'柯达 FunSaver · 1990s', b2d:'塑料镜头一次性',
@@ -515,11 +729,11 @@ var I18N = {
     philQuote:'没有投资人盯着你，没有分析看板，没有画面留在别人的服务器上。愿意就订阅 —— 或永久买断。无论哪种，你的照片都属于你。',
     philSub:'设备端 · 无追踪 · 不出售数据。',
     faqHead:'诚实的问题。', faqSub:'常见问题。',
-    q1:'有免费版吗？', a1:'有。6 款胶片，永久免费，无需账户。Pro 解锁其余 10 款胶片、Steal the Look、LUT 导出和电影控制。',
-    q2:'离线应用为什么要订阅？', a2:'好问题。Pro 用于资助新胶片和终身 v1.x 更新 —— 不是服务器（根本没有）。如果你不想订阅，¥288 永久买断一次即可。你来选。',
+    q1:'有免费版吗？', a1:'有。6 款胶片、手动控制 (ISO/快门/白平衡)、监视 HUD (峰值/斑马线) 永久免费，无需账户。Pro 解锁其余 10 款胶片、Steal the Look、LUT 导出和 Pro 机身。',
+    q2:'离线应用为什么要订阅？', a2:'好问题。Pro 用于资助新胶片和更新 —— 不是服务器。如果你不想订阅，¥148 永久买断一次即可。你来选。',
     q3:'Lam 会上传我的照片吗？', a3:'不会。Real Tone 在设备端运行。引导时的肤色扫描永不离开你的手机。',
-    q4:'年付与 Forever 有何区别？', a4:'功能相同。年付（¥108）包含每季新胶片；Forever（¥288）一次付清当前所有 Pro 功能，永不续费。',
-    q5:'免费与 Pro 有何区别？', a5:'免费：6 款胶片、recipe 导入、实时引擎。Pro：全部 16 款胶片、Steal the Look、.cube 导出、手动 ISO/快门/LOG。Food Pack 仍为可选扩展。',
+    q4:'年付与 Forever 有何区别？', a4:'功能相同。年付（¥108）包含每季新胶片；Forever（¥148）一次付清当前所有 Pro 功能，永不续费。',
+    q5:'免费与 Pro 有何区别？', a5:'免费：6 款胶片、手动控制、监视 HUD、recipe 导入、实时引擎。Pro：全部 16 款胶片、Steal the Look、.cube 导出、Pro 机身、皮革外壳。',
     q6:'什么时候上线？', a6:'2026年7月，App Store 与 Google Play 同步。等候名单会收到上线当天的邮件 — 这是 Lam 唯一会发给你的邮件。',
     wlPill:'2026年7月 · App Store + Play', wlHead:'加入上线等候名单。',
     wlSub:'Lam 上线时发一封邮件 — 之后不再打扰。',
@@ -543,11 +757,11 @@ var I18N = {
     aiLatK:'速度', aiLatThem:'1本に数分 · サーバーレンダリング', aiLatUs:'ビューファインダーでリアルタイム60fps',
     aiPrivK:'プライバシー', aiPrivThem:'あなたのクリップは彼らのクラウドへアップロード', aiPrivUs:'100%端末内 —— 何も端末から出ない',
     aiRealK:'誠実さ', aiRealThem:'ディテールを捏造 · 顔や肌が歪む', aiRealUs:'現実を保持 · 本物のフィルム化学を再現',
-    aiCostK:'価格', aiCostThem:'月$10–50、クレジット従量課金', aiCostUs:'¥2,200/年 無制限 —— または ¥5,800 買い切り',
+    aiCostK:'価格', aiCostThem:'月$10–50、クレジット従量課金', aiCostUs:'¥2,200/年 無制限 —— または ¥3,000 買い切り',
     prHead:'所有のしかたを選べます。', prSub:'無料で試す。サブスク、または買い切り。広告なし、データ販売なし —— 永遠に。',
-    prFreeName:'無料', prFreeDesc:'6つのフィルム。どの recipe コードもインポート可。ライブエンジンをお試しに。',
+    prFreeName:'無料', prFreeDesc:'6つのフィルム、マニュアルISO/シャッター操作＆ライブモニター。永久無料。',
     prYearBadge:'いちばんお得 · 7日間トライアル', prYearName:'Pro · 年額', prPerYear:'/ 年',
-    prYearDesc:'すべて：16フィルム、Steal the Look、LUT書き出し、プロのシネマ操作。毎シーズン新フィルム。',
+    prYearDesc:'すべて：16フィルム、Steal the Look、.cube LUT書き出し、4つのProボディ。毎シーズン新フィルム。',
     prPerMonth:'/ 月（月額をご希望なら）',
     prLifeName:'Forever（買い切り）', prOnce:'1回', prLifeDesc:'一度の支払いで、ずっとあなたのもの —— 更新なし。本気の人のための脱サブスク。',
     prPacks:'任意の単発パック（Food Pack、フィルムパック）—— 欲しいものだけ。',
@@ -560,6 +774,26 @@ var I18N = {
     w4h:'プロのシネマ操作', w4v:'180°ルール · Honest LOG', w4p:'マニュアル ISO 50–6400、180°シャッタールールを自動ロック（24→1/48、30→1/60、60→1/120）、そして Honest LOG —— 本当にフラットな記録。偽 LOG ではありません。',
     w5h:'recipe コード', w5v:'8文字、拡散する', w5p:'どのルックも8文字コードに（チェックサム付き）。TikTok の下に貼れば —— 誰でも Lam に貼り付けてあなたの色を再現。アカウント不要。',
     w6h:'リアルタイム・フィルムエンジン', w6v:'後処理ではなくライブ', w6p:'多くのフィルムアプリは撮影済みの写真にフィルターを貼るだけ。Lam はカメラバッファ上で LUT カラー・ハレーション・粒子までフィルム処理全体を 60fps でライブ実行。見たままが撮れます。',
+    cmpHead:'クリエイターのワークフローのために。', cmpSub:'Lam と一般的なフィルターアプリおよびプロ用動画アプリの比較。',
+    cmpColFeature:'ワークフローのニーズ', cmpColFilterApps:'フィルターアプリ (Dazz, NOMO)', cmpColProApps:'プロ用撮影アプリ', cmpColLam:'Lam Camera',
+    cmpF1:'ライブ・フィルム調色', cmpG1:'撮影後のフィルターのみ', cmpP1:'ライブプレビュー (フィルム感なし)', cmpL1:'リアルタイム60fpsフィルム調色',
+    cmpF2:'アジア肌モード', cmpG2:'欧米デフォルトプリセット', cmpP2:'なし', cmpL2:'5つの Real Tone モード',
+    cmpF3:'デスクトップ LUT 書き出し', cmpG3:'なし', cmpP3:'なし', cmpL3:'Resolve 用 .cube LUT',
+    cmpF4:'ルック共有', cmpG4:'なし', cmpP4:'なし', cmpL4:'8文字コード',
+    cmpF5:'マニュアル操作', cmpG5:'なし', cmpP5:'あり (操作が複雑)', cmpL5:'フル機能 (無料)',
+    cmpF6:'写真と動画の同時撮影', cmpG6:'なし', cmpP6:'なし', cmpL6:'録画中も SNAP 撮影',
+    thmHead:'5つのテーマ。5つの個性。', thmSub:'すべてのテーマが、あなたのクリエイティブスタイルに合わせて設計された独自のカメラパーソナリティです。',
+    thmNoirDesc:'シネマティックで静謐。フィルム主義者のための機械的精度。',
+    thmSakuraDesc:'軽やかなピンクの誌面風。ビューティー＆ポートレートのための夢のようなセリフ体。',
+    thmChromeDesc:'エレクトリックシアン＆ガンメタル。映像監督のための機能的な HUD。',
+    thmLunaDesc:'ミッドナイトライラック＆インディゴ。夜のクリエイターのための柔らかい美学。',
+    thmJadeDesc:'エスプレッソ＆ジェイドグリーン。フード＆トラベル Vlog のための温かい光。',
+    sknHead:'ブティック・レザー張り', sknSub:'象徴的な光学カメラの歴史にインスパイアされた手作りのボディ仕上げ。',
+    skn1Desc:'ライカ M — ヴァルカナイト＆真鍮 (無料)',
+    skn2Desc:'ハッセルブラッド 500C — コニャックカーフスキン',
+    skn3Desc:'オリンパス Pen-F — スレートブルー＆クローム',
+    skn4Desc:'ライカ R Safari — オリーブドラブ',
+    skn5Desc:'ローライフレックス TLR — バーガンディ＆ブロンズ',
     bHead:'9つのボディ。9つの時代。', bSub:'各ボディが本物の文化的物語を宿します。',
     b1e:'スイス製レンジファインダー · 1960s', b1d:'35mm レンジファインダー',
     b2e:'コダック FunSaver · 1990s', b2d:'プラレンズ使い捨て',
@@ -574,11 +808,11 @@ var I18N = {
     philQuote:'あなたを見張る投資家も、分析ダッシュボードも、誰かのサーバーに置かれる映像もありません。合うならサブスク —— または買い切り。どちらでも、あなたの写真はあなたのもの。',
     philSub:'端末内 · 追跡なし · データ販売なし。',
     faqHead:'正直な質問。', faqSub:'よくある質問。',
-    q1:'無料版はありますか？', a1:'はい。6つのフィルムは永久無料、アカウント不要。Pro で残り10フィルム、Steal the Look、LUT 書き出し、シネマ操作が解放されます。',
-    q2:'オフラインアプリがなぜサブスク？', a2:'もっともな疑問です。Pro は新フィルムと v1.x の生涯アップデートの資金に —— サーバー（そもそも無い）ではありません。サブスクが嫌なら、Forever を一度 ¥5,800 で。あなた次第です。',
+    q1:'無料版はありますか？', a1:'はい。6つのフィルム、マニュアル操作(ISO/シャッター/WB)、モニタリングHUD(ピーキング/ゼブラ)は永久無料、アカウント不要。Pro で残り10フィルム、Steal the Look、LUT書き出し、Proボディが解放されます。',
+    q2:'オフラインアプリがなぜサブスク？', a2:'もっともな疑問です。Pro は新フィルムとアップデートの資金に —— サーバーではありません。サブスクが嫌なら、Forever を一度 ¥3,000 で。',
     q3:'Lam は写真をアップロードしますか？', a3:'いいえ。Real Tone は端末内で動作します。オンボーディング時の肌スキャンは端末から出ません。',
-    q4:'年額と Forever の違いは？', a4:'機能は同じ。年額（¥2,200）は毎シーズンの新フィルムを含み、Forever（¥5,800）は現行 Pro 機能すべてを一度の支払いで、更新なし。',
-    q5:'無料と Pro の違いは？', a5:'無料：6フィルム、recipe インポート、ライブエンジン。Pro：全16フィルム、Steal the Look、.cube 書き出し、マニュアル ISO/シャッター/LOG。Food Pack は任意のアドオンのまま。',
+    q4:'年額と Forever の違いは？', a4:'機能は同じ。年額（¥2,200）は毎シーズンの新フィルムを含み、Forever（¥3,000）は現行 Pro 機能すべてを一度の支払いで、更新なし。',
+    q5:'無料と Pro の違いは？', a5:'無料：6フィルム、マニュアル操作、モニタリングHUD、recipe インポート、ライブエンジン。Pro：全16フィルム、Steal the Look、.cube 書き出し、Proボディ、レザー張り。',
     q6:'いつ公開ですか？', a6:'2026年7月、App Store と Google Play 同時。ウェイトリストには公開日のメールが届きます — Lam が送る唯一のメールです。',
     wlPill:'2026年7月 · App Store + Play', wlHead:'公開ウェイトリストに登録。',
     wlSub:'Lam 公開時にメールを1通 — その後は送りません。',
@@ -602,11 +836,11 @@ var I18N = {
     aiLatK:'속도', aiLatThem:'클립당 수 분 · 서버 렌더링', aiLatUs:'뷰파인더에서 실시간 60fps',
     aiPrivK:'프라이버시', aiPrivThem:'당신의 클립이 그들의 클라우드로 업로드', aiPrivUs:'100% 온디바이스 —— 폰을 벗어나지 않음',
     aiRealK:'정직함', aiRealThem:'디테일을 지어냄 · 얼굴과 피부 왜곡', aiRealUs:'현실 유지 · 진짜 필름 화학 시뮬레이션',
-    aiCostK:'비용', aiCostThem:'월 $10–50, 크레딧 종량제', aiCostUs:'₩22,000/년 무제한 —— 또는 ₩58,000 평생',
+    aiCostK:'비용', aiCostThem:'월 $10–50, 크레딧 종량제', aiCostUs:'₩22,000/년 무제한 —— 또는 ₩29,000 평생',
     prHead:'소유 방식을 선택하세요.', prSub:'무료로 사용해 보세요. 구독하거나, 평생 소유하거나. 광고 없음, 데이터 판매 없음 —— 영원히.',
-    prFreeName:'무료', prFreeDesc:'6가지 필름. 모든 recipe 코드 가져오기. 라이브 엔진을 마음껏 체험.',
+    prFreeName:'무료', prFreeDesc:'6가지 필름, 수동 ISO/셔터 제어 & 실시간 모니터링. 평생 무료.',
     prYearBadge:'최고의 가성비 · 7일 체험', prYearName:'Pro · 연간', prPerYear:'/ 년',
-    prYearDesc:'전부: 16가지 필름, Steal the Look, LUT 내보내기, 프로 시네마 컨트롤. 매 시즌 새 필름.',
+    prYearDesc:'전부: 16가지 필름, Steal the Look, .cube LUT 내보내기, 4가지 Pro 바디. 매 시즌 새 필름.',
     prPerMonth:'/ 월 (월간을 원하면)',
     prLifeName:'Forever (평생)', prOnce:'한 번', prLifeDesc:'한 번 결제로 평생 소유 —— 갱신 없음. 진심인 사람을 위한 반(反)구독 선택.',
     prPacks:'선택형 단건 팩 (Food Pack, 필름 팩) —— 원하는 것만.',
@@ -619,6 +853,26 @@ var I18N = {
     w4h:'프로 시네마 컨트롤', w4v:'180° 규칙 · Honest LOG', w4p:'수동 ISO 50–6400, 180° 셔터 규칙 자동 잠금(24→1/48, 30→1/60, 60→1/120), 그리고 Honest LOG —— 진짜 플랫한 파일, 가짜 LOG 가 아닙니다.',
     w5h:'recipe 코드', w5v:'8자, 확산되는', w5p:'어떤 룩이든 8자 코드로(체크섬 포함). TikTok 댓글에 붙이면 —— 누구나 Lam 에 붙여넣어 당신의 정확한 색을 얻습니다. 계정 불필요.',
     w6h:'실시간 필름 엔진', w6v:'후처리가 아닌 라이브', w6p:'대부분의 필름 앱은 이미 찍힌 사진에 필터를 입힙니다. Lam 은 카메라 버퍼에서 LUT 색감·할레이션·그레인까지 필름 처리 전체를 60fps 로 실시간 구동합니다. 보이는 그대로 찍힙니다.',
+    cmpHead:'크리에이터 워크플로우를 위한 설계.', cmpSub:'일반 필터 앱 및 전문 시네마 앱과 Lam 의 비교.',
+    cmpColFeature:'워크플로우 니즈', cmpColFilterApps:'필터 앱 (Dazz, NOMO)', cmpColProApps:'전문 촬영 앱', cmpColLam:'Lam Camera',
+    cmpF1:'라이브 필름 그레이딩', cmpG1:'촬영 후 필터만 가능', cmpP1:'라이브 프리뷰 (필름 느낌 없음)', cmpL1:'실시간 60fps 필름 그레이딩',
+    cmpF2:'아시아 피부톤 모드', cmpG2:'서구 기본 프리셋', cmpP2:'없음', cmpL2:'5가지 Real Tone 모드',
+    cmpF3:'데스크톱 LUT 내보내기', cmpG3:'없음', cmpP3:'없음', cmpL3:'Resolve 용 .cube LUT',
+    cmpF4:'룩 색감 공유', cmpG4:'없음', cmpP4:'없음', cmpL4:'8자 공유 코드',
+    cmpF5:'수동 수치 제어', cmpG5:'없음', cmpP5:'있음 (복잡한 UI)', cmpL5:'전체 제어 (무료)',
+    cmpF6:'사진 & 동영상 동시', cmpG6:'없음', cmpP6:'없음', cmpL6:'녹화 중 SNAP 촬영',
+    thmHead:'다섯 가지 테마. 다섯 가지 개성.', thmSub:'모든 테마는 당신의 크리에이티브 스타일에 맞게 설계된 독특한 카메라 페르소나입니다.',
+    thmNoirDesc:'시네마틱하고 고요함. 필름 순수주의자를 위한 기계적 정밀함.',
+    thmSakuraDesc:'화사한 블러시 에디토리얼. 뷰티 & 인물 크리에이터를 위한 꿈꾸는 세리프.',
+    thmChromeDesc:'일렉트릭 시안 & 건메탈. 비디오 디렉터를 위한 깔끔한 HUD.',
+    thmLunaDesc:'미드나잇 라일락 & 딥 인디고. 야간 크리에이터를 위한 부드러운 감성.',
+    thmJadeDesc:'에스프레소 & 제이드 그린. 푸드 & 트래블 Vlog 를 위한 따뜻한 햇살.',
+    sknHead:'부티크 가죽 스킨', sknSub:'상징적인 광학 카메라 역사에서 영감을 받은 수공예 바디 마감.',
+    skn1Desc:'라이카 M — 불카나이트 & 황동 (무료)',
+    skn2Desc:'하셀블라드 500C — 코냑 송아지 가죽',
+    skn3Desc:'올림푸스 Pen-F — 슬레이트 블루 & 크롬',
+    skn4Desc:'라이카 R Safari — 올리브 드랩',
+    skn5Desc:'롤라이플렉스 TLR — 버건디 & 브론즈',
     bHead:'9개의 바디. 9개의 시대.', bSub:'각 바디가 진짜 문화적 이야기를 담습니다.',
     b1e:'스위스 레인지파인더 · 1960s', b1d:'35mm 레인지파인더',
     b2e:'코닥 FunSaver · 1990s', b2d:'플라스틱 렌즈 일회용',
@@ -633,11 +887,11 @@ var I18N = {
     philQuote:'당신을 지켜보는 투자자도, 분석 대시보드도, 누군가의 서버에 놓인 프레임도 없습니다. 맞으면 구독 —— 또는 평생 소유. 어느 쪽이든 사진은 당신의 것입니다.',
     philSub:'온디바이스 · 추적 없음 · 데이터 판매 없음.',
     faqHead:'솔직한 질문.', faqSub:'자주 묻는 질문.',
-    q1:'무료 버전이 있나요?', a1:'네. 6가지 필름은 평생 무료, 계정 불필요. Pro 는 나머지 10가지 필름, Steal the Look, LUT 내보내기, 시네마 컨트롤을 엽니다.',
-    q2:'오프라인 앱인데 왜 구독인가요?', a2:'타당한 질문입니다. Pro 는 새 필름과 평생 v1.x 업데이트의 재원입니다 —— 서버(애초에 없음)가 아니라. 구독이 싫다면 Forever 를 한 번 ₩58,000 에. 당신이 선택합니다.',
+    q1:'무료 버전이 있나요?', a1:'네. 6가지 필름, 수동 제어(ISO/셔터/WB), 모니터링 HUD(피킹/제브라)는 평생 무료, 계정 불필요. Pro 는 나머지 10가지 필름, Steal the Look, LUT 내보내기, Pro 바디를 엽니다.',
+    q2:'오프라인 앱인데 왜 구독인가요?', a2:'타당한 질문입니다. Pro 는 새 필름과 업데이트의 재원입니다 —— 서버가 아니라. 구독이 싫다면 Forever 를 한 번 ₩29,000 에.',
     q3:'Lam 이 제 사진을 업로드하나요?', a3:'아니요. Real Tone 은 기기에서 동작합니다. 온보딩 때의 피부 스캔은 휴대폰을 떠나지 않습니다.',
-    q4:'연간과 Forever 의 차이는?', a4:'기능은 동일. 연간(₩22,000)은 매 시즌 새 필름 포함, Forever(₩58,000)는 현재 모든 Pro 기능을 한 번 결제로, 갱신 없음.',
-    q5:'무료와 Pro 의 차이는?', a5:'무료: 6가지 필름, recipe 가져오기, 라이브 엔진. Pro: 전체 16가지 필름, Steal the Look, .cube 내보내기, 수동 ISO/셔터/LOG. Food Pack 은 선택형 추가 기능으로 유지.',
+    q4:'연간과 Forever 의 차이는?', a4:'기능은 동일. 연간(₩22,000)은 매 시즌 새 필름 포함, Forever(₩29,000)는 현재 모든 Pro 기능을 한 번 결제로, 갱신 없음.',
+    q5:'무료와 Pro 의 차이는?', a5:'무료: 6가지 필름, 수동 제어, 모니터링 HUD, recipe 가져오기, 라이브 엔진. Pro: 전체 16가지 필름, Steal the Look, .cube 내보내기, Pro 바디, 가죽 마감.',
     q6:'언제 출시되나요?', a6:'2026년 7월, App Store 와 Google Play 동시. 대기자 명단에는 출시일 이메일이 갑니다 — Lam 이 보내는 유일한 이메일입니다.',
     wlPill:'2026년 7월 · App Store + Play', wlHead:'출시 대기자 명단 등록.',
     wlSub:'Lam 출시 때 이메일 한 통 — 그 후로는 없습니다.',
@@ -645,6 +899,406 @@ var I18N = {
     footTag:'Lam · 영혼이 담긴 필름 카메라.', footPrivacy:'개인정보 처리방침', footTerms:'이용약관',
     footCopy:'© 2026 BREW KITS · 쿠키 없음 · ANALYTICS 없음 · 계정 불필요'
   }
+  ,th: {
+    prelaunch:'● พรีลอนช์ · App Store จะมาในเดือนกรกฎาคม 2026',
+    tagMain:'กล้องฟิล์มที่มีจิตวิญญาณ',
+    tagSub:'เกรดสีฟิล์มสดปรับแต่งสำหรับผิวชาวเอเชีย Steal the Look ส่งออก .cube หรือแชร์เป็นโค้ด —— ทำงานแบบออฟไลน์บนเครื่องของคุณ ไม่ส่งขึ้นเซิร์ฟเวอร์',
+    ctaPrimary:'เข้าร่วม Waitlist', ctaSecondary:'ทำไมต้อง Lam ↓', ctaNotify:'แจ้งเตือนเมื่อเปิดตัว ↓',
+    statYear:'/ ปี', statForever:'ตลอดชีพ', statStocks:'ฟิล์ม', statTones:'โหมดผิวเอเชีย',
+    pillFeatured:'แนะนำ', pillPricing:'ราคา',
+    tLead:'ขโมยโทน', tRetention:'REAL TONE', tConversion:'เวิร์กโฟลว์', tPro:'ภาพยนตร์', tDelight:'ไวรัล', tNarrative:'เอนจิน',
+    rtHead:'โทนสีผิวที่ปรับมาเพื่อเอเชีย', rtSub:'Real Tone — 5 โหมดที่ปรับจูนสำหรับผิวคนเอเชียตะวันออกเฉียงใต้',
+    rtBody:'แอปฟิลเตอร์อื่นประมวลผลผิวเอเชียด้วยค่าเริ่มต้นแบบตะวันตก Lam มาพร้อมกับ 5 โหมดเฉพาะ — และโหมด AUTO ที่สแกนผิวคุณใน 2 วินาทีระหว่างการเริ่มต้นใช้งาน',
+    toneWarm:'น้ำตาลอบอุ่น', toneGolden:'น้ำตาลทอง', toneNeutral:'ธรรมชาติ', toneCool:'ธรรมชาติเย็น', toneAuto:'ตรวจจับอัตโนมัติ',
+    aiHead:'ภาพจริง ไม่ใช่ AI สร้าง', aiSub:'Cloud AI สร้างเฟรมปลอมบนเซิร์ฟเวอร์ Lam เกรดสีเฟรมจริง แบบสดๆ บนโทรศัพท์ของคุณ',
+    aiThem:'Cloud AI (Luma · Runway)', aiUs:'Lam',
+    aiLatK:'ความเร็ว', aiLatThem:'หลายนาทีต่อคลิป · เรนเดอร์บนเซิร์ฟเวอร์', aiLatUs:'60fps แบบเรียลไทม์ในช่องมองภาพ',
+    aiPrivK:'ความเป็นส่วนตัว', aiPrivThem:'คลิปของคุณถูกอัปโหลดขึ้นคลาวด์', aiPrivUs:'100% บนเครื่อง — ไม่มีการส่งข้อมูลออกจากโทรศัพท์',
+    aiRealK:'ความสมจริง', aiRealThem:'สร้างรายละเอียดปลอม · บิดเบือนใบหน้าและผิว', aiRealUs:'คงความจริง · จำลองเคมีของฟิล์มจริง',
+    aiCostK:'ค่าใช้จ่าย', aiCostThem:'$10–50/เดือน, คิดตามเครดิต', aiCostUs:'฿499/ปี ไม่จำกัด —— หรือ ฿699 ตลอดชีพ',
+    prHead:'เลือกวิธีที่คุณเป็นเจ้าของ', prSub:'ทดลองใช้ฟรี สมัครสมาชิก หรือซื้อขาดตลอดชีพ ไม่มีโฆษณา ไม่ขายข้อมูล — ตลอดไป',
+    prFreeName:'ฟรี', prFreeDesc:'ฟิล์ม 6 ชนิด การควบคุม ISO/ชัตเตอร์ แมนนวลเต็มรูปแบบ & การมอนิเตอร์สด ฟรีตลอดไป',
+    prYearBadge:'คุ้มค่าที่สุด · ทดลองใช้ 7 วัน', prYearName:'Pro · รายปี', prPerYear:'/ ปี',
+    prYearDesc:'ทั้งหมด: ฟิล์ม 16 ชนิด, Steal the Look, ส่งออก .cube LUT, กล้อง Pro 4 บอดี้ และฟิล์มใหม่ทุกฤดูกาล',
+    prPerMonth:'/ เดือน หากต้องการรายเดือน',
+    prLifeName:'Forever (ตลอดชีพ)', prOnce:'ครั้งเดียว', prLifeDesc:'จ่ายครั้งเดียว เป็นเจ้าของตลอดไป — ไม่มีการต่ออายุ ตัวเลือกต่อต้านการสมัครสมาชิก สำหรับคนที่จริงจัง',
+    prPacks:'แพ็กเสริมจ่ายครั้งเดียว (แพ็กอาหาร, แพ็กฟิล์ม) — ซื้อเฉพาะสิ่งที่คุณต้องการ',
+    ccyNote:'ราคาเป็นระดับราคาโดยประมาณในร้านค้าส่วนภูมิภาค — ราคาที่แน่นอนจะแสดงตอนชำระเงิน ไม่ต้องใช้บัญชี · ไม่มีโฆษณา · ไม่เก็บข้อมูล',
+    ctaHint:'App Store + Google Play · กรกฎาคม 2026 · อีเมลเดียว แล้วจะไม่มีอีกเลย',
+    wHead:'5 อาวุธ ในกล้องเดียว', wSub:'สิ่งที่แอปฟิล์มอื่นในสโตร์ไม่เคยทำร่วมกัน',
+    w1h:'Steal the Look', w1v:'ดึง DNA สีจากรูปภาพใดก็ได้', w1p:'เห็นโทนสีที่ชอบไหม? เล็ง Lam ไปที่รูปภาพใดก็ได้ — แอปจะอ่านสี (ค่าเฉลี่ย ความแปรปรวน ความอบอุ่น) และสร้างโค้ดสีใหม่บนเครื่องในไม่กี่วินาที',
+    w2h:'Real Tone สำหรับเอเชีย', w2v:'5 โหมดผิวเอเชีย', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — ปรับจูนสำหรับผิวเอเชียตะวันออกเฉียงใต้ แอปตะวันตกมักทำให้ผิวเขตร้อนดูเทาหรือเขียว Lam จะไม่เป็นเช่นนั้น',
+    w3h:'ส่งออกไปยัง .cube', w3v:'17³ LUT สำหรับ Resolve', w3p:'ถ่ายบนมือถือ แต่งต่อบนคอม ส่งออกทุกลุคเป็น 17³ .cube LUT — ตรงเข้า DaVinci Resolve, Premiere, Final Cut ได้เลย',
+    w4h:'การควบคุมระดับภาพยนตร์', w4v:'กฎ 180° · Honest LOG', w4p:'ปรับ ISO 50–6400 แมนนวล, ล็อกชัตเตอร์ 180° อัตโนมัติ (24→1/48, 30→1/60, 60→1/120) และ Honest LOG — เก็บภาพที่แบนจริง ไม่ใช่โค้งปลอม',
+    w5h:'โค้ดสูตรสี', w5v:'8 ตัวอักษร, ไวรัล', w5p:'เปลี่ยนทุกลุคให้เป็นโค้ด 8 ตัวอักษร (มี Checksum) วางใต้คอมเมนต์ TikTok — ใครๆ ก็ก๊อปปี้ไปวางใน Lam เพื่อรับโทนสีเดียวกันได้ ไม่ต้องใช้บัญชี',
+    w6h:'เอนจินฟิล์มเรียลไทม์', w6v:'สดๆ ไม่ใช่ปรับแต่งทีหลัง', w6p:'แอปฟิล์มส่วนใหญ่แปะฟิลเตอร์บนรูปที่ถ่ายแล้ว Lam รันการประมวลผลฟิล์มทั้งระบบ — สี LUT, Halation, เกรน — สดๆ บนบัฟเฟอร์กล้องที่ 60fps สิ่งที่คุณเห็น คือสิ่งที่คุณได้',
+    cmpHead:'สร้างมาเพื่อเวิร์กโฟลว์ครีเอเตอร์', cmpSub:'Lam เปรียบเทียบกับแอปฟิลเตอร์ทั่วไปและแอปภาพยนตร์แบบซับซ้อน',
+    cmpColFeature:'ความต้องการ', cmpColFilterApps:'แอปฟิลเตอร์ (Dazz, NOMO)', cmpColProApps:'แอปกล้องวิดีโอ Pro', cmpColLam:'กล้อง Lam',
+    cmpF1:'เกรดสีฟิล์มสด', cmpG1:'ฟิลเตอร์หลังถ่ายเท่านั้น', cmpP1:'พรีวิวสด (ไม่มีโทนฟิล์ม)', cmpL1:'เกรดสีฟิล์มสด 60fps',
+    cmpF2:'โทนผิวเอเชีย', cmpG2:'พรีเซตตะวันตก', cmpP2:'ไม่มี', cmpL2:'โหมด Real Tone 5 โหมด',
+    cmpF3:'ส่งออก LUT เข้าคอม', cmpG3:'ไม่มี', cmpP3:'ไม่มี', cmpL3:'.cube LUT สำหรับ Resolve',
+    cmpF4:'แชร์โค้ดลุค', cmpG4:'ไม่มี', cmpP4:'ไม่มี', cmpL4:'โค้ด 8 ตัวอักษร',
+    cmpF5:'แมนนวลคอนโทรล', cmpG5:'ไม่มี', cmpP5:'Pro (UX ซับซ้อน)', cmpL5:'ควบคุมเต็ม (ฟรี)',
+    cmpF6:'ถ่ายรูป & วิดีโอพร้อมกัน', cmpG6:'ไม่มี', cmpP6:'ไม่มี', cmpL6:'SNAP ขณะถ่ายวิดีโอ',
+    thmHead:'5 ธีม 5 บุคลิก', thmSub:'ทุกธีมคือบุคลิกของกล้องที่แตกต่าง เพื่อสไตล์การสร้างสรรค์ของคุณ',
+    thmNoirDesc:'ภาพยนตร์ หม่นหมอง มืดมิด ความแม่นยำเชิงกลไกสำหรับคนรักฟิล์ม',
+    thmSakuraDesc:'นิตยสาร อมชมพูอ่อน ซีรีฟชวนฝันสำหรับครีเอเตอร์บิวตี้และพอร์ตเทรต',
+    thmChromeDesc:'ฟ้าไซอัน & กันเมทัล HUD คลีนๆ สำหรับผู้กำกับวิดีโอ',
+    thmLunaDesc:'ม่วงมิดไนท์ & อินดิโก้เข้ม สุนทรียภาพนุ่มนวลสำหรับครีเอเตอร์กลางคืน',
+    thmJadeDesc:'เอสเพรสโซ่ & เขียวหยก แสงอาทิตย์อุ่นๆ สำหรับ Vlogs อาหารและท่องเที่ยว',
+    sknHead:'บอดี้หนังบูติก', sknSub:'ลวดลายตัวกล้องคราฟต์ที่ได้รับแรงบันดาลใจจากประวัติศาสตร์เลนส์สุดคลาสสิก',
+    skn1Desc:'Leica M — วันคาไนต์ & ทองเหลือง (ฟรี)',
+    skn2Desc:'Hasselblad 500C — หนังลูกวัวคอนยัค',
+    skn3Desc:'Olympus Pen-F — น้ำเงินสเลท & โครเมียม',
+    skn4Desc:'Leica R Safari — เขียวมะกอก',
+    skn5Desc:'Rolleiflex TLR — แดงเบอร์กันดี & บรอนซ์',
+    bHead:'9 บอดี้ 9 ยุคสมัย', bSub:'แต่ละบอดี้บอกเล่าเรื่องราววัฒนธรรมที่แท้จริง',
+    b1e:'เรนจ์ไฟนเดอร์ สวิส · 1960s', b1d:'35mm เรนจ์ไฟนเดอร์',
+    b2e:'Kodak FunSaver · 1990s', b2d:'กล้องใช้แล้วทิ้งเลนส์พลาสติก',
+    b3e:'Y2K ดิจิแคมเอเชีย · 2003', b3d:'คอมแพค CCD',
+    b4e:'ภาพยนตร์ · ยุค Tran Anh Hung', b4d:'ฟิล์มภาพยนตร์ 16mm',
+    b5e:'โพลารอยด์สีชมพู · 1999', b5d:'กล้องสติกเกอร์อินสแตนท์',
+    b6e:'มีเดียมฟอร์แมต Pro · 1995', b6d:'สตูดิโอฟิล์มสีเนกาทีฟ',
+    b7e:'Fujifilm Instax · ญี่ปุ่น 2010s', b7d:'อินสแตนท์ทรงจตุรัส',
+    b8e:'Saigon Tropical · 1990s', b8d:'เอเชียตะวันออกเฉียงใต้ · แสงแดดสีทอง',
+    b9e:'Seoul Indie · 2005', b9d:'ดิจิแคมคลีนๆ สไตล์เกาหลี',
+    philPill:'ปรัชญา', philHead:'ของคุณ ไม่ใช่เช่าจากคลาวด์',
+    philQuote:'ไม่มีนักลงทุนคอยจับตาดูคุณ ไม่มีแดชบอร์ดวิเคราะห์ ไม่มีเฟรมของคุณบนเซิร์ฟเวอร์ของใคร สมัครสมาชิกถ้าถูกใจ — หรือซื้อขาดตลอดชีพ ไม่ว่าทางไหน รูปของคุณก็คือของคุณ',
+    philSub:'ทำงานบนเครื่อง · ไม่มีการติดตาม · ไม่มีการขายข้อมูล',
+    faqHead:'คำถามตรงไปตรงมา', faqSub:'คำถามที่พบบ่อย',
+    q1:'มีเวอร์ชันฟรีไหม?', a1:'มี ฟิล์ม 6 ชนิด ควบคุมแมนนวล (ISO/ชัตเตอร์/WB) และ HUD ตรวจสอบ (Peaking/Zebra) ฟรีตลอดไป ไม่ต้องมีบัญชี Pro จะปลดล็อกอีก 10 ฟิล์ม, Steal the Look, ส่งออก LUT และบอดี้ Pro',
+    q2:'ทำไมแอปออฟไลน์ถึงต้องสมัครสมาชิก?', a2:'เป็นคำถามที่ดี Pro นำไปเป็นทุนสร้างฟิล์มใหม่และการอัปเดต — ไม่ใช่ค่าเซิร์ฟเวอร์ และถ้าคุณไม่อยากสมัครสมาชิก ก็ซื้อ Forever จ่ายครั้งเดียว ฿699 คุณเลือกได้',
+    q3:'Lam อัปโหลดรูปของฉันไหม?', a3:'ไม่ Real Tone ทำงานบนเครื่องของคุณ การสแกนผิวตอนเริ่มใช้จะไม่ส่งข้อมูลออกจากโทรศัพท์คุณ',
+    q4:'รายปีกับ Forever ต่างกันยังไง?', a4:'ฟีเจอร์เหมือนกัน รายปี (฿499) รวมฟิล์มใหม่ทุกฤดูกาล; Forever (฿699) จ่ายครั้งเดียวใช้ได้ตลอดชีพ ไม่ต้องต่ออายุ',
+    q5:'ความต่างของฟรีกับ Pro?', a5:'ฟรี: ฟิล์ม 6 ชนิด, คอนโทรลแมนนวล, มอนิเตอร์ HUD, นำเข้าโค้ดสี, เอนจินแบบสด Pro: ฟิล์มครบ 16 ชนิด, Steal the Look, ส่งออก .cube, บอดี้ Pro, และสกินบูติก',
+    q6:'จะเปิดตัวเมื่อไหร่?', a6:'กรกฎาคม 2026 บน App Store และ Google Play พร้อมกัน คนที่อยู่ใน waitlist จะได้รับอีเมลแจ้งเตือนในวันเปิดตัว — และจะเป็นอีเมลเดียวที่ Lam จะส่งถึงคุณ',
+    wlPill:'กรกฎาคม 2026 · App Store + Play', wlHead:'เข้าร่วมคิวเปิดตัว',
+    wlSub:'อีเมลเดียวเมื่อ Lam เปิดตัว — และจะไม่มีส่งอีกเลย',
+    wlBtn:'แจ้งเตือนฉัน', wlMicro:'อีเมลเดียว · ไม่ติดตาม · ไม่ขายอีเมล',
+    footTag:'Lam · กล้องฟิล์มที่มีจิตวิญญาณ', footPrivacy:'นโยบายความเป็นส่วนตัว', footTerms:'เงื่อนไขการให้บริการ',
+    footCopy:'© 2026 BREW KITS · ไม่มีคุกกี้ · ไม่มี ANALYTICS · ไม่ต้องใช้บัญชี'
+  }
+
+  ,id: {
+    prelaunch:'● Pre-launch · App Store rilis Juli 2026',
+    tagMain:'Kamera film dengan jiwa.',
+    tagSub:'Grading film live yang disesuaikan untuk kulit Asia. Curi gaya warna, ekspor ke .cube, bagikan sebagai kode — diproses langsung di perangkat Anda, tidak pernah di server.',
+    ctaPrimary:'Bergabung ke waitlist', ctaSecondary:'Mengapa Lam ↓', ctaNotify:'Kabari saya saat rilis ↓',
+    statYear:'/ tahun', statForever:'selamanya', statStocks:'jenis film', statTones:'mode kulit Asia',
+    pillFeatured:'Unggulan', pillPricing:'Harga',
+    tLead:'CURI WARNA', tRetention:'REAL TONE', tConversion:'WORKFLOW', tPro:'SINEMA', tDelight:'VIRAL', tNarrative:'ENGINE',
+    rtHead:'Warna kulit khusus Asia.', rtSub:'Real Tone — 5 mode yang dikalibrasi untuk kulit Asia Tenggara.',
+    rtBody:'Aplikasi filter lain memproses kulit Asia dengan standar Barat. Lam menghadirkan 5 mode khusus — ditambah mode AUTO yang memindai kulit Anda dalam 2 detik saat pengaturan awal.',
+    toneWarm:'Coklat hangat', toneGolden:'Coklat keemasan', toneNeutral:'Netral', toneCool:'Netral dingin', toneAuto:'Deteksi otomatis',
+    aiHead:'Footage nyata. Bukan buatan AI.', aiSub:'Cloud AI menciptakan frame di server. Lam memproses frame asli Anda, live di ponsel Anda.',
+    aiThem:'Cloud AI (Luma · Runway)', aiUs:'Lam',
+    aiLatK:'Kecepatan', aiLatThem:'Beberapa menit per klip · render server', aiLatUs:'Live 60fps di viewfinder',
+    aiPrivK:'Privasi', aiPrivThem:'Klip Anda diunggah ke cloud mereka', aiPrivUs:'100% on-device — tidak ada yang keluar dari ponsel',
+    aiRealK:'Kejujuran', aiRealThem:'Menciptakan detail fiktif · merusak wajah & kulit', aiRealUs:'Menjaga realita · mensimulasikan kimia film asli',
+    aiCostK:'Biaya', aiCostThem:'$10–50/bln, sistem kredit', aiCostUs:'Rp 249.000/thn tanpa batas —— atau Rp 329.000 selamanya',
+    prHead:'Pilih cara Anda memilikinya.', prSub:'Coba gratis. Berlangganan, atau miliki selamanya. Tanpa iklan, tanpa jual data — selamanya.',
+    prFreeName:'Gratis', prFreeDesc:'6 jenis film, kontrol ISO/shutter manual penuh & live monitoring. Gratis selamanya.',
+    prYearBadge:'Paling hemat · coba 7 hari', prYearName:'Pro · Tahunan', prPerYear:'/ tahun',
+    prYearDesc:'Semuanya: 16 film, Steal the Look, ekspor .cube LUT, 4 bodi kamera Pro. Film baru setiap musim.',
+    prPerMonth:'/ bln jika Anda memilih bulanan',
+    prLifeName:'Forever (Selamanya)', prOnce:'sekali', prLifeDesc:'Bayar sekali, miliki selamanya — tanpa perpanjangan, selamanya. Opsi anti-langganan untuk Anda yang serius.',
+    prPacks:'Paket satuan opsional (Food Pack, paket film) — beli hanya yang Anda inginkan.',
+    ccyNote:'Harga adalah perkiraan untuk wilayah Anda — harga lokal yang pasti ditampilkan saat checkout. Tanpa akun · Tanpa iklan · Tanpa pengumpulan data.',
+    ctaHint:'App Store + Google Play · Juli 2026 · satu email, dan tidak akan pernah lagi',
+    wHead:'Lima senjata. Satu kamera.', wSub:'Apa yang tidak bisa dilakukan aplikasi film manapun sekaligus.',
+    w1h:'Steal the Look', w1v:'DNA warna dari foto manapun', w1p:'Melihat tampilan yang Anda suka? Arahkan Lam ke foto apa saja — ia membaca warnanya (mean, variance, bias suhu) dan membangunnya kembali menjadi resep, di perangkat, dalam hitungan detik.',
+    w2h:'Real Tone untuk Asia', w2v:'5 mode kulit Asia', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — dikalibrasi untuk kulit Asia Tenggara. Aplikasi Barat membuat kulit tropis tampak abu-abu atau hijau. Lam tidak.',
+    w3h:'Ekspor ke .cube', w3v:'17³ LUT untuk Resolve', w3p:'Rekam di ponsel, selesaikan di desktop. Ekspor tampilan apa pun sebagai 17³ .cube LUT — langsung ke DaVinci Resolve, Premiere, atau Final Cut.',
+    w4h:'Kontrol sinema Pro', w4v:'Aturan 180° · Honest LOG', w4p:'Manual ISO 50–6400, aturan shutter 180° terkunci otomatis (24→1/48, 30→1/60, 60→1/120), dan Honest LOG — file benar-benar flat, bukan kurva palsu.',
+    w5h:'Kode resep', w5v:'8 karakter, viral', w5p:'Ubah gaya apa pun menjadi kode 8 karakter (dilindungi checksum). Taruh di kolom komentar TikTok — siapa saja bisa menempelkannya ke Lam dan mendapatkan gradasi persis milik Anda. Tanpa akun.',
+    w6h:'Engine film real-time', w6v:'Live, bukan post-processing', w6p:'Kebanyakan aplikasi film menempelkan filter pada foto yang sudah jadi. Lam menjalankan seluruh proses film — warna LUT, halation, grain — live pada buffer kamera di 60fps. Apa yang Anda bingkai adalah persis apa yang Anda tangkap.',
+    cmpHead:'Dibuat untuk Workflow Kreator.', cmpSub:'Perbandingan Lam dengan aplikasi filter biasa dan aplikasi sinema yang rumit.',
+    cmpColFeature:'Kebutuhan Workflow', cmpColFilterApps:'Aplikasi Filter (Dazz, NOMO)', cmpColProApps:'Aplikasi Sinema Pro', cmpColLam:'Kamera Lam',
+    cmpF1:'Grading Film Live', cmpG1:'Filter setelah jepret', cmpP1:'Live preview (tanpa look film)', cmpL1:'Grading film live 60fps',
+    cmpF2:'Warna Kulit Asia', cmpG2:'Preset Barat', cmpP2:'Tidak ada', cmpL2:'5 Mode Real Tone',
+    cmpF3:'Ekspor LUT Desktop', cmpG3:'Tidak ada', cmpP3:'Tidak ada', cmpL3:'.cube LUT untuk Resolve',
+    cmpF4:'Berbagi Tampilan', cmpG4:'Tidak ada', cmpP4:'Tidak ada', cmpL4:'Kode viral 8 karakter',
+    cmpF5:'Kontrol Manual', cmpG5:'Tidak ada', cmpP5:'Pro (UX Rumit)', cmpL5:'Kontrol penuh (GRATIS)',
+    cmpF6:'Dual Foto & Video', cmpG6:'Tidak ada', cmpP6:'Tidak ada', cmpL6:'SNAP sambil merekam',
+    thmHead:'Lima Tema. Lima Kepribadian.', thmSub:'Setiap tema adalah kepribadian kamera yang berbeda, dirancang untuk gaya kreatif Anda.',
+    thmNoirDesc:'Sinematik, moody, ultra-gelap. Presisi mekanis untuk puritan film.',
+    thmSakuraDesc:'Rona merah muda majalah. Serif impian untuk kreator beauty & portrait.',
+    thmChromeDesc:'Cyan elektrik & gunmetal. HUD bersih untuk sutradara video.',
+    thmLunaDesc:'Lilac tengah malam & nila pekat. Estetika lembut untuk kreator malam hari.',
+    thmJadeDesc:'Espresso & hijau giok. Kehangatan golden-hour untuk vlog makanan & travel.',
+    sknHead:'Skin Kulit Butik', sknSub:'Balutan bodi kamera buatan tangan yang terinspirasi dari sejarah optik ikonik.',
+    skn1Desc:'Leica M — vulcanite & kuningan (Gratis)',
+    skn2Desc:'Hasselblad 500C — kulit anak sapi cognac',
+    skn3Desc:'Olympus Pen-F — slate blue & chrome',
+    skn4Desc:'Leica R Safari — hijau zaitun',
+    skn5Desc:'Rolleiflex TLR — burgundy & perunggu',
+    bHead:'Sembilan bodi. Sembilan era.', bSub:'Setiap bodi membawa kisah budaya yang nyata.',
+    b1e:'Rangefinder Swiss · 1960s', b1d:'Rangefinder 35mm',
+    b2e:'Kodak FunSaver · 1990s', b2d:'Kamera sekali pakai lensa plastik',
+    b3e:'Digicam Y2K Asia · 2003', b3d:'CCD compact',
+    b4e:'Sinema · Era Tran Anh Hung', b4d:'Film layar lebar 16mm',
+    b5e:'Polaroid Pink · 1999', b5d:'Kamera stiker instan',
+    b6e:'Medium format pro · 1995', b6d:'Studio colour negative',
+    b7e:'Fujifilm Instax · Jepang 2010s', b7d:'Instan persegi',
+    b8e:'Saigon Tropical · 1990s', b8d:'Asia Tenggara · mentari keemasan',
+    b9e:'Seoul Indie · 2005', b9d:'Digicam bersih Korea',
+    philPill:'Filosofi', philHead:'Milik Anda. Bukan menyewa dari cloud.',
+    philQuote:'Tidak ada investor yang mengawasi Anda, tidak ada dashboard analitik, tidak ada frame Anda di server orang lain. Berlangganan jika cocok — atau miliki selamanya. Bagaimanapun juga, foto Anda adalah milik Anda.',
+    philSub:'Di perangkat · Tanpa pelacakan · Tanpa penjualan data.',
+    faqHead:'Pertanyaan jujur.', faqSub:'Pertanyaan yang sering diajukan.',
+    q1:'Apakah ada versi gratis?', a1:'Ya. 6 jenis film, kontrol manual (ISO/shutter/WB), monitoring HUD (peaking/zebra), gratis selamanya, tanpa akun. Pro membuka 10 film ekstra, Steal the Look, ekspor LUT, dan bodi Pro.',
+    q2:'Mengapa berlangganan untuk aplikasi offline?', a2:'Pertanyaan wajar. Pro mendanai film baru dan pembaruan — bukan server. Dan jika Anda tidak ingin berlangganan, beli Forever sekali seharga Rp 329.000. Anda yang memilih.',
+    q3:'Apakah Lam mengunggah foto saya?', a3:'Tidak. Real Tone berjalan di perangkat. Pemindaian kulit saat awal tidak pernah keluar dari ponsel Anda.',
+    q4:'Tahunan atau Forever — apa bedanya?', a4:'Fitur sama. Tahunan (Rp 249.000) termasuk film musim baru; Forever (Rp 329.000) adalah pembayaran tunggal untuk akses seumur hidup, tanpa perpanjangan.',
+    q5:'Bedanya Gratis vs Pro?', a5:'Gratis: 6 film, kontrol manual, HUD monitoring, impor resep, engine live. Pro: ke-16 film, Steal the Look, ekspor .cube, bodi Pro, skin butik.',
+    q6:'Kapan dirilis?', a6:'Juli 2026, App Store & Google Play secara bersamaan. Pendaftar waitlist akan mendapat email pada hari rilis — satu-satunya email yang akan dikirim Lam.',
+    wlPill:'Juli 2026 · App Store + Play', wlHead:'Masuk ke waitlist perilisan.',
+    wlSub:'Satu email saat Lam rilis — dan tidak akan pernah lagi.',
+    wlBtn:'Kabari saya', wlMicro:'SATU EMAIL · TANPA PELACAKAN · DAFTAR TIDAK DIJUAL',
+    footTag:'Lam · Kamera film dengan jiwa.', footPrivacy:'Kebijakan Privasi', footTerms:'Syarat Layanan',
+    footCopy:'© 2026 BREW KITS · TANPA COOKIES · TANPA ANALITIK · TANPA AKUN'
+  }
+
+  ,ms: {
+    prelaunch:'● Pre-launch · App Store akan datang pada Julai 2026',
+    tagMain:'Kamera filem yang berjiwa.',
+    tagSub:'Gred filem live diselaraskan untuk kulit Asia. Curi gaya warna, eksport ke .cube, kongsi sebagai kod — diproses live pada peranti anda, bukan di pelayan.',
+    ctaPrimary:'Sertai senarai menunggu', ctaSecondary:'Mengapa Lam ↓', ctaNotify:'Beritahu saya bila dilancarkan ↓',
+    statYear:'/ tahun', statForever:'selamanya', statStocks:'jenis filem', statTones:'mod kulit Asia',
+    pillFeatured:'Ditampilkan', pillPricing:'Harga',
+    tLead:'CURI WARNA', tRetention:'REAL TONE', tConversion:'WORKFLOW', tPro:'CINEMA', tDelight:'VIRAL', tNarrative:'ENGINE',
+    rtHead:'Tona kulit khusus untuk Asia.', rtSub:'Real Tone — 5 mod dikalibrasi untuk kulit Asia Tenggara.',
+    rtBody:'Aplikasi penapis lain memproses kulit Asia dengan tetapan lalai Barat. Lam menawarkan 5 mod khas — dan mod AUTO yang mengimbas kulit anda dalam 2 saat semasa onboarding.',
+    toneWarm:'Coklat hangat', toneGolden:'Coklat keemasan', toneNeutral:'Neutral', toneCool:'Neutral sejuk', toneAuto:'Kesan automatik',
+    aiHead:'Rakaman sebenar. Bukan janaan AI.', aiSub:'Cloud AI mereka-reka bingkai di pelayan. Lam memproses bingkai asal anda secara live di telefon anda.',
+    aiThem:'Cloud AI (Luma · Runway)', aiUs:'Lam',
+    aiLatK:'Kelajuan', aiLatThem:'Beberapa minit setiap klip · render pelayan', aiLatUs:'Live 60fps di viewfinder',
+    aiPrivK:'Privasi', aiPrivThem:'Klip anda dimuat naik ke awan mereka', aiPrivUs:'100% on-device — tiada apa-apa yang keluar dari telefon anda',
+    aiRealK:'Kejujuran', aiRealThem:'Mereka-reka butiran · memutarbelit wajah & kulit', aiRealUs:'Mengekalkan realiti · mensimulasikan kimia filem sebenar',
+    aiCostK:'Kos', aiCostThem:'$10–50/bln, berasaskan kredit', aiCostUs:'RM 69.90/thn tanpa had —— atau RM 99.90 selamanya',
+    prHead:'Pilih cara anda memilikinya.', prSub:'Cuba percuma. Langgan, atau miliki selamanya. Tiada iklan, tiada jualan data — selamanya.',
+    prFreeName:'Percuma', prFreeDesc:'6 jenis filem, kawalan manual ISO/shutter penuh & live monitoring. Percuma selamanya.',
+    prYearBadge:'Nilai terbaik · percubaan 7 hari', prYearName:'Pro · Tahunan', prPerYear:'/ tahun',
+    prYearDesc:'Semuanya: 16 filem, Steal the Look, eksport .cube LUT, 4 badan kamera Pro. Filem baru setiap musim.',
+    prPerMonth:'/ bln jika anda memilih bulanan',
+    prLifeName:'Forever (Selamanya)', prOnce:'sekali', prLifeDesc:'Bayar sekali, miliki selamanya — tiada pembaharuan, selamanya. Pilihan anti-langganan bagi yang serius.',
+    prPacks:'Pek satu kali pilihan (Pek Makanan, pek filem) — beli hanya apa yang anda mahukan.',
+    ccyNote:'Harga adalah anggaran untuk kedai rantau anda — harga tempatan yang tepat akan ditunjukkan semasa pembayaran. Tiada akaun · Tiada iklan · Tiada pengumpulan data.',
+    ctaHint:'App Store + Google Play · Julai 2026 · satu e-mel, dan tidak akan ada lagi',
+    wHead:'Lima senjata. Satu kamera.', wSub:'Apa yang tidak dilakukan oleh aplikasi filem lain secara serentak.',
+    w1h:'Steal the Look', w1v:'DNA warna dari mana-mana gambar', w1p:'Suka rupa warna yang anda lihat? Halakan Lam ke mana-mana gambar — ia akan membaca warna (min, varians, kecenderungan hangat) dan membina semula sebagai resipi, terus dari peranti dalam beberapa saat.',
+    w2h:'Real Tone untuk Asia', w2v:'5 mod kulit Asia', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — dikalibrasi untuk kulit Asia Tenggara. Aplikasi Barat membuat kulit tropika kelihatan kelabu atau hijau. Lam tidak.',
+    w3h:'Eksport ke .cube', w3v:'17³ LUT untuk Resolve', w3p:'Rakam di telefon, siapkan di desktop. Eksport mana-mana tampilan sebagai 17³ .cube LUT — terus ke DaVinci Resolve, Premiere, atau Final Cut.',
+    w4h:'Kawalan pawagam Pro', w4v:'Peraturan 180° · Honest LOG', w4p:'Manual ISO 50–6400, aturan pengatup 180° terkunci secara automatik (24→1/48, 30→1/60, 60→1/120), dan Honest LOG — fail tangkapan benar-benar flat, bukan lengkung palsu.',
+    w5h:'Kod resipi', w5v:'8 aksara, viral', w5p:'Tukar apa sahaja rupa menjadi kod 8 aksara (dilindungi checksum). Letakkan di bawah komen TikTok — sesiapa sahaja boleh menampalnya ke Lam dan mendapatkan gradasi warna tepat anda. Tiada akaun.',
+    w6h:'Enjin filem masa nyata', w6v:'Live, bukan pasca pemprosesan', w6p:'Kebanyakan aplikasi filem menampal penapis pada gambar yang telah diambil. Lam menjalankan keseluruhan rantaian filem — warna LUT, halation, grain — live pada penimbal kamera pada 60 fps. Apa yang anda lihat adalah apa yang anda tangkap.',
+    cmpHead:'Dibina untuk Aliran Kerja Kreator.', cmpSub:'Bagaimana Lam berbanding dengan aplikasi penapis biasa dan aplikasi pawagam yang kompleks.',
+    cmpColFeature:'Keperluan Aliran Kerja', cmpColFilterApps:'Aplikasi Penapis (Dazz, NOMO)', cmpColProApps:'Aplikasi Pawagam Pro', cmpColLam:'Kamera Lam',
+    cmpF1:'Gred Filem Live', cmpG1:'Penapis selepas tangkapan', cmpP1:'Pratonton live (tiada gaya filem)', cmpL1:'Gred filem live 60fps',
+    cmpF2:'Tona Kulit Asia', cmpG2:'Pratetap lalai Barat', cmpP2:'Tiada', cmpL2:'5 Mod Real Tone',
+    cmpF3:'Eksport LUT Desktop', cmpG3:'Tiada', cmpP3:'Tiada', cmpL3:'.cube LUT untuk Resolve',
+    cmpF4:'Perkongsian Rupa', cmpG4:'Tiada', cmpP4:'Tiada', cmpL4:'Kod tular 8 aksara',
+    cmpF5:'Kawalan Manual', cmpG5:'Tiada', cmpP5:'Pro (UX Kompleks)', cmpL5:'Kawalan penuh (PERCUMA)',
+    cmpF6:'Dwi Foto & Video', cmpG6:'Tiada', cmpP6:'Tiada', cmpL6:'SNAP semasa merakam',
+    thmHead:'Lima Tema. Lima Personaliti.', thmSub:'Setiap tema ialah personaliti kamera yang berbeza yang direka bentuk untuk gaya kreatif anda.',
+    thmNoirDesc:'Sinematik, moody, ultra-gelap. Ketepatan mekanikal untuk puritan filem.',
+    thmSakuraDesc:'Pemerah pipi editorial. Serif impian untuk pencipta kecantikan & potret.',
+    thmChromeDesc:'Sian elektrik & gunmetal. HUD yang bersih untuk pengarah video.',
+    thmLunaDesc:'Lilac tengah malam & nila dalam. Estetika lembut untuk pencipta malam.',
+    thmJadeDesc:'Espresso & hijau jade. Kehangatan golden-hour untuk vlog makanan & pelancongan.',
+    sknHead:'Balutan Kulit Butik', sknSub:'Sarung badan kamera buatan tangan yang diilhamkan oleh sejarah optik ikonik.',
+    skn1Desc:'Leica M — vulcanite & loyang (Percuma)',
+    skn2Desc:'Hasselblad 500C — kulit anak lembu cognac',
+    skn3Desc:'Olympus Pen-F — slate blue & krom',
+    skn4Desc:'Leica R Safari — hijau zaitun',
+    skn5Desc:'Rolleiflex TLR — burgundy & gangsa',
+    bHead:'Sembilan badan. Sembilan era.', bSub:'Setiap badan membawa kisah budaya yang sebenar.',
+    b1e:'Rangefinder Switzerland · 1960s', b1d:'Rangefinder 35mm',
+    b2e:'Kodak FunSaver · 1990s', b2d:'Kamera pakai buang lensa plastik',
+    b3e:'Digicam Y2K Asia · 2003', b3d:'CCD padat',
+    b4e:'Pawagam · Era Tran Anh Hung', b4d:'Filem wayang gambar 16mm',
+    b5e:'Polaroid Merah Jambu · 1999', b5d:'Kamera pelekat segera',
+    b6e:'Sederhana format pro · 1995', b6d:'Negatif warna studio',
+    b7e:'Fujifilm Instax · Jepun 2010s', b7d:'Segera segi empat',
+    b8e:'Saigon Tropika · 1990s', b8d:'Asia Tenggara · matahari keemasan',
+    b9e:'Seoul Indie · 2005', b9d:'Digicam bersih Korea',
+    philPill:'Falsafah', philHead:'Milik anda. Bukan disewa dari awan.',
+    philQuote:'Tiada pelabur yang memerhatikan anda, tiada papan pemuka analitik, tiada bingkai di pelayan sesiapa. Langgan jika ia sesuai — atau miliki selamanya. Sama ada cara, foto anda adalah milik anda.',
+    philSub:'Pada peranti · Tiada penjejakan · Tiada data dijual.',
+    faqHead:'Soalan jujur.', faqSub:'Soalan lazim.',
+    q1:'Adakah versi percuma?', a1:'Ya. 6 stok filem, kawalan manual (ISO/shutter/WB), monitoring HUD (peaking/zebra), percuma selamanya, tiada akaun. Pro membuka 10 stok tambahan, Steal the Look, eksport LUT dan badan Pro.',
+    q2:'Mengapa langganan pada aplikasi luar talian?', a2:'Soalan yang adil. Pro membiayai filem baru dan kemas kini — bukan pelayan. Jika anda tidak mahu melanggan, beli Forever sekali dengan RM 99.90. Anda pilih.',
+    q3:'Adakah Lam memuat naik gambar saya?', a3:'Tidak. Real Tone berjalan secara on-device. Imbasan kulit semasa onboarding tidak pernah meninggalkan telefon anda.',
+    q4:'Tahunan atau Forever — apa perbezaannya?', a4:'Ciri yang sama. Tahunan (RM 69.90) merangkumi stok filem musim baru; Forever (RM 99.90) adalah pembayaran tunggal untuk akses seumur hidup, tanpa pembaharuan.',
+    q5:'Perbezaan Percuma vs Pro?', a5:'Percuma: 6 stok filem, kawalan manual, pemantauan HUD, import resipi, enjin live. Pro: semua 16 stok, Steal the Look, eksport .cube, badan Pro, kulit butik.',
+    q6:'Bilakah ia dilancarkan?', a6:'Julai 2026, App Store & Google Play serentak. Mereka dalam senarai menunggu mendapat satu e-mel pada hari pelancaran — satu-satunya e-mel yang akan dihantar Lam.',
+    wlPill:'Julai 2026 · App Store + Play', wlHead:'Sertai senarai pelancaran.',
+    wlSub:'Satu e-mel apabila Lam dilancarkan — kemudian tidak akan pernah lagi.',
+    wlBtn:'Beritahu saya', wlMicro:'SATU E-MEL · TIADA PENJEJAKAN · SENARAI TIDAK DIJUAL',
+    footTag:'Lam · Kamera filem yang berjiwa.', footPrivacy:'Dasar Privasi', footTerms:'Syarat Perkhidmatan',
+    footCopy:'© 2026 BREW KITS · TIADA COOKIES · TIADA ANALITIK · TIADA AKAUN DIPERLUKAN'
+  }
+
+  ,tl: {
+    prelaunch:'● Pre-launch · App Store parating ngayong Hulyo 2026',
+    tagMain:'Isang film camera na may kaluluwa.',
+    tagSub:'Live na film grade para sa balat ng mga Asyano. Kopyahin ang anumang kulay, i-export sa .cube, o ibahagi bilang code — pinoproseso live sa iyong device, hindi sa server.',
+    ctaPrimary:'Sumali sa waitlist', ctaSecondary:'Bakit Lam ↓', ctaNotify:'I-notify ako sa paglunsad ↓',
+    statYear:'/ taon', statForever:'panghabambuhay', statStocks:'film stocks', statTones:'mga mode ng balat ng Asyano',
+    pillFeatured:'Itinatampok', pillPricing:'Pagpepresyo',
+    tLead:'KOPYAHIN', tRetention:'REAL TONE', tConversion:'WORKFLOW', tPro:'CINEMA', tDelight:'VIRAL', tNarrative:'ENGINE',
+    rtHead:'Kulay ng balat na naka-tune para sa Asya.', rtSub:'Real Tone — 5 mode na naka-calibrate para sa kulay ng mga taga-Timog Silangang Asya.',
+    rtBody:'Pinoproseso ng ibang filter app ang balat ng mga Asyano gamit ang Western default. May 5 na nakalaang mode ang Lam — at isang AUTO mode na ini-scan ang iyong balat sa loob ng 2 segundo habang inuumpisahan ang app.',
+    toneWarm:'Warm brown', toneGolden:'Golden brown', toneNeutral:'Neutral', toneCool:'Cool neutral', toneAuto:'Auto-detect',
+    aiHead:'Tunay na footage. Hindi gawa ng AI.', aiSub:'Ang Cloud AI ay gumagawa ng frames sa isang server. Ang Lam ay nagpo-proseso ng totoong frames live sa iyong telepono.',
+    aiThem:'Cloud AI (Luma · Runway)', aiUs:'Lam',
+    aiLatK:'Bilis', aiLatThem:'Ilang minuto bawat clip · server render', aiLatUs:'Real-time 60fps sa viewfinder',
+    aiPrivK:'Privacy', aiPrivThem:'Ina-upload ang iyong clip sa kanilang cloud', aiPrivUs:'100% sa device — walang lumalabas sa iyong telepono',
+    aiRealK:'Katapatan', aiRealThem:'Gumagawa ng pekeng detalye · sinisira ang mukha at balat', aiRealUs:'Pinapanatili ang reyalidad · ginagaya ang tunay na kemistri ng pelikula',
+    aiCostK:'Gastos', aiCostThem:'$10–50/buwan, nakabase sa credits', aiCostUs:'₱899/taon walang limitasyon —— o ₱1,190 habambuhay',
+    prHead:'Piliin kung paano mo ito aariin.', prSub:'Subukan nang libre. Mag-subscribe, o bilhin panghabambuhay. Walang ad, walang ibinebentang data — kailanman.',
+    prFreeName:'Libre', prFreeDesc:'6 film stocks, buong manual na ISO/shutter controls at live monitoring. Libre habambuhay.',
+    prYearBadge:'Pinaka sulit · 7 araw na trial', prYearName:'Pro · Taunan', prPerYear:'/ taon',
+    prYearDesc:'Lahat-lahat: 16 na film, Steal the Look, .cube LUT export, 4 Pro camera bodies. Bagong film stocks bawat season.',
+    prPerMonth:'/ buwan kung mas gusto mo ng buwanan',
+    prLifeName:'Forever (Habambuhay)', prOnce:'isang beses', prLifeDesc:'Isang bayad lang, sa iyo na habambuhay — walang renewal. Ang alternatibo sa subscription para sa mga seryoso.',
+    prPacks:'Opsyonal na mga one-time pack (Food Pack, film-stock pack) — bilhin lang kung ano ang gusto mo.',
+    ccyNote:'Ang mga presyo ay pagtatantya base sa iyong rehiyon — ang eksaktong lokal na presyo ay ipapakita sa pag-checkout. Walang account · Walang mga ad · Walang pagkuha ng data.',
+    ctaHint:'App Store + Google Play · Hulyo 2026 · isang email, at hindi na mauulit',
+    wHead:'Limang sandata. Isang camera.', wSub:'Ang hindi magawa ng ibang film app nang sabay-sabay.',
+    w1h:'Steal the Look', w1v:'Kulay DNA mula sa anumang larawan', w1p:'Nakita mo ang look na gusto mo? Itutok ang Lam sa anumang larawan — babasahin nito ang kulay (mean, variance, warmth) at gagawin itong recipe, live sa device mo, sa loob ng ilang segundo.',
+    w2h:'Real Tone para sa Asya', w2v:'5 mode para sa Asyano', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — naka-calibrate para sa balat ng Timog-Silangang Asya. Ginagawa ng Western apps na abo o berde ang balat natin. Sa Lam ay hindi.',
+    w3h:'I-export sa .cube', w3v:'17³ LUT para sa Resolve', w3p:'Mag-shoot sa telepono, tapusin sa desktop. I-export ang anumang look bilang 17³ .cube LUT — idirekta sa DaVinci Resolve, Premiere, Final Cut.',
+    w4h:'Pro cinema controls', w4v:'180° rule · Honest LOG', w4p:'Manual na ISO 50–6400, ang 180° shutter rule ay auto-locked (24→1/48, 30→1/60, 60→1/120), at Honest LOG — tunay na flat capture, hindi pekeng kurba.',
+    w5h:'Mga code ng recipe', w5v:'8 characters, viral', w5p:'Gawing 8-character code (may checksum protection) ang anumang look. Ilagay sa ilalim ng TikTok comment — kahit sino ay pwedeng i-paste ito sa Lam at makuha ang mismong kulay mo. Walang account.',
+    w6h:'Real-time film engine', w6v:'Live, hindi post-process', w6p:'Karamihan sa mga film app ay nagdidikit ng filter sa tapos nang larawan. Pinapagana ng Lam ang buong proseso ng film — LUT color, halation, grain — live sa camera buffer sa 60 fps. Kung ano ang nakikita mo ay siya mong makukuha.',
+    cmpHead:'Ginawa para sa Workflow ng Creator.', cmpSub:'Paano inihahambing ang Lam sa mga generic na filter app at mga kumplikadong cinema app.',
+    cmpColFeature:'Pangangailangan', cmpColFilterApps:'Mga Filter App (Dazz, NOMO)', cmpColProApps:'Mga Pro Cinema App', cmpColLam:'Lam Camera',
+    cmpF1:'Live Film Grade', cmpG1:'Filter pagkatapos kumuha', cmpP1:'Live preview (walang film look)', cmpL1:'Live 60fps film grade',
+    cmpF2:'Balat ng Asyano', cmpG2:'Western default preset', cmpP2:'Wala', cmpL2:'5 mode ng Real Tone',
+    cmpF3:'Desktop LUT Export', cmpG3:'Wala', cmpP3:'Wala', cmpL3:'.cube LUT para sa Resolve',
+    cmpF4:'Pagbahagi ng Look', cmpG4:'Wala', cmpP4:'Wala', cmpL4:'8-character viral code',
+    cmpF5:'Manual na Kontrol', cmpG5:'Wala', cmpP5:'Pro (Kumplikadong UX)', cmpL5:'Buong kontrol (LIBRE)',
+    cmpF6:'Dual na Larawan at Video', cmpG6:'Wala', cmpP6:'Wala', cmpL6:'Mag-SNAP habang nagre-record',
+    thmHead:'Limang Tema. Limang Personalidad.', thmSub:'Ang bawat tema ay may iba\'t-ibang personalidad ng camera na idinisenyo para sa iyong istilo.',
+    thmNoirDesc:'Cinematic, moody, at napakadilim. May mekanikal na katumpakan para sa mga purist ng pelikula.',
+    thmSakuraDesc:'Light blush ng magasin. Mala-panaginip na serif para sa beauty & portrait creators.',
+    thmChromeDesc:'Electric cyan at gunmetal. Malinis na HUD para sa mga video director.',
+    thmLunaDesc:'Midnight lilac at deep indigo. Malambot na aesthetic para sa mga night creator.',
+    thmJadeDesc:'Espresso at jade green. Golden-hour na init para sa food & travel vlogs.',
+    sknHead:'Boutique Leather Skins', sknSub:'Mga gawang-kamay na takip ng camera body na hango sa iconic optical history.',
+    skn1Desc:'Leica M — vulcanite at tanso (Libre)',
+    skn2Desc:'Hasselblad 500C — cognac na balat ng baka',
+    skn3Desc:'Olympus Pen-F — slate blue at chrome',
+    skn4Desc:'Leica R Safari — kulay olibo',
+    skn5Desc:'Rolleiflex TLR — burgundy at tanso',
+    bHead:'Siyam na katawan. Siyam na panahon.', bSub:'Ang bawat isa ay may dalang tunay na kwento ng kultura.',
+    b1e:'Swiss rangefinder · 1960s', b1d:'35mm rangefinder',
+    b2e:'Kodak FunSaver · 1990s', b2d:'Disposable na de-plastik',
+    b3e:'Asian Y2K digicam · 2003', b3d:'CCD compact',
+    b4e:'Sine · Era ni Tran Anh Hung', b4d:'16mm motion picture film',
+    b5e:'Pink Polaroid · 1999', b5d:'Instant sticker camera',
+    b6e:'Medium format pro · 1995', b6d:'Studio colour negative',
+    b7e:'Fujifilm Instax · Japan 2010s', b7d:'Parisukat na instant',
+    b8e:'Saigon Tropical · 1990s', b8d:'Timog Silangang Asya · gintong araw',
+    b9e:'Seoul Indie · 2005', b9d:'Malinis na digicam ng Korea',
+    philPill:'Pilosopiya', philHead:'Sa iyo ito. Hindi nirentahan sa cloud.',
+    philQuote:'Walang mga mamumuhunan na nanonood sa iyo, walang analytics dashboard, walang frame na nakaupo sa server ng iba. Mag-subscribe kung babagay — o ariin nang habambuhay. Sa anumang paraan, ang iyong mga larawan ay sa iyo.',
+    philSub:'Sa device · Walang tracking · Walang ibinbentang data.',
+    faqHead:'Mga tapat na tanong.', faqSub:'Mga madalas itanong.',
+    q1:'Mayroon bang libreng bersyon?', a1:'Oo. 6 na film stocks, manual controls (ISO/shutter/WB), monitoring HUD (peaking/zebra), libre habambuhay, walang account. Ina-unlock ng Pro ang dagdag na 10 stocks, Steal the Look, LUT export, at Pro bodies.',
+    q2:'Bakit subscription ang isang offline na app?', a2:'Patas na tanong. Pinopondohan ng Pro ang mga bagong film stocks at update — hindi mga server. At kung ayaw mong mag-subscribe, bilhin nang isang beses ang Forever sa halagang ₱1,190. Ikaw ang pipili.',
+    q3:'Ina-upload ba ng Lam ang aking mga larawan?', a3:'Hindi. Ang Real Tone ay tumatakbo sa iyong device. Ang pag-scan ng balat ay hindi kailanman lumalabas sa iyong telepono.',
+    q4:'Taunan o Forever — ano ang pagkakaiba?', a4:'Parehong feature. Ang taunan (₱899) ay may mga bagong season film stocks; Ang Forever (₱1,190) ay isang bayad lamang para sa habambuhay na access, walang renewal.',
+    q5:'Pagkakaiba ng Libre vs Pro?', a5:'Libre: 6 na film, manual na kontrol, HUD monitoring, recipe import, live engine. Pro: lahat ng 16 na film, Steal the Look, .cube export, Pro na katawan, at boutique skins.',
+    q6:'Kailan ito ilalabas?', a6:'Hulyo 2026, sabay sa App Store at Google Play. Makakatanggap ng email ang nasa waitlist sa araw ng paglulunsad — ang tanging email na ipapadala ng Lam sa iyo.',
+    wlPill:'Hulyo 2026 · App Store + Play', wlHead:'Sumali sa launch waitlist.',
+    wlSub:'Isang email kapag inilunsad ang Lam — at hindi na mauulit.',
+    wlBtn:'I-notify ako', wlMicro:'ISANG EMAIL · WALANG TRACKING · LISTAHAN AY HINDI IBINBENTA',
+    footTag:'Lam · Isang film camera na may kaluluwa.', footPrivacy:'Patakaran sa Privacy', footTerms:'Mga Tuntunin ng Serbisyo',
+    footCopy:'© 2026 BREW KITS · WALANG COOKIES · WALANG ANALYTICS · WALANG ACCOUNT'
+  }
+
+  ,'zh-TW': {
+    prelaunch:'● 預熱 · App Store 將於 2026 年 7 月上線',
+    tagMain:'一台有靈魂的底片相機。',
+    tagSub:'專為亞洲人膚色調校的即時底片色彩。提取任何色調，匯出至 .cube，或作為代碼分享 —— 完全在你的設備上即時處理，絕不上傳伺服器。',
+    ctaPrimary:'加入候補名單', ctaSecondary:'為什麼選擇 Lam ↓', ctaNotify:'上線時通知我 ↓',
+    statYear:'/ 年', statForever:'買斷', statStocks:'款底片', statTones:'種亞洲膚色模式',
+    pillFeatured:'特色功能', pillPricing:'定價方案',
+    tLead:'提取色調', tRetention:'真實膚色', tConversion:'工作流程', tPro:'專業電影', tDelight:'病毒傳播', tNarrative:'引擎',
+    rtHead:'專為亞洲膚色調校。', rtSub:'Real Tone — 5 種專為東南亞膚色校準的模式。',
+    rtBody:'其他濾鏡應用程式以西方默認標準處理亞洲皮膚。Lam 提供 5 種專用模式 —— 以及在初始設置時只需 2 秒即可掃描你膚色的 AUTO 模式。',
+    toneWarm:'暖棕色', toneGolden:'金棕色', toneNeutral:'中性', toneCool:'冷中性', toneAuto:'自動偵測',
+    aiHead:'真實影像。絕非 AI 生成。', aiSub:'雲端 AI 在伺服器上憑空捏造畫面。Lam 在你的手機上即時調色你的真實畫面。',
+    aiThem:'雲端 AI (Luma · Runway)', aiUs:'Lam',
+    aiLatK:'速度', aiLatThem:'每個片段需數分鐘 · 伺服器渲染', aiLatUs:'觀景窗內 60fps 即時處理',
+    aiPrivK:'隱私', aiPrivThem:'你的片段被上傳到他們的雲端', aiPrivUs:'100% 設備端運算 —— 絕不離開你的手機',
+    aiRealK:'真實度', aiRealThem:'捏造細節 · 扭曲人臉與皮膚', aiRealUs:'保留真實 · 模擬真實底片化學反應',
+    aiCostK:'成本', aiCostThem:'$10–50/月，按點數計費', aiCostUs:'NT$ 490/年 無限使用 —— 或 NT$ 690 永久買斷',
+    prHead:'選擇你的擁有方式。', prSub:'免費試用。選擇訂閱，或永久擁有。沒有廣告，不販售數據 —— 永遠不會。',
+    prFreeName:'免費', prFreeDesc:'6 款底片，完整的 ISO/快門手動控制與即時監看。永久免費。',
+    prYearBadge:'最高CP值 · 7 天試用', prYearName:'Pro · 年訂閱', prPerYear:'/ 年',
+    prYearDesc:'解鎖全部：16 款底片，提取色調，.cube LUT 匯出，4 款 Pro 相機機身。每一季更新全新底片。',
+    prPerMonth:'/ 月 如果你偏好月付',
+    prLifeName:'Forever (永久)', prOnce:'一次', prLifeDesc:'一次付費，永久擁有 —— 無需續訂。為認真創作的人提供的反訂閱選擇。',
+    prPacks:'可選購的單次組合包（食物包、底片包）—— 只買你想要的。',
+    ccyNote:'價格為您所在地區商店的預估價格 —— 確切的在地價格將於結帳時顯示。免註冊帳號 · 無廣告 · 不收集數據。',
+    ctaHint:'App Store + Google Play · 2026 年 7 月 · 只發一封郵件，不再打擾',
+    wHead:'五大武器。一台相機。', wSub:'目前商店裡沒有任何底片應用程式能同時做到。',
+    w1h:'提取色調 (Steal the Look)', w1v:'從任何照片中提取色彩 DNA', w1p:'看到喜歡的色調？將 Lam 對準任何照片 —— 設備端運算會讀取其色彩（均值、變異數、冷暖偏好），並在幾秒鐘內將其重建為配方。',
+    w2h:'為亞洲調校的 Real Tone', w2v:'5 種亞洲膚色模式', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO —— 專為東南亞膚色校準。西方的應用程式會讓熱帶皮膚變灰或發綠。Lam 則不會。',
+    w3h:'匯出為 .cube', w3v:'用於 Resolve 的 17³ LUT', w3p:'手機拍攝，電腦後製。將任何色調匯出為 17³ .cube LUT —— 直接導入 DaVinci Resolve、Premiere 或 Final Cut。',
+    w4h:'Pro 電影級控制', w4v:'180° 快門法則 · Honest LOG', w4p:'手動控制 ISO 50–6400，180° 快門法則自動鎖定（24→1/48, 30→1/60, 60→1/120），以及 Honest LOG —— 真正平直的捕捉，絕非假曲線。',
+    w5h:'配方代碼', w5v:'8 個字元，病毒式傳播', w5p:'將任何色調變成 8 個字元的代碼（受驗證碼保護）。把它貼在 TikTok 評論區 —— 任何人都能貼入 Lam 中，獲得與你完全相同的色彩。免註冊帳號。',
+    w6h:'即時底片引擎', w6v:'即時運算，非後製套用', w6p:'大多數底片應用程式是在拍好的照片上貼上濾鏡。Lam 在相機緩衝區以 60 fps 即時運行整個底片處理鏈 —— LUT 色彩、光暈、顆粒。你取景看到的，就是你拍下的。',
+    cmpHead:'專為創作者的工作流程打造。', cmpSub:'Lam 與一般濾鏡應用程式及複雜電影應用程式的對比。',
+    cmpColFeature:'工作流程需求', cmpColFilterApps:'濾鏡 App (Dazz, NOMO)', cmpColProApps:'Pro 電影 App', cmpColLam:'Lam 相機',
+    cmpF1:'即時底片色彩', cmpG1:'僅限拍攝後套用濾鏡', cmpP1:'即時預覽 (無底片色彩)', cmpL1:'即時 60fps 底片調色',
+    cmpF2:'亞洲人膚色', cmpG2:'西方預設參數', cmpP2:'無', cmpL2:'5 種 Real Tone 模式',
+    cmpF3:'電腦 LUT 匯出', cmpG3:'無', cmpP3:'無', cmpL3:'.cube LUT 用於 Resolve',
+    cmpF4:'分享色調', cmpG4:'無', cmpP4:'無', cmpL4:'8 字元病毒代碼',
+    cmpF5:'手動控制', cmpG5:'無', cmpP5:'Pro (複雜的 UX)', cmpL5:'全面控制 (免費)',
+    cmpF6:'拍照 & 錄影雙開', cmpG6:'無', cmpP6:'無', cmpL6:'錄影時可拍照',
+    thmHead:'五款主題。五種個性。', thmSub:'每款主題都是針對你的創作風格所設計的獨特相機個性。',
+    thmNoirDesc:'電影感、情緒化、極致深邃。專為底片純粹主義者打造的機械精確度。',
+    thmSakuraDesc:'日雜清透粉嫩感。為美妝與人像創作者設計的夢幻襯線體。',
+    thmChromeDesc:'電光青與槍灰色。專為影片導演設計的極簡 HUD。',
+    thmLunaDesc:'午夜紫與深靛藍。為夜晚創作者打造的柔和美學。',
+    thmJadeDesc:'濃縮咖啡與翡翠綠。為美食與旅遊 Vlog 帶來的黃金時刻溫暖感。',
+    sknHead:'精品復古皮革外殼', sknSub:'汲取經典光學相機歷史靈感的精製機身飾皮。',
+    skn1Desc:'Leica M — 硫化橡膠與黃銅 (免費)',
+    skn2Desc:'Hasselblad 500C — 干邑小牛皮',
+    skn3Desc:'Olympus Pen-F — 石板藍與鍍鉻',
+    skn4Desc:'Leica R Safari — 橄欖綠',
+    skn5Desc:'Rolleiflex TLR — 勃根地紅與青銅',
+    bHead:'九款機身。九個時代。', bSub:'每一款機身都承載著真實的文化故事。',
+    b1e:'瑞士連動測距相機 · 1960s', b1d:'35mm 連動測距',
+    b2e:'Kodak FunSaver · 1990s', b2d:'塑膠鏡頭即可拍',
+    b3e:'亞洲 Y2K 數位相機 · 2003', b3d:'CCD 輕便相機',
+    b4e:'電影 · 陳英雄時代', b4d:'16mm 規格電影底片',
+    b5e:'粉色拍立得 · 1999', b5d:'即時貼紙相機',
+    b6e:'中片幅 Pro · 1995', b6d:'攝影棚彩色負片',
+    b7e:'Fujifilm Instax · 日本 2010s', b7d:'方形拍立得',
+    b8e:'熱帶西貢 · 1990s', b8d:'東南亞 · 金色陽光',
+    b9e:'首爾獨立風格 · 2005', b9d:'韓國純淨數位相機',
+    philPill:'理念', philHead:'屬於你。不是向雲端租用。',
+    philQuote:'沒有投資者盯著你，沒有分析儀表板，也沒有把你的畫面存放在別人的伺服器上。如果合適，歡迎訂閱 —— 或者永久買斷。無論如何，你的照片就是你的。',
+    philSub:'設備端運算 · 無追蹤 · 不販售數據。',
+    faqHead:'坦誠的問題。', faqSub:'常見問答。',
+    q1:'有免費版嗎？', a1:'有。6 款底片、手動控制 (ISO/快門/白平衡)、監看 HUD (峰值對焦/斑馬紋) 永久免費，免註冊。Pro 版解鎖其餘 10 款底片、提取色調、LUT 匯出及 Pro 相機機身。',
+    q2:'離線應用程式為什麼要訂閱？', a2:'好問題。Pro 版的費用是用於資助新底片與後續更新 —— 而不是用來養伺服器。如果你不想訂閱，只要花 NT$ 690 買斷即可。由你決定。',
+    q3:'Lam 會上傳我的照片嗎？', a3:'不會。Real Tone 膚色校準是在設備端運行的。初始設置時的皮膚掃描也絕不會離開你的手機。',
+    q4:'年訂閱與 Forever 的差別？', a4:'功能完全相同。年訂閱 (NT$ 490) 包含每一季的全新底片；Forever (NT$ 690) 是一次性付費即可終身使用目前的 Pro 功能，永不續費。',
+    q5:'免費與 Pro 版的差別？', a5:'免費：6 款底片、手動控制、HUD 監看、導入配方、即時引擎。Pro 版：全部 16 款底片、提取色調、匯出 .cube、Pro 機身及精品皮革外殼。',
+    q6:'何時推出？', a6:'2026 年 7 月，App Store 與 Google Play 同步上線。候補名單的人將在發布當天收到一封電子郵件 —— 這也是 Lam 唯一會寄給你的一封信。',
+    wlPill:'2026 年 7 月 · App Store + Play', wlHead:'加入上線候補名單。',
+    wlSub:'Lam 推出時只發一封電子郵件 —— 之後再也不打擾。',
+    wlBtn:'通知我', wlMicro:'只發一封信 · 無追蹤 · 不販售名單',
+    footTag:'Lam · 一台有靈魂的底片相機。', footPrivacy:'隱私權政策', footTerms:'服務條款',
+    footCopy:'© 2026 BREW KITS · 無 COOKIE · 無數據分析 · 免註冊帳號'
+  }
+
 };
 
 function applyLang(lang){
