@@ -67,9 +67,9 @@
 <body>
   <div class="wrap">
     <span class="pill">LAM · Film recipe</span>
-    <h1 id="t1">Ai đó chia sẻ cho bạn một look film</h1>
-    <p class="sub" id="t2">Mở trong LAM để áp đúng công thức này — film stock, grain, tone &amp; skin — trong một chạm.</p>
-    <p class="sub-en" id="t1_en" style="display:none;"></p>
+    <h1>Ai đó chia sẻ cho bạn một look film</h1>
+    <p class="sub">Mở trong LAM để áp đúng công thức này — film stock, grain, tone &amp; skin — trong một chạm.</p>
+    <p class="sub-en">Someone shared a film look with you. Open it in LAM to apply this exact recipe in one tap.</p>
 
     <div class="card">
       <span class="perf l"></span><span class="perf r"></span>
@@ -92,68 +92,28 @@
   </div>
 
 <script>
-  // Translation dictionary
-  var i18n = {
-    vi: { t1:'Ai đó chia sẻ cho bạn một look film', t2:'Mở trong LAM để áp đúng công thức này — film stock, grain, tone & skin — trong một chạm.', t3:'recipe code · nhấn để copy', t4:'đã copy · copied', t5:'Mở trong LAM · Open in LAM', t6:'Chưa có LAM? <a href="/lam/">Xem LAM là gì</a> — máy ảnh film có linh hồn, xử lý 100% trên máy.<br>Cài LAM xong, mở lại link này — hoặc dán mã vào Recipe Store.', t7:'Tìm hiểu LAM · Get LAM' },
-    en: { t1:'Someone shared a film look with you', t2:'Open it in LAM to apply this exact recipe in one tap.', t3:'recipe code · tap to copy', t4:'copied', t5:'Open in LAM', t6:'Don\'t have LAM? <a href="/lam/">Get LAM</a> — a film camera with soul, 100% on-device.<br>Once installed, open this link again — or paste the code in Recipe Store.', t7:'Get LAM' },
-    zh: { t1:'有人与您分享了一款胶片色彩', t2:'在 LAM 中打开，一键应用此配方。', t3:'配方代码 · 点击复制', t4:'已复制', t5:'在 LAM 中打开', t6:'还没有 LAM？<a href="/lam/">了解 LAM</a> — 一款有灵魂的胶片相机。<br>安装后再次打开此链接，或在商店粘贴代码。', t7:'获取 LAM' },
-    'zh-TW': { t1:'有人與您分享了一款底片色彩', t2:'在 LAM 中打開，一鍵套用此配方。', t3:'配方代碼 · 點擊複製', t4:'已複製', t5:'在 LAM 中打開', t6:'還沒有 LAM？<a href="/lam/">了解 LAM</a> — 一台有靈魂的底片相機。<br>安裝後再次打開此連結，或在商店貼上代碼。', t7:'獲取 LAM' },
-    ja: { t1:'フィルムルックが共有されました', t2:'LAM で開いて、このレシピを適用してください。', t3:'レシピコード · タップしてコピー', t4:'コピーしました', t5:'LAM で開く', t6:'LAM をお持ちでないですか？<a href="/lam/">LAM を入手</a> — 魂のあるフィルムカメラ。<br>インストール後、このリンクを再度開くか、コードを貼り付けてください。', t7:'LAM を入手' },
-    ko: { t1:'누군가 필름 룩을 공유했습니다', t2:'LAM 에서 열어 이 레시피를 바로 적용하세요.', t3:'레시피 코드 · 탭하여 복사', t4:'복사됨', t5:'LAM 에서 열기', t6:'LAM 이 없으신가요? <a href="/lam/">LAM 알아보기</a> — 영혼이 담긴 필름 카메라.<br>설치 후 이 링크를 다시 열거나 코드를 붙여넣으세요.', t7:'LAM 알아보기' },
-    th: { t1:'มีคนแชร์ฟิล์มลุคกับคุณ', t2:'เปิดใน LAM เพื่อใช้สูตรสีนี้ได้ในสัมผัสเดียว', t3:'โค้ดสี · แตะเพื่อคัดลอก', t4:'คัดลอกแล้ว', t5:'เปิดใน LAM', t6:'ยังไม่มี LAM? <a href="/lam/">รู้จักกับ LAM</a> — กล้องฟิล์มที่มีจิตวิญญาณ<br>เมื่อติดตั้งแล้ว ให้เปิดลิงก์นี้อีกครั้ง หรือวางโค้ดในสโตร์', t7:'ดาวน์โหลด LAM' },
-    id: { t1:'Seseorang membagikan gaya film dengan Anda', t2:'Buka di LAM untuk menerapkan resep ini dengan satu ketukan.', t3:'kode resep · ketuk untuk salin', t4:'tersalin', t5:'Buka di LAM', t6:'Belum punya LAM? <a href="/lam/">Dapatkan LAM</a> — kamera film dengan jiwa.<br>Setelah diinstal, buka tautan ini lagi — atau tempel kode di Recipe Store.', t7:'Dapatkan LAM' },
-    ms: { t1:'Seseorang berkongsi gaya filem dengan anda', t2:'Buka dalam LAM untuk menggunakan resipi ini dengan satu ketukan.', t3:'kod resipi · ketik untuk salin', t4:'disalin', t5:'Buka dalam LAM', t6:'Belum ada LAM? <a href="/lam/">Dapatkan LAM</a> — kamera filem yang berjiwa.<br>Setelah dipasang, buka pautan ini lagi — atau tampal kod di kedai.', t7:'Dapatkan LAM' },
-    tl: { t1:'May nagbahagi ng film look sa iyo', t2:'Buksan sa LAM para magamit ang recipe na ito.', t3:'recipe code · i-tap para kopyahin', t4:'nakopya na', t5:'Buksan sa LAM', t6:'Wala pang LAM? <a href="/lam/">Kunin ang LAM</a> — isang film camera na may kaluluwa.<br>Kapag na-install na, buksan ulit ang link na ito — o i-paste ang code sa store.', t7:'Kunin ang LAM' }
-  };
-
   // Recipe code comes from the share link: brewkits.dev/lam/r/?c=CODE  (also tolerates #CODE or /r/CODE).
   (function(){
-    var navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    var lang = 'en'; // default
-    if (navLang.startsWith('vi')) lang = 'vi';
-    else if (navLang.startsWith('zh-tw') || navLang.startsWith('zh-hk')) lang = 'zh-TW';
-    else if (navLang.startsWith('zh')) lang = 'zh';
-    else if (navLang.startsWith('ja')) lang = 'ja';
-    else if (navLang.startsWith('ko')) lang = 'ko';
-    else if (navLang.startsWith('th')) lang = 'th';
-    else if (navLang.startsWith('id')) lang = 'id';
-    else if (navLang.startsWith('ms')) lang = 'ms';
-    else if (navLang.startsWith('tl')) lang = 'tl';
-    
-    var t = i18n[lang];
-    if (lang !== 'vi') {
-        document.getElementById('t1').textContent = t.t1;
-        document.getElementById('t2').textContent = t.t2;
-        var t1_en = document.getElementById('t1_en');
-        if (t1_en) t1_en.style.display = 'none'; // hide english subtitle if we have targeted translation
-    }
-    
-    // Set footer text (with HTML)
-    document.querySelector('.foot').innerHTML = t.t6;
-    
     var p = new URLSearchParams(location.search);
     var raw = p.get('c') || location.hash.replace(/^#/,'') ||
               (location.pathname.match(/\/r\/([A-Za-z0-9]{4,12})\/?$/)||[])[1] || '';
     // LAM recipe codes are 8 Base36 chars (RecipeCodec). Sanitise to that alphabet; never trust input.
     var code = (raw || '').toUpperCase().replace(/[^0-9A-Z]/g,'').slice(0,8);
     var openBtn = document.getElementById('openBtn');
-    document.getElementById('codehint').textContent = t.t3;
-    openBtn.textContent = t.t5;
-
     if (code.length >= 6) {
       document.getElementById('code').textContent = code;
       openBtn.href = 'lam://recipe/' + code;
       document.getElementById('code').addEventListener('click', function(){
         if (navigator.clipboard) navigator.clipboard.writeText(code);
-        document.getElementById('codehint').textContent = t.t4;
+        document.getElementById('codehint').textContent = 'đã copy · copied';
       });
     } else {
       // No/garbled code — still a valid landing; route the primary button to the app page.
       document.getElementById('code').textContent = 'LAM';
       document.getElementById('stocklbl').textContent = 'Film camera with soul';
-      document.getElementById('codehint').textContent = '';
+      document.getElementById('codehint').textContent = 'get the app';
       openBtn.href = '/lam/';
-      openBtn.textContent = t.t7;
+      openBtn.textContent = 'Tìm hiểu LAM · Get LAM';
     }
     // Platform-aware ordering: float the visitor's own store up under the primary CTA.
     if (/iPhone|iPad|iPod/.test(navigator.userAgent || '')) {
