@@ -100,20 +100,21 @@
     <tr><th>Data</th><th>Who processes it</th><th>Why</th></tr>
     <tr><td>Crash &amp; diagnostic logs</td><td>Firebase Crashlytics (Google)</td><td>Diagnose and fix crashes. Collected <strong>only after</strong> you accept analytics in the in-app consent prompt.</td></tr>
     <tr><td>Anonymous usage / app-activity events</td><td>Firebase Analytics (Google)</td><td>Understand which features are used. Optional — gated behind the same consent prompt.</td></tr>
+    <tr><td>App performance traces (startup, capture and render timings)</td><td>Firebase Performance Monitoring (Google)</td><td>Find slow paths and thermal stalls on real devices. Optional — same consent prompt.</td></tr>
     <tr><td>Purchase history</td><td>RevenueCat &amp; Apple/Google billing</td><td>Validate your one-time Pro purchase and restore it across your devices. Tied to a <strong>pseudonymous</strong> ID, not to your name or email.</td></tr>
     <tr><td>Pseudonymous app identifiers</td><td>Firebase install ID, RevenueCat user ID</td><td>Group the above events for a single install. <strong>Not advertising IDs</strong> and not the IDFA.</td></tr>
   </table>
   <p>We do <strong>not</strong> collect your name, email, address, phone number, contacts, precise location, or any biometric identity. Skin-tone is a local rendering preference and is never sent to analytics.</p>
 
   <h2>4. Consent (GDPR / ePrivacy)</h2>
-  <p>On first launch, analytics and crash reporting are <strong>disabled</strong>. LAM shows a consent prompt; Firebase Analytics and Crashlytics are only activated if you accept. You can change your mind at any time — declining (or withdrawing) keeps the app fully functional, just without optional diagnostics.</p>
+  <p>On first launch, analytics and crash reporting are <strong>disabled</strong>. LAM shows a consent prompt; Firebase Analytics, Crashlytics and Performance Monitoring are only activated if you accept. You can change your mind at any time — declining (or withdrawing) keeps the app fully functional, just without optional diagnostics.</p>
 
   <h2>5. Tracking</h2>
   <p>LAM does <strong>not</strong> track you. There are no advertising SDKs, no IDFA usage, and no cross-app or cross-site tracking. We do not build advertising profiles and do not share data with data brokers.</p>
 
   <h2>6. Third-party processors</h2>
   <ul>
-    <li><strong>Google Firebase</strong> (Crashlytics, Analytics) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">privacy</a></li>
+    <li><strong>Google Firebase</strong> (Crashlytics, Analytics, Performance Monitoring) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">privacy</a></li>
     <li><strong>RevenueCat</strong> (purchase validation) — <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">privacy</a></li>
     <li><strong>Apple App Store / Google Play</strong> (billing) — governed by their respective privacy policies.</li>
   </ul>
@@ -168,20 +169,21 @@
     <tr><th>Dữ liệu</th><th>Bên xử lý</th><th>Mục đích</th></tr>
     <tr><td>Nhật ký sự cố &amp; chẩn đoán</td><td>Firebase Crashlytics (Google)</td><td>Chẩn đoán và sửa lỗi sập app. Chỉ thu thập <strong>sau khi</strong> bạn đồng ý phân tích ở hộp thoại trong ứng dụng.</td></tr>
     <tr><td>Sự kiện sử dụng / hoạt động ẩn danh</td><td>Firebase Analytics (Google)</td><td>Hiểu tính năng nào được dùng. Tuỳ chọn — phụ thuộc cùng hộp thoại đồng ý đó.</td></tr>
+    <tr><td>Dấu vết hiệu năng ứng dụng (thời gian khởi động, chụp, dựng hình)</td><td>Firebase Performance Monitoring (Google)</td><td>Tìm các đoạn chậm và hiện tượng nghẽn do nhiệt trên máy thật. Tuỳ chọn — cùng hộp thoại đồng ý.</td></tr>
     <tr><td>Lịch sử mua hàng</td><td>RevenueCat &amp; thanh toán Apple/Google</td><td>Xác thực giao dịch Pro một lần và khôi phục trên các thiết bị của bạn. Gắn với một ID <strong>ẩn danh</strong>, không gắn với tên hay email của bạn.</td></tr>
     <tr><td>Định danh ứng dụng ẩn danh</td><td>Firebase install ID, RevenueCat user ID</td><td>Nhóm các sự kiện trên cho một lượt cài đặt. <strong>Không phải định danh quảng cáo</strong> và không phải IDFA.</td></tr>
   </table>
   <p>Chúng tôi <strong>không</strong> thu thập tên, email, địa chỉ, số điện thoại, danh bạ, vị trí chính xác, hay bất kỳ định danh sinh trắc học nào của bạn. Tông da là tuỳ chọn hiển thị cục bộ và không bao giờ gửi cho analytics.</p>
 
   <h2>4. Sự đồng ý (GDPR / ePrivacy)</h2>
-  <p>Ở lần mở đầu tiên, analytics và báo cáo sự cố đều <strong>tắt</strong>. LAM hiển thị hộp thoại xin đồng ý; Firebase Analytics và Crashlytics chỉ được bật nếu bạn chấp nhận. Bạn có thể đổi ý bất cứ lúc nào — từ chối (hoặc rút lại) vẫn giữ ứng dụng hoạt động đầy đủ, chỉ là không có phần chẩn đoán tuỳ chọn.</p>
+  <p>Ở lần mở đầu tiên, analytics và báo cáo sự cố đều <strong>tắt</strong>. LAM hiển thị hộp thoại xin đồng ý; Firebase Analytics, Crashlytics và Performance Monitoring chỉ được bật nếu bạn chấp nhận. Bạn có thể đổi ý bất cứ lúc nào — từ chối (hoặc rút lại) vẫn giữ ứng dụng hoạt động đầy đủ, chỉ là không có phần chẩn đoán tuỳ chọn.</p>
 
   <h2>5. Theo dõi</h2>
   <p>LAM <strong>không</strong> theo dõi bạn. Không có SDK quảng cáo, không dùng IDFA, và không theo dõi xuyên ứng dụng hay xuyên trang web. Chúng tôi không xây hồ sơ quảng cáo và không chia sẻ dữ liệu cho các bên môi giới dữ liệu.</p>
 
   <h2>6. Bên xử lý thứ ba</h2>
   <ul>
-    <li><strong>Google Firebase</strong> (Crashlytics, Analytics) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">chính sách</a></li>
+    <li><strong>Google Firebase</strong> (Crashlytics, Analytics, Performance Monitoring) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">chính sách</a></li>
     <li><strong>RevenueCat</strong> (xác thực mua hàng) — <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">chính sách</a></li>
     <li><strong>Apple App Store / Google Play</strong> (thanh toán) — tuân theo chính sách bảo mật tương ứng của họ.</li>
   </ul>
