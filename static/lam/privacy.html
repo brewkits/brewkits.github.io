@@ -100,11 +100,12 @@
     <tr><th>Data</th><th>Who processes it</th><th>Why</th></tr>
     <tr><td>Crash &amp; diagnostic logs</td><td>Firebase Crashlytics (Google)</td><td>Diagnose and fix crashes. Collected <strong>only after</strong> you accept analytics in the in-app consent prompt.</td></tr>
     <tr><td>Anonymous usage / app-activity events</td><td>Firebase Analytics (Google)</td><td>Understand which features are used. Optional — gated behind the same consent prompt.</td></tr>
+    <tr><td>Approximate location (country / city level)</td><td>Firebase Analytics (Google)</td><td>Derived by Google from the masked IP address of your connection — never GPS, never street level. Used to read usage by region. Optional — same consent prompt.</td></tr>
     <tr><td>App performance traces (startup, capture and render timings)</td><td>Firebase Performance Monitoring (Google)</td><td>Find slow paths and thermal stalls on real devices. Optional — same consent prompt.</td></tr>
     <tr><td>Purchase history</td><td>RevenueCat &amp; Apple/Google billing</td><td>Validate your one-time Pro purchase and restore it across your devices. Tied to a <strong>pseudonymous</strong> ID, not to your name or email.</td></tr>
     <tr><td>Pseudonymous app identifiers</td><td>Firebase install ID, RevenueCat user ID</td><td>Group the above events for a single install. <strong>Not advertising IDs</strong> and not the IDFA.</td></tr>
   </table>
-  <p>We do <strong>not</strong> collect your name, email, address, phone number, contacts, precise location, or any biometric identity. Skin-tone is a local rendering preference and is never sent to analytics.</p>
+  <p>We do <strong>not</strong> collect your name, email, address, phone number, contacts, <strong>precise (GPS) location</strong>, or any biometric identity. LAM never asks for the location permission — the approximate location above is inferred by Google from a masked IP address and resolves no finer than your city. Skin-tone is a local rendering preference and is never sent to analytics.</p>
 
   <h2>4. Consent (GDPR / ePrivacy)</h2>
   <p>On first launch, analytics and crash reporting are <strong>disabled</strong>. LAM shows a consent prompt; Firebase Analytics, Crashlytics and Performance Monitoring are only activated if you accept. You can change your mind at any time — declining (or withdrawing) keeps the app fully functional, just without optional diagnostics.</p>
@@ -169,11 +170,12 @@
     <tr><th>Dữ liệu</th><th>Bên xử lý</th><th>Mục đích</th></tr>
     <tr><td>Nhật ký sự cố &amp; chẩn đoán</td><td>Firebase Crashlytics (Google)</td><td>Chẩn đoán và sửa lỗi sập app. Chỉ thu thập <strong>sau khi</strong> bạn đồng ý phân tích ở hộp thoại trong ứng dụng.</td></tr>
     <tr><td>Sự kiện sử dụng / hoạt động ẩn danh</td><td>Firebase Analytics (Google)</td><td>Hiểu tính năng nào được dùng. Tuỳ chọn — phụ thuộc cùng hộp thoại đồng ý đó.</td></tr>
+    <tr><td>Vị trí gần đúng (mức quốc gia / thành phố)</td><td>Firebase Analytics (Google)</td><td>Google suy ra từ địa chỉ IP đã che của kết nối — không dùng GPS, không tới mức đường phố. Dùng để xem mức sử dụng theo khu vực. Tuỳ chọn — cùng hộp thoại đồng ý.</td></tr>
     <tr><td>Dấu vết hiệu năng ứng dụng (thời gian khởi động, chụp, dựng hình)</td><td>Firebase Performance Monitoring (Google)</td><td>Tìm các đoạn chậm và hiện tượng nghẽn do nhiệt trên máy thật. Tuỳ chọn — cùng hộp thoại đồng ý.</td></tr>
     <tr><td>Lịch sử mua hàng</td><td>RevenueCat &amp; thanh toán Apple/Google</td><td>Xác thực giao dịch Pro một lần và khôi phục trên các thiết bị của bạn. Gắn với một ID <strong>ẩn danh</strong>, không gắn với tên hay email của bạn.</td></tr>
     <tr><td>Định danh ứng dụng ẩn danh</td><td>Firebase install ID, RevenueCat user ID</td><td>Nhóm các sự kiện trên cho một lượt cài đặt. <strong>Không phải định danh quảng cáo</strong> và không phải IDFA.</td></tr>
   </table>
-  <p>Chúng tôi <strong>không</strong> thu thập tên, email, địa chỉ, số điện thoại, danh bạ, vị trí chính xác, hay bất kỳ định danh sinh trắc học nào của bạn. Tông da là tuỳ chọn hiển thị cục bộ và không bao giờ gửi cho analytics.</p>
+  <p>Chúng tôi <strong>không</strong> thu thập tên, email, địa chỉ, số điện thoại, danh bạ, <strong>vị trí chính xác (GPS)</strong>, hay bất kỳ định danh sinh trắc học nào của bạn. LAM không bao giờ xin quyền vị trí — phần vị trí gần đúng nêu trên do Google suy ra từ địa chỉ IP đã che và không chi tiết hơn mức thành phố. Tông da là tuỳ chọn hiển thị cục bộ và không bao giờ gửi cho analytics.</p>
 
   <h2>4. Sự đồng ý (GDPR / ePrivacy)</h2>
   <p>Ở lần mở đầu tiên, analytics và báo cáo sự cố đều <strong>tắt</strong>. LAM hiển thị hộp thoại xin đồng ý; Firebase Analytics, Crashlytics và Performance Monitoring chỉ được bật nếu bạn chấp nhận. Bạn có thể đổi ý bất cứ lúc nào — từ chối (hoặc rút lại) vẫn giữ ứng dụng hoạt động đầy đủ, chỉ là không có phần chẩn đoán tuỳ chọn.</p>
