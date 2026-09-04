@@ -39,6 +39,12 @@
   table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
   th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin:18px 0}
+  .flow .box{flex:1 1 200px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .flow .box h3{margin:0 0 8px;font-size:14px;color:var(--primary);letter-spacing:.02em}
+  .flow .box p{margin:0;font-size:14px;color:#d4d4d8}
+  .flow .arrow{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 14px;color:var(--muted);font-size:20px}
+  @media (max-width:640px){.flow{flex-direction:column}.flow .arrow{transform:rotate(90deg);padding:6px 0}}
   .langbar{position:fixed;top:12px;right:12px;z-index:60;display:flex;gap:4px;background:rgba(0,0,0,.6);
     border:1px solid var(--line);border-radius:999px;padding:4px;backdrop-filter:blur(8px)}
   .langbar button{font-family:var(--ms);font-size:11px;letter-spacing:.3px;color:#aaa;background:transparent;border:0;
@@ -72,7 +78,7 @@
 <div class="wrap" data-lang-content="en">
   <p class="kicker">Brewkits · LAM</p>
   <h1>Privacy Policy</h1>
-  <p class="meta">Last updated: 1 September 2026 · Applies to the <strong>LAM · Film &amp; Cine Camera</strong> app for iOS and Android.</p>
+  <p class="meta">Last updated: 4 September 2026 · Applies to the <strong>LAM · Film &amp; Cine Camera</strong> app for iOS and Android.</p>
 
   <p class="lead">LAM is a camera app built around one principle: your photos and videos are yours. Image and audio processing happens <strong>on your device</strong>. We do not use advertising identifiers, we do not track you across apps, and we never sell your data.</p>
 
@@ -108,6 +114,24 @@
   </table>
   <p>We do <strong>not</strong> collect your name, email, address, phone number, contacts, <strong>precise (GPS) location</strong>, or any biometric identity. LAM never asks for the location permission — the approximate location above is inferred by Google from a masked IP address and resolves no finer than your city. Skin-tone is a local rendering preference and is never sent to analytics.</p>
 
+  <div class="flow">
+    <div class="box">
+      <h3>Your device</h3>
+      <p>Photos, videos, microphone audio, in-app settings. Stays here — never uploaded.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="box">
+      <h3>Firebase (Google)</h3>
+      <p>Crash logs, device ID, approximate location, performance traces — tied to a pseudonymous install ID, never your name.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="box">
+      <h3>RevenueCat</h3>
+      <p>Purchase history tied to a pseudonymous app-user ID — no name, no email, no card number.</p>
+    </div>
+  </div>
+  <p class="meta" style="margin:0 0 20px">Full processor terms: <a href="https://firebase.google.com/terms/data-processing-terms" target="_blank" rel="noopener">Firebase Data Processing and Security Terms</a> · <a href="https://www.revenuecat.com/dpa" target="_blank" rel="noopener">RevenueCat Data Processing Addendum</a>.</p>
+
   <h2>4. Consent (GDPR / ePrivacy)</h2>
   <p>On first launch, analytics and crash reporting are <strong>disabled</strong>. LAM shows a consent prompt; Firebase Analytics, Crashlytics and Performance Monitoring are only activated if you accept. You can change your mind at any time — declining (or withdrawing) keeps the app fully functional, just without optional diagnostics.</p>
 
@@ -116,8 +140,8 @@
 
   <h2>6. Third-party processors</h2>
   <ul>
-    <li><strong>Google Firebase</strong> (Crashlytics, Analytics, Performance Monitoring) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">privacy</a></li>
-    <li><strong>RevenueCat</strong> (purchase validation) — <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">privacy</a></li>
+    <li><strong>Google Firebase</strong> (Crashlytics, Analytics, Performance Monitoring) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">privacy</a> · <a href="https://firebase.google.com/terms/data-processing-terms" target="_blank" rel="noopener">DPA</a></li>
+    <li><strong>RevenueCat</strong> (purchase validation) — <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">privacy</a> · <a href="https://www.revenuecat.com/dpa" target="_blank" rel="noopener">DPA</a></li>
     <li><strong>Apple App Store / Google Play</strong> (billing) — governed by their respective privacy policies.</li>
   </ul>
 
@@ -143,7 +167,7 @@
 <div class="wrap" data-lang-content="vi">
   <p class="kicker">Brewkits · LAM</p>
   <h1>Chính sách bảo mật</h1>
-  <p class="meta">Cập nhật lần cuối: 01/09/2026 · Áp dụng cho ứng dụng <strong>LAM · Film &amp; Cine Camera</strong> trên iOS và Android.</p>
+  <p class="meta">Cập nhật lần cuối: 04/09/2026 · Áp dụng cho ứng dụng <strong>LAM · Film &amp; Cine Camera</strong> trên iOS và Android.</p>
 
   <p class="lead">LAM là ứng dụng máy ảnh xây trên một nguyên tắc: ảnh và video của bạn là của bạn. Việc xử lý hình ảnh và âm thanh diễn ra <strong>ngay trên thiết bị của bạn</strong>. Chúng tôi không dùng định danh quảng cáo, không theo dõi bạn xuyên ứng dụng, và không bao giờ bán dữ liệu của bạn.</p>
 
@@ -179,6 +203,24 @@
   </table>
   <p>Chúng tôi <strong>không</strong> thu thập tên, email, địa chỉ, số điện thoại, danh bạ, <strong>vị trí chính xác (GPS)</strong>, hay bất kỳ định danh sinh trắc học nào của bạn. LAM không bao giờ xin quyền vị trí — phần vị trí gần đúng nêu trên do Google suy ra từ địa chỉ IP đã che và không chi tiết hơn mức thành phố. Tông da là tuỳ chọn hiển thị cục bộ và không bao giờ gửi cho analytics.</p>
 
+  <div class="flow">
+    <div class="box">
+      <h3>Thiết bị của bạn</h3>
+      <p>Ảnh, video, âm thanh micro, tuỳ chọn trong ứng dụng. Ở lại đây — không bao giờ tải lên.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="box">
+      <h3>Firebase (Google)</h3>
+      <p>Nhật ký sự cố, định danh thiết bị, vị trí gần đúng, dấu vết hiệu năng — gắn với ID cài đặt ẩn danh, không phải tên bạn.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="box">
+      <h3>RevenueCat</h3>
+      <p>Lịch sử mua hàng gắn với ID người dùng ẩn danh — không tên, không email, không số thẻ.</p>
+    </div>
+  </div>
+  <p class="meta" style="margin:0 0 20px">Điều khoản đầy đủ của bên xử lý: <a href="https://firebase.google.com/terms/data-processing-terms" target="_blank" rel="noopener">Firebase Data Processing and Security Terms</a> · <a href="https://www.revenuecat.com/dpa" target="_blank" rel="noopener">RevenueCat Data Processing Addendum</a>.</p>
+
   <h2>4. Sự đồng ý (GDPR / ePrivacy)</h2>
   <p>Ở lần mở đầu tiên, analytics và báo cáo sự cố đều <strong>tắt</strong>. LAM hiển thị hộp thoại xin đồng ý; Firebase Analytics, Crashlytics và Performance Monitoring chỉ được bật nếu bạn chấp nhận. Bạn có thể đổi ý bất cứ lúc nào — từ chối (hoặc rút lại) vẫn giữ ứng dụng hoạt động đầy đủ, chỉ là không có phần chẩn đoán tuỳ chọn.</p>
 
@@ -187,8 +229,8 @@
 
   <h2>6. Bên xử lý thứ ba</h2>
   <ul>
-    <li><strong>Google Firebase</strong> (Crashlytics, Analytics, Performance Monitoring) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">chính sách</a></li>
-    <li><strong>RevenueCat</strong> (xác thực mua hàng) — <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">chính sách</a></li>
+    <li><strong>Google Firebase</strong> (Crashlytics, Analytics, Performance Monitoring) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">chính sách</a> · <a href="https://firebase.google.com/terms/data-processing-terms" target="_blank" rel="noopener">DPA</a></li>
+    <li><strong>RevenueCat</strong> (xác thực mua hàng) — <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">chính sách</a> · <a href="https://www.revenuecat.com/dpa" target="_blank" rel="noopener">DPA</a></li>
     <li><strong>Apple App Store / Google Play</strong> (thanh toán) — tuân theo chính sách bảo mật tương ứng của họ.</li>
   </ul>
 
