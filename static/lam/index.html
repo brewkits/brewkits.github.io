@@ -83,10 +83,12 @@
   .sec-cta .hint{font-family:var(--ms);font-size:11px;color:#777;letter-spacing:.5px;margin-top:12px}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:40px}
   .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:40px}
-  .gshot{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:14px;overflow:hidden}
-  .gshot img{display:block;width:100%;height:auto}
-  .gvideo{background:#0e0e0e;border:1px dashed #333;border-radius:14px;padding:32px 20px;text-align:center;
-    color:#777;font-family:var(--ms);font-size:12px;letter-spacing:.4px;line-height:1.6}
+  .gshot{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:14px;overflow:hidden;aspect-ratio:9/16}
+  .gshot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+  .gvideo{background:#0e0e0e;border:1px dashed #333;border-radius:14px;aspect-ratio:9/16;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+    color:#777;font-family:var(--ms);font-size:12px;letter-spacing:.4px;line-height:1.6;text-align:center;padding:20px}
+  .gvideo svg{opacity:.55}
   .wedge{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:22px}
   .wedge.lead{border:1px solid var(--amber);box-shadow:0 8px 28px rgba(255,193,7,.15)}
   .wedge .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
@@ -459,7 +461,10 @@
       <div class="gshot"><img src="img/gallery-viewfinder.jpg" width="450" height="800" loading="lazy" alt="LAM viewfinder — live recipe cards over a street scene"></div>
       <div class="gshot"><img src="img/gallery-boutique.jpg" width="529" height="800" loading="lazy" alt="LAM Boutique layout, Noir theme — night market capture"></div>
       <div class="gshot"><img src="img/gallery-pro.jpg" width="369" height="800" loading="lazy" alt="LAM Pro settings — 180° shutter presets and monitoring HUD"></div>
-      <div class="gvideo" data-i18n="galVideoNote"></div>
+      <div class="gvideo">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10 8.5l6 3.5-6 3.5z" fill="#FFC107" stroke="none"/></svg>
+        <span data-i18n="galVideoNote"></span>
+      </div>
     </div>
   </div>
 </section>
