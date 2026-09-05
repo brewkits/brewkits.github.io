@@ -82,6 +82,11 @@
   .sec-cta{text-align:center;margin-top:36px}
   .sec-cta .hint{font-family:var(--ms);font-size:11px;color:#777;letter-spacing:.5px;margin-top:12px}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:40px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:40px}
+  .gshot{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:14px;overflow:hidden}
+  .gshot img{display:block;width:100%;height:auto}
+  .gvideo{background:#0e0e0e;border:1px dashed #333;border-radius:14px;padding:32px 20px;text-align:center;
+    color:#777;font-family:var(--ms);font-size:12px;letter-spacing:.4px;line-height:1.6}
   .wedge{background:#0e0e0e;border:1px solid #1f1f1f;border-radius:12px;padding:22px}
   .wedge.lead{border:1px solid var(--amber);box-shadow:0 8px 28px rgba(255,193,7,.15)}
   .wedge .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
@@ -207,7 +212,7 @@
 <!-- HERO -->
 <section class="hero">
   <div style="margin-bottom:28px"><span class="pill" data-i18n="prelaunch"></span></div>
-  <img class="icon" src="icon-1024.png" alt="LAM — a faceted brass gem engraved with an L, on warm ivory">
+  <img class="icon" src="icon-1024.png" alt="LAM — a brass camera-aperture iris mark on near-black">
   <h1>LAM</h1>
   <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:6px">
     <div class="tag-main" data-i18n="tagMain"></div>
@@ -445,6 +450,20 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <h2 class="center sm" data-i18n="galHead"></h2>
+    <p class="sub-en center" data-i18n="galSub"></p>
+    <div class="gallery">
+      <div class="gshot"><img src="img/gallery-viewfinder.jpg" width="450" height="800" loading="lazy" alt="LAM viewfinder — live recipe cards over a street scene"></div>
+      <div class="gshot"><img src="img/gallery-boutique.jpg" width="529" height="800" loading="lazy" alt="LAM Boutique layout, Noir theme — night market capture"></div>
+      <div class="gshot"><img src="img/gallery-pro.jpg" width="369" height="800" loading="lazy" alt="LAM Pro settings — 180° shutter presets and monitoring HUD"></div>
+      <div class="gvideo" data-i18n="galVideoNote"></div>
+    </div>
+  </div>
+</section>
+
 <!-- PHILOSOPHY -->
 <section class="sec" style="padding:88px 24px;text-align:center">
   <div style="max-width:640px;margin:0 auto">
@@ -469,17 +488,11 @@
   </div>
 </section>
 
-<!-- WAITLIST -->
+<!-- STATUS -->
 <section class="sec wl" id="download">
   <div class="box">
     <div style="margin-bottom:24px"><span class="pill" data-i18n="wlPill"></span></div>
     <h2 data-i18n="wlHead"></h2>
-    <p class="sub-en" style="margin-bottom:30px" data-i18n="wlSub"></p>
-    <form id="wl-form">
-      <input id="wl-email" type="email" name="email" placeholder="email@example.com" required>
-      <button type="submit" data-i18n="wlBtn"></button>
-    </form>
-    <p class="micro" id="wl-note" data-i18n="wlMicro"></p>
   </div>
 </section>
 
@@ -527,10 +540,10 @@ var PRICES = {
 };
 var I18N = {
   en: {
-    prelaunch:'● Pre-launch · App Store coming September 2026',
+    prelaunch:'● Pre-launch · App Store & Google Play',
     tagMain:'A film camera with soul.',
     tagSub:'Live film grade tuned for Asian skin. 16 stocks, 41 looks, export to .cube or share as a code — graded live on your device, never on a server.',
-    ctaPrimary:'Join the waitlist', ctaSecondary:'Why LAM ↓', ctaNotify:'Notify me at launch ↓',
+    ctaPrimary:'Pre-launch ↓', ctaSecondary:'Why LAM ↓', ctaNotify:'Pre-launch ↓',
     statForever:'forever', statStocks:'film stocks', statTones:'Asian skin modes',
     pillFeatured:'Featured', pillPricing:'Pricing',
     tLead:'STEAL', tRetention:'REAL TONE', tConversion:'WORKFLOW', tPro:'CINEMA', tDelight:'VIRAL', tNarrative:'ENGINE',
@@ -548,7 +561,7 @@ var I18N = {
     prLifeName:'Pro (Forever)', prOnce:'once', prLifeDesc:'Pay once, own it forever — no renewals. All 16 stocks, LUT export, and 4 Pro camera bodies.',
     prPacks:'Optional one-time packs (Food Pack, film-stock packs) — buy only what you want.',
     ccyNote:'Prices are approximate regional store tiers — the exact local price is shown at checkout. No account · No ads · No data harvesting.',
-    ctaHint:'App Store + Google Play · September 2026 · one email, then never again',
+    ctaHint:'App Store + Google Play · release date not fixed yet',
     wHead:'Five weapons. One camera.', wSub:'What no film app on the store does together.',
     w1h:'36 shots per roll', w1v:'36 frames, then a contact sheet', w1p:'Turn on Roll mode and the counter is real. 36 exposures, then the roll ends and a contact sheet is developed from everything you shot. You slow down, you compose, you stop firing twenty frames at one subject.',
     w2h:'Real Tone for Asia', w2v:'5 Asian skin modes', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — calibrated for Southeast Asian skin. Western apps turn tropical skin grey or green. LAM doesn\'t.',
@@ -595,18 +608,17 @@ var I18N = {
     q3:'Does LAM upload my photos?', a3:'No. Real Tone runs on-device — skin tone is read from the live preview and never leaves your phone.',
     q4:'Do I need an account to use LAM?', a4:'No. LAM works entirely offline and on-device. No sign-up required.',
     q5:'What\'s the difference between Free and Pro?', a5:'Free: 6 stocks, manual controls, HUD, recipe import, live engine. Pro: all 16 stocks, .cube export, Pro bodies, boutique skins.',
-    q6:'When does it ship?', a6:'September 2026, App Store + Google Play simultaneously. The waitlist gets a launch-day email — the only email LAM will ever send you.',
-    wlPill:'September 2026 · App Store + Play', wlHead:'Join the launch waitlist.',
-    wlSub:'One email when LAM goes live — then never again.',
-    wlBtn:'Notify me', wlMicro:'ONE EMAIL · NO TRACKING · NO LISTS SOLD',
+    q6:'When does it ship?', a6:'No fixed date yet — LAM is in App Store and Google Play review. A download link goes live on this page the moment it ships.',
+    wlPill:'App Store & Google Play', wlHead:'Coming to App Store & Google Play.',
+    galHead:'See LAM, for real.', galSub:'Real screenshots from the app — no mockups.', galVideoNote:'Demo video — coming soon.',
     footTag:'LAM · A film camera with soul.', footPrivacy:'Privacy Policy', footTerms:'Terms of Service',
     footCopy:'© 2026 Brewkits · NO COOKIES · NO ADS · NO ACCOUNT REQUIRED'
   },
   vi: {
-    prelaunch:'● Sắp ra mắt · App Store tháng 9, 2026',
+    prelaunch:'● Sắp ra mắt · App Store & Google Play',
     tagMain:'Máy ảnh cơ có linh hồn.',
     tagSub:'Màu phim grade live, hiệu chỉnh cho da châu Á. 16 loại film, 41 look, xuất .cube hoặc chia sẻ bằng mã — xử lý trực tiếp trên máy bạn, không lên server.',
-    ctaPrimary:'Đăng ký chờ ra mắt', ctaSecondary:'Vì sao LAM ↓', ctaNotify:'Báo tin khi ra mắt ↓',
+    ctaPrimary:'Sắp ra mắt ↓', ctaSecondary:'Vì sao LAM ↓', ctaNotify:'Sắp ra mắt ↓',
     statForever:'trọn đời', statStocks:'film stock', statTones:'chế độ da châu Á',
     pillFeatured:'Nổi bật', pillPricing:'Giá cả',
     tLead:'TRỘM MÀU', tRetention:'REAL TONE', tConversion:'WORKFLOW', tPro:'CINEMA', tDelight:'LAN TRUYỀN', tNarrative:'ENGINE',
@@ -624,7 +636,7 @@ var I18N = {
     prLifeName:'Pro (Trọn đời)', prOnce:'một lần', prLifeDesc:'Trả 1 lần, sở hữu mãi mãi — không gia hạn. Mở khoá 16 cuộn film, xuất LUT, và 4 body Pro.',
     prPacks:'Các gói lẻ tuỳ chọn (Food Pack, gói film stock) — chỉ mua thứ bạn cần.',
     ccyNote:'Giá là mức tham khảo theo vùng — giá chính xác hiện lúc thanh toán trên store. Không tài khoản · Không quảng cáo · Không thu thập dữ liệu.',
-    ctaHint:'App Store + Google Play · Tháng 9, 2026 · một email, rồi không bao giờ nữa',
+    ctaHint:'App Store + Google Play · chưa có ngày ra mắt cụ thể',
     wHead:'Năm vũ khí. Một chiếc máy.', wSub:'Những thứ không app phim nào trên store làm được cùng lúc.',
     w1h:'Cuộn phim 36 kiểu', w1v:'36 kiểu, rồi có contact sheet', w1p:'Bật chế độ Cuộn phim, bộ đếm là thật. 36 kiểu, hết cuộn thì một tờ contact sheet được tráng ra từ tất cả những gì bạn đã chụp. Bạn chậm lại, bố cục kỹ hơn, thôi bắn hai mươi kiểu vào một chủ thể.',
     w2h:'Real Tone cho châu Á', w2v:'5 chế độ da châu Á', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — hiệu chỉnh cho da Đông Nam Á. App phương Tây làm da nhiệt đới xám hoặc ám xanh. LAM thì không.',
@@ -671,18 +683,17 @@ var I18N = {
     q3:'LAM có upload ảnh không?', a3:'Không. Real Tone chạy trên máy — tông da được đọc từ khung ngắm trực tiếp và không bao giờ rời khỏi điện thoại.',
     q4:'Tôi có cần tạo tài khoản để sử dụng LAM không?', a4:'Không. LAM hoạt động 100% offline trên máy của bạn. Không yêu cầu đăng nhập.',
     q5:'Bản Miễn phí và Pro khác nhau thế nào?', a5:'Miễn phí: 6 loại film, chỉnh tay, live HUD, nhập công thức, live engine. Pro: 16 loại film, xuất .cube, máy ảnh Pro, dán da.',
-    q6:'Khi nào ra mắt?', a6:'Tháng 9, 2026, App Store + Google Play cùng lúc. Waitlist nhận email ngày ra mắt — email duy nhất LAM gửi bạn.',
-    wlPill:'Tháng 9, 2026 · App Store + Play', wlHead:'Đăng ký chờ ra mắt.',
-    wlSub:'Một email khi LAM ra mắt — rồi không bao giờ nữa.',
-    wlBtn:'Báo tin cho tôi', wlMicro:'MỘT EMAIL · KHÔNG THEO DÕI · KHÔNG BÁN DANH SÁCH',
+    q6:'Khi nào ra mắt?', a6:'Chưa có ngày cụ thể — LAM đang trong quá trình xét duyệt của App Store và Google Play. Link tải sẽ xuất hiện ngay tại trang này khi ra mắt.',
+    wlPill:'App Store & Google Play', wlHead:'Sắp có trên App Store & Google Play.',
+    galHead:'LAM thật, không dàn dựng.', galSub:'Ảnh chụp thật từ ứng dụng — không phải mockup.', galVideoNote:'Video demo — sắp có.',
     footTag:'LAM · Máy ảnh cơ có linh hồn.', footPrivacy:'Chính sách bảo mật', footTerms:'Điều khoản',
     footCopy:'© 2026 Brewkits · KHÔNG COOKIE · KHÔNG QUẢNG CÁO · KHÔNG CẦN TÀI KHOẢN'
   },
   zh: {
-    prelaunch:'● 即将上线 · App Store 2026年9月',
+    prelaunch:'● 即将上线 · App Store & Google Play',
     tagMain:'有灵魂的胶片相机。',
     tagSub:'实时胶片调色，为亚洲肤色调校。16 款胶片、41 种风格，导出 .cube 或用一串代码分享 —— 在你的设备上实时处理，绝不上传服务器。',
-    ctaPrimary:'加入等候名单', ctaSecondary:'为什么选 LAM ↓', ctaNotify:'上线时通知我 ↓',
+    ctaPrimary:'即将上线 ↓', ctaSecondary:'为什么选 LAM ↓', ctaNotify:'即将上线 ↓',
     statForever:'永久', statStocks:'款胶片', statTones:'亚洲肤色模式',
     pillFeatured:'主打', pillPricing:'价格',
     tLead:'偷色', tRetention:'REAL TONE', tConversion:'工作流', tPro:'电影', tDelight:'传播', tNarrative:'引擎',
@@ -700,7 +711,7 @@ var I18N = {
     prLifeName:'Pro（永久）', prOnce:'一次', prLifeDesc:'一次买断，永久拥有——永不续费。解锁全部 16 款胶片，LUT 导出，以及 4 款 Pro 机身。',
     prPacks:'可选的一次性扩展包（Food Pack、胶片包）—— 只买你需要的。',
     ccyNote:'价格为各地区商店的近似档位 — 确切本地价格在结算时显示。无账户 · 无广告 · 不收集数据。',
-    ctaHint:'App Store + Google Play · 2026年9月 · 仅一封邮件，之后不再打扰',
+    ctaHint:'App Store + Google Play · 上线日期尚未确定',
     wHead:'五件武器。一台相机。', wSub:'商店里没有任何胶片应用能同时做到。',
     w1h:'每卷 36 张', w1v:'36 张，然后出印样', w1p:'开启胶卷模式，计数器是真的。36 张曝光，一卷拍完后，系统会从你拍下的全部画面冲洗出一张印样。你会慢下来，认真构图，不再对着一个主体连拍二十张。',
     w2h:'亚洲 Real Tone', w2v:'5 种亚洲肤色模式', w2p:'Warm SEA、Golden Hour、Neutral、Cool、AUTO —— 为东南亚肤色校准。西方应用把热带肤色变灰或发绿。LAM 不会。',
@@ -747,18 +758,17 @@ var I18N = {
     q3:'LAM 会上传我的照片吗？', a3:'不会。Real Tone 在设备上运行——肤色从实时取景画面读取，绝不离开你的手机。',
     q4:'我需要注册账号才能使用 LAM 吗？', a4:'不需要。LAM 完全在设备本地离线运行。无需登录。',
     q5:'免费版和 Pro 版有什么区别？', a5:'免费版：6 款胶片，手动控制，HUD 监看，导入配方，实时引擎。Pro 版：16 款胶片，.cube 导出，Pro 机身，精品皮革外观。',
-    q6:'什么时候上线？', a6:'2026年9月，App Store 与 Google Play 同步。等候名单会收到上线当天的邮件 — 这是 LAM 唯一会发给你的邮件。',
-    wlPill:'2026年9月 · App Store + Play', wlHead:'加入上线等候名单。',
-    wlSub:'LAM 上线时发一封邮件 — 之后不再打扰。',
-    wlBtn:'通知我', wlMicro:'仅一封邮件 · 无追踪 · 不出售名单',
+    q6:'什么时候上线？', a6:'还没有确定日期 —— LAM 正在接受 App Store 和 Google Play 的审核。上线后本页会立即放上下载链接。',
+    wlPill:'App Store & Google Play', wlHead:'即将登陆 App Store 与 Google Play。',
+    galHead:'真实的 LAM。', galSub:'来自应用本身的真实截图 —— 不是效果图。', galVideoNote:'演示视频 —— 即将上线。',
     footTag:'LAM · 有灵魂的胶片相机。', footPrivacy:'隐私政策', footTerms:'服务条款',
     footCopy:'© 2026 Brewkits · 无 COOKIE · 无广告 · 无需账户'
   },
   ja: {
-    prelaunch:'● 近日公開 · App Store 2026年9月',
+    prelaunch:'● 近日公開 · App Store & Google Play',
     tagMain:'魂を宿すフィルムカメラ。',
     tagSub:'アジアの肌に合わせたフィルムグレードをライブで。16種類のフィルム、41のルック、.cube に書き出すかコードで共有 —— あなたの端末でライブ処理、サーバーには送りません。',
-    ctaPrimary:'ウェイトリストに登録', ctaSecondary:'LAM の理由 ↓', ctaNotify:'公開時に通知 ↓',
+    ctaPrimary:'近日公開 ↓', ctaSecondary:'LAM の理由 ↓', ctaNotify:'近日公開 ↓',
     statForever:'買い切り', statStocks:'フィルム', statTones:'アジア肌モード',
     pillFeatured:'注目', pillPricing:'価格',
     tLead:'盗む', tRetention:'REAL TONE', tConversion:'ワークフロー', tPro:'シネマ', tDelight:'拡散', tNarrative:'エンジン',
@@ -776,7 +786,7 @@ var I18N = {
     prLifeName:'Pro（買い切り）', prOnce:'1回', prLifeDesc:'一度の支払いでずっとあなたのもの —— 更新なし。16種類のフィルム、LUTエクスポート、4つのProボディを解放。',
     prPacks:'任意の単発パック（Food Pack、フィルムパック）—— 欲しいものだけ。',
     ccyNote:'価格は各地域ストアのおおよその価格帯です — 正確な現地価格は購入時に表示されます。アカウント不要 · 広告なし · データ収集なし。',
-    ctaHint:'App Store + Google Play · 2026年9月 · メールは1通だけ、その後は送りません',
+    ctaHint:'App Store + Google Play · 公開日は未定です',
     wHead:'5つの武器。1台のカメラ。', wSub:'ストアのどのフィルムアプリも同時には実現していない。',
     w1h:'1本36枚', w1v:'36枚、そしてコンタクトシート', w1p:'フィルムロールモードをオンにすると、カウンターは本物になります。36枚撮り切ると1本が終わり、撮影したすべてのコマからコンタクトシートが現像されます。ゆっくりになり、構図を考え、ひとつの被写体に20枚も切らなくなります。',
     w2h:'アジア向け Real Tone', w2v:'5つのアジア肌モード', w2p:'Warm SEA、Golden Hour、Neutral、Cool、AUTO —— 東南アジアの肌に合わせて調整。欧米アプリは熱帯の肌を灰色や緑にします。LAM は違う。',
@@ -823,18 +833,17 @@ var I18N = {
     q3:'LAM は写真をアップロードしますか？', a3:'いいえ。Real Tone は端末上で動作します。肌の色はライブのプレビューから読み取られ、端末の外には出ません。',
     q4:'LAM を使うためにアカウント作成は必要ですか？', a4:'いいえ。LAM は完全にオフラインでデバイス上で動作します。ログインは不要です。',
     q5:'無料版とPro版の違いは何ですか？', a5:'無料: 6種類のフィルム、マニュアル制御、HUD、レシピインポート、ライブエンジン。Pro: 全16フィルム、.cube エクスポート、Proボディ、限定スキン。',
-    q6:'いつ公開ですか？', a6:'2026年9月、App Store と Google Play 同時。ウェイトリストには公開日のメールが届きます — LAM が送る唯一のメールです。',
-    wlPill:'2026年9月 · App Store + Play', wlHead:'公開ウェイトリストに登録。',
-    wlSub:'LAM 公開時にメールを1通 — その後は送りません。',
-    wlBtn:'通知を受け取る', wlMicro:'メール1通 · 追跡なし · リスト販売なし',
+    q6:'いつ公開ですか？', a6:'正式な日付はまだ未定です。LAM は現在 App Store と Google Play の審査中 — 公開され次第、このページからすぐダウンロードできます。',
+    wlPill:'App Store & Google Play', wlHead:'App Store・Google Play で近日公開。',
+    galHead:'本物の LAM。', galSub:'アプリの実際のスクリーンショット — モックアップではありません。', galVideoNote:'デモ動画 — 近日公開。',
     footTag:'LAM · 魂を宿すフィルムカメラ。', footPrivacy:'プライバシーポリシー', footTerms:'利用規約',
     footCopy:'© 2026 Brewkits · COOKIEなし · 広告なし · アカウント不要'
   },
   ko: {
-    prelaunch:'● 출시 예정 · App Store 2026년 9월',
+    prelaunch:'● 출시 예정 · App Store & Google Play',
     tagMain:'영혼이 담긴 필름 카메라.',
     tagSub:'아시아 피부톤에 맞춘 필름 그레이딩을 라이브로. 16가지 필름, 41가지 룩, .cube 로 내보내거나 코드로 공유 —— 당신의 기기에서 실시간 처리, 서버로 보내지 않습니다.',
-    ctaPrimary:'대기자 명단 등록', ctaSecondary:'왜 LAM 인가 ↓', ctaNotify:'출시 시 알림 받기 ↓',
+    ctaPrimary:'출시 예정 ↓', ctaSecondary:'왜 LAM 인가 ↓', ctaNotify:'출시 예정 ↓',
     statForever:'평생', statStocks:'필름', statTones:'아시아 피부 모드',
     pillFeatured:'핵심', pillPricing:'가격',
     tLead:'훔치기', tRetention:'REAL TONE', tConversion:'워크플로우', tPro:'시네마', tDelight:'확산', tNarrative:'엔진',
@@ -852,7 +861,7 @@ var I18N = {
     prLifeName:'Pro (평생)', prOnce:'한 번', prLifeDesc:'한 번 결제로 평생 소유 —— 갱신 없음. 16가지 필름, LUT 내보내기, 4개의 Pro 바디 모두 잠금 해제.',
     prPacks:'선택형 단건 팩 (Food Pack, 필름 팩) —— 원하는 것만.',
     ccyNote:'가격은 지역 스토어의 대략적인 가격대입니다 — 정확한 현지 가격은 결제 시 표시됩니다. 계정 불필요 · 광고 없음 · 데이터 수집 없음.',
-    ctaHint:'App Store + Google Play · 2026년 9월 · 이메일 한 통, 그 후로는 없음',
+    ctaHint:'App Store + Google Play · 출시일 미정',
     wHead:'다섯 무기. 한 대의 카메라.', wSub:'스토어의 어떤 필름 앱도 동시에 못 합니다.',
     w1h:'한 롤 36장', w1v:'36장, 그리고 컨택트 시트', w1p:'필름 롤 모드를 켜면 카운터가 진짜가 됩니다. 36장을 찍으면 한 롤이 끝나고, 찍은 모든 컷으로 컨택트 시트가 현상됩니다. 느려지고, 구도를 고민하게 되고, 한 피사체에 스무 장씩 쏟아붓지 않게 됩니다.',
     w2h:'아시아 Real Tone', w2v:'5가지 아시아 피부 모드', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO —— 동남아시아 피부에 맞춰 보정. 서구 앱은 열대 피부를 회색이나 녹색으로 만듭니다. LAM 은 다릅니다.',
@@ -899,18 +908,17 @@ var I18N = {
     q3:'LAM 이 제 사진을 업로드하나요?', a3:'아니요. Real Tone 은 기기에서 동작합니다. 피부톤은 실시간 미리보기에서 읽히며 휴대폰을 벗어나지 않습니다.',
     q4:'LAM을 사용하려면 계정이 필요한가요?', a4:'아니요. LAM은 완전히 오프라인으로 기기 내에서 작동합니다. 로그인할 필요가 없습니다.',
     q5:'무료와 Pro의 차이는 무엇인가요?', a5:'무료: 6가지 필름, 수동 제어, HUD, 레시피 가져오기, 라이브 엔진. Pro: 16가지 필름, .cube 내보내기, Pro 바디, 부티크 스킨.',
-    q6:'언제 출시되나요?', a6:'2026년 9월, App Store 와 Google Play 동시. 대기자 명단에는 출시일 이메일이 갑니다 — LAM 이 보내는 유일한 이메일입니다.',
-    wlPill:'2026년 9월 · App Store + Play', wlHead:'출시 대기자 명단 등록.',
-    wlSub:'LAM 출시 때 이메일 한 통 — 그 후로는 없습니다.',
-    wlBtn:'알림 받기', wlMicro:'이메일 한 통 · 추적 없음 · 명단 판매 없음',
+    q6:'언제 출시되나요?', a6:'아직 정확한 출시일은 없습니다. LAM은 App Store와 Google Play 심사를 진행 중이며, 출시 즉시 이 페이지에 다운로드 링크가 게시됩니다.',
+    wlPill:'App Store & Google Play', wlHead:'App Store·Google Play 출시 예정.',
+    galHead:'진짜 LAM.', galSub:'앱에서 직접 찍은 실제 스크린샷입니다 — 목업이 아닙니다.', galVideoNote:'데모 영상 — 준비 중.',
     footTag:'LAM · 영혼이 담긴 필름 카메라.', footPrivacy:'개인정보 처리방침', footTerms:'이용약관',
     footCopy:'© 2026 Brewkits · 쿠키 없음 · 광고 없음 · 계정 불필요'
   }
   ,th: {
-    prelaunch:'● พรีลอนช์ · App Store จะมาในเดือนกันยายน 2026',
+    prelaunch:'● พรีลอนช์ · App Store & Google Play',
     tagMain:'กล้องฟิล์มที่มีจิตวิญญาณ',
     tagSub:'เกรดสีฟิล์มสดปรับแต่งสำหรับผิวชาวเอเชีย ฟิล์ม 16 ชนิด 41 ลุค ส่งออก .cube หรือแชร์เป็นโค้ด —— ทำงานแบบออฟไลน์บนเครื่องของคุณ ไม่ส่งขึ้นเซิร์ฟเวอร์',
-    ctaPrimary:'เข้าร่วม Waitlist', ctaSecondary:'ทำไมต้อง LAM ↓', ctaNotify:'แจ้งเตือนเมื่อเปิดตัว ↓',
+    ctaPrimary:'พรีลอนช์ ↓', ctaSecondary:'ทำไมต้อง LAM ↓', ctaNotify:'พรีลอนช์ ↓',
     statForever:'ตลอดชีพ', statStocks:'ฟิล์ม', statTones:'โหมดผิวเอเชีย',
     pillFeatured:'แนะนำ', pillPricing:'ราคา',
     tLead:'ขโมยโทน', tRetention:'REAL TONE', tConversion:'เวิร์กโฟลว์', tPro:'ภาพยนตร์', tDelight:'ไวรัล', tNarrative:'เอนจิน',
@@ -928,7 +936,7 @@ var I18N = {
     prLifeName:'Pro (ตลอดชีพ)', prOnce:'ครั้งเดียว', prLifeDesc:'จ่ายครั้งเดียว เป็นเจ้าของตลอดไป — ไม่มีการต่ออายุ ปลดล็อกฟิล์มทั้ง 16 ชนิด ส่งออก LUT และบอดี้ Pro 4 ตัว',
     prPacks:'แพ็กเสริมจ่ายครั้งเดียว (แพ็กอาหาร, แพ็กฟิล์ม) — ซื้อเฉพาะสิ่งที่คุณต้องการ',
     ccyNote:'ราคาเป็นระดับราคาโดยประมาณในร้านค้าส่วนภูมิภาค — ราคาที่แน่นอนจะแสดงตอนชำระเงิน ไม่ต้องใช้บัญชี · ไม่มีโฆษณา · ไม่เก็บข้อมูล',
-    ctaHint:'App Store + Google Play · กันยายน 2026 · อีเมลเดียว แล้วจะไม่มีอีกเลย',
+    ctaHint:'App Store + Google Play · ยังไม่กำหนดวันเปิดตัว',
     wHead:'5 อาวุธ ในกล้องเดียว', wSub:'สิ่งที่แอปฟิล์มอื่นในสโตร์ไม่เคยทำร่วมกัน',
     w1h:'ม้วนละ 36 รูป', w1v:'36 รูป แล้วได้คอนแทกต์ชีต', w1p:'เปิดโหมดม้วนฟิล์มแล้วตัวนับจะเป็นของจริง ถ่ายครบ 36 รูปม้วนก็จบ แล้วระบบจะล้างคอนแทกต์ชีตจากทุกภาพที่คุณถ่าย คุณจะช้าลง จัดองค์ประกอบมากขึ้น และเลิกรัวยี่สิบรูปใส่วัตถุเดียว',
     w2h:'Real Tone สำหรับเอเชีย', w2v:'5 โหมดผิวเอเชีย', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — ปรับจูนสำหรับผิวเอเชียตะวันออกเฉียงใต้ แอปตะวันตกมักทำให้ผิวเขตร้อนดูเทาหรือเขียว LAM จะไม่เป็นเช่นนั้น',
@@ -975,19 +983,18 @@ var I18N = {
     q3:'LAM อัปโหลดรูปของฉันไหม?', a3:'ไม่ Real Tone ทำงานบนเครื่อง โทนผิวถูกอ่านจากภาพสดในช่องมองและไม่เคยออกจากโทรศัพท์ของคุณ',
     q4:'ฉันต้องสมัครบัญชีเพื่อใช้ LAM หรือไม่?', a4:'ไม่ LAM ทำงานแบบออฟไลน์บนอุปกรณ์ของคุณ 100% ไม่ต้องลงชื่อเข้าใช้',
     q5:'ความต่างของรุ่นฟรีกับ Pro?', a5:'ฟรี: ฟิล์ม 6 ชนิด, คอนโทรลแมนนวล, HUD, นำเข้าสูตรสี, เอนจินแบบสด. Pro: ฟิล์ม 16 ชนิด, ส่งออก .cube, บอดี้ Pro, สกินบูติก',
-    q6:'จะเปิดตัวเมื่อไหร่?', a6:'กันยายน 2026 บน App Store และ Google Play พร้อมกัน คนที่อยู่ใน waitlist จะได้รับอีเมลแจ้งเตือนในวันเปิดตัว — และจะเป็นอีเมลเดียวที่ LAM จะส่งถึงคุณ',
-    wlPill:'กันยายน 2026 · App Store + Play', wlHead:'เข้าร่วมคิวเปิดตัว',
-    wlSub:'อีเมลเดียวเมื่อ LAM เปิดตัว — และจะไม่มีส่งอีกเลย',
-    wlBtn:'แจ้งเตือนฉัน', wlMicro:'อีเมลเดียว · ไม่ติดตาม · ไม่ขายอีเมล',
+    q6:'จะเปิดตัวเมื่อไหร่?', a6:'ยังไม่มีวันที่แน่นอน — LAM กำลังอยู่ระหว่างการตรวจสอบบน App Store และ Google Play เมื่อเปิดตัวจริง ลิงก์ดาวน์โหลดจะปรากฏที่หน้านี้ทันที',
+    wlPill:'App Store & Google Play', wlHead:'เร็วๆ นี้บน App Store และ Google Play',
+    galHead:'LAM ตัวจริง', galSub:'ภาพหน้าจอจริงจากแอป — ไม่ใช่ mockup', galVideoNote:'วิดีโอสาธิต — เร็วๆ นี้',
     footTag:'LAM · กล้องฟิล์มที่มีจิตวิญญาณ', footPrivacy:'นโยบายความเป็นส่วนตัว', footTerms:'เงื่อนไขการให้บริการ',
     footCopy:'© 2026 Brewkits · ไม่มีคุกกี้ · ไม่มีโฆษณา · ไม่ต้องมีบัญชี'
   }
 
   ,id: {
-    prelaunch:'● Pre-launch · App Store rilis September 2026',
+    prelaunch:'● Pre-launch · App Store & Google Play',
     tagMain:'Kamera film dengan jiwa.',
     tagSub:'Grading film live yang disesuaikan untuk kulit Asia. 16 jenis film, 41 look, ekspor ke .cube atau bagikan sebagai kode — diproses langsung di perangkat Anda, tidak pernah di server.',
-    ctaPrimary:'Bergabung ke waitlist', ctaSecondary:'Mengapa LAM ↓', ctaNotify:'Kabari saya saat rilis ↓',
+    ctaPrimary:'Pre-launch ↓', ctaSecondary:'Mengapa LAM ↓', ctaNotify:'Pre-launch ↓',
     statForever:'selamanya', statStocks:'jenis film', statTones:'mode kulit Asia',
     pillFeatured:'Unggulan', pillPricing:'Harga',
     tLead:'CURI WARNA', tRetention:'REAL TONE', tConversion:'WORKFLOW', tPro:'SINEMA', tDelight:'VIRAL', tNarrative:'ENGINE',
@@ -1005,7 +1012,7 @@ var I18N = {
     prLifeName:'Pro (Selamanya)', prOnce:'sekali', prLifeDesc:'Bayar sekali, miliki selamanya — tanpa perpanjangan. Buka 16 film, ekspor LUT, dan 4 bodi kamera Pro.',
     prPacks:'Paket satuan opsional (Food Pack, paket film) — beli hanya yang Anda inginkan.',
     ccyNote:'Harga adalah perkiraan untuk wilayah Anda — harga lokal yang pasti ditampilkan saat checkout. Tanpa akun · Tanpa iklan · Tanpa pengumpulan data.',
-    ctaHint:'App Store + Google Play · September 2026 · satu email, dan tidak akan pernah lagi',
+    ctaHint:'App Store + Google Play · tanggal rilis belum ditentukan',
     wHead:'Lima senjata. Satu kamera.', wSub:'Apa yang tidak bisa dilakukan aplikasi film manapun sekaligus.',
     w1h:'36 bidikan per rol', w1v:'36 frame, lalu contact sheet', w1p:'Nyalakan mode Rol dan penghitungnya sungguhan. 36 eksposur, rol berakhir, lalu contact sheet dicetak dari semua yang Anda potret. Anda melambat, menyusun komposisi, berhenti menembak dua puluh frame ke satu objek.',
     w2h:'Real Tone untuk Asia', w2v:'5 mode kulit Asia', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — dikalibrasi untuk kulit Asia Tenggara. Aplikasi Barat membuat kulit tropis tampak abu-abu atau hijau. LAM tidak.',
@@ -1052,19 +1059,18 @@ var I18N = {
     q3:'Apakah LAM mengunggah foto saya?', a3:'Tidak. Real Tone berjalan di perangkat — nada kulit dibaca dari pratinjau langsung dan tidak pernah meninggalkan ponsel Anda.',
     q4:'Apakah saya perlu akun untuk menggunakan LAM?', a4:'Tidak. LAM beroperasi sepenuhnya offline di perangkat. Tidak perlu login.',
     q5:'Apa bedanya Gratis vs Pro?', a5:'Gratis: 6 film, kontrol manual, HUD, impor resep, engine live. Pro: 16 film, ekspor .cube, bodi Pro, skin butik.',
-    q6:'Kapan dirilis?', a6:'September 2026, App Store & Google Play secara bersamaan. Pendaftar waitlist akan mendapat email pada hari rilis — satu-satunya email yang akan dikirim LAM.',
-    wlPill:'September 2026 · App Store + Play', wlHead:'Masuk ke waitlist perilisan.',
-    wlSub:'Satu email saat LAM rilis — dan tidak akan pernah lagi.',
-    wlBtn:'Kabari saya', wlMicro:'SATU EMAIL · TANPA PELACAKAN · DAFTAR TIDAK DIJUAL',
+    q6:'Kapan dirilis?', a6:'Belum ada tanggal pasti — LAM sedang dalam proses tinjauan App Store dan Google Play. Tautan unduhan akan muncul di halaman ini begitu resmi rilis.',
+    wlPill:'App Store & Google Play', wlHead:'Segera hadir di App Store & Google Play.',
+    galHead:'LAM yang sebenarnya.', galSub:'Tangkapan layar asli dari aplikasi — bukan mockup.', galVideoNote:'Video demo — segera hadir.',
     footTag:'LAM · Kamera film dengan jiwa.', footPrivacy:'Kebijakan Privasi', footTerms:'Syarat Layanan',
     footCopy:'© 2026 Brewkits · TANPA COOKIE · TANPA IKLAN · TANPA AKUN'
   }
 
   ,ms: {
-    prelaunch:'● Pre-launch · App Store akan datang pada September 2026',
+    prelaunch:'● Pre-launch · App Store & Google Play',
     tagMain:'Kamera filem yang berjiwa.',
     tagSub:'Gred filem live diselaraskan untuk kulit Asia. 16 jenis filem, 41 look, eksport ke .cube atau kongsi sebagai kod — diproses live pada peranti anda, tidak pernah pada pelayan.',
-    ctaPrimary:'Sertai senarai menunggu', ctaSecondary:'Mengapa LAM ↓', ctaNotify:'Beritahu saya bila dilancarkan ↓',
+    ctaPrimary:'Pre-launch ↓', ctaSecondary:'Mengapa LAM ↓', ctaNotify:'Pre-launch ↓',
     statForever:'selamanya', statStocks:'jenis filem', statTones:'mod kulit Asia',
     pillFeatured:'Ditampilkan', pillPricing:'Harga',
     tLead:'CURI WARNA', tRetention:'REAL TONE', tConversion:'WORKFLOW', tPro:'CINEMA', tDelight:'VIRAL', tNarrative:'ENGINE',
@@ -1082,7 +1088,7 @@ var I18N = {
     prLifeName:'Pro (Selamanya)', prOnce:'sekali', prLifeDesc:'Bayar sekali, miliki selamanya — tiada pembaharuan. Akses semua 16 filem, eksport LUT, dan 4 badan kamera Pro.',
     prPacks:'Pek satu kali pilihan (Pek Makanan, pek filem) — beli hanya apa yang anda mahukan.',
     ccyNote:'Harga adalah anggaran untuk kedai rantau anda — harga tempatan yang tepat akan ditunjukkan semasa pembayaran. Tiada akaun · Tiada iklan · Tiada pengumpulan data.',
-    ctaHint:'App Store + Google Play · September 2026 · satu e-mel, dan tidak akan ada lagi',
+    ctaHint:'App Store + Google Play · tarikh pelancaran belum ditetapkan',
     wHead:'Lima senjata. Satu kamera.', wSub:'Apa yang tidak dilakukan oleh aplikasi filem lain secara serentak.',
     w1h:'36 syot segulung', w1v:'36 bingkai, kemudian contact sheet', w1p:'Hidupkan mod Gulung dan pembilangnya sebenar. 36 dedahan, gulungan tamat, dan satu contact sheet dicuci daripada semua yang anda rakam. Anda perlahan, menyusun komposisi, berhenti melepaskan dua puluh bingkai pada satu subjek.',
     w2h:'Real Tone untuk Asia', w2v:'5 mod kulit Asia', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — dikalibrasi untuk kulit Asia Tenggara. Aplikasi Barat membuat kulit tropika kelihatan kelabu atau hijau. LAM tidak.',
@@ -1129,19 +1135,18 @@ var I18N = {
     q3:'Adakah LAM memuat naik gambar saya?', a3:'Tidak. Real Tone berjalan pada peranti — nada kulit dibaca dari pratonton langsung dan tidak pernah meninggalkan telefon anda.',
     q4:'Adakah saya memerlukan akaun untuk menggunakan LAM?', a4:'Tidak. LAM beroperasi sepenuhnya secara luar talian pada peranti anda. Tiada log masuk diperlukan.',
     q5:'Apakah perbezaan antara Percuma dan Pro?', a5:'Percuma: 6 filem, kawalan manual, HUD, import resipi, enjin live. Pro: 16 filem, eksport .cube, badan Pro, kulit butik.',
-    q6:'Bilakah ia dilancarkan?', a6:'September 2026, App Store & Google Play serentak. Mereka dalam senarai menunggu mendapat satu e-mel pada hari pelancaran — satu-satunya e-mel yang akan dihantar LAM.',
-    wlPill:'September 2026 · App Store + Play', wlHead:'Sertai senarai pelancaran.',
-    wlSub:'Satu e-mel apabila LAM dilancarkan — kemudian tidak akan pernah lagi.',
-    wlBtn:'Beritahu saya', wlMicro:'SATU E-MEL · TIADA PENJEJAKAN · SENARAI TIDAK DIJUAL',
+    q6:'Bilakah ia dilancarkan?', a6:'Belum ada tarikh tetap — LAM sedang dalam semakan App Store dan Google Play. Pautan muat turun akan muncul di halaman ini sebaik sahaja ia dilancarkan.',
+    wlPill:'App Store & Google Play', wlHead:'Akan tiba di App Store & Google Play.',
+    galHead:'LAM sebenar.', galSub:'Tangkapan skrin sebenar daripada aplikasi — bukan mockup.', galVideoNote:'Video demo — akan datang.',
     footTag:'LAM · Kamera filem yang berjiwa.', footPrivacy:'Dasar Privasi', footTerms:'Syarat Perkhidmatan',
     footCopy:'© 2026 Brewkits · TIADA COOKIE · TIADA IKLAN · TIADA AKAUN'
   }
 
   ,tl: {
-    prelaunch:'● Pre-launch · App Store parating ngayong Setyembre 2026',
+    prelaunch:'● Pre-launch · App Store & Google Play',
     tagMain:'Isang film camera na may kaluluwa.',
     tagSub:'Live na film grade para sa balat ng mga Asyano. 16 na stocks, 41 looks, i-export sa .cube o ibahagi bilang code — pinoproseso live sa device mo, hindi kailanman sa server.',
-    ctaPrimary:'Sumali sa waitlist', ctaSecondary:'Bakit LAM ↓', ctaNotify:'I-notify ako sa paglunsad ↓',
+    ctaPrimary:'Pre-launch ↓', ctaSecondary:'Bakit LAM ↓', ctaNotify:'Pre-launch ↓',
     statForever:'panghabambuhay', statStocks:'film stocks', statTones:'mga mode ng balat ng Asyano',
     pillFeatured:'Itinatampok', pillPricing:'Pagpepresyo',
     tLead:'KOPYAHIN', tRetention:'REAL TONE', tConversion:'WORKFLOW', tPro:'CINEMA', tDelight:'VIRAL', tNarrative:'ENGINE',
@@ -1159,7 +1164,7 @@ var I18N = {
     prLifeName:'Pro (Habambuhay)', prOnce:'isang beses', prLifeDesc:'Isang bayad lang, sa iyo na habambuhay — walang renewal. I-unlock ang 16 na film, LUT export, at 4 na Pro camera bodies.',
     prPacks:'Opsyonal na mga one-time pack (Food Pack, film-stock pack) — bilhin lang kung ano ang gusto mo.',
     ccyNote:'Ang mga presyo ay pagtatantya base sa iyong rehiyon — ang eksaktong lokal na presyo ay ipapakita sa pag-checkout. Walang account · Walang mga ad · Walang pagkuha ng data.',
-    ctaHint:'App Store + Google Play · Setyembre 2026 · isang email, at hindi na mauulit',
+    ctaHint:'App Store + Google Play · hindi pa tiyak ang petsa ng paglulunsad',
     wHead:'Limang sandata. Isang camera.', wSub:'Ang hindi magawa ng ibang film app nang sabay-sabay.',
     w1h:'36 shots kada roll', w1v:'36 frames, tapos contact sheet', w1p:'Buksan ang Roll mode at totoo ang counter. 36 exposure, matatapos ang roll, at gagawa ng contact sheet mula sa lahat ng kinunan mo. Bumabagal ka, nag-iisip ka ng komposisyon, hindi ka na nagpapaputok ng dalawampung frame sa iisang subject.',
     w2h:'Real Tone para sa Asya', w2v:'5 mode para sa Asyano', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — naka-calibrate para sa balat ng Timog-Silangang Asya. Ginagawa ng Western apps na abo o berde ang balat natin. Sa LAM ay hindi.',
@@ -1206,19 +1211,18 @@ var I18N = {
     q3:'Ina-upload ba ng LAM ang aking mga larawan?', a3:'Hindi. Sa device tumatakbo ang Real Tone — binabasa ang skin tone mula sa live preview at hindi ito umaalis sa telepono mo.',
     q4:'Kailangan ko ba ng account para magamit ang LAM?', a4:'Hindi. Ang LAM ay gumagana 100% offline sa iyong device. Walang sign-up na kailangan.',
     q5:'Ano ang pagkakaiba ng Libre at Pro?', a5:'Libre: 6 na film, manual controls, HUD, recipe import, live engine. Pro: lahat ng 16 na film, .cube export, Pro bodies, boutique skins.',
-    q6:'Kailan ito ilalabas?', a6:'Setyembre 2026, sabay sa App Store at Google Play. Makakatanggap ng email ang nasa waitlist sa araw ng paglulunsad — ang tanging email na ipapadala ng LAM sa iyo.',
-    wlPill:'Setyembre 2026 · App Store + Play', wlHead:'Sumali sa launch waitlist.',
-    wlSub:'Isang email kapag inilunsad ang LAM — at hindi na mauulit.',
-    wlBtn:'I-notify ako', wlMicro:'ISANG EMAIL · WALANG TRACKING · LISTAHAN AY HINDI IBINBENTA',
+    q6:'Kailan ito ilalabas?', a6:'Wala pang eksaktong petsa — kasalukuyang sinusuri ang LAM sa App Store at Google Play. Lalabas ang link ng download dito sa sandaling ilunsad na ito.',
+    wlPill:'App Store & Google Play', wlHead:'Malapit nang ilunsad sa App Store & Google Play.',
+    galHead:'Ang totoong LAM.', galSub:'Aktwal na screenshot mula sa app — hindi mockup.', galVideoNote:'Demo video — malapit na.',
     footTag:'LAM · Isang film camera na may kaluluwa.', footPrivacy:'Patakaran sa Privacy', footTerms:'Mga Tuntunin ng Serbisyo',
     footCopy:'© 2026 Brewkits · WALANG COOKIES · WALANG ADS · WALANG ACCOUNT'
   }
 
   ,'zh-TW': {
-    prelaunch:'● 預熱 · App Store 將於 2026 年 9 月上線',
+    prelaunch:'● 預熱 · App Store & Google Play',
     tagMain:'一台有靈魂的底片相機。',
     tagSub:'專為亞洲人膚色調校的即時底片色彩。16 款底片、41 種風格，匯出至 .cube 或作為代碼分享 —— 完全在你的裝置上即時處理，絕不上傳伺服器。',
-    ctaPrimary:'加入候補名單', ctaSecondary:'為什麼選擇 LAM ↓', ctaNotify:'上線時通知我 ↓',
+    ctaPrimary:'預熱 ↓', ctaSecondary:'為什麼選擇 LAM ↓', ctaNotify:'預熱 ↓',
     statForever:'買斷', statStocks:'款底片', statTones:'種亞洲膚色模式',
     pillFeatured:'特色功能', pillPricing:'定價方案',
     tLead:'提取色調', tRetention:'真實膚色', tConversion:'工作流程', tPro:'專業電影', tDelight:'病毒傳播', tNarrative:'引擎',
@@ -1236,7 +1240,7 @@ var I18N = {
     prLifeName:'Pro (Habambuhay)', prOnce:'isang beses', prLifeDesc:'一次買斷，永久擁有——絕不續費。解鎖全部 16 款底片、LUT 匯出，以及 4 款 Pro 機身。',
     prPacks:'可選購的單次組合包（食物包、底片包）—— 只買你想要的。',
     ccyNote:'價格為您所在地區商店的預估價格 —— 確切的在地價格將於結帳時顯示。免註冊帳號 · 無廣告 · 不收集數據。',
-    ctaHint:'App Store + Google Play · 2026 年 9 月 · 只發一封郵件，不再打擾',
+    ctaHint:'App Store + Google Play · 上線日期尚未確定',
     wHead:'五大武器。一台相機。', wSub:'目前商店裡沒有任何底片應用程式能同時做到。',
     w1h:'每捲 36 張', w1v:'36 張，然後出印樣', w1p:'開啟底片捲模式，計數器是真的。36 張曝光，一捲拍完後，系統會用你拍下的所有畫面沖出一張印樣。你會慢下來，認真構圖，不再對著同一個主體連拍二十張。',
     w2h:'為亞洲調校的 Real Tone', w2v:'5 種亞洲膚色模式', w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO —— 專為東南亞膚色校準。西方的應用程式會讓熱帶皮膚變灰或發綠。LAM 則不會。',
@@ -1283,16 +1287,15 @@ var I18N = {
     q3:'LAM 會上傳我的照片嗎？', a3:'不會。Real Tone 在裝置上運作——膚色從即時取景畫面讀取，絕不離開你的手機。',
     q4:'需要註冊帳號才能使用 LAM 嗎？', a4:'不需要。LAM 完全在裝置上離線運作，免註冊。',
     q5:'免費版和 Pro 版差在哪裡？', a5:'免費版：6 款底片，手動控制，HUD 監看，匯入配方，即時引擎。Pro 版：16 款底片，.cube 匯出，Pro 機身，精品皮革外觀。',
-    q6:'何時推出？', a6:'2026 年 9 月，App Store 與 Google Play 同步上線。候補名單的人將在發布當天收到一封電子郵件 —— 這也是 LAM 唯一會寄給你的一封信。',
-    wlPill:'2026 年 9 月 · App Store + Play', wlHead:'加入上線候補名單。',
-    wlSub:'LAM 推出時只發一封電子郵件 —— 之後再也不打擾。',
-    wlBtn:'通知我', wlMicro:'只發一封信 · 無追蹤 · 不販售名單',
+    q6:'何時推出？', a6:'還沒有確定日期 —— LAM 正在接受 App Store 和 Google Play 的審核。上線後本頁會立即放上下載連結。',
+    wlPill:'App Store & Google Play', wlHead:'即將登陸 App Store 與 Google Play。',
+    galHead:'真實的 LAM。', galSub:'來自應用程式本身的真實截圖 —— 不是效果圖。', galVideoNote:'示範影片 —— 即將推出。',
     footTag:'LAM · 一台有靈魂的底片相機。', footPrivacy:'隱私權政策', footTerms:'服務條款',
     footCopy:'© 2026 Brewkits · 無 COOKIE · 無廣告 · 免註冊帳號'
   }
 ,
-'km': { prelaunch:'● មុនចេញផ្សាយ · App Store ខែកញ្ញា ២០២៦',tagMain:'កាមេរ៉ាហ្វីលដែលមានព្រលឹង។',tagSub:'ពណ៌ហ្វីលបន្តផ្ទាល់ លៃតម្រូវសម្រាប់ស្បែកអាស៊ី។ ហ្វីល ១៦ ប្រភេទ រូបរាង ៤១ នាំចេញជា .cube ឬចែករំលែកជាលេខកូដ — ដំណើរការនៅលើឧបករណ៍របស់អ្នក មិនមែននៅលើម៉ាស៊ីនមេ។',ctaPrimary:'ចូលរួមបញ្ជីរង់ចាំ',ctaSecondary:'ហេតុអ្វី LAM ↓',ctaNotify:'ជូនដំណឹងពេលចេញផ្សាយ ↓',statForever:'ជារៀងរហូត',statStocks:'ប្រភេទហ្វីល',statTones:'របៀបស្បែកអាស៊ី',pillFeatured:'លេចធ្លោ',pillPricing:'តម្លៃ',tLead:'ក្រាស',tRetention:'REAL TONE',tConversion:'លំហូរការងារ',tPro:'ភាពយន្ត',tDelight:'រាលដាល',tNarrative:'ម៉ាស៊ីន',rtHead:'សម្លេងស្បែកលៃតម្រូវសម្រាប់អាស៊ី។',rtSub:'Real Tone — ៥ របៀបក្រិតសម្រាប់ស្បែកអាស៊ីអាគ្នេយ៍។',rtBody:'កម្មវិធីតម្រងផ្សេងដំណើរការស្បែកអាស៊ីតាមលំនាំដើមលោកខាងលិច។ LAM មាន ៥ របៀបដោយឡែក បូករបៀប AUTO ដែលអានសម្លេងស្បែកផ្ទាល់ពីកញ្ចក់មើល រួចជ្រើសរើសរបៀបត្រឹមត្រូវដោយខ្លួនឯង។',toneWarm:'ត្នោតក្តៅ',toneGolden:'ត្នោតមាស',toneNeutral:'អព្យាក្រឹត',toneCool:'អព្យាក្រឹតត្រជាក់',toneAuto:'រកឃើញស្វ័យប្រវត្តិ',aiHead:'វីដេអូពិត មិនមែនបង្កើតឡើង។',aiSub:'AI លើពពកបង្កើតរូបភាពនៅលើម៉ាស៊ីនមេ។ LAM តម្រូវពណ៌រូបពិត ភ្លាមៗនៅលើទូរស័ព្ទ។',aiThem:'ឧបករណ៍វីដេអូ AI លើពពក',aiUs:'LAM',aiLatK:'ល្បឿន',aiLatThem:'ច្រើននាទីក្នុងមួយឈុត · បង្ហាញលើម៉ាស៊ីនមេ',aiLatUs:'ភ្លាមៗ ក្នុងកញ្ចក់មើល',aiPrivK:'ឯកជនភាព',aiPrivThem:'ឈុតរបស់អ្នកត្រូវផ្ទុកឡើងពពករបស់គេ',aiPrivUs:'១០០% លើឧបករណ៍ — គ្មានអ្វីចេញពីទូរស័ព្ទ',aiRealK:'ភាពស្មោះត្រង់',aiRealThem:'បង្កើតព័ត៌មានលម្អិត · បំភ្លៃមុខនិងស្បែក',aiRealUs:'រក្សាការពិត · ត្រាប់តាមគីមីហ្វីលពិត',aiCostK:'តម្លៃ',aiCostThem:'ការជាវប្រចាំខែ គិតតាមកម្រិត',aiCostUs:'$19.99 ជារៀងរហូត — គ្មានដែនកំណត់',prHead:'គ្រប់គ្រងកាមេរ៉ារបស់អ្នក។',prSub:'សាកល្បងឥតគិតថ្លៃ ឬទិញតែម្តងប្រើជារៀងរហូត។ គ្មានការជាវ។ គ្មានផ្សាយពាណិជ្ជកម្ម មិនលក់ទិន្នន័យ — ជារៀងរហូត។',prFreeName:'ឥតគិតថ្លៃ',prFreeDesc:'ហ្វីល ៦ ប្រភេទ ការគ្រប់គ្រង ISO/បិទបើកដោយដៃ និងការតាមដានផ្ទាល់។ ឥតគិតថ្លៃជារៀងរហូត។',prLifeName:'Pro (ជារៀងរហូត)',prOnce:'តែម្តង',prLifeDesc:'បង់តែម្តង ជាកម្មសិទ្ធិរហូត — គ្មានបន្តសុពលភាព។ ហ្វីលទាំង ១៦ នាំចេញ LUT និងតួកាមេរ៉ា Pro ៤ គ្រឿង។',prPacks:'កញ្ចប់បង់តែម្តងតាមជម្រើស (Food Pack កញ្ចប់ហ្វីល) — ទិញតែអ្វីដែលអ្នកចង់បាន។',ccyNote:'តម្លៃជាការប៉ាន់ស្មានតាមតំបន់ — តម្លៃពិតបង្ហាញនៅពេលទូទាត់។ គ្មានគណនី · គ្មានផ្សាយពាណិជ្ជកម្ម · គ្មានការប្រមូលទិន្នន័យ។',ctaHint:'App Store + Google Play · ខែកញ្ញា ២០២៦ · អ៊ីមែលមួយ រួចមិនផ្ញើទៀត',wHead:'អាវុធប្រាំ។ កាមេរ៉ាមួយ។',wSub:'អ្វីដែលគ្មានកម្មវិធីហ្វីលណាធ្វើបានទាំងអស់ជាមួយគ្នា។',w1h:'៣៦ រូបក្នុងមួយក្រាស',w1v:'៣៦ រូប រួចសន្លឹកទំនាក់ទំនង',w1p:'បើករបៀបក្រាស នោះឧបករណ៍រាប់គឺពិតប្រាកដ។ ៣៦ រូប រួចក្រាសចប់ ហើយសន្លឹកទំនាក់ទំនងត្រូវលាងចេញពីអ្វីគ្រប់យ៉ាងដែលអ្នកបានថត។ អ្នកយឺតជាងមុន រៀបចំសមាសភាព ឈប់បាញ់ម្ភៃរូបទៅលើកម្មវត្ថុតែមួយ។',w2h:'Real Tone សម្រាប់អាស៊ី',w2v:'៥ របៀបស្បែកអាស៊ី',w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — ក្រិតសម្រាប់ស្បែកអាស៊ីអាគ្នេយ៍។ កម្មវិធីលោកខាងលិចធ្វើឱ្យស្បែកត្រូពិចប្រែជាប្រផេះឬបៃតង។ LAM មិនធ្វើដូច្នោះទេ។',w3h:'នាំចេញជា .cube',w3v:'LUT 17³ សម្រាប់ Resolve',w3p:'ថតលើទូរស័ព្ទ បញ្ចប់លើកុំព្យូទ័រ។ នាំចេញរូបរាងណាក៏បានជា LUT .cube 17³ — ចូលផ្ទាល់ DaVinci Resolve, Premiere, Final Cut។',w4h:'ការគ្រប់គ្រងភាពយន្ត Pro',w4v:'ក្បួន ១៨០° · Honest LOG',w4p:'ISO ដោយដៃ ៥០–៦៤០០ ក្បួនបិទបើក ១៨០° ចាក់សោស្វ័យប្រវត្តិ (២៤→១/៤៨, ៣០→១/៦០, ៦០→១/១២០) និង Honest LOG — ការថតរាបស្មើពិត មិនមែនខ្សែកោងក្លែងក្លាយ។',w5h:'លេខកូដរូបមន្ត',w5v:'៨ តួអក្សរ រាលដាល',w5p:'ប្តូររូបរាងណាក៏បានទៅជាលេខកូដ ៨ តួ (មានពិនិត្យសុពលភាព)។ ដាក់វាក្រោមវីដេអូ TikTok — អ្នកណាក៏អាចបិទភ្ជាប់ចូល LAM ហើយបានពណ៌ដូចអ្នកបេះបិទ។ មិនចាំបាច់គណនី។',w6h:'ម៉ាស៊ីនហ្វីលភ្លាមៗ',w6v:'ផ្ទាល់ មិនមែនក្រោយថត',w6p:'កម្មវិធីហ្វីលភាគច្រើនបិទភ្ជាប់តម្រងលើរូបដែលថតរួច។ LAM ដំណើរការខ្សែសង្វាក់ហ្វីលទាំងមូល — ពណ៌ LUT ពន្លឺរាលដាល គ្រាប់ — ភ្លាមៗលើសតិកាមេរ៉ា។ អ្វីដែលអ្នកតម្រង់ គឺជាអ្វីដែលអ្នកថតបាន។',cmpHead:'សាងឡើងសម្រាប់លំហូរការងារអ្នកបង្កើត។',cmpSub:'LAM ប្រៀបធៀបនឹងកម្មវិធីតម្រងទូទៅ និងកម្មវិធីភាពយន្តស្មុគស្មាញ។',cmpColFeature:'តម្រូវការលំហូរការងារ',cmpColFilterApps:'កម្មវិធីតម្រង',cmpColProApps:'កម្មវិធីភាពយន្ត Pro',cmpColLam:'LAM Camera',cmpF1:'ពណ៌ហ្វីលផ្ទាល់',cmpG1:'តម្រងក្រោយថតតែប៉ុណ្ណោះ',cmpP1:'មើលផ្ទាល់ (គ្មានរូបរាងហ្វីល)',cmpL1:'ពណ៌ហ្វីលផ្ទាល់',cmpF2:'សម្លេងស្បែកអាស៊ី',cmpG2:'លំនាំដើមលោកខាងលិច',cmpP2:'គ្មាន',cmpL2:'៥ របៀប Real Tone',cmpF3:'នាំចេញ LUT កុំព្យូទ័រ',cmpG3:'គ្មាន',cmpP3:'គ្មាន',cmpL3:'.cube LUT សម្រាប់ Resolve',cmpF4:'ចែករំលែករូបរាង',cmpG4:'គ្មាន',cmpP4:'គ្មាន',cmpL4:'លេខកូដ ៨ តួ',cmpF5:'ការគ្រប់គ្រងដោយដៃ',cmpG5:'គ្មាន',cmpP5:'Pro (UX ស្មុគស្មាញ)',cmpL5:'គ្រប់គ្រងពេញលេញ (ឥតគិតថ្លៃ)',cmpF6:'រូបថត និងវីដេអូ',cmpG6:'គ្មាន',cmpP6:'គ្មាន',cmpL6:'ថតរូបពេលកំពុងថតវីដេអូ',thmHead:'ប្រាំរូបរាង។ ប្រាំបុគ្គលិកលក្ខណៈ។',thmSub:'រាល់រូបរាងគឺជាបុគ្គលិកលក្ខណៈកាមេរ៉ាដាច់ដោយឡែក រចនាតាមស្ទីលច្នៃប្រឌិតរបស់អ្នក។',thmNoirDesc:'ភាពយន្ត អារម្មណ៍ ងងឹតខ្លាំង។ ភាពជាក់លាក់ម៉ាស៊ីនសម្រាប់អ្នកស្រឡាញ់ហ្វីល។',thmSakuraDesc:'ស្រាលបែបទស្សនាវដ្តី។ អក្សរ serif ក្នុងក្តីស្រមៃសម្រាប់អ្នកបង្កើតសម្រស់។',thmChromeDesc:'ខៀវអេឡិចត្រូនិកនិងដែកកាំភ្លើង។ HUD ស្អាតសម្រាប់អ្នកដឹកនាំវីដេអូ។',thmLunaDesc:'ស្វាយអធ្រាត្រនិងទឹកប៊្លូជ្រៅ។ សោភ័ណភាពទន់សម្រាប់អ្នកបង្កើតពេលយប់។',thmJadeDesc:'កាហ្វេនិងបៃតងត្បូង។ ភាពកក់ក្តៅម៉ោងមាសសម្រាប់វីដេអូម្ហូបនិងទេសចរណ៍។',sknHead:'ស្បែកសំយោគប៊ូទីក',sknSub:'ស្រទាប់ស្បែកតួកាមេរ៉ា បំផុសពីវត្ថុធាតុនៃការរចនាអុបទិកបុរាណ។',skn1Desc:'វុលកានីត និងលង្ហិន — រេនជ៍ហ្វាយន៍ឌ័រ ១៩៥០s (ឥតគិតថ្លៃ)',skn2Desc:'ស្បែកកូនគោ cognac — ស្ទូឌីយោទ្រង់ទ្រាយមធ្យម',skn3Desc:'ខៀវថ្ម និងក្រូម — ពាក់កណ្តាលហ្វ្រេមបុរាណ',skn4Desc:'បៃតងទាហាន — SLR សម្រាប់ការងារខាងក្រៅ',skn5Desc:'ទុំក្រហម និងសំរិទ្ធ — កាមេរ៉ាកញ្ចក់ពីរ',bHead:'ប្រាំបួនតួ។ ប្រាំបួនវប្បធម៌ហ្វីល។',bSub:'រាល់តួកាមេរ៉ាមានរឿងវប្បធម៌ពិតប្រាកដ។',b1e:'រេនជ៍ហ្វាយន៍ឌ័រស្វីស · ១៩៦០s',b1d:'រេនជ៍ហ្វាយន៍ឌ័រ ៣៥មម',b2e:'ប្រើម្តងចោល · អាមេរិក ១៩៩០s',b2d:'កញ្ចក់ប្លាស្ទិកប្រើម្តងចោល',b3e:'ឌីជីខេមអាស៊ី Y2K · ២០០៣',b3d:'CCD តូច',b4e:'ភាពយន្ត · យុគសិល្បៈវៀតណាម',b4d:'ហ្វីលចលនា ១៦មម',b5e:'ហ្វីលបោះពុម្ពភ្លាមៗពណ៌ផ្កាឈូកអាស៊ី · ១៩៩៩',b5d:'កាមេរ៉ាបោះពុម្ពស្ទីគ័រ',b6e:'ទ្រង់ទ្រាយមធ្យមអាជីព · ១៩៩៥',b6d:'ណេហ្គាទីវពណ៌ស្ទូឌីយោ',b7e:'Instant Mini · ជប៉ុន ២០១០s',b7d:'ហ្វីលបោះពុម្ពភ្លាមៗការ៉េ',b8e:'ហ្វីលត្រូពិចសៃហ្គ់ន · ១៩៩០s',b8d:'កាមេរ៉ាតូចអាស៊ីអាគ្នេយ៍ ថ្ងៃមាស',b9e:'សេអ៊ូលឥស្សរជន · ២០០៥',b9d:'ឌីជីខេមកូរ៉េស្អាត',philPill:'ទស្សនវិជ្ជា',philHead:'ជារបស់អ្នក។ មិនមែនជួលពីពពក។',philQuote:'គ្មានវិនិយោគិនមើលអ្នក គ្មានផ្ទាំងវិភាគ គ្មានរូបភាពនៅលើម៉ាស៊ីនមេអ្នកណា។ ទិញតែម្តង ជាកម្មសិទ្ធិរហូត។ រូបថតរបស់អ្នកនៅតែជារបស់អ្នក។',philSub:'លើឧបករណ៍ · គ្មានតាមដាន · មិនលក់ទិន្នន័យ។',faqHead:'សំណួរស្មោះត្រង់។',faqSub:'សួរញឹកញាប់។',q1:'មានកំណែឥតគិតថ្លៃទេ?',a1:'មាន។ ហ្វីល ៦ ប្រភេទ ការគ្រប់គ្រងដោយដៃ (ISO/បិទបើក/WB) HUD តាមដាន (peaking/zebra) ឥតគិតថ្លៃរហូត គ្មានគណនី។ Pro បើកហ្វីលបន្ថែម ១០ នាំចេញ LUT និងតួ Pro។',q2:'មានការជាវទេ?',a2:'គ្មាន។ LAM ជាការទិញតែម្តងសម្រាប់ Pro។ គ្មានថ្លៃបន្ត គ្មានម៉ាស៊ីនមេ គ្មានផ្សាយពាណិជ្ជកម្ម។',q3:'LAM ផ្ទុករូបថតរបស់ខ្ញុំឡើងទេ?',a3:'ទេ។ Real Tone ដំណើរការលើឧបករណ៍ — សម្លេងស្បែកអានពីកញ្ចក់មើលផ្ទាល់ ហើយមិនចេញពីទូរស័ព្ទឡើយ។',q4:'ត្រូវការគណនីដើម្បីប្រើ LAM ទេ?',a4:'ទេ។ LAM ដំណើរការក្រៅបណ្តាញទាំងស្រុងលើឧបករណ៍។ មិនចាំបាច់ចុះឈ្មោះ។',q5:'ឥតគិតថ្លៃនិង Pro ខុសគ្នាដូចម្តេច?',a5:'ឥតគិតថ្លៃ៖ ហ្វីល ៦ ការគ្រប់គ្រងដោយដៃ HUD នាំចូលរូបមន្ត ម៉ាស៊ីនផ្ទាល់។ Pro៖ ហ្វីលទាំង ១៦ នាំចេញ .cube តួ Pro ស្បែកប៊ូទីក។',q6:'ចេញផ្សាយពេលណា?',a6:'ខែកញ្ញា ២០២៦ App Store និង Google Play ព្រមគ្នា។ បញ្ជីរង់ចាំទទួលអ៊ីមែលថ្ងៃចេញផ្សាយ — ជាអ៊ីមែលតែមួយគត់ដែល LAM នឹងផ្ញើ។',wlPill:'ខែកញ្ញា ២០២៦ · App Store + Play',wlHead:'ចូលរួមបញ្ជីរង់ចាំ។',wlSub:'អ៊ីមែលមួយពេល LAM ចេញផ្សាយ — រួចមិនផ្ញើទៀត។',wlBtn:'ជូនដំណឹងខ្ញុំ',wlMicro:'អ៊ីមែលមួយ · គ្មានតាមដាន · មិនលក់បញ្ជី',footTag:'LAM · កាមេរ៉ាហ្វីលដែលមានព្រលឹង។',footPrivacy:'គោលការណ៍ឯកជនភាព',footTerms:'លក្ខខណ្ឌសេវាកម្ម',footCopy:'© ២០២៦ Brewkits · គ្មាន COOKIE · គ្មានផ្សាយពាណិជ្ជកម្ម · មិនត្រូវការគណនី' },
-'lo': { prelaunch:'● ກ່ອນເປີດຕົວ · App Store ເດືອນກັນຍາ 2026',tagMain:'ກ້ອງຟິລ໌ມທີ່ມີຈິດວິນຍານ.',tagSub:'ເກຣດສີຟິລ໌ມສົດ ປັບສຳລັບຜິວອາຊີ. ຟິລ໌ມ 16 ຊະນິດ 41 ລຸກ ສົ່ງອອກ .cube ຫຼືແບ່ງປັນເປັນລະຫັດ — ປະມວນຜົນຢູ່ໃນເຄື່ອງຂອງທ່ານ ບໍ່ແມ່ນເທິງເຊີບເວີ.',ctaPrimary:'ເຂົ້າຮ່ວມລາຍຊື່ລໍຖ້າ',ctaSecondary:'ເປັນຫຍັງຕ້ອງ LAM ↓',ctaNotify:'ແຈ້ງເຕືອນເມື່ອເປີດຕົວ ↓',statForever:'ຕະຫຼອດໄປ',statStocks:'ຊະນິດຟິລ໌ມ',statTones:'ໂໝດຜິວອາຊີ',pillFeatured:'ເດັ່ນ',pillPricing:'ລາຄາ',tLead:'ມ້ວນ',tRetention:'REAL TONE',tConversion:'ຂັ້ນຕອນເຮັດວຽກ',tPro:'ຮູບເງົາ',tDelight:'ແຜ່ຫຼາຍ',tNarrative:'ເອນຈິນ',rtHead:'ໂທນຜິວປັບສຳລັບອາຊີ.',rtSub:'Real Tone — 5 ໂໝດປັບທຽບສຳລັບຜິວອາຊີຕາເວັນອອກສຽງໃຕ້.',rtBody:'ແອັບຟິວເຕີອື່ນປະມວນຜົນຜິວອາຊີດ້ວຍຄ່າເລີ່ມຕົ້ນແບບຕາເວັນຕົກ. LAM ມີ 5 ໂໝດສະເພາະ ບວກໂໝດ AUTO ທີ່ອ່ານໂທນຜິວສົດຈາກຊ່ອງມອງພາບ ແລ້ວເລືອກໂໝດທີ່ຖືກຕ້ອງໃຫ້ເອງ.',toneWarm:'ນ້ຳຕານອຸ່ນ',toneGolden:'ນ້ຳຕານທອງ',toneNeutral:'ກາງ',toneCool:'ກາງເຢັນ',toneAuto:'ກວດຈັບອັດຕະໂນມັດ',aiHead:'ພາບຈິງ ບໍ່ແມ່ນສ້າງຂຶ້ນ.',aiSub:'Cloud AI ສ້າງເຟຣມຢູ່ເທິງເຊີບເວີ. LAM ເກຣດເຟຣມຈິງ ສົດໆເທິງໂທລະສັບຂອງທ່ານ.',aiThem:'ເຄື່ອງມືວິດີໂອ AI ເທິງຄລາວ',aiUs:'LAM',aiLatK:'ຄວາມໄວ',aiLatThem:'ຫຼາຍນາທີຕໍ່ຄລິບ · ເຣນເດີເທິງເຊີບເວີ',aiLatUs:'ທັນທີ ໃນຊ່ອງມອງພາບ',aiPrivK:'ຄວາມເປັນສ່ວນຕົວ',aiPrivThem:'ຄລິບຂອງທ່ານຖືກອັບໂຫຼດຂຶ້ນຄລາວຂອງເຂົາ',aiPrivUs:'100% ຢູ່ໃນເຄື່ອງ — ບໍ່ມີຫຍັງອອກຈາກໂທລະສັບ',aiRealK:'ຄວາມຊື່ສັດ',aiRealThem:'ສ້າງລາຍລະອຽດຂຶ້ນມາ · ບິດເບືອນໜ້າແລະຜິວ',aiRealUs:'ຮັກສາຄວາມຈິງ · ຈຳລອງເຄມີຟິລ໌ມແທ້',aiCostK:'ຄ່າໃຊ້ຈ່າຍ',aiCostThem:'ສະໝັກລາຍເດືອນ ຄິດຕາມເຄຣດິດ',aiCostUs:'$19.99 ຕະຫຼອດຊີບ — ບໍ່ຈຳກັດ',prHead:'ເປັນເຈົ້າຂອງກ້ອງຂອງທ່ານ.',prSub:'ລອງໃຊ້ຟຣີ ຫຼືຊື້ເທື່ອດຽວໃຊ້ຕະຫຼອດ. ບໍ່ມີການສະໝັກສະມາຊິກ. ບໍ່ມີໂຄສະນາ ບໍ່ຂາຍຂໍ້ມູນ — ຕະຫຼອດໄປ.',prFreeName:'ຟຣີ',prFreeDesc:'ຟິລ໌ມ 6 ຊະນິດ ຄວບຄຸມ ISO/ຊັດເຕີດ້ວຍມື ແລະ ຕິດຕາມສົດ. ຟຣີຕະຫຼອດໄປ.',prLifeName:'Pro (ຕະຫຼອດຊີບ)',prOnce:'ເທື່ອດຽວ',prLifeDesc:'ຈ່າຍເທື່ອດຽວ ເປັນເຈົ້າຂອງຕະຫຼອດ — ບໍ່ຕໍ່ອາຍຸ. ຟິລ໌ມທັງ 16 ຊະນິດ ສົ່ງອອກ LUT ແລະ ບໍດີ Pro 4 ໜ່ວຍ.',prPacks:'ຊຸດເສີມຈ່າຍເທື່ອດຽວ (Food Pack, ຊຸດຟິລ໌ມ) — ຊື້ສະເພາະທີ່ຢາກໄດ້.',ccyNote:'ລາຄາເປັນການປະມານຕາມພາກພື້ນ — ລາຄາຈິງສະແດງຕອນຊຳລະ. ບໍ່ຕ້ອງມີບັນຊີ · ບໍ່ມີໂຄສະນາ · ບໍ່ເກັບກ່ຽວຂໍ້ມູນ.',ctaHint:'App Store + Google Play · ກັນຍາ 2026 · ອີເມວດຽວ ແລ້ວບໍ່ສົ່ງອີກ',wHead:'ຫ້າອາວຸດ. ກ້ອງດຽວ.',wSub:'ສິ່ງທີ່ບໍ່ມີແອັບຟິລ໌ມໃດເຮັດໄດ້ພ້ອມກັນ.',w1h:'ມ້ວນລະ 36 ຮູບ',w1v:'36 ຮູບ ແລ້ວໄດ້ຄອນແທັກຊີດ',w1p:'ເປີດໂໝດມ້ວນຟິລ໌ມແລ້ວຕົວນັບເປັນຂອງແທ້. ຖ່າຍຄົບ 36 ຮູບ ມ້ວນກໍຈົບ ແລ້ວລະບົບຈະລ້າງຄອນແທັກຊີດຈາກທຸກຮູບທີ່ທ່ານຖ່າຍ. ທ່ານຊ້າລົງ ຈັດອົງປະກອບຫຼາຍຂຶ້ນ ແລະ ເຊົາຮົວຊາວຮູບໃສ່ວັດຖຸດຽວ.',w2h:'Real Tone ສຳລັບອາຊີ',w2v:'5 ໂໝດຜິວອາຊີ',w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — ປັບທຽບສຳລັບຜິວອາຊີຕາເວັນອອກສຽງໃຕ້. ແອັບຕາເວັນຕົກເຮັດໃຫ້ຜິວເຂດຮ້ອນເປັນສີເທົາຫຼືຂຽວ. LAM ບໍ່ເປັນແນວນັ້ນ.',w3h:'ສົ່ງອອກເປັນ .cube',w3v:'LUT 17³ ສຳລັບ Resolve',w3p:'ຖ່າຍເທິງໂທລະສັບ ຕັດຕໍ່ເທິງຄອມ. ສົ່ງອອກລຸກໃດກໍໄດ້ເປັນ LUT .cube 17³ — ລາກເຂົ້າ DaVinci Resolve, Premiere, Final Cut ໄດ້ເລີຍ.',w4h:'ຄວບຄຸມຮູບເງົາລະດັບ Pro',w4v:'ກົດ 180° · Honest LOG',w4p:'ISO ດ້ວຍມື 50–6400, ກົດຊັດເຕີ 180° ລັອກອັດຕະໂນມັດ (24→1/48, 30→1/60, 60→1/120) ແລະ Honest LOG — ໄຟລ໌ແປແບນແທ້ ບໍ່ແມ່ນເສັ້ນໂຄ້ງປອມ.',w5h:'ລະຫັດສູດສີ',w5v:'8 ຕົວອັກສອນ ແຜ່ໄວ',w5p:'ປ່ຽນລຸກໃດກໍໄດ້ເປັນລະຫັດ 8 ຕົວ (ມີ checksum). ວາງໄວ້ໃຕ້ວິດີໂອ TikTok — ໃຜກໍວາງເຂົ້າ LAM ແລ້ວໄດ້ໂທນສີດຽວກັບທ່ານ. ບໍ່ຕ້ອງມີບັນຊີ.',w6h:'ເອນຈິນຟິລ໌ມແບບສົດ',w6v:'ສົດ ບໍ່ແມ່ນຫຼັງຖ່າຍ',w6p:'ແອັບຟິລ໌ມສ່ວນຫຼາຍວາງຟິວເຕີທັບຮູບທີ່ຖ່າຍແລ້ວ. LAM ແລ່ນຕ່ອງໂສ້ຟິລ໌ມທັງໝົດ — ສີ LUT, ແສງຟຸ້ງ, ເມັດ — ສົດໆເທິງບັຟເຟີກ້ອງ. ສິ່ງທີ່ທ່ານຈັດເຟຣມ ຄືສິ່ງທີ່ທ່ານໄດ້.',cmpHead:'ສ້າງມາເພື່ອຂັ້ນຕອນເຮັດວຽກຂອງຜູ້ສ້າງ.',cmpSub:'LAM ທຽບກັບແອັບຟິວເຕີທົ່ວໄປ ແລະ ແອັບຮູບເງົາທີ່ຊັບຊ້ອນ.',cmpColFeature:'ສິ່ງທີ່ຂັ້ນຕອນເຮັດວຽກຕ້ອງການ',cmpColFilterApps:'ແອັບຟິວເຕີ',cmpColProApps:'ແອັບຮູບເງົາ Pro',cmpColLam:'LAM Camera',cmpF1:'ເກຣດຟິລ໌ມສົດ',cmpG1:'ຟິວເຕີຫຼັງຖ່າຍເທົ່ານັ້ນ',cmpP1:'ເບິ່ງສົດ (ບໍ່ມີລຸກຟິລ໌ມ)',cmpL1:'ເກຣດຟິລ໌ມສົດ',cmpF2:'ໂທນຜິວອາຊີ',cmpG2:'ຄ່າເລີ່ມຕົ້ນຕາເວັນຕົກ',cmpP2:'ບໍ່ມີ',cmpL2:'5 ໂໝດ Real Tone',cmpF3:'ສົ່ງອອກ LUT ສຳລັບຄອມ',cmpG3:'ບໍ່ມີ',cmpP3:'ບໍ່ມີ',cmpL3:'.cube LUT ສຳລັບ Resolve',cmpF4:'ແບ່ງປັນລຸກ',cmpG4:'ບໍ່ມີ',cmpP4:'ບໍ່ມີ',cmpL4:'ລະຫັດ 8 ຕົວ',cmpF5:'ຄວບຄຸມດ້ວຍມື',cmpG5:'ບໍ່ມີ',cmpP5:'Pro (UX ຊັບຊ້ອນ)',cmpL5:'ຄວບຄຸມເຕັມ (ຟຣີ)',cmpF6:'ຮູບ ແລະ ວິດີໂອ',cmpG6:'ບໍ່ມີ',cmpP6:'ບໍ່ມີ',cmpL6:'ຖ່າຍຮູບຂະນະບັນທຶກ',thmHead:'ຫ້າຮູບແບບ. ຫ້າບຸກຄະລິກ.',thmSub:'ທຸກຮູບແບບຄືບຸກຄະລິກກ້ອງທີ່ແຕກຕ່າງ ອອກແບບມາເພື່ອສະໄຕລ໌ຂອງທ່ານ.',thmNoirDesc:'ຮູບເງົາ ມີອາລົມ ມືດຈັດ. ຄວາມແມ່ນຍຳແບບກົນຈັກສຳລັບຄົນຮັກຟິລ໌ມ.',thmSakuraDesc:'ໂທນອ່ອນແບບນິດຕະຍະສານ. ຕົວອັກສອນ serif ຝັນໆສຳລັບຜູ້ສ້າງດ້ານຄວາມງາມ.',thmChromeDesc:'ຟ້າອິເລັກໂທຣນິກ ແລະ ສີເຫຼັກ. HUD ສະອາດສຳລັບຜູ້ກຳກັບວິດີໂອ.',thmLunaDesc:'ມ່ວງກາງຄືນ ແລະ ຄາມເຂັ້ມ. ຄວາມງາມນຸ້ມສຳລັບຜູ້ສ້າງຍາມກາງຄືນ.',thmJadeDesc:'ກາເຟ ແລະ ຂຽວຫຍົກ. ຄວາມອົບອຸ່ນຊົ່ວໂມງທອງສຳລັບວິດີໂອອາຫານ ແລະ ທ່ອງທ່ຽວ.',sknHead:'ໜັງຫຸ້ມແບບບູຕິກ',sknSub:'ໜັງຫຸ້ມບໍດີກ້ອງ ໄດ້ແຮງບັນດານໃຈຈາກວັດສະດຸຂອງການອອກແບບອອບຕິກຄລາສສິກ.',skn1Desc:'ວັນຄາໄນ ແລະ ທອງເຫຼືອງ — ເຣນຈ໌ໄຟນ໌ເດີ 1950s (ຟຣີ)',skn2Desc:'ໜັງລູກງົວສີຄອນຢັກ — ສະຕູດິໂອມີເດຍມຟໍແມັດ',skn3Desc:'ຟ້າຫີນ ແລະ ໂຄຣມ — ເຄິ່ງເຟຣມຄລາສສິກ',skn4Desc:'ຂຽວໝາກກອກ — SLR ພາກສະໜາມ',skn5Desc:'ແດງເລືອດໝູ ແລະ ບຣອນ — ກ້ອງສອງເລນ',bHead:'ເກົ້າບໍດີ. ເກົ້າວັດທະນະທຳຟິລ໌ມ.',bSub:'ທຸກບໍດີມີເລື່ອງລາວວັດທະນະທຳຈິງ.',b1e:'ເຣນຈ໌ໄຟນ໌ເດີສະວິດ · 1960s',b1d:'ເຣນຈ໌ໄຟນ໌ເດີ 35mm',b2e:'ກ້ອງໃຊ້ແລ້ວຖິ້ມ · ອາເມລິກາ 1990s',b2d:'ກ້ອງໃຊ້ແລ້ວຖິ້ມເລນພລາສຕິກ',b3e:'ດີຈີແຄມ Y2K ອາຊີ · 2003',b3d:'CCD ກະທັດຮັດ',b4e:'ຮູບເງົາ · ຍຸກອາດເຮົາສ໌ຫວຽດນາມ',b4d:'ຟິລ໌ມພາບເຄື່ອນໄຫວ 16mm',b5e:'ຟິລ໌ມພິມທັນທີສີບົວອາຊີ · 1999',b5d:'ກ້ອງພິມສະຕິກເກີ',b6e:'ມີເດຍມຟໍແມັດມືອາຊີບ · 1995',b6d:'ຟິລ໌ມເນກາທິບສະຕູດິໂອ',b7e:'Instant Mini · ຍີ່ປຸ່ນ 2010s',b7d:'ຟິລ໌ມພິມທັນທີສີ່ຫຼ່ຽມ',b8e:'ຟິລ໌ມເຂດຮ້ອນໄຊງ່ອນ · 1990s',b8d:'ກ້ອງກະທັດຮັດ ອາຊີຕາເວັນອອກສຽງໃຕ້ ແດດທອງ',b9e:'ໂຊລອິນດີ້ · 2005',b9d:'ດີຈີແຄມເກົາຫຼີສະອາດ',philPill:'ປັດຊະຍາ',philHead:'ຂອງທ່ານ. ບໍ່ແມ່ນເຊົ່າຈາກຄລາວ.',philQuote:'ບໍ່ມີນັກລົງທຶນຈັບຕາເບິ່ງທ່ານ ບໍ່ມີແດຊບອດວິເຄາະ ບໍ່ມີເຟຣມຂອງທ່ານຢູ່ເທິງເຊີບເວີຂອງໃຜ. ຊື້ເທື່ອດຽວ ເປັນເຈົ້າຂອງຕະຫຼອດ. ຮູບຂອງທ່ານຍັງເປັນຂອງທ່ານ.',philSub:'ຢູ່ໃນເຄື່ອງ · ບໍ່ຕິດຕາມ · ບໍ່ຂາຍຂໍ້ມູນ.',faqHead:'ຄຳຖາມທີ່ຊື່ສັດ.',faqSub:'ຖາມເລື້ອຍໆ.',q1:'ມີລຸ້ນຟຣີບໍ?',a1:'ມີ. ຟິລ໌ມ 6 ຊະນິດ ຄວບຄຸມດ້ວຍມື (ISO/ຊັດເຕີ/WB) HUD ຕິດຕາມ (peaking/zebra) ຟຣີຕະຫຼອດ ບໍ່ຕ້ອງມີບັນຊີ. Pro ປົດລັອກອີກ 10 ຟິລ໌ມ ສົ່ງອອກ LUT ແລະ ບໍດີ Pro.',q2:'ມີການສະໝັກສະມາຊິກບໍ?',a2:'ບໍ່ມີ. LAM ເປັນການຊື້ເທື່ອດຽວສຳລັບ Pro. ບໍ່ມີຄ່າຕໍ່ເນື່ອງ ບໍ່ມີເຊີບເວີ ບໍ່ມີໂຄສະນາ.',q3:'LAM ອັບໂຫຼດຮູບຂອງຂ້ອຍບໍ?',a3:'ບໍ່. Real Tone ແລ່ນຢູ່ໃນເຄື່ອງ — ໂທນຜິວຖືກອ່ານຈາກຊ່ອງມອງພາບສົດ ແລະ ບໍ່ເຄີຍອອກຈາກໂທລະສັບຂອງທ່ານ.',q4:'ຕ້ອງມີບັນຊີເພື່ອໃຊ້ LAM ບໍ?',a4:'ບໍ່. LAM ເຮັດວຽກແບບອອບໄລນ໌ຢູ່ໃນເຄື່ອງທັງໝົດ. ບໍ່ຕ້ອງລົງທະບຽນ.',q5:'ຟຣີກັບ Pro ຕ່າງກັນແນວໃດ?',a5:'ຟຣີ: ຟິລ໌ມ 6 ຊະນິດ ຄວບຄຸມດ້ວຍມື HUD ນຳເຂົ້າສູດສີ ເອນຈິນສົດ. Pro: ຟິລ໌ມທັງ 16 ຊະນິດ ສົ່ງອອກ .cube ບໍດີ Pro ໜັງຫຸ້ມບູຕິກ.',q6:'ເປີດຕົວເມື່ອໃດ?',a6:'ເດືອນກັນຍາ 2026 App Store ແລະ Google Play ພ້ອມກັນ. ລາຍຊື່ລໍຖ້າຈະໄດ້ອີເມວມື້ເປີດຕົວ — ເປັນອີເມວດຽວທີ່ LAM ຈະສົ່ງໃຫ້.',wlPill:'ກັນຍາ 2026 · App Store + Play',wlHead:'ເຂົ້າຮ່ວມລາຍຊື່ລໍຖ້າເປີດຕົວ.',wlSub:'ອີເມວດຽວເມື່ອ LAM ເປີດຕົວ — ແລ້ວບໍ່ສົ່ງອີກ.',wlBtn:'ແຈ້ງເຕືອນຂ້ອຍ',wlMicro:'ອີເມວດຽວ · ບໍ່ຕິດຕາມ · ບໍ່ຂາຍລາຍຊື່',footTag:'LAM · ກ້ອງຟິລ໌ມທີ່ມີຈິດວິນຍານ.',footPrivacy:'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ',footTerms:'ເງື່ອນໄຂການບໍລິການ',footCopy:'© 2026 Brewkits · ບໍ່ມີ COOKIE · ບໍ່ມີໂຄສະນາ · ບໍ່ຕ້ອງມີບັນຊີ' }
+'km': { prelaunch:'● មុនចេញផ្សាយ · App Store & Google Play',tagMain:'កាមេរ៉ាហ្វីលដែលមានព្រលឹង។',tagSub:'ពណ៌ហ្វីលបន្តផ្ទាល់ លៃតម្រូវសម្រាប់ស្បែកអាស៊ី។ ហ្វីល ១៦ ប្រភេទ រូបរាង ៤១ នាំចេញជា .cube ឬចែករំលែកជាលេខកូដ — ដំណើរការនៅលើឧបករណ៍របស់អ្នក មិនមែននៅលើម៉ាស៊ីនមេ។',ctaPrimary:'មុនចេញផ្សាយ ↓',ctaSecondary:'ហេតុអ្វី LAM ↓',ctaNotify:'មុនចេញផ្សាយ ↓',statForever:'ជារៀងរហូត',statStocks:'ប្រភេទហ្វីល',statTones:'របៀបស្បែកអាស៊ី',pillFeatured:'លេចធ្លោ',pillPricing:'តម្លៃ',tLead:'ក្រាស',tRetention:'REAL TONE',tConversion:'លំហូរការងារ',tPro:'ភាពយន្ត',tDelight:'រាលដាល',tNarrative:'ម៉ាស៊ីន',rtHead:'សម្លេងស្បែកលៃតម្រូវសម្រាប់អាស៊ី។',rtSub:'Real Tone — ៥ របៀបក្រិតសម្រាប់ស្បែកអាស៊ីអាគ្នេយ៍។',rtBody:'កម្មវិធីតម្រងផ្សេងដំណើរការស្បែកអាស៊ីតាមលំនាំដើមលោកខាងលិច។ LAM មាន ៥ របៀបដោយឡែក បូករបៀប AUTO ដែលអានសម្លេងស្បែកផ្ទាល់ពីកញ្ចក់មើល រួចជ្រើសរើសរបៀបត្រឹមត្រូវដោយខ្លួនឯង។',toneWarm:'ត្នោតក្តៅ',toneGolden:'ត្នោតមាស',toneNeutral:'អព្យាក្រឹត',toneCool:'អព្យាក្រឹតត្រជាក់',toneAuto:'រកឃើញស្វ័យប្រវត្តិ',aiHead:'វីដេអូពិត មិនមែនបង្កើតឡើង។',aiSub:'AI លើពពកបង្កើតរូបភាពនៅលើម៉ាស៊ីនមេ។ LAM តម្រូវពណ៌រូបពិត ភ្លាមៗនៅលើទូរស័ព្ទ។',aiThem:'ឧបករណ៍វីដេអូ AI លើពពក',aiUs:'LAM',aiLatK:'ល្បឿន',aiLatThem:'ច្រើននាទីក្នុងមួយឈុត · បង្ហាញលើម៉ាស៊ីនមេ',aiLatUs:'ភ្លាមៗ ក្នុងកញ្ចក់មើល',aiPrivK:'ឯកជនភាព',aiPrivThem:'ឈុតរបស់អ្នកត្រូវផ្ទុកឡើងពពករបស់គេ',aiPrivUs:'១០០% លើឧបករណ៍ — គ្មានអ្វីចេញពីទូរស័ព្ទ',aiRealK:'ភាពស្មោះត្រង់',aiRealThem:'បង្កើតព័ត៌មានលម្អិត · បំភ្លៃមុខនិងស្បែក',aiRealUs:'រក្សាការពិត · ត្រាប់តាមគីមីហ្វីលពិត',aiCostK:'តម្លៃ',aiCostThem:'ការជាវប្រចាំខែ គិតតាមកម្រិត',aiCostUs:'$19.99 ជារៀងរហូត — គ្មានដែនកំណត់',prHead:'គ្រប់គ្រងកាមេរ៉ារបស់អ្នក។',prSub:'សាកល្បងឥតគិតថ្លៃ ឬទិញតែម្តងប្រើជារៀងរហូត។ គ្មានការជាវ។ គ្មានផ្សាយពាណិជ្ជកម្ម មិនលក់ទិន្នន័យ — ជារៀងរហូត។',prFreeName:'ឥតគិតថ្លៃ',prFreeDesc:'ហ្វីល ៦ ប្រភេទ ការគ្រប់គ្រង ISO/បិទបើកដោយដៃ និងការតាមដានផ្ទាល់។ ឥតគិតថ្លៃជារៀងរហូត។',prLifeName:'Pro (ជារៀងរហូត)',prOnce:'តែម្តង',prLifeDesc:'បង់តែម្តង ជាកម្មសិទ្ធិរហូត — គ្មានបន្តសុពលភាព។ ហ្វីលទាំង ១៦ នាំចេញ LUT និងតួកាមេរ៉ា Pro ៤ គ្រឿង។',prPacks:'កញ្ចប់បង់តែម្តងតាមជម្រើស (Food Pack កញ្ចប់ហ្វីល) — ទិញតែអ្វីដែលអ្នកចង់បាន។',ccyNote:'តម្លៃជាការប៉ាន់ស្មានតាមតំបន់ — តម្លៃពិតបង្ហាញនៅពេលទូទាត់។ គ្មានគណនី · គ្មានផ្សាយពាណិជ្ជកម្ម · គ្មានការប្រមូលទិន្នន័យ។',ctaHint:'App Store + Google Play · មិនទាន់កំណត់កាលបរិច្ឆេទចេញផ្សាយទេ',wHead:'អាវុធប្រាំ។ កាមេរ៉ាមួយ។',wSub:'អ្វីដែលគ្មានកម្មវិធីហ្វីលណាធ្វើបានទាំងអស់ជាមួយគ្នា។',w1h:'៣៦ រូបក្នុងមួយក្រាស',w1v:'៣៦ រូប រួចសន្លឹកទំនាក់ទំនង',w1p:'បើករបៀបក្រាស នោះឧបករណ៍រាប់គឺពិតប្រាកដ។ ៣៦ រូប រួចក្រាសចប់ ហើយសន្លឹកទំនាក់ទំនងត្រូវលាងចេញពីអ្វីគ្រប់យ៉ាងដែលអ្នកបានថត។ អ្នកយឺតជាងមុន រៀបចំសមាសភាព ឈប់បាញ់ម្ភៃរូបទៅលើកម្មវត្ថុតែមួយ។',w2h:'Real Tone សម្រាប់អាស៊ី',w2v:'៥ របៀបស្បែកអាស៊ី',w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — ក្រិតសម្រាប់ស្បែកអាស៊ីអាគ្នេយ៍។ កម្មវិធីលោកខាងលិចធ្វើឱ្យស្បែកត្រូពិចប្រែជាប្រផេះឬបៃតង។ LAM មិនធ្វើដូច្នោះទេ។',w3h:'នាំចេញជា .cube',w3v:'LUT 17³ សម្រាប់ Resolve',w3p:'ថតលើទូរស័ព្ទ បញ្ចប់លើកុំព្យូទ័រ។ នាំចេញរូបរាងណាក៏បានជា LUT .cube 17³ — ចូលផ្ទាល់ DaVinci Resolve, Premiere, Final Cut។',w4h:'ការគ្រប់គ្រងភាពយន្ត Pro',w4v:'ក្បួន ១៨០° · Honest LOG',w4p:'ISO ដោយដៃ ៥០–៦៤០០ ក្បួនបិទបើក ១៨០° ចាក់សោស្វ័យប្រវត្តិ (២៤→១/៤៨, ៣០→១/៦០, ៦០→១/១២០) និង Honest LOG — ការថតរាបស្មើពិត មិនមែនខ្សែកោងក្លែងក្លាយ។',w5h:'លេខកូដរូបមន្ត',w5v:'៨ តួអក្សរ រាលដាល',w5p:'ប្តូររូបរាងណាក៏បានទៅជាលេខកូដ ៨ តួ (មានពិនិត្យសុពលភាព)។ ដាក់វាក្រោមវីដេអូ TikTok — អ្នកណាក៏អាចបិទភ្ជាប់ចូល LAM ហើយបានពណ៌ដូចអ្នកបេះបិទ។ មិនចាំបាច់គណនី។',w6h:'ម៉ាស៊ីនហ្វីលភ្លាមៗ',w6v:'ផ្ទាល់ មិនមែនក្រោយថត',w6p:'កម្មវិធីហ្វីលភាគច្រើនបិទភ្ជាប់តម្រងលើរូបដែលថតរួច។ LAM ដំណើរការខ្សែសង្វាក់ហ្វីលទាំងមូល — ពណ៌ LUT ពន្លឺរាលដាល គ្រាប់ — ភ្លាមៗលើសតិកាមេរ៉ា។ អ្វីដែលអ្នកតម្រង់ គឺជាអ្វីដែលអ្នកថតបាន។',cmpHead:'សាងឡើងសម្រាប់លំហូរការងារអ្នកបង្កើត។',cmpSub:'LAM ប្រៀបធៀបនឹងកម្មវិធីតម្រងទូទៅ និងកម្មវិធីភាពយន្តស្មុគស្មាញ។',cmpColFeature:'តម្រូវការលំហូរការងារ',cmpColFilterApps:'កម្មវិធីតម្រង',cmpColProApps:'កម្មវិធីភាពយន្ត Pro',cmpColLam:'LAM Camera',cmpF1:'ពណ៌ហ្វីលផ្ទាល់',cmpG1:'តម្រងក្រោយថតតែប៉ុណ្ណោះ',cmpP1:'មើលផ្ទាល់ (គ្មានរូបរាងហ្វីល)',cmpL1:'ពណ៌ហ្វីលផ្ទាល់',cmpF2:'សម្លេងស្បែកអាស៊ី',cmpG2:'លំនាំដើមលោកខាងលិច',cmpP2:'គ្មាន',cmpL2:'៥ របៀប Real Tone',cmpF3:'នាំចេញ LUT កុំព្យូទ័រ',cmpG3:'គ្មាន',cmpP3:'គ្មាន',cmpL3:'.cube LUT សម្រាប់ Resolve',cmpF4:'ចែករំលែករូបរាង',cmpG4:'គ្មាន',cmpP4:'គ្មាន',cmpL4:'លេខកូដ ៨ តួ',cmpF5:'ការគ្រប់គ្រងដោយដៃ',cmpG5:'គ្មាន',cmpP5:'Pro (UX ស្មុគស្មាញ)',cmpL5:'គ្រប់គ្រងពេញលេញ (ឥតគិតថ្លៃ)',cmpF6:'រូបថត និងវីដេអូ',cmpG6:'គ្មាន',cmpP6:'គ្មាន',cmpL6:'ថតរូបពេលកំពុងថតវីដេអូ',thmHead:'ប្រាំរូបរាង។ ប្រាំបុគ្គលិកលក្ខណៈ។',thmSub:'រាល់រូបរាងគឺជាបុគ្គលិកលក្ខណៈកាមេរ៉ាដាច់ដោយឡែក រចនាតាមស្ទីលច្នៃប្រឌិតរបស់អ្នក។',thmNoirDesc:'ភាពយន្ត អារម្មណ៍ ងងឹតខ្លាំង។ ភាពជាក់លាក់ម៉ាស៊ីនសម្រាប់អ្នកស្រឡាញ់ហ្វីល។',thmSakuraDesc:'ស្រាលបែបទស្សនាវដ្តី។ អក្សរ serif ក្នុងក្តីស្រមៃសម្រាប់អ្នកបង្កើតសម្រស់។',thmChromeDesc:'ខៀវអេឡិចត្រូនិកនិងដែកកាំភ្លើង។ HUD ស្អាតសម្រាប់អ្នកដឹកនាំវីដេអូ។',thmLunaDesc:'ស្វាយអធ្រាត្រនិងទឹកប៊្លូជ្រៅ។ សោភ័ណភាពទន់សម្រាប់អ្នកបង្កើតពេលយប់។',thmJadeDesc:'កាហ្វេនិងបៃតងត្បូង។ ភាពកក់ក្តៅម៉ោងមាសសម្រាប់វីដេអូម្ហូបនិងទេសចរណ៍។',sknHead:'ស្បែកសំយោគប៊ូទីក',sknSub:'ស្រទាប់ស្បែកតួកាមេរ៉ា បំផុសពីវត្ថុធាតុនៃការរចនាអុបទិកបុរាណ។',skn1Desc:'វុលកានីត និងលង្ហិន — រេនជ៍ហ្វាយន៍ឌ័រ ១៩៥០s (ឥតគិតថ្លៃ)',skn2Desc:'ស្បែកកូនគោ cognac — ស្ទូឌីយោទ្រង់ទ្រាយមធ្យម',skn3Desc:'ខៀវថ្ម និងក្រូម — ពាក់កណ្តាលហ្វ្រេមបុរាណ',skn4Desc:'បៃតងទាហាន — SLR សម្រាប់ការងារខាងក្រៅ',skn5Desc:'ទុំក្រហម និងសំរិទ្ធ — កាមេរ៉ាកញ្ចក់ពីរ',bHead:'ប្រាំបួនតួ។ ប្រាំបួនវប្បធម៌ហ្វីល។',bSub:'រាល់តួកាមេរ៉ាមានរឿងវប្បធម៌ពិតប្រាកដ។',b1e:'រេនជ៍ហ្វាយន៍ឌ័រស្វីស · ១៩៦០s',b1d:'រេនជ៍ហ្វាយន៍ឌ័រ ៣៥មម',b2e:'ប្រើម្តងចោល · អាមេរិក ១៩៩០s',b2d:'កញ្ចក់ប្លាស្ទិកប្រើម្តងចោល',b3e:'ឌីជីខេមអាស៊ី Y2K · ២០០៣',b3d:'CCD តូច',b4e:'ភាពយន្ត · យុគសិល្បៈវៀតណាម',b4d:'ហ្វីលចលនា ១៦មម',b5e:'ហ្វីលបោះពុម្ពភ្លាមៗពណ៌ផ្កាឈូកអាស៊ី · ១៩៩៩',b5d:'កាមេរ៉ាបោះពុម្ពស្ទីគ័រ',b6e:'ទ្រង់ទ្រាយមធ្យមអាជីព · ១៩៩៥',b6d:'ណេហ្គាទីវពណ៌ស្ទូឌីយោ',b7e:'Instant Mini · ជប៉ុន ២០១០s',b7d:'ហ្វីលបោះពុម្ពភ្លាមៗការ៉េ',b8e:'ហ្វីលត្រូពិចសៃហ្គ់ន · ១៩៩០s',b8d:'កាមេរ៉ាតូចអាស៊ីអាគ្នេយ៍ ថ្ងៃមាស',b9e:'សេអ៊ូលឥស្សរជន · ២០០៥',b9d:'ឌីជីខេមកូរ៉េស្អាត',philPill:'ទស្សនវិជ្ជា',philHead:'ជារបស់អ្នក។ មិនមែនជួលពីពពក។',philQuote:'គ្មានវិនិយោគិនមើលអ្នក គ្មានផ្ទាំងវិភាគ គ្មានរូបភាពនៅលើម៉ាស៊ីនមេអ្នកណា។ ទិញតែម្តង ជាកម្មសិទ្ធិរហូត។ រូបថតរបស់អ្នកនៅតែជារបស់អ្នក។',philSub:'លើឧបករណ៍ · គ្មានតាមដាន · មិនលក់ទិន្នន័យ។',faqHead:'សំណួរស្មោះត្រង់។',faqSub:'សួរញឹកញាប់។',q1:'មានកំណែឥតគិតថ្លៃទេ?',a1:'មាន។ ហ្វីល ៦ ប្រភេទ ការគ្រប់គ្រងដោយដៃ (ISO/បិទបើក/WB) HUD តាមដាន (peaking/zebra) ឥតគិតថ្លៃរហូត គ្មានគណនី។ Pro បើកហ្វីលបន្ថែម ១០ នាំចេញ LUT និងតួ Pro។',q2:'មានការជាវទេ?',a2:'គ្មាន។ LAM ជាការទិញតែម្តងសម្រាប់ Pro។ គ្មានថ្លៃបន្ត គ្មានម៉ាស៊ីនមេ គ្មានផ្សាយពាណិជ្ជកម្ម។',q3:'LAM ផ្ទុករូបថតរបស់ខ្ញុំឡើងទេ?',a3:'ទេ។ Real Tone ដំណើរការលើឧបករណ៍ — សម្លេងស្បែកអានពីកញ្ចក់មើលផ្ទាល់ ហើយមិនចេញពីទូរស័ព្ទឡើយ។',q4:'ត្រូវការគណនីដើម្បីប្រើ LAM ទេ?',a4:'ទេ។ LAM ដំណើរការក្រៅបណ្តាញទាំងស្រុងលើឧបករណ៍។ មិនចាំបាច់ចុះឈ្មោះ។',q5:'ឥតគិតថ្លៃនិង Pro ខុសគ្នាដូចម្តេច?',a5:'ឥតគិតថ្លៃ៖ ហ្វីល ៦ ការគ្រប់គ្រងដោយដៃ HUD នាំចូលរូបមន្ត ម៉ាស៊ីនផ្ទាល់។ Pro៖ ហ្វីលទាំង ១៦ នាំចេញ .cube តួ Pro ស្បែកប៊ូទីក។',q6:'ចេញផ្សាយពេលណា?',a6:'មិនទាន់មានកាលបរិច្ឆេទច្បាស់លាស់ទេ — LAM កំពុងស្ថិតក្នុងការត្រួតពិនិត្យរបស់ App Store និង Google Play។ តំណទាញយកនឹងបង្ហាញនៅទំព័រនេះភ្លាមៗពេលដាក់ឱ្យប្រើប្រាស់។',wlPill:'App Store & Google Play',wlHead:'នឹងមកដល់លើ App Store និង Google Play ឆាប់ៗនេះ។',galHead:'LAM ពិតប្រាកដ។',galSub:'រូបថតអេក្រង់ពិតប្រាកដពីកម្មវិធី — មិនមែនរូបគំរូទេ។',galVideoNote:'វីដេអូបង្ហាញ — មកដល់ឆាប់ៗនេះ។',footTag:'LAM · កាមេរ៉ាហ្វីលដែលមានព្រលឹង។',footPrivacy:'គោលការណ៍ឯកជនភាព',footTerms:'លក្ខខណ្ឌសេវាកម្ម',footCopy:'© ២០២៦ Brewkits · គ្មាន COOKIE · គ្មានផ្សាយពាណិជ្ជកម្ម · មិនត្រូវការគណនី' },
+'lo': { prelaunch:'● ກ່ອນເປີດຕົວ · App Store & Google Play',tagMain:'ກ້ອງຟິລ໌ມທີ່ມີຈິດວິນຍານ.',tagSub:'ເກຣດສີຟິລ໌ມສົດ ປັບສຳລັບຜິວອາຊີ. ຟິລ໌ມ 16 ຊະນິດ 41 ລຸກ ສົ່ງອອກ .cube ຫຼືແບ່ງປັນເປັນລະຫັດ — ປະມວນຜົນຢູ່ໃນເຄື່ອງຂອງທ່ານ ບໍ່ແມ່ນເທິງເຊີບເວີ.',ctaPrimary:'ກ່ອນເປີດຕົວ ↓',ctaSecondary:'ເປັນຫຍັງຕ້ອງ LAM ↓',ctaNotify:'ກ່ອນເປີດຕົວ ↓',statForever:'ຕະຫຼອດໄປ',statStocks:'ຊະນິດຟິລ໌ມ',statTones:'ໂໝດຜິວອາຊີ',pillFeatured:'ເດັ່ນ',pillPricing:'ລາຄາ',tLead:'ມ້ວນ',tRetention:'REAL TONE',tConversion:'ຂັ້ນຕອນເຮັດວຽກ',tPro:'ຮູບເງົາ',tDelight:'ແຜ່ຫຼາຍ',tNarrative:'ເອນຈິນ',rtHead:'ໂທນຜິວປັບສຳລັບອາຊີ.',rtSub:'Real Tone — 5 ໂໝດປັບທຽບສຳລັບຜິວອາຊີຕາເວັນອອກສຽງໃຕ້.',rtBody:'ແອັບຟິວເຕີອື່ນປະມວນຜົນຜິວອາຊີດ້ວຍຄ່າເລີ່ມຕົ້ນແບບຕາເວັນຕົກ. LAM ມີ 5 ໂໝດສະເພາະ ບວກໂໝດ AUTO ທີ່ອ່ານໂທນຜິວສົດຈາກຊ່ອງມອງພາບ ແລ້ວເລືອກໂໝດທີ່ຖືກຕ້ອງໃຫ້ເອງ.',toneWarm:'ນ້ຳຕານອຸ່ນ',toneGolden:'ນ້ຳຕານທອງ',toneNeutral:'ກາງ',toneCool:'ກາງເຢັນ',toneAuto:'ກວດຈັບອັດຕະໂນມັດ',aiHead:'ພາບຈິງ ບໍ່ແມ່ນສ້າງຂຶ້ນ.',aiSub:'Cloud AI ສ້າງເຟຣມຢູ່ເທິງເຊີບເວີ. LAM ເກຣດເຟຣມຈິງ ສົດໆເທິງໂທລະສັບຂອງທ່ານ.',aiThem:'ເຄື່ອງມືວິດີໂອ AI ເທິງຄລາວ',aiUs:'LAM',aiLatK:'ຄວາມໄວ',aiLatThem:'ຫຼາຍນາທີຕໍ່ຄລິບ · ເຣນເດີເທິງເຊີບເວີ',aiLatUs:'ທັນທີ ໃນຊ່ອງມອງພາບ',aiPrivK:'ຄວາມເປັນສ່ວນຕົວ',aiPrivThem:'ຄລິບຂອງທ່ານຖືກອັບໂຫຼດຂຶ້ນຄລາວຂອງເຂົາ',aiPrivUs:'100% ຢູ່ໃນເຄື່ອງ — ບໍ່ມີຫຍັງອອກຈາກໂທລະສັບ',aiRealK:'ຄວາມຊື່ສັດ',aiRealThem:'ສ້າງລາຍລະອຽດຂຶ້ນມາ · ບິດເບືອນໜ້າແລະຜິວ',aiRealUs:'ຮັກສາຄວາມຈິງ · ຈຳລອງເຄມີຟິລ໌ມແທ້',aiCostK:'ຄ່າໃຊ້ຈ່າຍ',aiCostThem:'ສະໝັກລາຍເດືອນ ຄິດຕາມເຄຣດິດ',aiCostUs:'$19.99 ຕະຫຼອດຊີບ — ບໍ່ຈຳກັດ',prHead:'ເປັນເຈົ້າຂອງກ້ອງຂອງທ່ານ.',prSub:'ລອງໃຊ້ຟຣີ ຫຼືຊື້ເທື່ອດຽວໃຊ້ຕະຫຼອດ. ບໍ່ມີການສະໝັກສະມາຊິກ. ບໍ່ມີໂຄສະນາ ບໍ່ຂາຍຂໍ້ມູນ — ຕະຫຼອດໄປ.',prFreeName:'ຟຣີ',prFreeDesc:'ຟິລ໌ມ 6 ຊະນິດ ຄວບຄຸມ ISO/ຊັດເຕີດ້ວຍມື ແລະ ຕິດຕາມສົດ. ຟຣີຕະຫຼອດໄປ.',prLifeName:'Pro (ຕະຫຼອດຊີບ)',prOnce:'ເທື່ອດຽວ',prLifeDesc:'ຈ່າຍເທື່ອດຽວ ເປັນເຈົ້າຂອງຕະຫຼອດ — ບໍ່ຕໍ່ອາຍຸ. ຟິລ໌ມທັງ 16 ຊະນິດ ສົ່ງອອກ LUT ແລະ ບໍດີ Pro 4 ໜ່ວຍ.',prPacks:'ຊຸດເສີມຈ່າຍເທື່ອດຽວ (Food Pack, ຊຸດຟິລ໌ມ) — ຊື້ສະເພາະທີ່ຢາກໄດ້.',ccyNote:'ລາຄາເປັນການປະມານຕາມພາກພື້ນ — ລາຄາຈິງສະແດງຕອນຊຳລະ. ບໍ່ຕ້ອງມີບັນຊີ · ບໍ່ມີໂຄສະນາ · ບໍ່ເກັບກ່ຽວຂໍ້ມູນ.',ctaHint:'App Store + Google Play · ຍັງບໍ່ກຳນົດວັນທີເປີດຕົວ',wHead:'ຫ້າອາວຸດ. ກ້ອງດຽວ.',wSub:'ສິ່ງທີ່ບໍ່ມີແອັບຟິລ໌ມໃດເຮັດໄດ້ພ້ອມກັນ.',w1h:'ມ້ວນລະ 36 ຮູບ',w1v:'36 ຮູບ ແລ້ວໄດ້ຄອນແທັກຊີດ',w1p:'ເປີດໂໝດມ້ວນຟິລ໌ມແລ້ວຕົວນັບເປັນຂອງແທ້. ຖ່າຍຄົບ 36 ຮູບ ມ້ວນກໍຈົບ ແລ້ວລະບົບຈະລ້າງຄອນແທັກຊີດຈາກທຸກຮູບທີ່ທ່ານຖ່າຍ. ທ່ານຊ້າລົງ ຈັດອົງປະກອບຫຼາຍຂຶ້ນ ແລະ ເຊົາຮົວຊາວຮູບໃສ່ວັດຖຸດຽວ.',w2h:'Real Tone ສຳລັບອາຊີ',w2v:'5 ໂໝດຜິວອາຊີ',w2p:'Warm SEA, Golden Hour, Neutral, Cool, AUTO — ປັບທຽບສຳລັບຜິວອາຊີຕາເວັນອອກສຽງໃຕ້. ແອັບຕາເວັນຕົກເຮັດໃຫ້ຜິວເຂດຮ້ອນເປັນສີເທົາຫຼືຂຽວ. LAM ບໍ່ເປັນແນວນັ້ນ.',w3h:'ສົ່ງອອກເປັນ .cube',w3v:'LUT 17³ ສຳລັບ Resolve',w3p:'ຖ່າຍເທິງໂທລະສັບ ຕັດຕໍ່ເທິງຄອມ. ສົ່ງອອກລຸກໃດກໍໄດ້ເປັນ LUT .cube 17³ — ລາກເຂົ້າ DaVinci Resolve, Premiere, Final Cut ໄດ້ເລີຍ.',w4h:'ຄວບຄຸມຮູບເງົາລະດັບ Pro',w4v:'ກົດ 180° · Honest LOG',w4p:'ISO ດ້ວຍມື 50–6400, ກົດຊັດເຕີ 180° ລັອກອັດຕະໂນມັດ (24→1/48, 30→1/60, 60→1/120) ແລະ Honest LOG — ໄຟລ໌ແປແບນແທ້ ບໍ່ແມ່ນເສັ້ນໂຄ້ງປອມ.',w5h:'ລະຫັດສູດສີ',w5v:'8 ຕົວອັກສອນ ແຜ່ໄວ',w5p:'ປ່ຽນລຸກໃດກໍໄດ້ເປັນລະຫັດ 8 ຕົວ (ມີ checksum). ວາງໄວ້ໃຕ້ວິດີໂອ TikTok — ໃຜກໍວາງເຂົ້າ LAM ແລ້ວໄດ້ໂທນສີດຽວກັບທ່ານ. ບໍ່ຕ້ອງມີບັນຊີ.',w6h:'ເອນຈິນຟິລ໌ມແບບສົດ',w6v:'ສົດ ບໍ່ແມ່ນຫຼັງຖ່າຍ',w6p:'ແອັບຟິລ໌ມສ່ວນຫຼາຍວາງຟິວເຕີທັບຮູບທີ່ຖ່າຍແລ້ວ. LAM ແລ່ນຕ່ອງໂສ້ຟິລ໌ມທັງໝົດ — ສີ LUT, ແສງຟຸ້ງ, ເມັດ — ສົດໆເທິງບັຟເຟີກ້ອງ. ສິ່ງທີ່ທ່ານຈັດເຟຣມ ຄືສິ່ງທີ່ທ່ານໄດ້.',cmpHead:'ສ້າງມາເພື່ອຂັ້ນຕອນເຮັດວຽກຂອງຜູ້ສ້າງ.',cmpSub:'LAM ທຽບກັບແອັບຟິວເຕີທົ່ວໄປ ແລະ ແອັບຮູບເງົາທີ່ຊັບຊ້ອນ.',cmpColFeature:'ສິ່ງທີ່ຂັ້ນຕອນເຮັດວຽກຕ້ອງການ',cmpColFilterApps:'ແອັບຟິວເຕີ',cmpColProApps:'ແອັບຮູບເງົາ Pro',cmpColLam:'LAM Camera',cmpF1:'ເກຣດຟິລ໌ມສົດ',cmpG1:'ຟິວເຕີຫຼັງຖ່າຍເທົ່ານັ້ນ',cmpP1:'ເບິ່ງສົດ (ບໍ່ມີລຸກຟິລ໌ມ)',cmpL1:'ເກຣດຟິລ໌ມສົດ',cmpF2:'ໂທນຜິວອາຊີ',cmpG2:'ຄ່າເລີ່ມຕົ້ນຕາເວັນຕົກ',cmpP2:'ບໍ່ມີ',cmpL2:'5 ໂໝດ Real Tone',cmpF3:'ສົ່ງອອກ LUT ສຳລັບຄອມ',cmpG3:'ບໍ່ມີ',cmpP3:'ບໍ່ມີ',cmpL3:'.cube LUT ສຳລັບ Resolve',cmpF4:'ແບ່ງປັນລຸກ',cmpG4:'ບໍ່ມີ',cmpP4:'ບໍ່ມີ',cmpL4:'ລະຫັດ 8 ຕົວ',cmpF5:'ຄວບຄຸມດ້ວຍມື',cmpG5:'ບໍ່ມີ',cmpP5:'Pro (UX ຊັບຊ້ອນ)',cmpL5:'ຄວບຄຸມເຕັມ (ຟຣີ)',cmpF6:'ຮູບ ແລະ ວິດີໂອ',cmpG6:'ບໍ່ມີ',cmpP6:'ບໍ່ມີ',cmpL6:'ຖ່າຍຮູບຂະນະບັນທຶກ',thmHead:'ຫ້າຮູບແບບ. ຫ້າບຸກຄະລິກ.',thmSub:'ທຸກຮູບແບບຄືບຸກຄະລິກກ້ອງທີ່ແຕກຕ່າງ ອອກແບບມາເພື່ອສະໄຕລ໌ຂອງທ່ານ.',thmNoirDesc:'ຮູບເງົາ ມີອາລົມ ມືດຈັດ. ຄວາມແມ່ນຍຳແບບກົນຈັກສຳລັບຄົນຮັກຟິລ໌ມ.',thmSakuraDesc:'ໂທນອ່ອນແບບນິດຕະຍະສານ. ຕົວອັກສອນ serif ຝັນໆສຳລັບຜູ້ສ້າງດ້ານຄວາມງາມ.',thmChromeDesc:'ຟ້າອິເລັກໂທຣນິກ ແລະ ສີເຫຼັກ. HUD ສະອາດສຳລັບຜູ້ກຳກັບວິດີໂອ.',thmLunaDesc:'ມ່ວງກາງຄືນ ແລະ ຄາມເຂັ້ມ. ຄວາມງາມນຸ້ມສຳລັບຜູ້ສ້າງຍາມກາງຄືນ.',thmJadeDesc:'ກາເຟ ແລະ ຂຽວຫຍົກ. ຄວາມອົບອຸ່ນຊົ່ວໂມງທອງສຳລັບວິດີໂອອາຫານ ແລະ ທ່ອງທ່ຽວ.',sknHead:'ໜັງຫຸ້ມແບບບູຕິກ',sknSub:'ໜັງຫຸ້ມບໍດີກ້ອງ ໄດ້ແຮງບັນດານໃຈຈາກວັດສະດຸຂອງການອອກແບບອອບຕິກຄລາສສິກ.',skn1Desc:'ວັນຄາໄນ ແລະ ທອງເຫຼືອງ — ເຣນຈ໌ໄຟນ໌ເດີ 1950s (ຟຣີ)',skn2Desc:'ໜັງລູກງົວສີຄອນຢັກ — ສະຕູດິໂອມີເດຍມຟໍແມັດ',skn3Desc:'ຟ້າຫີນ ແລະ ໂຄຣມ — ເຄິ່ງເຟຣມຄລາສສິກ',skn4Desc:'ຂຽວໝາກກອກ — SLR ພາກສະໜາມ',skn5Desc:'ແດງເລືອດໝູ ແລະ ບຣອນ — ກ້ອງສອງເລນ',bHead:'ເກົ້າບໍດີ. ເກົ້າວັດທະນະທຳຟິລ໌ມ.',bSub:'ທຸກບໍດີມີເລື່ອງລາວວັດທະນະທຳຈິງ.',b1e:'ເຣນຈ໌ໄຟນ໌ເດີສະວິດ · 1960s',b1d:'ເຣນຈ໌ໄຟນ໌ເດີ 35mm',b2e:'ກ້ອງໃຊ້ແລ້ວຖິ້ມ · ອາເມລິກາ 1990s',b2d:'ກ້ອງໃຊ້ແລ້ວຖິ້ມເລນພລາສຕິກ',b3e:'ດີຈີແຄມ Y2K ອາຊີ · 2003',b3d:'CCD ກະທັດຮັດ',b4e:'ຮູບເງົາ · ຍຸກອາດເຮົາສ໌ຫວຽດນາມ',b4d:'ຟິລ໌ມພາບເຄື່ອນໄຫວ 16mm',b5e:'ຟິລ໌ມພິມທັນທີສີບົວອາຊີ · 1999',b5d:'ກ້ອງພິມສະຕິກເກີ',b6e:'ມີເດຍມຟໍແມັດມືອາຊີບ · 1995',b6d:'ຟິລ໌ມເນກາທິບສະຕູດິໂອ',b7e:'Instant Mini · ຍີ່ປຸ່ນ 2010s',b7d:'ຟິລ໌ມພິມທັນທີສີ່ຫຼ່ຽມ',b8e:'ຟິລ໌ມເຂດຮ້ອນໄຊງ່ອນ · 1990s',b8d:'ກ້ອງກະທັດຮັດ ອາຊີຕາເວັນອອກສຽງໃຕ້ ແດດທອງ',b9e:'ໂຊລອິນດີ້ · 2005',b9d:'ດີຈີແຄມເກົາຫຼີສະອາດ',philPill:'ປັດຊະຍາ',philHead:'ຂອງທ່ານ. ບໍ່ແມ່ນເຊົ່າຈາກຄລາວ.',philQuote:'ບໍ່ມີນັກລົງທຶນຈັບຕາເບິ່ງທ່ານ ບໍ່ມີແດຊບອດວິເຄາະ ບໍ່ມີເຟຣມຂອງທ່ານຢູ່ເທິງເຊີບເວີຂອງໃຜ. ຊື້ເທື່ອດຽວ ເປັນເຈົ້າຂອງຕະຫຼອດ. ຮູບຂອງທ່ານຍັງເປັນຂອງທ່ານ.',philSub:'ຢູ່ໃນເຄື່ອງ · ບໍ່ຕິດຕາມ · ບໍ່ຂາຍຂໍ້ມູນ.',faqHead:'ຄຳຖາມທີ່ຊື່ສັດ.',faqSub:'ຖາມເລື້ອຍໆ.',q1:'ມີລຸ້ນຟຣີບໍ?',a1:'ມີ. ຟິລ໌ມ 6 ຊະນິດ ຄວບຄຸມດ້ວຍມື (ISO/ຊັດເຕີ/WB) HUD ຕິດຕາມ (peaking/zebra) ຟຣີຕະຫຼອດ ບໍ່ຕ້ອງມີບັນຊີ. Pro ປົດລັອກອີກ 10 ຟິລ໌ມ ສົ່ງອອກ LUT ແລະ ບໍດີ Pro.',q2:'ມີການສະໝັກສະມາຊິກບໍ?',a2:'ບໍ່ມີ. LAM ເປັນການຊື້ເທື່ອດຽວສຳລັບ Pro. ບໍ່ມີຄ່າຕໍ່ເນື່ອງ ບໍ່ມີເຊີບເວີ ບໍ່ມີໂຄສະນາ.',q3:'LAM ອັບໂຫຼດຮູບຂອງຂ້ອຍບໍ?',a3:'ບໍ່. Real Tone ແລ່ນຢູ່ໃນເຄື່ອງ — ໂທນຜິວຖືກອ່ານຈາກຊ່ອງມອງພາບສົດ ແລະ ບໍ່ເຄີຍອອກຈາກໂທລະສັບຂອງທ່ານ.',q4:'ຕ້ອງມີບັນຊີເພື່ອໃຊ້ LAM ບໍ?',a4:'ບໍ່. LAM ເຮັດວຽກແບບອອບໄລນ໌ຢູ່ໃນເຄື່ອງທັງໝົດ. ບໍ່ຕ້ອງລົງທະບຽນ.',q5:'ຟຣີກັບ Pro ຕ່າງກັນແນວໃດ?',a5:'ຟຣີ: ຟິລ໌ມ 6 ຊະນິດ ຄວບຄຸມດ້ວຍມື HUD ນຳເຂົ້າສູດສີ ເອນຈິນສົດ. Pro: ຟິລ໌ມທັງ 16 ຊະນິດ ສົ່ງອອກ .cube ບໍດີ Pro ໜັງຫຸ້ມບູຕິກ.',q6:'ເປີດຕົວເມື່ອໃດ?',a6:'ຍັງບໍ່ມີວັນທີແນ່ນອນ — LAM ກຳລັງຢູ່ໃນຂັ້ນຕອນກວດສອບຂອງ App Store ແລະ Google Play. ລິ້ງດາວໂຫຼດຈະປາກົດຢູ່ໜ້ານີ້ທັນທີເມື່ອເປີດຕົວ.',wlPill:'App Store & Google Play',wlHead:'ຈະມາເທິງ App Store ແລະ Google Play ໃນໄວໆນີ້.',galHead:'LAM ແທ້ໆ.',galSub:'ພາບໜ້າຈໍແທ້ຈາກແອັບ — ບໍ່ແມ່ນ mockup.',galVideoNote:'ວິດີໂອສາທິດ — ຈະມາໄວໆນີ້.',footTag:'LAM · ກ້ອງຟິລ໌ມທີ່ມີຈິດວິນຍານ.',footPrivacy:'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ',footTerms:'ເງື່ອນໄຂການບໍລິການ',footCopy:'© 2026 Brewkits · ບໍ່ມີ COOKIE · ບໍ່ມີໂຄສະນາ · ບໍ່ຕ້ອງມີບັນຊີ' }
 };
 
 function applyLang(lang){
@@ -1320,18 +1323,6 @@ function applyLang(lang){
     b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); });
   });
   applyLang(initial);
-
-  // Waitlist: no backend — open the mail client pre-addressed, keep the
-  // "one email, no tracking" promise (nothing stored anywhere).
-  var form = document.getElementById('wl-form');
-  if(form) form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var email = (document.getElementById('wl-email').value || '').trim();
-    if(!email) return;
-    var subject = encodeURIComponent('LAM waitlist · ' + email);
-    var body = encodeURIComponent('Please add me to the LAM launch-day waitlist.\n\nEmail: ' + email);
-    window.location.href = 'mailto:lam@brewkits.dev?subject=' + subject + '&body=' + body;
-  });
 })();
 </script>
 
