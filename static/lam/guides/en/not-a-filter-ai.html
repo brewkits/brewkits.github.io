@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index,follow">
 <title>What "Real Film" Means vs an AI Filter — LAM Guides</title>
-<meta name="description" content="An AI filter repaints your photo with a generative model. A real film-grading engine only re-grades the pixels your sensor captured. Here's the actual difference, and why it matters.">
+<meta name="description" content="AI filters repaint pixels, while post-capture presets double-distort tones through aggressive default HDR. A real-time film engine preserves optical contrast straight from the sensor.">
 <link rel="icon" href="/img/icon.png">
 <link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/khong-phai-filter-ai.html">
 <link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html">
@@ -106,12 +106,77 @@
     for the same input — it's a fixed mathematical transform, not a new generation each time.</p>
   </div>
 
+  <h2>Shooting default then applying a filter: The "double-processing" trap</h2>
+  <p>Many photographers instinctively shoot with the default camera app on their iPhone or Android,
+  then import the photo into editing apps to slap on a film preset or LUT. It feels like the "safe"
+  workflow. But from an imaging pipeline perspective, this is precisely the path that introduces
+  the most degradation and destroys the organic look of film.</p>
+
+  <p>The root problem: your photo undergoes <strong>two conflicting, destructive processing passes</strong>
+  (double distortion).</p>
+
+  <div class="flow">
+    <div class="flow-col">
+      <p class="flow-label">Default Camera + Post-Filter</p>
+      <div class="flow-box">📷 Raw sensor buffer</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Smart HDR / Deep Fusion / HDR+<span>flattens contrast, over-sharpens edges</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box">Baked 8-bit JPEG / HEIC file</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Apply film filter over it<span>bends tone curves over already damaged data</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Double distortion: muddy shadows, waxy skin</div>
+    </div>
+    <div class="flow-col">
+      <p class="flow-label">Real-time Film Engine (LAM)</p>
+      <div class="flow-box">📷 Raw sensor buffer</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">No aggressive HDR flattening<span>preserves organic optical contrast</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">Direct film curve &amp; grain pass<span>single-pass processing on the live camera stream</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">Clean film tones, smooth highlight roll-off</div>
+    </div>
+  </div>
+
+  <h2>3 technical breakdown points in post-capture filters</h2>
+
+  <p><strong>1. Tone Curve Clash:</strong>
+  Computational photography algorithms in modern smartphones (Apple Photonic Engine, Deep Fusion,
+  Smart HDR and Google HDR+) are tuned to please mainstream consumers: they strive to expose every
+  corner by <strong>aggressively crushing highlights</strong> and <strong>unnaturally lifting shadows</strong>.
+  This flattens the optical depth of the scene. Meanwhile, the very soul of chemical film is natural contrast
+  (rich, deep shadows and smooth highlight shoulders). When you paste a film preset on an already flattened
+  HDR file, the film curve tries to pull down areas that the phone artificially brightened. The result:
+  shadows collapse into murky, grayish mud (muddy blacks), and highlights turn chalky and dirty.</p>
+
+  <p><strong>2. Edge Halos vs Organic Grain:</strong>
+  To make photos appear "sharp" on tiny screens, default camera pipelines apply heavy unsharp masking,
+  producing halo artifacts around hair and high-contrast edges, paired with aggressive noise reduction
+  that smears skin texture into a flat watercolor look. When a post-processing app sprinkles synthetic film
+  grain on top of this, the grain clusters harshly around these artificial halo edges and sits awkwardly on
+  waxy, smoothed skin. Instead of the delicate, organic texture of silver halide crystals, you get a gritty,
+  digital mess.</p>
+
+  <p><strong>3. 8-Bit Compression Loss &amp; Banding:</strong>
+  Default cameras save images as compressed 8-bit JPEG or HEIC files. The tonal range has already been
+  clamped and quantized. Re-grading skin tones or sky gradients in a secondary app stretches this narrow
+  8-bit color space, triggering visible posterization (color banding) and blotchy hue transitions.</p>
+
+  <div class="card">
+    <p><strong>The LAM Approach:</strong> Rather than taking an over-processed photo and attempting to
+    "repair" it with a cosmetic filter later, LAM taps directly into the <em>real-time camera sensor stream</em>.
+    Optical sensitometric curves, halation, and grain are computed in a single pass right before your eyes
+    in the live viewfinder. You compose with real light, control true exposure, and capture natural
+    highlight roll-off that no post-filter can ever reconstruct.</p>
+  </div>
+
   <h2>Why this actually matters</h2>
-  <p>Not because AI is "bad" — because the two tools solve different problems. If you want to keep
-  the moment you actually captured — a meal, an evening with family, a trip — you usually want the
-  photo to stay <em>faithful to what the lens saw</em>, just carrying a different colour and mood,
-  not a model's guess about someone's face. Film-style grading preserves exactly that: the photo is
-  still your photo, wearing the colour and feel of a specific film stock.</p>
+  <p>Not because AI or editing apps are inherently bad — but because the processing order dictates final optical quality.
+  If you want to keep the moment you actually captured — a meal, an evening with family, a trip — you usually want the
+  photo to stay <em>faithful to what the lens saw</em>, carrying true optical depth rather than having a default camera
+  artificially homogenize the light, only for a post-filter to distort it a second time.</p>
 
   <p>In LAM this rule is kept consistent end to end: the frame you see in the viewfinder while
   shooting has already gone through the same grading engine that saves the final photo or video —

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index,follow">
 <title>"Phim thật" khác gì filter AI? — Hướng dẫn LAM</title>
-<meta name="description" content="AI filter vẽ lại ảnh của bạn bằng mô hình sinh ảnh. Một engine phim thật chỉ chỉnh màu trên đúng pixel máy đã chụp. Giải thích sự khác biệt và vì sao nó quan trọng.">
+<meta name="description" content="AI filter vẽ lại ảnh của bạn. Áp preset hậu kỳ thì bị sai lệch 2 lần vì Smart HDR. Một engine phim thời gian thực can thiệp trực tiếp từ cảm biến để giữ tương phản quang học.">
 <link rel="icon" href="/img/icon.png">
 <link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/khong-phai-filter-ai.html">
 <link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html">
@@ -107,12 +107,79 @@
     toán học cố định, không phải một lần "sinh ảnh" mới.</p>
   </div>
 
+  <h2>Chụp camera mặc định rồi áp filter: Cái bẫy "sai lệch hai lần"</h2>
+  <p>Nhiều người có thói quen chụp bằng app camera mặc định của điện thoại (iPhone hoặc Android),
+  sau đó đưa vào các app chỉnh ảnh để dán preset phim hoặc filter màu. Trực giác mách bảo đây là cách
+  "an toàn" nhất. Nhưng dưới góc độ kỹ thuật xử lý hình ảnh (imaging pipeline), đây là con đường tạo
+  ra nhiều sai lệch nhất khiến bức ảnh mất hoàn toàn chất phim tự nhiên.</p>
+
+  <p>Vấn đề cốt lõi: bức ảnh của bạn phải chịu <strong>hai lần can thiệp đối nghịch nhau</strong>
+  (double distortion).</p>
+
+  <div class="flow">
+    <div class="flow-col">
+      <p class="flow-label">Chụp mặc định + Áp filter sau</p>
+      <div class="flow-box">📷 Cảm biến thô</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Smart HDR / Deep Fusion / HDR+<span>kéo phẳng sáng-tối, làm nét gai viền</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box">Ảnh JPEG / HEIC 8-bit đã bệt</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Dán filter phim đè lên<span>nắn đường cong trên dữ liệu đã méo</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Sai lệch kép: tối đục bùn, da sáp bệt</div>
+    </div>
+    <div class="flow-col">
+      <p class="flow-label">Engine phim thời gian thực (LAM)</p>
+      <div class="flow-box">📷 Cảm biến thô</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">Không can thiệp HDR cực đoan<span>giữ nguyên tương phản quang học tự nhiên</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">Tone curve phim &amp; grain trực tiếp<span>xử lý 1 bước duy nhất trên luồng camera</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">Màu phim sạch, highlight chuyển êm</div>
+    </div>
+  </div>
+
+  <h2>3 điểm gãy kỹ thuật khi áp filter hậu kỳ</h2>
+
+  <p><strong>1. Xung đột đường cong tương phản (Tone Curve Clash):</strong>
+  Các thuật toán nhiếp ảnh điện toán (computational photography) của Apple (Photonic Engine, Deep Fusion,
+  Smart HDR) và Google (HDR+) được thiết kế để phục vụ số đông: cố gắng làm rõ mọi chi tiết bằng cách
+  <strong>dìm vùng sáng cực độ (crush highlights)</strong> và <strong>nâng sáng vô lý vùng tối (lift shadows)</strong>.
+  Bức ảnh đầu ra bị ép phẳng lỳ, mất đi độ sâu quang học. Trong khi đó, đặc trưng cốt lõi của phim nhựa
+  là độ tương phản tự nhiên (vùng tối chìm sâu êm ái, vùng sáng nở mượt mà — toe &amp; shoulder). Khi bạn
+  dán một filter phim đè lên bức ảnh đã bị kéo phẳng, đường cong phim cố ép tối lại những vùng vừa bị thuật
+  toán máy nâng sáng nhân tạo. Kết quả: vùng tối biến thành màu xám bùn đục ngầu (muddy blacks), còn vùng
+  sáng bị xỉn bẩn.</p>
+
+  <p><strong>2. Gai viền &amp; bệt hạt da mặt (Over-sharpening vs Organic Grain):</strong>
+  Để tạo cảm giác ảnh "rõ nét trên màn hình nhỏ", camera mặc định tự động áp thuật toán unsharp mask rất gắt,
+  tạo ra các quầng sáng nhân tạo (halo) quanh viền tóc, viền vật thể, đồng thời thuật toán khử nhiễu làm bệt
+  vân da như tranh màu nước (watercolor effect). Khi bạn đưa ảnh này vào app hậu kỳ và thêm hạt phim giả lập
+  (film grain), các hạt nhân tạo này sẽ rắc đè lên các viền nét đã bị gai nhọn và các mảng da đã bị bệt phẳng.
+  Bức ảnh trở nên lởm chởm, thô ráp giả tạo chứ không có độ mịn hữu cơ của tinh thể muối bạc trên phim thật.</p>
+
+  <p><strong>3. Suy hao dữ liệu do nén 8-bit (Quantization &amp; Color Banding):</strong>
+  Camera mặc định lưu file ảnh nén thông thường dưới định dạng JPEG hoặc HEIC 8-bit. Lúc này, dải sắc độ đã
+  bị gọt dũa và cố định. Khi bạn dùng app hậu kỳ kéo màu da hay đổi sắc thái theo tone phim, bạn đang nắn
+  và kéo dãn một không gian màu 8-bit vốn đã bị nén chặt. Hiện tượng gãy dải màu (banding), loang lổ trên bầu
+  trời và da mặt xuất hiện ngay lập tức.</p>
+
+  <div class="card">
+    <p><strong>Triết lý của LAM:</strong> Thay vì chụp một bức ảnh đã bị xử lý quá tay rồi cố "sửa sai"
+    bằng một lớp màu đè lên ở hậu kỳ, LAM can thiệp trực tiếp từ <em>luồng cảm biến camera thời gian thực</em>.
+    Đường cong phản hồi quang học của phim, halation và hạt grain được xử lý trong một chu trình duy nhất
+    (single-pass) ngay trước mắt bạn qua viewfinder. Bạn nhìn thấy ánh sáng thực, kiểm soát phơi sáng thật,
+    và nhận về bức ảnh có chuyển vùng sáng tự nhiên (highlight roll-off) mà không một filter hậu kỳ nào có
+    thể cứu vãn được.</p>
+  </div>
+
   <h2>Vì sao sự khác biệt này quan trọng</h2>
-  <p>Không phải vì AI "xấu" — mà vì hai công cụ giải hai bài toán khác nhau. Nếu bạn muốn giữ lại
-  đúng khoảnh khắc đã chụp (một bữa ăn, một buổi tối với gia đình, một chuyến đi), bạn thường muốn
-  ảnh <em>trung thực với những gì ống kính thấy</em>, chỉ khác về màu và không khí — không muốn một
-  mô hình quyết định lại chi tiết trên mặt người trong ảnh. Grading màu phim giữ nguyên điều đó:
-  ảnh vẫn là ảnh của bạn, chỉ mang thêm màu và cảm giác của một loại phim cụ thể.</p>
+  <p>Không phải vì AI hay công cụ chỉnh ảnh là "xấu" — mà vì cách thức tiếp cận tạo nên chất lượng ảnh cuối cùng.
+  Nếu bạn muốn giữ lại đúng khoảnh khắc đã chụp (một bữa ăn, một buổi tối với gia đình, một chuyến đi), bạn thường muốn
+  ảnh <em>trung thực với những gì ống kính thấy</em>, mang chiều sâu quang học thực thụ — không muốn một
+  thuật toán dìm sáng nâng tối quá đà rồi lại bị một lớp filter hậu kỳ bẻ cong lần thứ hai.</p>
 
   <p>Trong LAM, quy tắc này được giữ nhất quán: khung hình bạn thấy trong viewfinder lúc đang chụp
   đã đi qua đúng engine chấm màu sẽ dùng để lưu ảnh/video cuối — không có bước "xử lý AI" nào chèn
