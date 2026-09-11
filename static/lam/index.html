@@ -44,6 +44,11 @@
     padding:6px 10px;border-radius:999px;cursor:pointer;transition:all .12s ease}
   .langbar button:hover{color:#fff}
   .langbar button.on{background:var(--amber);color:#000;font-weight:700}
+  /* top banner — the only route into /lam/guides/ that doesn't require scrolling to the footer */
+  .topbar{background:rgba(255,193,7,.08);border-bottom:1px solid rgba(255,193,7,.22);
+    text-align:center;padding:11px 44px}
+  .topbar a{color:var(--amber);font-size:13.5px;font-weight:600;text-decoration:none}
+  .topbar a:hover{text-decoration:underline}
   /* hero */
   .hero{padding:88px 24px 56px;text-align:center;background:#000;position:relative;overflow:hidden}
   .hero img.icon{width:132px;height:132px;border-radius:30px;box-shadow:0 8px 32px rgba(255,193,7,.28)}
@@ -195,6 +200,8 @@
 </style>
 </head>
 <body>
+
+<div class="topbar"><a id="topGuidesLink" href="/lam/guides/en/" data-i18n="topBannerGuides"></a></div>
 
 <nav class="langbar" aria-label="Language">
   <button data-lang="en" class="on">EN</button>
@@ -617,6 +624,7 @@ var I18N = {
     q6:'When does it ship?', a6:'No fixed date yet — LAM is in App Store and Google Play review. A download link goes live on this page the moment it ships.',
     wlPill:'App Store & Google Play', wlHead:'Coming to App Store & Google Play.',
     galHead:'See LAM, for real.', galSub:'Real screenshots from the app — no mockups.', galVideoNote:'Demo video — coming soon.',
+    topBannerGuides:'📖 New: read the LAM film photography guides →',
     footTag:'LAM · A film camera with soul.', footPrivacy:'Privacy Policy', footTerms:'Terms of Service',
     footGuides:'Guides',
     footCopy:'© 2026 Brewkits · NO COOKIES · NO ADS · NO ACCOUNT REQUIRED'
@@ -693,6 +701,7 @@ var I18N = {
     q6:'Khi nào ra mắt?', a6:'Chưa có ngày cụ thể — LAM đang trong quá trình xét duyệt của App Store và Google Play. Link tải sẽ xuất hiện ngay tại trang này khi ra mắt.',
     wlPill:'App Store & Google Play', wlHead:'Sắp có trên App Store & Google Play.',
     galHead:'LAM thật, không dàn dựng.', galSub:'Ảnh chụp thật từ ứng dụng — không phải mockup.', galVideoNote:'Video demo — sắp có.',
+    topBannerGuides:'📖 Mới: đọc hướng dẫn chụp ảnh phim của LAM →',
     footTag:'LAM · Máy ảnh cơ có linh hồn.', footPrivacy:'Chính sách bảo mật', footTerms:'Điều khoản',
     footGuides:'Hướng dẫn',
     footCopy:'© 2026 Brewkits · KHÔNG COOKIE · KHÔNG QUẢNG CÁO · KHÔNG CẦN TÀI KHOẢN'
@@ -1321,8 +1330,11 @@ function applyLang(lang){
     b.classList.toggle('on', b.getAttribute('data-lang') === lang);
   });
   // Guides only exist in vi/en today — everyone else reads the EN set until translated.
-  var gl = document.getElementById('footGuidesLink');
-  if (gl) gl.href = (lang === 'vi') ? '/lam/guides/' : '/lam/guides/en/';
+  var guidesHref = (lang === 'vi') ? '/lam/guides/' : '/lam/guides/en/';
+  ['footGuidesLink', 'topGuidesLink'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.href = guidesHref;
+  });
   try { localStorage.setItem('lam_lang', lang); } catch(e){}
 }
 
