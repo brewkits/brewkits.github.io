@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>The "Double-Processing" Trap: Shooting Default Camera Then Applying a Filter — LAM Guides</title>
+<meta name="description" content="Why shooting with your iPhone or Android default camera and applying film presets later causes double distortion: muddy shadows, waxy skin, and clipped highlights. An imaging pipeline analysis by LAM.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/sai-lech-2-lan-filter-hau-ky.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/the-double-processing-trap.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/the-double-processing-trap.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  h3{font-size:18px;font-weight:700;margin:28px 0 8px;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul{padding-left:22px}
+  li{margin:6px 0}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .flow{display:flex;gap:20px;flex-wrap:wrap;margin:28px 0 36px}
+  .flow-col{flex:1;min-width:230px;text-align:center;display:flex;flex-direction:column;align-items:center}
+  .flow-box{width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 14px;font-size:14.5px;color:#fff}
+  .flow-box span{display:block;color:var(--muted);font-size:12.5px;margin-top:4px;font-weight:400}
+  .flow-box.bad{border-color:#7f1d1d}
+  .flow-box.good{border-color:#365314}
+  .flow-arrow{color:var(--muted);margin:8px 0;font-size:16px;line-height:1}
+  .flow-label{font-family:var(--ms);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .table-wrap{overflow-x:auto;margin:28px 0}
+  table{width:100%;border-collapse:collapse;font-size:15px;text-align:left}
+  th,td{padding:12px 14px;border-bottom:1px solid var(--line)}
+  th{color:#fff;font-weight:600;background:var(--card)}
+  td{color:#d4d4d8}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/en/">LAM Guides</a> · Workflow Comparison</p>
+  <h1>The "double-processing" trap: Shooting default then applying a filter</h1>
+  <p class="meta">~5 min read · Imaging pipeline analysis</p>
+
+  <p class="lead">Most mobile photographers who want film aesthetics follow a familiar routine:
+  shoot first with the default iPhone or Android camera to get a "safe" file, then import it into
+  apps like VSCO, Fimii, or Lightroom to paste a film preset. Intuition suggests this is the cautious
+  approach. From an imaging pipeline standpoint, however, it is the most destructive route possible,
+  subjecting your image to <strong>double distortion</strong>.</p>
+
+  <div class="flow">
+    <div class="flow-col">
+      <p class="flow-label">Default Camera + Post-Filter</p>
+      <div class="flow-box">📷 Raw sensor buffer</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Smart HDR / Deep Fusion / HDR+<span>Flattens contrast, over-sharpens edges</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box">Baked 8-bit JPEG / HEIC file</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Apply film filter over it<span>Bends tone curves over already damaged data</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Double distortion: muddy shadows, waxy skin</div>
+    </div>
+    <div class="flow-col">
+      <p class="flow-label">Real-time Film Engine (LAM)</p>
+      <div class="flow-box">📷 Raw sensor buffer</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">No aggressive HDR flattening<span>Preserves organic optical contrast</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">Direct film curve &amp; grain pass<span>Single-pass processing on the live camera stream</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">Clean film tones, smooth highlight roll-off</div>
+    </div>
+  </div>
+
+  <h2>The nature of the two distortion passes</h2>
+
+  <h3>Pass 1: Aggressive interference by default cameras</h3>
+  <p>Default camera engines from Apple (Photonic Engine, Deep Fusion, Smart HDR) and Google (HDR+) are
+  engineered for mass consumer appeal: they combine multi-frame exposure bursts to <strong>crush highlights</strong>
+  and <strong>artificially lift shadows</strong> so that nothing in the scene is ever clipped or dark.</p>
+  <p>Simultaneously, aggressive unsharp masking etches harsh halo edges around subjects, while noise reduction
+  smears skin pores into flat watercolor surfaces. The result is a baked 8-bit JPEG/HEIC with unnaturally flattened
+  tonal depth.</p>
+
+  <h3>Pass 2: Forcing film curves onto distorted data</h3>
+  <p>The core optical quality of chemical film is its sensitometric response (S-curve): rich, deep shadow toes
+  and soft, gradual highlight shoulders. When you paste a film preset over a default camera photo, the film LUT
+  attempts to pull down tones that the phone's algorithm just artificially brightened. Two conflicting tone curves
+  clash directly on the same pixel matrix.</p>
+
+  <h2>3 technical breakdown points in post-capture filters</h2>
+
+  <p><strong>1. Tone Curve Clash:</strong> The lifted shadows in the base photo contain amplified sensor noise
+  that was smeared by noise reduction. When the film filter forces these areas into shadow, it cannot create
+  clean, deep blacks. Instead, shadows collapse into <strong>murky, muddy gray (muddy blacks)</strong>. Highlights,
+  already crushed flat by Smart HDR, turn chalky and dirty rather than blooming with natural halation.</p>
+
+  <p><strong>2. Edge Halos vs Organic Grain:</strong> Default camera pipelines apply high-frequency sharpening,
+  leaving artificial halo fringes around hair and silhouettes. When a post-processing app sprinkles simulated grain
+  on top, the grain clusters unnaturally over these sharpened halos while sitting awkwardly atop smoothed, waxy skin.
+  The organic texture of silver halide crystals is completely lost.</p>
+
+  <p><strong>3. 8-Bit Compression Loss &amp; Banding:</strong> Default cameras export compressed 8-bit files.
+  The dynamic range is permanently clamped. Stretching these compressed tones in a secondary editing app breaks
+  smooth gradients, producing visible color banding across skies and patchy skin tones.</p>
+
+  <div class="card">
+    <p><strong>Common Question: "Why do post-filters still look okay on social media?"</strong></p>
+    <p>Post-filters survive on 3 illusions: <strong>(1)</strong> Small 6-inch screens viewed for 3 seconds hide
+    pixel defects; <strong>(2)</strong> A nostalgic color shift immediately feels more "moody" than clinical default
+    processing; <strong>(3)</strong> Flat, daytime lighting requires little HDR intervention.</p>
+    <p>The illusion falls apart the moment you encounter difficult lighting: high contrast backlighting, neon night
+    scenes, warm indoor portraits, or when viewing photos on an iPad, laptop, or print.</p>
+  </div>
+
+  <h2>Detailed Comparison: Two Architectural Approaches</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Default Camera + Post-Filter</th>
+          <th>Real-time Film Engine (LAM)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Pipeline</strong></td>
+          <td>2 conflicting steps: HDR flattens → Filter pulls back down</td>
+          <td>1 single pass directly on raw camera stream</td>
+        </tr>
+        <tr>
+          <td><strong>Shadows</strong></td>
+          <td>Muddy gray with smeared noise artifacts</td>
+          <td>Deep, clean optical contrast and rich blacks</td>
+        </tr>
+        <tr>
+          <td><strong>Highlights</strong></td>
+          <td>Crushed into chalky gray patches with harsh borders</td>
+          <td>Smooth, organic highlight roll-off and natural bloom</td>
+        </tr>
+        <tr>
+          <td><strong>Skin &amp; Grain</strong></td>
+          <td>Waxy skin texture with artificial grain over halo edges</td>
+          <td>Intact skin pore fidelity with light-reactive grain</td>
+        </tr>
+        <tr>
+          <td><strong>Capture Control</strong></td>
+          <td>Blind capture; hope it works once edited later</td>
+          <td>WYSIWYG: Viewfinder displays the true finished grade</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The LAM Solution: Mastering the Real-Time Sensor Stream</h2>
+  <p>Rather than letting your phone warp a photo through an aggressive HDR pipeline and then attempting to patch it
+  up later, LAM intervenes directly at the <strong>camera stream buffer</strong>.</p>
+
+  <p>Sensitometric film response curves, halation diffusion, and organic grain are rendered in real time for every
+  frame before you press the shutter. You compose with real light, control true exposure through the viewfinder, and
+  save an image that retains authentic optical depth that no post-capture filter could ever recreate.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/en/">← All guides</a> · <a href="/lam/guides/sai-lech-2-lan-filter-hau-ky.html">Tiếng Việt</a> · <a href="/lam/">Back to LAM</a>
+  </footer>
+</div>
+</body>
+</html>
