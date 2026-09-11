@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Peaking, Zebra, False Color, 24fps LOG là gì? — Hướng dẫn LAM</title>
+<meta name="description" content="4 công cụ monitoring mượn từ máy quay điện ảnh thật, giải thích dễ hiểu — và vì sao 1 file LOG phẳng lại hữu ích hơn để chấm màu, dù nhìn không đẹp lúc quay.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  h3{font-size:17px;font-weight:700;margin:28px 0 8px;color:var(--primary)}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/">Hướng dẫn LAM</a> · Đồ nghề Pro</p>
+  <h1>Peaking, Zebra, False Color, 24fps LOG là gì?</h1>
+  <p class="meta">~6 phút đọc</p>
+
+  <p class="lead">Bốn công cụ này đều mượn từ máy quay điện ảnh thật, không phải LAM tự nghĩ ra. Nếu
+  bạn từng thấy chúng trong app quay phim và không rõ dùng để làm gì — đây là giải thích không dùng
+  thuật ngữ khó.</p>
+
+  <h2>Focus Peaking — viền màu báo nét</h2>
+  <p>Trên màn hình điện thoại nhỏ, rất khó biết mắt/mặt người trong khung có đang nét hay không.
+  Focus peaking tô viền màu (thường đỏ hoặc vàng) lên đúng những vùng có độ tương phản cạnh cao nhất
+  trong khung — tức là vùng đang nét nhất theo thời gian thực. Nhìn viền màu di chuyển khi bạn chỉnh
+  focus tay là cách nhanh nhất để biết mình đã lấy nét đúng chủ thể, không cần zoom xem lại sau khi
+  quay.</p>
+
+  <h2>Zebra — cảnh báo vùng cháy sáng</h2>
+  <p>Zebra kẻ sọc chuyển động chạy trên đúng vùng pixel đang vượt một ngưỡng độ sáng nhất định
+  (thường đặt gần mức "cháy trắng"). Đây là cách quay phim chuyên nghiệp kiểm tra exposure mà không
+  cần đọc số — thấy sọc zebra chạy trên mặt người là biết cần giảm sáng ngay, trước khi vùng đó mất
+  chi tiết vĩnh viễn (không thể phục hồi lại khi hậu kỳ).</p>
+
+  <h2>False Color — bản đồ nhiệt độ sáng cho cả khung hình</h2>
+  <p>Nếu zebra chỉ báo 1 ngưỡng, false color tô cả khung hình bằng 1 bảng màu quy ước (mỗi màu ứng
+  với 1 dải độ sáng cụ thể — ví dụ hồng = da người đang đúng sáng, đỏ = cháy sáng, xanh = tối mất
+  chi tiết). Nhìn 1 khung hình phủ false color, người quay biết ngay toàn cảnh đang phơi sáng ra sao
+  mà không cần đọc histogram.</p>
+
+  <h2>24fps &amp; "Honest" LOG</h2>
+  <p>24 khung hình/giây là tốc độ chuẩn của điện ảnh (khác 30fps quen thuộc của video thường) — chọn
+  24fps là chọn "nhìn giống phim" ngay từ nhịp chuyển động, trước cả khi tính đến màu sắc.</p>
+  <p>LOG là một cách ghi hình <strong>cố tình phẳng, ít tương phản</strong> — nhìn lúc quay sẽ thấy
+  xám, không đẹp. Đây không phải lỗi: ghi phẳng giữ lại nhiều chi tiết ở cả vùng tối và vùng sáng hơn
+  mức máy sẽ hiển thị nếu áp tương phản ngay lúc quay — chi tiết đó chỉ "hiện ra" khi bạn chấm màu
+  sau. Chữ "Honest" ở đây nghĩa là file LOG thực sự phẳng đúng nghĩa (đường cong tương phản thật, đo
+  được), không phải một bộ lọc xám giả vờ trông "điện ảnh" mà không giữ thêm chi tiết gì.</p>
+
+  <div class="card">
+    <p><strong>Vì sao 4 công cụ này miễn phí trong LAM:</strong> đây là công cụ đo/kiểm tra, không
+    phải hiệu ứng thẩm mỹ — chúng giúp bạn quay đúng ngay từ đầu, không tạo ra "chất phim" tự nó.
+    Tách riêng khỏi các gói trả phí (film stock, LUT export) vì bản chất chúng thuộc nhóm công cụ
+    kỹ thuật, không phải nội dung sáng tạo.</p>
+  </div>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/">← Tất cả hướng dẫn</a> · <a href="/lam/">Về LAM</a>
+  </footer>
+</div>
+</body>
+</html>

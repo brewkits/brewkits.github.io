@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hand-written sitemap for /lam/* — Docusaurus's sitemap plugin only indexes routes it generates
+  from docs/blog/src-pages, and everything under /lam/ is raw static HTML in static/lam/ (bypasses
+  that routing entirely). Confirmed 2026-09-11: the auto-generated build/sitemap.xml had exactly 1
+  URL, none of them /lam/* — that was true before this file existed too, not something the guides
+  section caused. Discoverable via crawl/internal links either way, but a sitemap speeds that up.
+
+  Maintenance: add a new <url> entry here whenever a page is added under static/lam/ that should be
+  indexed (skip static/lam/r/ — that's a dynamic recipe-share deep link, not an evergreen page).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://brewkits.dev/lam/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/privacy.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/terms.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://brewkits.dev/lam/guides/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/"/>
+  </url>
+
+  <url>
+    <loc>https://brewkits.dev/lam/guides/khong-phai-filter-ai.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/khong-phai-filter-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/not-a-filter-ai.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/khong-phai-filter-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html"/>
+  </url>
+
+  <url>
+    <loc>https://brewkits.dev/lam/guides/true-skin-tong-da-chau-a.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/true-skin-tong-da-chau-a.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/true-skin-for-asian-skin.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/true-skin-for-asian-skin.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/true-skin-for-asian-skin.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/true-skin-tong-da-chau-a.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/true-skin-for-asian-skin.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/true-skin-for-asian-skin.html"/>
+  </url>
+
+  <url>
+    <loc>https://brewkits.dev/lam/guides/grain-halation-light-leak.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/grain-halation-light-leak.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/grain-halation-light-leak.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html"/>
+  </url>
+
+  <url>
+    <loc>https://brewkits.dev/lam/guides/9-than-may-9-thoi-dai.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/9-than-may-9-thoi-dai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/nine-bodies-nine-eras.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/nine-bodies-nine-eras.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/nine-bodies-nine-eras.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/9-than-may-9-thoi-dai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/nine-bodies-nine-eras.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/nine-bodies-nine-eras.html"/>
+  </url>
+
+  <url>
+    <loc>https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html"/>
+  </url>
+
+</urlset>

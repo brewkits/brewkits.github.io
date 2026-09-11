@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>What "Real Film" Means vs an AI Filter — LAM Guides</title>
+<meta name="description" content="An AI filter repaints your photo with a generative model. A real film-grading engine only re-grades the pixels your sensor captured. Here's the actual difference, and why it matters.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/khong-phai-filter-ai.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul{padding-left:22px}
+  li{margin:6px 0}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/en/">LAM Guides</a> · Fundamentals</p>
+  <h1>What "real film" means vs an AI filter</h1>
+  <p class="meta">~4 min read</p>
+
+  <p class="lead">As more apps ship an "AI enhance" button, the question is worth asking plainly:
+  when an app says your photo looks "better," is it re-grading the colours in the pixels your sensor
+  captured — or is it repainting part of the image with a generative model? The two sound similar.
+  They aren't.</p>
+
+  <h2>What an AI filter actually does</h2>
+  <p>A typical "AI enhance" filter runs your photo through a model trained to guess a nicer-looking
+  version of it — smoothing skin, inventing detail in soft areas, sometimes reconstructing whole
+  regions that were underexposed. The model has no idea what the light in your room actually looked
+  like; it only knows what millions of other photos look "good," and tries to nudge yours toward
+  that. The result can look pleasing, but part of the detail in the frame was <strong>invented</strong>
+  by the model, not recorded by the lens.</p>
+
+  <h2>What film-style grading does instead</h2>
+  <p>A film-emulation engine works on a completely different principle: it applies a fixed colour
+  transform — usually packaged as a 3D lookup table (LUT) — to the exact RGB values of the pixels
+  you already captured. No pixel gets repainted, no detail gets guessed. A shadow is still real
+  shadow data, just remapped along the contrast curve of whichever film stock is being emulated.</p>
+
+  <div class="card">
+    <p><strong>A quick way to tell the difference:</strong> shoot the same scene twice in a row. An
+    AI filter can return two slightly different results in the detail areas (because the model
+    "guesses" a little differently each time). Film-style grading always returns the same result
+    for the same input — it's a fixed mathematical transform, not a new generation each time.</p>
+  </div>
+
+  <h2>Why this actually matters</h2>
+  <p>Not because AI is "bad" — because the two tools solve different problems. If you want to keep
+  the moment you actually captured — a meal, an evening with family, a trip — you usually want the
+  photo to stay <em>faithful to what the lens saw</em>, just carrying a different colour and mood,
+  not a model's guess about someone's face. Film-style grading preserves exactly that: the photo is
+  still your photo, wearing the colour and feel of a specific film stock.</p>
+
+  <p>In LAM this rule is kept consistent end to end: the frame you see in the viewfinder while
+  shooting has already gone through the same grading engine that saves the final photo or video —
+  there's no separate "AI pass" bolted on afterward. What you frame is what you get.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/en/">← All guides</a> · <a href="/lam/guides/khong-phai-filter-ai.html">Tiếng Việt</a> · <a href="/lam/">Back to LAM</a>
+  </footer>
+</div>
+</body>
+</html>

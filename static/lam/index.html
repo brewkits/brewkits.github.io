@@ -506,6 +506,7 @@
     <div class="brand">Brewkits</div>
     <div data-i18n="footTag"></div>
     <div class="legal">
+      <a id="footGuidesLink" href="/lam/guides/en/" data-i18n="footGuides"></a>
       <a href="/lam/privacy.html" data-i18n="footPrivacy"></a>
       <a href="/lam/terms.html" data-i18n="footTerms"></a>
     </div>
@@ -617,6 +618,7 @@ var I18N = {
     wlPill:'App Store & Google Play', wlHead:'Coming to App Store & Google Play.',
     galHead:'See LAM, for real.', galSub:'Real screenshots from the app — no mockups.', galVideoNote:'Demo video — coming soon.',
     footTag:'LAM · A film camera with soul.', footPrivacy:'Privacy Policy', footTerms:'Terms of Service',
+    footGuides:'Guides',
     footCopy:'© 2026 Brewkits · NO COOKIES · NO ADS · NO ACCOUNT REQUIRED'
   },
   vi: {
@@ -692,6 +694,7 @@ var I18N = {
     wlPill:'App Store & Google Play', wlHead:'Sắp có trên App Store & Google Play.',
     galHead:'LAM thật, không dàn dựng.', galSub:'Ảnh chụp thật từ ứng dụng — không phải mockup.', galVideoNote:'Video demo — sắp có.',
     footTag:'LAM · Máy ảnh cơ có linh hồn.', footPrivacy:'Chính sách bảo mật', footTerms:'Điều khoản',
+    footGuides:'Hướng dẫn',
     footCopy:'© 2026 Brewkits · KHÔNG COOKIE · KHÔNG QUẢNG CÁO · KHÔNG CẦN TÀI KHOẢN'
   },
   zh: {
@@ -1317,6 +1320,9 @@ function applyLang(lang){
   document.querySelectorAll('.langbar button').forEach(function(b){
     b.classList.toggle('on', b.getAttribute('data-lang') === lang);
   });
+  // Guides only exist in vi/en today — everyone else reads the EN set until translated.
+  var gl = document.getElementById('footGuidesLink');
+  if (gl) gl.href = (lang === 'vi') ? '/lam/guides/' : '/lam/guides/en/';
   try { localStorage.setItem('lam_lang', lang); } catch(e){}
 }
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>"Phim thật" khác gì filter AI? — Hướng dẫn LAM</title>
+<meta name="description" content="AI filter vẽ lại ảnh của bạn bằng mô hình sinh ảnh. Một engine phim thật chỉ chỉnh màu trên đúng pixel máy đã chụp. Giải thích sự khác biệt và vì sao nó quan trọng.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/khong-phai-filter-ai.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul{padding-left:22px}
+  li{margin:6px 0}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/">Hướng dẫn LAM</a> · Kiến thức nền</p>
+  <h1>"Phim thật" trong app khác gì filter AI?</h1>
+  <p class="meta">~4 phút đọc</p>
+
+  <p class="lead">Càng nhiều app gắn mác "AI enhance" cho ảnh, câu hỏi này càng đáng hỏi: khi một
+  app nói ảnh của bạn "đẹp hơn", nó đang <em>chỉnh màu ảnh bạn chụp</em>, hay đang <em>vẽ lại</em>
+  một phần ảnh bằng mô hình sinh ảnh (generative model)? Hai việc này nghe giống nhau nhưng là hai
+  thứ hoàn toàn khác nhau.</p>
+
+  <h2>Filter AI làm gì thật sự</h2>
+  <p>Một filter "AI enhance" điển hình chạy ảnh của bạn qua một mô hình học sâu được huấn luyện để
+  "đoán" phiên bản đẹp hơn của bức ảnh — làm mịn da, thêm chi tiết ở vùng mờ, đôi khi tái tạo cả
+  vùng ảnh bị thiếu sáng. Mô hình không biết ánh sáng thật của căn phòng bạn đứng, nó chỉ biết
+  hàng triệu ảnh khác trông "đẹp" như thế nào và cố gắng làm ảnh của bạn giống vậy. Kết quả có thể
+  đẹp, nhưng một phần chi tiết trong ảnh là mô hình <strong>bịa ra</strong>, không phải thứ ống kính
+  đã ghi lại.</p>
+
+  <h2>Grading màu phim làm gì khác</h2>
+  <p>Một engine mô phỏng phim thật (film emulation) hoạt động theo nguyên lý khác hẳn: nó chỉ áp
+  một hàm chuyển màu (color transform) — thường được đóng gói thành bảng tra cứu màu 3D (LUT) —
+  lên đúng giá trị RGB của từng pixel bạn đã chụp. Không pixel nào được vẽ lại, không chi tiết nào
+  được "đoán thêm". Vùng tối vẫn là dữ liệu tối thật, chỉ được nắn theo đường cong tương phản của
+  loại phim đang mô phỏng.</p>
+
+  <div class="card">
+    <p><strong>Phân biệt nhanh:</strong> nếu chụp cùng 1 khung cảnh 2 lần liên tiếp, filter AI có
+    thể cho ra 2 kết quả hơi khác nhau ở vùng chi tiết (vì mô hình "đoán" mỗi lần hơi khác). Grading
+    màu phim thật luôn cho cùng 1 kết quả với cùng 1 dữ liệu đầu vào — vì đó là một phép biến đổi
+    toán học cố định, không phải một lần "sinh ảnh" mới.</p>
+  </div>
+
+  <h2>Vì sao sự khác biệt này quan trọng</h2>
+  <p>Không phải vì AI "xấu" — mà vì hai công cụ giải hai bài toán khác nhau. Nếu bạn muốn giữ lại
+  đúng khoảnh khắc đã chụp (một bữa ăn, một buổi tối với gia đình, một chuyến đi), bạn thường muốn
+  ảnh <em>trung thực với những gì ống kính thấy</em>, chỉ khác về màu và không khí — không muốn một
+  mô hình quyết định lại chi tiết trên mặt người trong ảnh. Grading màu phim giữ nguyên điều đó:
+  ảnh vẫn là ảnh của bạn, chỉ mang thêm màu và cảm giác của một loại phim cụ thể.</p>
+
+  <p>Trong LAM, quy tắc này được giữ nhất quán: khung hình bạn thấy trong viewfinder lúc đang chụp
+  đã đi qua đúng engine chấm màu sẽ dùng để lưu ảnh/video cuối — không có bước "xử lý AI" nào chèn
+  thêm sau đó. Ảnh bạn thấy lúc bấm máy là ảnh bạn nhận được.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/">← Tất cả hướng dẫn</a> · <a href="/lam/guides/en/not-a-filter-ai.html">English</a> · <a href="/lam/">Về LAM</a>
+  </footer>
+</div>
+</body>
+</html>

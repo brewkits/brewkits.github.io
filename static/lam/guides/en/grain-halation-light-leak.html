@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Grain, Halation, Light Leak — What Actually Looks Like Film — LAM Guides</title>
+<meta name="description" content="Three effects that model real physical phenomena on real film stock: grain, halation (glow around highlights), and light leak. What each one is, and how to spot a fake film look.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/grain-halation-light-leak.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  h3{font-size:17px;font-weight:700;margin:28px 0 8px;color:var(--primary)}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul{padding-left:22px}
+  li{margin:6px 0}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/en/">LAM Guides</a> · Film effects</p>
+  <h1>Grain, halation, light leak — what actually makes a photo look like film</h1>
+  <p class="meta">~6 min read</p>
+
+  <p class="lead">A lot of "vintage" filters do exactly one thing: drop the saturation and throw a
+  layer of random noise over the whole frame. The result looks old, but it doesn't look like real
+  film — because film grain isn't uniform across a frame, and there are at least two other
+  phenomena a simple filter never models: halation and light leak. Knowing these three helps you
+  spot where a fake film look falls apart.</p>
+
+  <h2>1. Grain — uneven, and not fully random</h2>
+  <p>On real film, grain comes from silver-halide particles in the emulsion developing unevenly
+  under light. The detail most filters get wrong: <strong>grain amount isn't the same across every
+  bright and dark region of the frame</strong>. Highlights and shadows typically show different
+  amounts of grain, faster (higher-ISO) film stocks show more grain than slower ones, and the
+  visible grain shifts with local brightness — not a flat noise layer smeared evenly across the
+  whole frame, which is the shortcut a lot of filters take.</p>
+
+  <div class="card">
+    <p><strong>How to spot a fake film look:</strong> look at the darkest and brightest parts of a
+    photo. If the "noise" looks identical in both, it's likely a simple noise overlay, not grain
+    modelled against actual brightness.</p>
+  </div>
+
+  <h2>2. Halation — highlights that bloom outward</h2>
+  <p>Halation happens when strong light (a lamp, the sun, a neon sign) passes through the film
+  emulsion, reflects off the backing layer, and scatters back outward as a soft glow around that
+  light source — usually with a warm red or orange tint. That's why film photos of neon signs at
+  night show a warm halo around each light, unlike a typical digital photo where a bright spot just
+  clips to plain white with no halo at all.</p>
+  <p>Halation is a <em>position-dependent</em> effect (it depends on where the bright spots are in
+  the frame), so it can't be modelled with a single whole-frame colour adjustment — it needs to know
+  exactly which pixels are bright to bloom the right ones.</p>
+
+  <h2>3. Light leak — light sneaking in at the edges of the roll</h2>
+  <p>On real film cameras (especially older ones, plastic-bodied ones, or anything hand-loaded),
+  light can leak in through a gap in the film compartment, creating an unpredictable colour streak —
+  usually orange, red, or yellow — running across part of the frame. It's random in shape and
+  position, never repeating the same way twice. It used to be considered a defect nobody wanted, and
+  became part of the signature look of disposable and lomography-style film photography instead.</p>
+
+  <h3>Why these three have to stay separate, not one blended filter</h3>
+  <p>Grain depends on local brightness. Halation depends on where the bright spots are. Light leak
+  is an independent overlay that doesn't depend on the image content at all. Three different
+  mechanisms — which is why in LAM they're computed as three separate layers, added in the correct
+  physical order (colour grade → skin tone → halation → light leak → grain), rather than one
+  "vintage" filter applied in a single pass. That's how one photo can carry all three
+  characteristics at once without any of them fighting the others.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/en/">← All guides</a> · <a href="/lam/guides/grain-halation-light-leak.html">Tiếng Việt</a> · <a href="/lam/">Back to LAM</a>
+  </footer>
+</div>
+</body>
+</html>

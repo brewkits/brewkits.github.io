@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Grain, Halation, Light Leak là gì? — Hướng dẫn LAM</title>
+<meta name="description" content="Ba hiệu ứng mô phỏng đúng hiện tượng vật lý có thật trên phim nhựa: grain (hạt), halation (loang sáng quanh vùng highlight), light leak (rò sáng). Giải thích từng thứ và cách nhận biết ảnh phim giả.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/grain-halation-light-leak.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  h3{font-size:17px;font-weight:700;margin:28px 0 8px;color:var(--primary)}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul{padding-left:22px}
+  li{margin:6px 0}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/">Hướng dẫn LAM</a> · Hiệu ứng phim</p>
+  <h1>Grain, Halation, Light Leak — 3 thứ làm ảnh "ra chất phim"</h1>
+  <p class="meta">~6 phút đọc</p>
+
+  <p class="lead">Rất nhiều filter "vintage" chỉ làm 1 việc: hạ độ bão hoà và thêm nhiễu ngẫu nhiên
+  lên toàn ảnh. Ảnh trông "cũ" nhưng không trông giống phim thật — vì phim nhựa không tạo hạt (grain)
+  đều khắp khung hình, và có ít nhất 2 hiện tượng khác mà filter đơn giản không mô phỏng: halation
+  và light leak. Hiểu 3 thứ này giúp bạn nhận ra ảnh phim "giả" ở đâu.</p>
+
+  <h2>1. Grain — không đều, và không ngẫu nhiên hoàn toàn</h2>
+  <p>Trên phim nhựa thật, hạt (grain) là do các hạt bạc halide trong lớp nhũ ảnh (emulsion) hiện
+  ra không đều dưới ánh sáng. Điểm quan trọng ít filter làm đúng: <strong>lượng grain không giống
+  nhau ở mọi vùng sáng-tối của khung hình</strong>. Vùng highlight (sáng) và vùng shadow (tối)
+  thường lộ hạt khác nhau — phim tốc độ cao (ISO cao) lộ hạt nhiều hơn phim tốc độ thấp, và độ lộ hạt
+  cũng thay đổi theo độ sáng cục bộ, không phải một lớp nhiễu (noise) rải đều toàn khung như nhiều
+  filter làm cho nhanh.</p>
+
+  <div class="card">
+    <p><strong>Cách nhận biết ảnh phim giả:</strong> nhìn vào vùng tối nhất và vùng sáng nhất của
+    ảnh. Nếu độ "nhiễu" ở hai vùng giống nhau tuyệt đối, khả năng cao đó là một lớp noise-overlay
+    đơn giản, không phải grain mô phỏng đúng theo độ sáng.</p>
+  </div>
+
+  <h2>2. Halation — vùng sáng "loang" ra xung quanh</h2>
+  <p>Halation là hiện tượng ánh sáng mạnh (đèn, mặt trời, biển hiệu neon) xuyên qua lớp nhũ ảnh,
+  phản xạ ngược lại từ mặt sau của phim, rồi loang ra thành một viền sáng mờ quanh nguồn sáng đó —
+  thường ánh đỏ hoặc cam nhẹ. Đây là lý do ảnh phim chụp đèn neon ban đêm có viền sáng ấm quanh
+  từng bóng đèn, khác hẳn ảnh kỹ thuật số thông thường nơi vùng sáng chỉ đơn giản bị "cháy" trắng
+  không viền.</p>
+  <p>Halation là hiệu ứng theo <em>vị trí</em> trong khung hình (nó phụ thuộc nơi có điểm sáng), nên
+  không thể mô phỏng bằng một phép chỉnh màu toàn khung — cần biết chính xác pixel nào đang sáng để
+  "loang" đúng chỗ.</p>
+
+  <h2>3. Light leak — ánh sáng rò vào từ mép cuộn phim</h2>
+  <p>Trên máy phim thật (đặc biệt máy cũ, máy nhựa, hoặc phim lắp/tháo bằng tay), ánh sáng có thể rò
+  vào qua khe hở của khoang chứa phim, tạo ra một dải màu bất thường (thường cam/đỏ/vàng) chạy dọc
+  hoặc xiên qua một phần khung hình — ngẫu nhiên về hình dạng và vị trí, không lặp lại giống nhau
+  giữa hai tấm. Đây từng là một "lỗi" không ai muốn, nhưng lại trở thành một phần đặc trưng thẩm mỹ
+  của ảnh phim disposable/lomography.</p>
+
+  <h3>Vì sao 3 thứ này phải tách riêng, không gộp thành 1 filter</h3>
+  <p>Grain phụ thuộc độ sáng cục bộ. Halation phụ thuộc vị trí điểm sáng. Light leak là một lớp phủ
+  độc lập, không phụ thuộc nội dung ảnh. Ba cơ chế khác nhau, nên trong LAM chúng được tính là 3 lớp
+  riêng biệt rồi cộng lại theo đúng thứ tự vật lý (grade màu → tông da → halation → light leak →
+  grain), không phải một bộ lọc "vintage" gộp chung một lượt — đó là lý do cùng một tấm ảnh có thể
+  giữ được cả 3 đặc điểm cùng lúc mà không cái nào lấn cái nào.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/">← Tất cả hướng dẫn</a> · <a href="/lam/guides/en/grain-halation-light-leak.html">English</a> · <a href="/lam/">Về LAM</a>
+  </footer>
+</div>
+</body>
+</html>

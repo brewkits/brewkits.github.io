@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Peaking, Zebra, False Colour, 24fps LOG — Explained — LAM Guides</title>
+<meta name="description" content="Four monitoring tools borrowed from real cinema cameras, explained without the jargon — and why a flat, unattractive LOG file is actually more useful to grade later.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/en/">LAM Guides</a> · Pro tools</p>
+  <h1>Peaking, zebra, false colour, 24fps LOG — what they're for</h1>
+  <p class="meta">~6 min read</p>
+
+  <p class="lead">All four of these are borrowed straight from real cinema cameras, not invented
+  by LAM. If you've seen them in a camera app and weren't sure what they actually do, here's the
+  jargon-free version.</p>
+
+  <h2>Focus peaking — coloured edges that mark what's sharp</h2>
+  <p>On a small phone screen it's genuinely hard to tell whether an eye or a face is actually in
+  focus. Focus peaking outlines the areas with the highest edge-contrast in the frame — in other
+  words, whatever's currently sharpest — in a coloured line, usually red or yellow, updated live.
+  Watching that outline move as you adjust manual focus is the fastest way to confirm you nailed the
+  subject, without zooming into playback afterward.</p>
+
+  <h2>Zebra — a warning stripe for blown-out highlights</h2>
+  <p>Zebra draws a moving diagonal stripe pattern over exactly the pixels crossing a chosen
+  brightness threshold (usually set near clipping/blown-out white). It's how professional camera
+  operators check exposure without reading a number — seeing zebra stripes crawl across someone's
+  face means dial the exposure down now, before that area permanently loses detail that can't be
+  recovered in post.</p>
+
+  <h2>False colour — a brightness heat-map for the whole frame</h2>
+  <p>Where zebra flags one threshold, false colour recolours the entire frame using a reference
+  palette (each colour maps to a specific brightness range — pink often means correctly exposed
+  skin, red means blown out, blue means crushed shadow detail). Looking at a false-colour view tells
+  the operator the exposure state of the whole scene at a glance, without reading a histogram.</p>
+
+  <h2>24fps &amp; "Honest" LOG</h2>
+  <p>24 frames per second is cinema's standard frame rate (as opposed to the 30fps most casual video
+  defaults to) — shooting at 24fps changes how motion feels before colour even enters the picture.</p>
+  <p>LOG is a recording style that's <strong>deliberately flat and low-contrast</strong> — footage
+  looks grey and unappealing straight out of the camera. That's not a bug: recording flat preserves
+  more detail in both shadows and highlights than the camera would show if it applied full contrast
+  live — that detail only "appears" once you grade it afterward. "Honest" here means the LOG file is
+  genuinely flat by a measurable contrast curve, not a grey-tinted filter pretending to look
+  "cinematic" while throwing away the extra detail it's supposed to preserve.</p>
+
+  <div class="card">
+    <p><strong>Why these four tools are free in LAM:</strong> they're measurement/monitoring tools,
+    not aesthetic effects — they help you shoot correctly in the first place, they don't create a
+    "film look" on their own. Kept separate from the paid catalogue (film stocks, LUT export)
+    because they belong to a different category — technical tooling, not creative content.</p>
+  </div>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/en/">← All guides</a> · <a href="/lam/guides/pro-mode-peaking-zebra-log.html">Tiếng Việt</a> · <a href="/lam/">Back to LAM</a>
+  </footer>
+</div>
+</body>
+</html>
