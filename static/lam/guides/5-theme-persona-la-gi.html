@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>5 Theme Persona trong LAM khác gì nhau? — Hướng dẫn LAM</title>
+<meta name="description" content="Noir, Sakura, Chrome, Luna, Jade — 5 giao diện không chỉ đổi màu nút bấm, mà đổi cả cách bố trí, font, và hành vi mặc định của camera cho từng kiểu người chụp.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/5-theme-persona-la-gi.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/five-theme-personas.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/five-theme-personas.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:28px 0 36px}
+  .persona{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+  .persona-swatch{height:64px}
+  .persona-body{padding:14px 16px}
+  .persona-body b{display:block;color:#fff;font-size:15.5px;margin-bottom:4px}
+  .persona-body span{display:block;color:var(--muted);font-size:13px;line-height:1.5}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/">Hướng dẫn LAM</a> · Thẩm mỹ &amp; cá tính</p>
+  <h1>5 Theme Persona trong LAM khác gì nhau?</h1>
+  <p class="meta">~4 phút đọc</p>
+
+  <p class="lead">Đổi theme trong nhiều app chỉ là đổi màu nút bấm. Trong LAM, chọn 1 trong 5
+  persona đổi cả bố cục giao diện, font chữ, và một số hành vi mặc định của camera (loại phim khởi
+  đầu, tông da mặc định, kiểu chuyển động của UI) — vì mỗi persona được thiết kế cho 1 kiểu người
+  chụp khác nhau, không phải 1 bảng màu khác nhau.</p>
+
+  <div class="persona-grid">
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#0c0c0e,#d4af37)"></div>
+      <div class="persona-body"><b>Noir</b><span>Điện ảnh, tĩnh lặng. Chính xác kiểu máy cơ, cho người thuần phim.</span></div>
+    </div>
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#f7d9df,#fff6ea)"></div>
+      <div class="persona-body"><b>Sakura</b><span>Editorial hồng nhạt. Serif mộng mơ, cho người chụp beauty &amp; portrait.</span></div>
+    </div>
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#00e5ff,#2b2f36)"></div>
+      <div class="persona-body"><b>Chrome</b><span>Cyan điện & thép súng. HUD sạch, cho video director.</span></div>
+    </div>
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#c9a7e8,#241b4e)"></div>
+      <div class="persona-body"><b>Luna</b><span>Tím nửa đêm &amp; chàm sâu. Cảm giác dịu, cho người chụp đêm.</span></div>
+    </div>
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#4a3427,#5fae7a)"></div>
+      <div class="persona-body"><b>Jade</b><span>Espresso &amp; ngọc bích. Ánh nắng vàng ấm, cho video food &amp; du lịch.</span></div>
+    </div>
+  </div>
+
+  <h2>Vì sao persona lại chỉnh cả hành vi camera, không chỉ giao diện</h2>
+  <p>Một người chuyên chụp portrait và một người chuyên quay clip món ăn không chỉ muốn màu nút
+  khác nhau — họ thường bắt đầu từ điểm khác nhau: tông da mặc định, loại phim khởi động, có cần
+  HUD giám sát (histogram, zebra) hiện sẵn hay không. Persona gói tất cả những mặc định đó lại thành
+  1 lựa chọn duy nhất, để không phải tự chỉnh lại từ đầu mỗi lần mở app.</p>
+
+  <div class="card">
+    <p><strong>Chọn persona chỉ áp dụng 1 lần đầu tiên</strong> — không tự động đổi lại các thiết
+    lập bạn đã tinh chỉnh sau đó. Đổi persona chỉ là điểm bắt đầu gợi ý, không phải khoá cứng cách
+    bạn dùng app.</p>
+  </div>
+
+  <h2>Nên chọn persona nào</h2>
+  <p>Không có lựa chọn "đúng" — chỉ có lựa chọn khớp với cách bạn chụp thường xuyên nhất. Nếu không
+  chắc, cứ chọn theo cảm giác thẩm mỹ bạn thích nhìn mỗi ngày — mọi tính năng của LAM vẫn dùng được
+  đầy đủ ở cả 5 persona, không có persona nào "thiếu tính năng" so với persona khác.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/">← Tất cả hướng dẫn</a> · <a href="/lam/guides/en/five-theme-personas.html">English</a> · <a href="/lam/">Về LAM</a>
+  </footer>
+</div>
+</body>
+</html>

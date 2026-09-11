@@ -145,4 +145,61 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html"/>
   </url>
 
+  <url>
+    <loc>https://brewkits.dev/lam/guides/5-theme-persona-la-gi.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/5-theme-persona-la-gi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/five-theme-personas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/five-theme-personas.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/five-theme-personas.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/5-theme-persona-la-gi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/five-theme-personas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/five-theme-personas.html"/>
+  </url>
+
+  <url>
+    <loc>https://brewkits.dev/lam/guides/recipe-code-chia-se-look.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/recipe-code-chia-se-look.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/recipe-code-chia-se-look.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html"/>
+  </url>
+
+  <url>
+    <loc>https://brewkits.dev/lam/guides/xuat-lut-cube-resolve-premiere.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/xuat-lut-cube-resolve-premiere.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/xuat-lut-cube-resolve-premiere.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html"/>
+  </url>
+
 </urlset>

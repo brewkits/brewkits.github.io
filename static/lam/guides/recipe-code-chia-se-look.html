@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Recipe Code trong LAM là gì? — Hướng dẫn LAM</title>
+<meta name="description" content="Mỗi look trong LAM có thể đóng gói thành 1 mã 8 ký tự — dán dưới bình luận TikTok, ai cũng dán lại vào LAM để có đúng màu đó trong 5 giây. Giải thích cách nó hoạt động thật.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/recipe-code-chia-se-look.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  code{font-family:var(--ms);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--primary)}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .flowrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:28px 0 36px}
+  .flowrow .step{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 12px;text-align:center;font-size:13.5px}
+  .flowrow .step b{display:block;color:#fff;font-size:14.5px;margin-bottom:4px}
+  .flowrow .step span{color:var(--muted);font-size:12px}
+  .flowrow .arrow{color:var(--muted);font-size:20px;flex:0 0 auto}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/">Hướng dẫn LAM</a> · Preset &amp; chia sẻ</p>
+  <h1>Recipe Code trong LAM là gì?</h1>
+  <p class="meta">~4 phút đọc</p>
+
+  <p class="lead">Thay vì phải chụp màn hình 5 thanh trượt rồi gửi cho bạn "chỉnh giống vậy nè", LAM
+  đóng toàn bộ 1 look (loại phim + độ hạt + cường độ + tông da + vài lựa chọn khác) thành 1 chuỗi
+  8 ký tự, ví dụ <code>LAM-9F3KQ2XY</code>. Dán chuỗi đó vào LAM là có ngay đúng look, không cần
+  đoán hay chỉnh tay lại.</p>
+
+  <div class="flowrow">
+    <div class="step"><b>Bạn tạo 1 ảnh</b><span>đang dùng 1 look cụ thể</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>LAM đóng gói</b><span>thành mã 8 ký tự</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Bạn chia sẻ</b><span>dán dưới TikTok/DM</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Bạn bè dán lại</b><span>có đúng look trong 5s</span></div>
+  </div>
+
+  <h2>Mã này chứa gì, và không chứa gì</h2>
+  <p>Mã chỉ mã hoá các thông số của look — loại phim, độ hạt, cường độ filter, chế độ tông da và vài
+  lựa chọn khác — <strong>không chứa ảnh, không chứa thông tin cá nhân</strong>. Dán mã vào máy khác
+  chỉ áp đúng công thức màu đó lên ảnh MỚI người đó chụp, không lấy được nội dung ảnh gốc của bạn.
+  Muốn dùng mã cũng không cần tài khoản hay đăng nhập.</p>
+
+  <div class="card">
+    <p><strong>Mã có kiểm tra lỗi (checksum)</strong> — nếu ai đó gõ sai 1 ký tự khi chép tay (thay
+    vì copy-paste), LAM báo mã không hợp lệ ngay, không âm thầm áp một look sai mà không ai biết.</p>
+  </div>
+
+  <h2>Vì sao đây không chỉ là 1 tính năng nhỏ</h2>
+  <p>Với hầu hết app chỉnh ảnh, "thích màu này quá" là một câu hỏi không có câu trả lời — filter là
+  1 khối đóng, không tách được thành thông số để chia sẻ lại chính xác. Mã 8 ký tự biến câu hỏi đó
+  thành 1 hành động 5 giây: copy, dán, xong — không cần biết loại phim đó tên gì hay chỉnh tay bao
+  nhiêu %.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/">← Tất cả hướng dẫn</a> · <a href="/lam/guides/en/recipe-code-sharing-a-look.html">English</a> · <a href="/lam/">Về LAM</a>
+  </footer>
+</div>
+</body>
+</html>

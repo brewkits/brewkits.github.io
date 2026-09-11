@@ -21,7 +21,7 @@
   html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
     line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:680px;margin:0 auto;padding:72px 24px 96px}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
   .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
   h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
   .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
@@ -36,6 +36,14 @@
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
   .card p:first-child{margin-top:0}
   .card p:last-child{margin-bottom:0}
+  .flow{display:flex;gap:20px;flex-wrap:wrap;margin:28px 0 36px}
+  .flow-col{flex:1;min-width:230px;text-align:center;display:flex;flex-direction:column;align-items:center}
+  .flow-box{width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 14px;font-size:14.5px;color:#fff}
+  .flow-box span{display:block;color:var(--muted);font-size:12.5px;margin-top:4px;font-weight:400}
+  .flow-box.bad{border-color:#7f1d1d}
+  .flow-box.good{border-color:#365314}
+  .flow-arrow{color:var(--muted);margin:8px 0;font-size:16px;line-height:1}
+  .flow-label{font-family:var(--ms);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
   hr{border:0;border-top:1px solid var(--line);margin:48px 0}
   footer{color:var(--muted);font-size:14px;margin-top:48px}
   footer a{color:var(--muted);text-decoration:underline}
@@ -57,6 +65,25 @@
   app nói ảnh của bạn "đẹp hơn", nó đang <em>chỉnh màu ảnh bạn chụp</em>, hay đang <em>vẽ lại</em>
   một phần ảnh bằng mô hình sinh ảnh (generative model)? Hai việc này nghe giống nhau nhưng là hai
   thứ hoàn toàn khác nhau.</p>
+
+  <div class="flow">
+    <div class="flow-col">
+      <p class="flow-label">AI filter</p>
+      <div class="flow-box">📷 Ảnh gốc</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Mô hình sinh ảnh<span>đoán &amp; vẽ lại chi tiết</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box bad">Ảnh đã bị vẽ lại một phần</div>
+    </div>
+    <div class="flow-col">
+      <p class="flow-label">Grading phim thật (LAM)</p>
+      <div class="flow-box">📷 Ảnh gốc</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">Phép biến đổi màu cố định (LUT)<span>không đoán, không vẽ thêm</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box good">Vẫn đúng từng pixel bạn đã chụp</div>
+    </div>
+  </div>
 
   <h2>Filter AI làm gì thật sự</h2>
   <p>Một filter "AI enhance" điển hình chạy ảnh của bạn qua một mô hình học sâu được huấn luyện để

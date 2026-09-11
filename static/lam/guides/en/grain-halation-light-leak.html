@@ -21,7 +21,7 @@
   html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
     line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:680px;margin:0 auto;padding:72px 24px 96px}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
   .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
   h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
   .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
@@ -37,6 +37,11 @@
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
   .card p:first-child{margin-top:0}
   .card p:last-child{margin-bottom:0}
+  .diagram{margin:28px 0 0}
+  .diagram svg{width:100%;height:auto;display:block}
+  .diagram-caps{display:flex;gap:16px;margin:12px 0 36px}
+  .diagram-caps div{flex:1;min-width:0;text-align:center;font-size:13px;color:var(--muted)}
+  .diagram-caps b{display:block;color:#fff;font-size:14px;margin-bottom:2px}
   hr{border:0;border-top:1px solid var(--line);margin:48px 0}
   footer{color:var(--muted);font-size:14px;margin-top:48px}
   footer a{color:var(--muted);text-decoration:underline}
@@ -59,6 +64,48 @@
   film — because film grain isn't uniform across a frame, and there are at least two other
   phenomena a simple filter never models: halation and light leak. Knowing these three helps you
   spot where a fake film look falls apart.</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 720 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three film effects: grain, halation, light leak">
+      <defs>
+        <pattern id="grainSparse2" width="6" height="6" patternUnits="userSpaceOnUse">
+          <circle cx="3" cy="3" r="0.5" fill="#fff" opacity="0.28"/>
+        </pattern>
+        <pattern id="grainDense2" width="3" height="3" patternUnits="userSpaceOnUse">
+          <circle cx="1.5" cy="1.5" r="0.6" fill="#fff" opacity="0.4"/>
+        </pattern>
+        <radialGradient id="halationGlow2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffe6b8" stop-opacity="0.95"/>
+          <stop offset="35%" stop-color="#ffb347" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#ffb347" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="leakGrad2" x1="0%" y1="100%" x2="65%" y2="10%">
+          <stop offset="0%" stop-color="#ff7a3d" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#ff7a3d" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <g>
+        <rect x="0" y="0" width="220" height="160" rx="10" fill="#1a1410"/>
+        <rect x="0" y="0" width="220" height="80" fill="url(#grainSparse2)"/>
+        <rect x="0" y="80" width="220" height="80" fill="url(#grainDense2)"/>
+        <line x1="0" y1="80" x2="220" y2="80" stroke="#3a3a3a" stroke-dasharray="3,3"/>
+      </g>
+      <g transform="translate(250,0)">
+        <rect x="0" y="0" width="220" height="160" rx="10" fill="#14100e"/>
+        <circle cx="165" cy="50" r="72" fill="url(#halationGlow2)"/>
+        <circle cx="165" cy="50" r="9" fill="#fff8e6"/>
+      </g>
+      <g transform="translate(500,0)">
+        <rect x="0" y="0" width="220" height="160" rx="10" fill="#151210"/>
+        <rect x="0" y="0" width="220" height="160" rx="10" fill="url(#leakGrad2)"/>
+      </g>
+    </svg>
+    <div class="diagram-caps">
+      <div><b>Grain</b>fewer grains in highlights, more in shadows</div>
+      <div><b>Halation</b>a soft glow blooming around bright light</div>
+      <div><b>Light leak</b>a stray colour streak, random position</div>
+    </div>
+  </div>
 
   <h2>1. Grain — uneven, and not fully random</h2>
   <p>On real film, grain comes from silver-halide particles in the emulsion developing unevenly

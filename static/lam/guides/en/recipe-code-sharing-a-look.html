@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>What Is a LAM Recipe Code? — LAM Guides</title>
+<meta name="description" content="Every look in LAM can be packed into an 8-character code — paste it under a TikTok comment, and anyone can paste it back into LAM to get the exact same colour in 5 seconds.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/recipe-code-chia-se-look.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  code{font-family:var(--ms);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--primary)}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .flowrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:28px 0 36px}
+  .flowrow .step{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 12px;text-align:center;font-size:13.5px}
+  .flowrow .step b{display:block;color:#fff;font-size:14.5px;margin-bottom:4px}
+  .flowrow .step span{color:var(--muted);font-size:12px}
+  .flowrow .arrow{color:var(--muted);font-size:20px;flex:0 0 auto}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/en/">LAM Guides</a> · Presets &amp; sharing</p>
+  <h1>What is a LAM recipe code?</h1>
+  <p class="meta">~4 min read</p>
+
+  <p class="lead">Instead of screenshotting five sliders and texting a friend "match this," LAM
+  packs an entire look — film stock, grain, strength, skin-tone mode and a few other choices — into
+  a single 8-character string, like <code>LAM-9F3KQ2XY</code>. Paste that string into LAM and you
+  get the exact look instantly, no guessing, no manual re-tuning.</p>
+
+  <div class="flowrow">
+    <div class="step"><b>You shoot a photo</b><span>using a specific look</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>LAM packs it</b><span>into an 8-char code</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>You share it</b><span>under a TikTok / in a DM</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>A friend pastes it</b><span>same look in 5 seconds</span></div>
+  </div>
+
+  <h2>What the code holds, and what it doesn't</h2>
+  <p>The code only encodes the look's parameters — film stock, grain, filter strength, skin-tone
+  mode, and a couple of other choices — <strong>it never contains a photo or any personal data</strong>.
+  Pasting it on another phone only applies that exact colour recipe to a NEW photo that person
+  shoots — it can't reach your original image at all. No account or sign-in is needed to use one
+  either.</p>
+
+  <div class="card">
+    <p><strong>The code carries a checksum.</strong> If someone mistypes a character copying it by
+    hand instead of pasting, LAM flags it as invalid immediately — it never silently applies the
+    wrong look without anyone noticing.</p>
+  </div>
+
+  <h2>Why this isn't just a minor feature</h2>
+  <p>In most photo editors, "I love this colour, how do I get it" has no real answer — a filter is
+  a closed black box, not something you can decompose into shareable parameters. An 8-character
+  code turns that question into a 5-second action: copy, paste, done — no need to know what the
+  film stock is called or how many percent any slider was pushed.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/en/">← All guides</a> · <a href="/lam/guides/recipe-code-chia-se-look.html">Tiếng Việt</a> · <a href="/lam/">Back to LAM</a>
+  </footer>
+</div>
+</body>
+</html>

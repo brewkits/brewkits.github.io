@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Exporting a .cube LUT from LAM — LAM Guides</title>
+<meta name="description" content=".cube is the industry-standard LUT format, and LAM can export any look to one for use on a desktop. What .cube actually is, when to use it, and its real limits.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/xuat-lut-cube-resolve-premiere.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  code{font-family:var(--ms);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--primary)}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .flowrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:28px 0 36px}
+  .flowrow .step{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 12px;text-align:center;font-size:13.5px}
+  .flowrow .step b{display:block;color:#fff;font-size:14.5px;margin-bottom:4px}
+  .flowrow .step span{color:var(--muted);font-size:12px}
+  .flowrow .arrow{color:var(--muted);font-size:20px;flex:0 0 auto}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/en/">LAM Guides</a> · Colour grading &amp; desktop</p>
+  <h1>Exporting a .cube LUT from LAM to Resolve/Premiere</h1>
+  <p class="meta">~5 min read</p>
+
+  <p class="lead"><code>.cube</code> is the industry-standard LUT (colour lookup table) format,
+  readable by most professional editing software. LAM can export any look — including one you've
+  tuned yourself — to a <code>.cube</code> file, meaning the colour you see on your phone can move
+  straight to your desktop and get applied to footage shot on a different camera.</p>
+
+  <div class="flowrow">
+    <div class="step"><b>Shoot in LAM</b><span>pick a look you like</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Export .cube</b><span>industry-standard 17³ LUT</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Import into your NLE</b><span>Resolve / Premiere / Final Cut</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Apply to other footage</b><span>camera, drone, gimbal…</span></div>
+  </div>
+
+  <h2>What "17³" means, and why the number matters</h2>
+  <p>A LUT is essentially a lookup table: for every input colour value, it returns a corresponding
+  output colour. "17³" is that table's sampling grid size across the three colour channels (red,
+  green, blue) — detailed enough to interpolate smoothly for most real footage, and the most common
+  size professional editing software expects when reading a <code>.cube</code> file.</p>
+
+  <div class="card">
+    <p><strong>The exported LUT is an EXACT replay of the real grading pipeline</strong> — not an
+    approximation. That's why the colour applied on desktop matches what you saw shooting on your
+    phone, rather than drifting because two separate colour systems computed it differently.</p>
+  </div>
+
+  <h2>The real limit worth knowing before you use it</h2>
+  <p>A LUT can only encode <strong>colour-to-colour</strong> effects (pure colour grade). Effects
+  that depend on <em>position</em> within the frame — grain, halation, vignette, region-specific
+  skin tone — fall outside what a colour-to-colour LUT can carry, because a LUT has no idea where a
+  pixel sits in the frame, only what colour value it holds. In other words: the exported LUT
+  faithfully reproduces the look's <em>colour</em>, but not its grain or halation — recreating those
+  two layers on desktop, if you want them, needs your editing software's own tools.</p>
+
+  <h2>When to use this, and when you don't need to</h2>
+  <p>Most useful when a project mixes footage from several devices (phone + a separate camera +
+  drone) and you want everything to match colour — export the LUT from LAM once, apply it across
+  the whole set. If you're only shooting and exporting straight out of LAM, you don't need this step
+  at all — the colour is already applied on-device, with nothing waiting for post.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/en/">← All guides</a> · <a href="/lam/guides/xuat-lut-cube-resolve-premiere.html">Tiếng Việt</a> · <a href="/lam/">Back to LAM</a>
+  </footer>
+</div>
+</body>
+</html>

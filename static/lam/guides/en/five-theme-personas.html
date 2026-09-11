@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>What LAM's Five Theme Personas Actually Change — LAM Guides</title>
+<meta name="description" content="Noir, Sakura, Chrome, Luna, Jade — five interfaces that change more than button colours: layout, typography, and a camera's default behaviour, each built for a different kind of shooter.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/5-theme-persona-la-gi.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/five-theme-personas.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/five-theme-personas.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:28px 0 36px}
+  .persona{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+  .persona-swatch{height:64px}
+  .persona-body{padding:14px 16px}
+  .persona-body b{display:block;color:#fff;font-size:15.5px;margin-bottom:4px}
+  .persona-body span{display:block;color:var(--muted);font-size:13px;line-height:1.5}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/en/">LAM Guides</a> · Aesthetics &amp; persona</p>
+  <h1>What LAM's five theme personas actually change</h1>
+  <p class="meta">~4 min read</p>
+
+  <p class="lead">In a lot of apps, switching themes just swaps button colours. In LAM, picking one
+  of five personas changes the entire layout, the typography, and a few of the camera's default
+  behaviours (starting film stock, default skin-tone mode, how the UI moves) — because each persona
+  is built for a different kind of shooter, not just a different colour palette.</p>
+
+  <div class="persona-grid">
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#0c0c0e,#d4af37)"></div>
+      <div class="persona-body"><b>Noir</b><span>Cinematic, deeply still. Mechanical precision for film purists.</span></div>
+    </div>
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#f7d9df,#fff6ea)"></div>
+      <div class="persona-body"><b>Sakura</b><span>Soft blush editorial. Dreamy serif for beauty &amp; portrait shooters.</span></div>
+    </div>
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#00e5ff,#2b2f36)"></div>
+      <div class="persona-body"><b>Chrome</b><span>Electric cyan &amp; gunmetal. Clean HUD for video directors.</span></div>
+    </div>
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#c9a7e8,#241b4e)"></div>
+      <div class="persona-body"><b>Luna</b><span>Midnight lilac &amp; deep indigo. Soft mood for night shooters.</span></div>
+    </div>
+    <div class="persona">
+      <div class="persona-swatch" style="background:linear-gradient(135deg,#4a3427,#5fae7a)"></div>
+      <div class="persona-body"><b>Jade</b><span>Espresso &amp; jade green. Warm golden-hour for food &amp; travel vloggers.</span></div>
+    </div>
+  </div>
+
+  <h2>Why a persona also changes camera behaviour, not just the look</h2>
+  <p>Someone who mostly shoots portraits and someone who mostly films food content don't just want
+  different button colours — they usually start from a different place: default skin-tone mode,
+  which film stock loads first, whether monitoring HUDs (histogram, zebra) should already be on.
+  A persona bundles all of those defaults into a single choice, so you don't re-configure everything
+  from scratch every time you open the app.</p>
+
+  <div class="card">
+    <p><strong>Picking a persona only applies once, on first choice</strong> — it doesn't silently
+    reset settings you've already tuned afterward. Switching persona is a suggested starting point,
+    not a lock on how you use the app.</p>
+  </div>
+
+  <h2>Which persona to pick</h2>
+  <p>There's no "correct" choice — only the one that matches how you shoot most often. If you're
+  not sure, just pick whichever aesthetic you'd enjoy looking at every day: every LAM feature works
+  fully under all five personas, none of them is missing capability compared to another.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/en/">← All guides</a> · <a href="/lam/guides/5-theme-persona-la-gi.html">Tiếng Việt</a> · <a href="/lam/">Back to LAM</a>
+  </footer>
+</div>
+</body>
+</html>

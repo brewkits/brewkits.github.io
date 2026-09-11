@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Xuất .cube LUT từ LAM vào Resolve/Premiere — Hướng dẫn LAM</title>
+<meta name="description" content=".cube là file LUT chuẩn ngành, LAM xuất được từ mọi look để dùng tiếp trên máy tính. Giải thích .cube là gì, khi nào nên dùng, và giới hạn thật của nó.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/xuat-lut-cube-resolve-premiere.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  code{font-family:var(--ms);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--primary)}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .flowrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:28px 0 36px}
+  .flowrow .step{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 12px;text-align:center;font-size:13.5px}
+  .flowrow .step b{display:block;color:#fff;font-size:14.5px;margin-bottom:4px}
+  .flowrow .step span{color:var(--muted);font-size:12px}
+  .flowrow .arrow{color:var(--muted);font-size:20px;flex:0 0 auto}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/">Hướng dẫn LAM</a> · Chấm màu &amp; desktop</p>
+  <h1>Xuất .cube LUT từ LAM — dùng tiếp trên Resolve/Premiere</h1>
+  <p class="meta">~5 phút đọc</p>
+
+  <p class="lead"><code>.cube</code> là định dạng LUT (bảng tra cứu màu) chuẩn ngành, được hầu hết
+  phần mềm dựng phim chuyên nghiệp đọc được. LAM xuất được bất kỳ look nào (kể cả look bạn tự chỉnh)
+  ra file <code>.cube</code> — nghĩa là màu bạn thấy trên điện thoại có thể mang thẳng sang máy tính
+  để áp lên footage quay bằng máy ảnh khác.</p>
+
+  <div class="flowrow">
+    <div class="step"><b>Chụp/quay trên LAM</b><span>chọn 1 look ưa thích</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Xuất .cube</b><span>LUT 17³ chuẩn ngành</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Import vào NLE</b><span>Resolve / Premiere / Final Cut</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Áp lên footage khác</b><span>máy ảnh, drone, gimbal...</span></div>
+  </div>
+
+  <h2>17³ nghĩa là gì, và vì sao con số này quan trọng</h2>
+  <p>LUT về bản chất là 1 bảng tra: với mỗi giá trị màu đầu vào, bảng trả về 1 giá trị màu đầu ra
+  tương ứng. "17³" là kích thước lưới lấy mẫu của bảng đó theo 3 kênh màu (đỏ/xanh lá/xanh dương) —
+  đủ chi tiết để nội suy mượt cho hầu hết cảnh quay thật, và là kích thước phổ biến nhất mà các phần
+  mềm dựng phim chuyên nghiệp mong đợi khi đọc file <code>.cube</code>.</p>
+
+  <div class="card">
+    <p><strong>LUT xuất ra là bản replay CHÍNH XÁC quy trình grade thật</strong> — không phải ước
+    lượng lại. Vì vậy màu áp trên desktop khớp với màu bạn đã thấy khi chụp trên điện thoại, không
+    lệch do 2 hệ thống tính màu khác nhau.</p>
+  </div>
+
+  <h2>Giới hạn thật cần biết trước khi dùng</h2>
+  <p>LUT chỉ mã hoá được các hiệu ứng <strong>màu→màu</strong> (color grade thuần). Các hiệu ứng
+  phụ thuộc <em>vị trí</em> trong khung hình — grain, halation, vignette, tông da theo vùng da — nằm
+  ngoài phạm vi 1 LUT màu→màu, vì LUT không biết pixel nào ở đâu trong khung hình, chỉ biết giá trị
+  màu của pixel đó. Nói cách khác: LUT xuất ra tái tạo đúng <em>màu</em> của look, nhưng không mang
+  theo hạt phim hay halation — 2 lớp đó nếu muốn có trên desktop phải làm lại bằng công cụ riêng của
+  phần mềm dựng phim.</p>
+
+  <h2>Khi nào nên dùng, khi nào không cần</h2>
+  <p>Hữu ích nhất khi bạn quay bằng nhiều thiết bị cho cùng 1 dự án (điện thoại + máy ảnh rời +
+  drone) và muốn cả bộ khớp màu với nhau — xuất LUT từ LAM 1 lần, áp cho toàn bộ. Nếu chỉ chụp/quay
+  và xuất trực tiếp từ LAM, không cần bước này — màu đã được áp sẵn ngay trên máy, không phải chờ
+  hậu kỳ.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/">← Tất cả hướng dẫn</a> · <a href="/lam/guides/en/export-cube-lut-resolve-premiere.html">English</a> · <a href="/lam/">Về LAM</a>
+  </footer>
+</div>
+</body>
+</html>
