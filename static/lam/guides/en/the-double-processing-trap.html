@@ -69,7 +69,7 @@
 
   <p class="lead">Most mobile photographers who want film aesthetics follow a familiar routine:
   shoot first with the default iPhone or Android camera to get a "safe" file, then import it into
-  apps like VSCO, Fimii, or Lightroom to paste a film preset. Intuition suggests this is the cautious
+  a separate editing app to paste a film preset on top. Intuition suggests this is the cautious
   approach. From an imaging pipeline standpoint, however, it is the most destructive route possible,
   subjecting your image to <strong>double distortion</strong>.</p>
 
@@ -88,13 +88,13 @@
     </div>
     <div class="flow-col">
       <p class="flow-label">Real-time Film Engine (LAM)</p>
-      <div class="flow-box">📷 Raw sensor buffer</div>
+      <div class="flow-box">📷 Sensor, then the phone's ISP</div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">No aggressive HDR flattening<span>Preserves organic optical contrast</span></div>
+      <div class="flow-box good">LAM grades once, at the shutter<span>no re-import, no second grading layer</span></div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Direct film curve &amp; grain pass<span>Single-pass processing on the live camera stream</span></div>
+      <div class="flow-box good">And you already saw it<span>the viewfinder showed the file you are about to get</span></div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Clean film tones, smooth highlight roll-off</div>
+      <div class="flow-box good">Final file — decided before the shot, not after</div>
     </div>
   </div>
 
@@ -126,9 +126,28 @@
   on top, the grain clusters unnaturally over these sharpened halos while sitting awkwardly atop smoothed, waxy skin.
   The organic texture of silver halide crystals is completely lost.</p>
 
-  <p><strong>3. 8-Bit Compression Loss &amp; Banding:</strong> Default cameras export compressed 8-bit files.
-  The dynamic range is permanently clamped. Stretching these compressed tones in a secondary editing app breaks
-  smooth gradients, producing visible color banding across skies and patchy skin tones.</p>
+  <p><strong>3. Two grading layers that know nothing about each other:</strong>
+  This is the real breakage, and it is about the <em>number</em> of passes, not the number of bits.
+  The first layer is the phone's algorithm, decided before you could look. The second is the preset you
+  paste on hours later, designed for a photograph that had not been bent yet. Neither layer knows what
+  the other did to the shadows and highlights, so the result is the sum of two conflicting decisions
+  rather than one correct one.</p>
+
+  <div class="card">
+    <p><strong>Stated plainly: LAM does not read RAW, and does not switch off your phone's HDR.</strong></p>
+    <p>LAM receives its frame from the phone's ISP like any other camera app. On iPhone it deliberately
+    asks for Deep Fusion and Smart HDR at the highest setting the device allows, because measured on real
+    hardware that frame is cleaner in the shadows and wider in range — turning it off makes the picture
+    worse, not better.</p>
+    <p>What makes LAM different is not "reading the raw sensor". It is three things we can measure:
+    <strong>(1)</strong> there is <em>one</em> grading layer instead of two stacked ones;
+    <strong>(2)</strong> you see that layer in the viewfinder <em>before</em> the shutter, so a wrong
+    choice is changed on the spot rather than discovered at home; <strong>(3)</strong> on Android, LAM
+    picks the capture mode that skips CameraX's extra multi-frame noise-reduction pass — A/B'd on device,
+    flat areas came out 17% cleaner at equal detail. We would rather state three things that are true
+    than one that sounds impressive.</p>
+  </div>
+
 
   <div class="card">
     <p><strong>Common Question: "Why do post-filters still look okay on social media?"</strong></p>

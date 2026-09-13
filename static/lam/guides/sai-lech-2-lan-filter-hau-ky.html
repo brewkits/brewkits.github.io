@@ -69,7 +69,7 @@
 
   <p class="lead">Hầu hết mọi người khi muốn có một bức ảnh màu phim đều bắt đầu bằng cách quen thuộc:
   mở app camera mặc định của iPhone hoặc Android lên chụp trước cho "chuẩn", rồi sau đó nhập vào các
-  app như VSCO, Fimii, hay Lightroom để dán preset phim. Trực giác mách bảo đây là con đường an toàn.
+  một app chỉnh ảnh khác để dán preset phim lên. Trực giác mách bảo đây là con đường an toàn.
   Nhưng dưới góc nhìn kỹ thuật xử lý hình ảnh (imaging pipeline), đây là quy trình phá hủy chất phim
   nặng nề nhất vì tạo ra hiện tượng <strong>sai lệch kép (double distortion)</strong>.</p>
 
@@ -88,13 +88,13 @@
     </div>
     <div class="flow-col">
       <p class="flow-label">Engine phim thời gian thực (LAM)</p>
-      <div class="flow-box">📷 Cảm biến thô</div>
+      <div class="flow-box">📷 Cảm biến, rồi ISP của máy</div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Không can thiệp HDR cực đoan<span>Giữ nguyên tương phản quang học tự nhiên</span></div>
+      <div class="flow-box good">LAM nắn màu một lần, ngay lúc bấm máy<span>không có bước nhập lại, không có lớp nắn thứ hai</span></div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Tone curve phim &amp; grain trực tiếp<span>Xử lý 1 bước duy nhất trên luồng camera</span></div>
+      <div class="flow-box good">Và bạn đã thấy nó trước đó<span>viewfinder hiện sẵn đúng kết quả sẽ lưu</span></div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Màu phim sạch, highlight chuyển êm</div>
+      <div class="flow-box good">File cuối — chọn trước khi chụp, không sửa lại sau</div>
     </div>
   </div>
 
@@ -129,10 +129,25 @@
   sần lởm chởm trên các viền gai giả tạo, còn da mặt biến thành một lớp sáp nhân tạo gượng gạo, mất đi cấu
   trúc hữu cơ của tinh thể muối bạc trên phim thật.</p>
 
-  <p><strong>3. Suy hao dữ liệu do nén 8-bit (Quantization &amp; Color Banding):</strong>
-  Camera mặc định xuất ra file JPEG hoặc HEIC 8-bit. Lúc này dải động đã bị nén chặt và khóa cứng. Việc
-  nắn kéo màu da hay bầu trời trong app hậu kỳ trên một tệp 8-bit đã nén sẽ làm gãy các bước chuyển màu mượt mà,
-  gây ra hiện tượng loang lổ (color banding) và bết dính màu sắc.</p>
+  <p><strong>3. Hai lớp nắn màu không biết gì về nhau (Stacked Grading):</strong>
+  Đây mới là điểm gãy thật sự, và nó nằm ở <em>số lần</em> nắn chứ không phải số bit. Lớp thứ nhất là
+  thuật toán của máy, quyết định trước khi bạn kịp nhìn. Lớp thứ hai là preset bạn dán vào vài giờ sau,
+  được thiết kế cho một bức ảnh chưa bị nắn. Không lớp nào biết lớp kia đã làm gì với vùng tối và vùng
+  sáng, nên kết quả là tổng của hai quyết định mâu thuẫn — chứ không phải một quyết định đúng.</p>
+
+  <div class="card">
+    <p><strong>Nói rõ để khỏi hiểu nhầm: LAM không đọc RAW, và cũng không tắt HDR của máy.</strong></p>
+    <p>LAM nhận ảnh từ ISP của điện thoại như mọi app camera khác. Trên iPhone, LAM còn <em>cố ý bật</em>
+    Deep Fusion và Smart HDR ở mức cao nhất máy cho phép, vì đo trên máy thật thì ảnh ra sạch nhiễu hơn
+    và dải sáng rộng hơn — bỏ nó đi làm ảnh xấu hơn, không phải đẹp hơn.</p>
+    <p>Khác biệt của LAM không nằm ở chỗ "đọc được cảm biến thô". Nó nằm ở ba chỗ đo được:
+    <strong>(1)</strong> chỉ có <em>một</em> lớp nắn màu thay vì hai lớp chồng nhau;
+    <strong>(2)</strong> bạn nhìn thấy lớp đó trên viewfinder <em>trước</em> khi bấm, nên chọn sai thì
+    đổi ngay chứ không phải về nhà mới biết; <strong>(3)</strong> trên Android, LAM chọn chế độ chụp bỏ
+    qua lớp khử nhiễu đa khung phụ của CameraX — A/B trên máy thật cho vùng phẳng sạch hơn 17% ở cùng
+    mức chi tiết. Chúng tôi thà nói đúng ba điều đo được còn hơn một điều nghe kêu.</p>
+  </div>
+
 
   <div class="card">
     <p><strong>Câu hỏi thường gặp: "Tại sao lướt mạng xã hội thấy ảnh áp filter vẫn ổn?"</strong></p>
@@ -159,22 +174,22 @@
         <tr>
           <td><strong>Luồng xử lý</strong></td>
           <td>2 bước đối nghịch: HDR kéo phẳng → Filter ép cong lại</td>
-          <td>1 bước duy nhất (Single-pass) trực tiếp từ cảm biến</td>
+          <td>1 lớp nắn màu, áp ngay lúc bấm máy</td>
         </tr>
         <tr>
           <td><strong>Vùng tối (Shadows)</strong></td>
           <td>Xám đục, lẫn noise bết bùn (muddy blacks)</td>
-          <td>Chìm sâu, sạch sẽ, giữ trọn độ sâu quang học</td>
+          <td>Đường cong phim áp một lần, không chồng lên một lớp nắn trước đó</td>
         </tr>
         <tr>
           <td><strong>Vùng sáng (Highlights)</strong></td>
           <td>Bị dìm bẹp thành đốm xám xỉn, viền gắt</td>
-          <td>Highlight roll-off chuyển êm ái tự nhiên như phim nhựa</td>
+          <td>Roll-off bake sẵn trong LUT của từng loại phim, không phải kéo tay</td>
         </tr>
         <tr>
           <td><strong>Kết cấu da &amp; Hạt</strong></td>
           <td>Da sáp bệt, hạt nhân tạo đè lên viền gai unsharp mask</td>
-          <td>Da giữ trọn lỗ chân lông tự nhiên, hạt hữu cơ theo ánh sáng</td>
+          <td>Hạt bám theo độ sáng từng vùng (đậm ở trung gian, nhạt ở tối/sáng)</td>
         </tr>
         <tr>
           <td><strong>Kiểm soát lúc chụp</strong></td>

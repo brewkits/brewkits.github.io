@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index,follow">
 <title>"Phim thật" khác gì filter AI? — Hướng dẫn LAM</title>
-<meta name="description" content="AI filter vẽ lại ảnh của bạn. Áp preset hậu kỳ thì bị sai lệch 2 lần vì Smart HDR. Một engine phim thời gian thực can thiệp trực tiếp từ cảm biến để giữ tương phản quang học.">
+<meta name="description" content="AI filter vẽ lại ảnh của bạn. Áp preset hậu kỳ thì ảnh phải chịu hai lớp nắn màu chồng nhau. LAM nắn màu một lần, ngay lúc bấm máy, và bạn thấy trước trên viewfinder.">
 <link rel="icon" href="/img/icon.png">
 <link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/khong-phai-filter-ai.html">
 <link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/not-a-filter-ai.html">
@@ -131,13 +131,13 @@
     </div>
     <div class="flow-col">
       <p class="flow-label">Engine phim thời gian thực (LAM)</p>
-      <div class="flow-box">📷 Cảm biến thô</div>
+      <div class="flow-box">📷 Cảm biến, rồi ISP của máy</div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Không can thiệp HDR cực đoan<span>giữ nguyên tương phản quang học tự nhiên</span></div>
+      <div class="flow-box good">LAM nắn màu một lần, ngay lúc bấm máy<span>không có bước nhập lại, không có lớp nắn thứ hai</span></div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Tone curve phim &amp; grain trực tiếp<span>xử lý 1 bước duy nhất trên luồng camera</span></div>
+      <div class="flow-box good">Và bạn đã thấy nó trước đó<span>viewfinder hiện sẵn đúng kết quả sẽ lưu</span></div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Màu phim sạch, highlight chuyển êm</div>
+      <div class="flow-box good">File cuối — chọn trước khi chụp, không sửa lại sau</div>
     </div>
   </div>
 
@@ -160,19 +160,36 @@
   (film grain), các hạt nhân tạo này sẽ rắc đè lên các viền nét đã bị gai nhọn và các mảng da đã bị bệt phẳng.
   Bức ảnh trở nên lởm chởm, thô ráp giả tạo chứ không có độ mịn hữu cơ của tinh thể muối bạc trên phim thật.</p>
 
-  <p><strong>3. Suy hao dữ liệu do nén 8-bit (Quantization &amp; Color Banding):</strong>
-  Camera mặc định lưu file ảnh nén thông thường dưới định dạng JPEG hoặc HEIC 8-bit. Lúc này, dải sắc độ đã
-  bị gọt dũa và cố định. Khi bạn dùng app hậu kỳ kéo màu da hay đổi sắc thái theo tone phim, bạn đang nắn
-  và kéo dãn một không gian màu 8-bit vốn đã bị nén chặt. Hiện tượng gãy dải màu (banding), loang lổ trên bầu
-  trời và da mặt xuất hiện ngay lập tức.</p>
+  <p><strong>3. Hai lớp nắn màu không biết gì về nhau (Stacked Grading):</strong>
+  Đây mới là điểm gãy thật sự, và nó nằm ở <em>số lần</em> nắn chứ không phải số bit. Lớp thứ nhất là
+  thuật toán của máy, quyết định trước khi bạn kịp nhìn. Lớp thứ hai là preset bạn dán vào vài giờ sau,
+  được thiết kế cho một bức ảnh chưa bị nắn. Không lớp nào biết lớp kia đã làm gì với vùng tối và vùng
+  sáng, nên kết quả là tổng của hai quyết định mâu thuẫn — chứ không phải một quyết định đúng.</p>
 
   <div class="card">
-    <p><strong>Triết lý của LAM:</strong> Thay vì chụp một bức ảnh đã bị xử lý quá tay rồi cố "sửa sai"
-    bằng một lớp màu đè lên ở hậu kỳ, LAM can thiệp trực tiếp từ <em>luồng cảm biến camera thời gian thực</em>.
-    Đường cong phản hồi quang học của phim, halation và hạt grain được xử lý trong một chu trình duy nhất
-    (single-pass) ngay trước mắt bạn qua viewfinder. Bạn nhìn thấy ánh sáng thực, kiểm soát phơi sáng thật,
-    và nhận về bức ảnh có chuyển vùng sáng tự nhiên (highlight roll-off) mà không một filter hậu kỳ nào có
-    thể cứu vãn được.</p>
+    <p><strong>Nói rõ để khỏi hiểu nhầm: LAM không đọc RAW, và cũng không tắt HDR của máy.</strong></p>
+    <p>LAM nhận ảnh từ ISP của điện thoại như mọi app camera khác. Trên iPhone, LAM còn <em>cố ý bật</em>
+    Deep Fusion và Smart HDR ở mức cao nhất máy cho phép, vì đo trên máy thật thì ảnh ra sạch nhiễu hơn
+    và dải sáng rộng hơn — bỏ nó đi làm ảnh xấu hơn, không phải đẹp hơn.</p>
+    <p>Khác biệt của LAM không nằm ở chỗ "đọc được cảm biến thô". Nó nằm ở ba chỗ đo được:
+    <strong>(1)</strong> chỉ có <em>một</em> lớp nắn màu thay vì hai lớp chồng nhau;
+    <strong>(2)</strong> bạn nhìn thấy lớp đó trên viewfinder <em>trước</em> khi bấm, nên chọn sai thì
+    đổi ngay chứ không phải về nhà mới biết; <strong>(3)</strong> trên Android, LAM chọn chế độ chụp bỏ
+    qua lớp khử nhiễu đa khung phụ của CameraX — A/B trên máy thật cho vùng phẳng sạch hơn 17% ở cùng
+    mức chi tiết. Chúng tôi thà nói đúng ba điều đo được còn hơn một điều nghe kêu.</p>
+  </div>
+
+
+  <div class="card">
+    <p><strong>Triết lý của LAM:</strong> Thay vì chụp xong rồi cố "sửa sai" bằng một lớp màu đè lên ở
+    hậu kỳ, LAM <em>quyết định màu trước khi bấm máy</em>. Đường cong phản hồi quang học của phim,
+    halation và hạt grain chạy trên <em>luồng preview thời gian thực</em> — nên thứ bạn thấy trong
+    viewfinder chính là file sẽ được lưu, và bạn đổi ý ngay tại chỗ chứ không phải về nhà mới biết.
+    Ảnh ra chỉ mang <em>một</em> lớp nắn màu, không phải một lớp chồng lên một lớp khác đã nắn trước đó
+    mà nó không hề biết.</p>
+    <p>Cùng một logic đó áp cho ảnh tĩnh lúc bấm máy, cho video lúc quay, và cho file <code>.cube</code>
+    khi bạn xuất sang Resolve hay Premiere — một nguồn màu duy nhất, không phải ba thứ na ná nhau. Đây là
+    thứ không một filter hậu kỳ nào làm được, vì đến lúc nó chạy thì bức ảnh đã chốt rồi.</p>
     <p>👉 <em>Đọc thêm:</em> <a href="/lam/guides/sai-lech-2-lan-filter-hau-ky.html">Phân tích chi tiết: Cái bẫy "sai lệch hai lần" khi chụp camera mặc định rồi áp filter</a>.</p>
   </div>
 
