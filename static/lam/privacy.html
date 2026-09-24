@@ -78,7 +78,7 @@
 <div class="wrap" data-lang-content="en">
   <p class="kicker">Brewkits · LAM</p>
   <h1>Privacy Policy</h1>
-  <p class="meta">Last updated: 14 September 2026 · Applies to the <strong>LAM · Film &amp; Cine Camera</strong> app for iOS and Android.</p>
+  <p class="meta">Last updated: 24 September 2026 · Applies to the <strong>LAM · Film &amp; Cine Camera</strong> app for iOS and Android.</p>
 
   <p class="lead">LAM is a camera app built around one principle: your photos and videos are yours. Image and audio processing happens <strong>on your device</strong>. We do not use advertising identifiers, we do not track you across apps, and we never sell your data.</p>
 
@@ -99,6 +99,7 @@
     <li><strong>Photos and videos</strong> you capture — saved to your device gallery. We have no server and never upload them.</li>
     <li><strong>Microphone audio during recording</strong> — used in real time to modulate the film-grain effect and recorded into your video file. It is not streamed, stored separately, or transmitted.</li>
     <li><strong>Your in-app preferences</strong> — film stock, skin-tone setting, Pro Mode unlocks, and other settings are stored locally on your device only.</li>
+    <li><strong>Face position, for photo/video color grading only</strong> — while you are framing a shot, LAM briefly detects the position of a face on screen (a bounding rectangle only — no facial landmarks, no facial recognition, and no identity information) using Apple's on-device Vision framework (iOS) or Google's on-device ML Kit (Android). This position is used only to apply a more natural skin-tone rendering to that area of the frame. It is held in memory for the current preview frame, is never saved, is never embedded in your photo or video files, is never logged, and is never sent off your device — it is discarded as soon as the next frame is analyzed or the app is closed.</li>
   </ul>
 
   <h2>3. Data collected off-device (only with limits below)</h2>
@@ -112,7 +113,7 @@
     <tr><td>Pseudonymous app identifiers</td><td>Firebase install ID, RevenueCat user ID</td><td>Group the above events for a single install. <strong>Not advertising IDs</strong> and not the IDFA.</td></tr>
     <tr><td>App version check</td><td>Brewkits (self-hosted, brewkits.dev)</td><td>Checks for a newer app version at launch, once you've finished onboarding. No account or device identifier is sent, and this is <strong>not</strong> gated behind the analytics consent prompt — declining analytics still lets you know about an available update.</td></tr>
   </table>
-  <p>We do <strong>not</strong> collect your name, email, address, phone number, contacts, <strong>precise (GPS) location</strong>, or any biometric identity. LAM never asks for the location permission — the approximate location above is inferred by Google from a masked IP address and resolves no finer than your city. Skin-tone is a local rendering preference and is never sent to analytics.</p>
+  <p>We do <strong>not</strong> collect your name, email, address, phone number, contacts, <strong>precise (GPS) location</strong>, or any biometric identity. LAM does not perform facial recognition and does not identify, verify, or track who a detected face belongs to — see the face-position item above for the one on-device, non-identifying use of face detection LAM makes. LAM never asks for the location permission — the approximate location above is inferred by Google from a masked IP address and resolves no finer than your city. Skin-tone is a local rendering preference and is never sent to analytics.</p>
 
   <div class="flow">
     <div class="box">
@@ -167,7 +168,7 @@
 <div class="wrap" data-lang-content="vi">
   <p class="kicker">Brewkits · LAM</p>
   <h1>Chính sách bảo mật</h1>
-  <p class="meta">Cập nhật lần cuối: 14/09/2026 · Áp dụng cho ứng dụng <strong>LAM · Film &amp; Cine Camera</strong> trên iOS và Android.</p>
+  <p class="meta">Cập nhật lần cuối: 24/09/2026 · Áp dụng cho ứng dụng <strong>LAM · Film &amp; Cine Camera</strong> trên iOS và Android.</p>
 
   <p class="lead">LAM là ứng dụng máy ảnh xây trên một nguyên tắc: ảnh và video của bạn là của bạn. Việc xử lý hình ảnh và âm thanh diễn ra <strong>ngay trên thiết bị của bạn</strong>. Chúng tôi không dùng định danh quảng cáo, không theo dõi bạn xuyên ứng dụng, và không bao giờ bán dữ liệu của bạn.</p>
 
@@ -188,6 +189,7 @@
     <li><strong>Ảnh và video</strong> bạn chụp/quay — lưu vào thư viện trên máy. Chúng tôi không có máy chủ và không bao giờ tải chúng lên.</li>
     <li><strong>Âm thanh micro khi quay</strong> — dùng theo thời gian thực để điều biến hiệu ứng hạt phim (film grain) và được ghi vào file video của bạn. Nó không bị stream, lưu riêng, hay truyền đi.</li>
     <li><strong>Tuỳ chọn trong ứng dụng</strong> — loại phim, thiết lập tông da, mở khoá Pro Mode và các cài đặt khác chỉ được lưu cục bộ trên thiết bị của bạn.</li>
+    <li><strong>Vị trí khuôn mặt, chỉ để lên màu ảnh/video</strong> — khi bạn đang lấy khung hình, LAM phát hiện ngắn vị trí một khuôn mặt trên màn hình (chỉ là một hình chữ nhật bao quanh — không có điểm mốc khuôn mặt, không nhận diện khuôn mặt, và không có thông tin danh tính nào) bằng framework Vision có sẵn trên thiết bị của Apple (iOS) hoặc ML Kit có sẵn trên thiết bị của Google (Android). Vị trí này chỉ dùng để lên tông màu da tự nhiên hơn cho vùng đó trong khung hình. Nó chỉ tồn tại trong bộ nhớ cho khung hình xem trước hiện tại, không bao giờ được lưu lại, không bao giờ được nhúng vào file ảnh/video của bạn, không bao giờ được ghi log, và không bao giờ được gửi ra khỏi thiết bị — nó bị loại bỏ ngay khi khung hình tiếp theo được phân tích hoặc khi bạn đóng ứng dụng.</li>
   </ul>
 
   <h2>3. Dữ liệu thu thập ngoài thiết bị (chỉ trong giới hạn dưới đây)</h2>
@@ -201,7 +203,7 @@
     <tr><td>Định danh ứng dụng ẩn danh</td><td>Firebase install ID, RevenueCat user ID</td><td>Nhóm các sự kiện trên cho một lượt cài đặt. <strong>Không phải định danh quảng cáo</strong> và không phải IDFA.</td></tr>
     <tr><td>Kiểm tra phiên bản ứng dụng</td><td>Brewkits (tự lưu trữ, brewkits.dev)</td><td>Kiểm tra phiên bản mới hơn khi mở app, sau khi bạn hoàn tất giới thiệu lần đầu. Không gửi tài khoản hay định danh thiết bị, và mục này <strong>không</strong> phụ thuộc hộp thoại đồng ý phân tích — từ chối phân tích vẫn cho bạn biết khi có bản cập nhật.</td></tr>
   </table>
-  <p>Chúng tôi <strong>không</strong> thu thập tên, email, địa chỉ, số điện thoại, danh bạ, <strong>vị trí chính xác (GPS)</strong>, hay bất kỳ định danh sinh trắc học nào của bạn. LAM không bao giờ xin quyền vị trí — phần vị trí gần đúng nêu trên do Google suy ra từ địa chỉ IP đã che và không chi tiết hơn mức thành phố. Tông da là tuỳ chọn hiển thị cục bộ và không bao giờ gửi cho analytics.</p>
+  <p>Chúng tôi <strong>không</strong> thu thập tên, email, địa chỉ, số điện thoại, danh bạ, <strong>vị trí chính xác (GPS)</strong>, hay bất kỳ định danh sinh trắc học nào của bạn. LAM không thực hiện nhận diện khuôn mặt và không xác định, xác thực hay theo dõi danh tính của khuôn mặt được phát hiện — xem mục vị trí khuôn mặt ở trên để biết cách duy nhất LAM dùng tính năng phát hiện khuôn mặt trên thiết bị, không định danh. LAM không bao giờ xin quyền vị trí — phần vị trí gần đúng nêu trên do Google suy ra từ địa chỉ IP đã che và không chi tiết hơn mức thành phố. Tông da là tuỳ chọn hiển thị cục bộ và không bao giờ gửi cho analytics.</p>
 
   <div class="flow">
     <div class="box">
