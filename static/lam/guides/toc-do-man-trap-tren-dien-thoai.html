@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Tốc độ màn trập: các mốc cần nhớ và giới hạn của điện thoại — Hướng dẫn LAM</title>
+<meta name="description" content="Bảng tốc độ màn trập theo chủ thể, quy tắc cầm tay 1/tiêu cự, quy tắc 180° cho video, và những gì điện thoại làm được và không làm được khi phơi sáng.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/toc-do-man-trap-tren-dien-thoai.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  h3{font-size:17px;font-weight:700;margin:28px 0 8px;color:var(--primary)}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .diagram{margin:28px 0 0}
+  .diagram svg{width:100%;height:auto;display:block}
+  .diagram-caps{display:flex;gap:16px;margin:12px 0 36px}
+  .diagram-caps div{flex:1;min-width:0;text-align:center;font-size:13px;color:var(--muted)}
+  .diagram-caps b{display:block;color:#fff;font-size:14px;margin-bottom:2px}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+<style>
+  table{width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--ms);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  td b{color:#fff}
+  .tag{display:inline-block;font-family:var(--ms);font-size:11px;padding:1px 6px;border-radius:4px;border:1px solid var(--line);color:var(--muted);margin-left:4px}
+  .tag.free{color:#a9e8b8;border-color:rgba(150,230,170,.4)}
+  .warn{border-color:rgba(255,193,7,.45)}
+  @media (max-width:640px){table{font-size:14px}th,td{padding:8px 6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/">Hướng dẫn LAM</a> · Đồ nghề Pro</p>
+  <h1>Tốc độ màn trập: các mốc cần nhớ và giới hạn của điện thoại</h1>
+  <p class="meta">~6 phút đọc</p>
+
+  <p class="lead">Tốc độ màn trập là thời gian cảm biến nhận ánh sáng cho một tấm ảnh. Nó quyết định hai
+  thứ cùng lúc: ảnh sáng hay tối, và chuyển động bị "đóng băng" hay kéo thành vệt. Bài này tóm các mốc
+  tốc độ quen thuộc của máy ảnh, rồi nói thật những gì điện thoại làm được và không làm được.</p>
+
+  <h2>Các mốc tốc độ theo chủ thể</h2>
+  <table>
+    <tr><th>Muốn chụp</th><th>Tốc độ gợi ý</th></tr>
+    <tr><td>Cầm tay, cảnh tĩnh, không nhoè</td><td>1/50 – 1/60 s</td></tr>
+    <tr><td>Người đi bộ</td><td>1/125 s</td></tr>
+    <tr><td>Hạt mưa, giọt nước đứng hình</td><td>1/250 s</td></tr>
+    <tr><td>Thể thao, người chạy</td><td>1/500 – 1/1000 s</td></tr>
+    <tr><td>Xe đang chạy</td><td>1/800 s</td></tr>
+    <tr><td>Chim đang bay</td><td>1/2000 s</td></tr>
+    <tr><td>Nước chảy thành vệt</td><td>1/10 – 2 s</td></tr>
+    <tr><td>Nước mượt như sương, vệt đèn xe</td><td>2 – 10 s</td></tr>
+    <tr><td>Dải Ngân Hà</td><td>20 – 30 s</td></tr>
+    <tr><td>Vệt sao quay</td><td>10 phút trở lên</td></tr>
+  </table>
+  <p>Mỗi lần tăng gấp đôi thời gian (1/250 → 1/125) là gấp đôi lượng sáng — gọi là thêm <strong>1 stop</strong>.
+  Muốn giữ độ sáng khi đổi tốc độ, phải bù lại bằng ISO (hoặc khẩu độ, nếu máy có).</p>
+
+  <h2>Quy tắc cầm tay: 1/tiêu cự</h2>
+  <p>Một quy tắc cũ của máy phim: tốc độ chậm nhất có thể cầm tay mà không nhoè vì rung tay là
+  <strong>1 / tiêu cự (quy đổi 35 mm)</strong>. Camera chính của nhiều điện thoại tương đương khoảng 24–26 mm,
+  nên mốc là khoảng 1/25 s; ống tele 5× (~110 mm) cần khoảng 1/100 s. Chống rung quang học (OIS) cho thêm vài
+  stop, nên camera chính có OIS thường cầm được chậm hơn mốc này.</p>
+  <p>Lưu ý: quy tắc này chỉ nói về <em>rung tay</em>. Chủ thể chuyển động vẫn cần tốc độ trong bảng trên.</p>
+
+  <h2>Điện thoại khác máy ảnh ở đâu</h2>
+  <ul>
+    <li><strong>Khẩu độ cố định.</strong> Ống kính điện thoại thường không đổi khẩu được (ví dụ f/1.85 trên camera
+    chính của Pixel 6 Pro), nên chỉ còn tốc độ và ISO để điều chỉnh độ sáng.</li>
+    <li><strong>Phơi sáng dài có giới hạn phần cứng.</strong> Đo trên Pixel 6 Pro, cảm biến cho phép phơi tối đa
+    khoảng <strong>8,3 giây</strong> ở camera chính và khoảng 16 giây ở camera góc rộng. Ngân Hà 30 giây hay vệt
+    sao 10 phút <strong>không làm được bằng một lần phơi</strong>.</li>
+    <li><strong>Chế độ đêm là ghép nhiều khung.</strong> Ảnh đêm và ảnh thiên văn trên điện thoại được tạo bằng
+    cách chụp nhiều khung ngắn rồi ghép lại, không phải một lần mở màn trập thật lâu.</li>
+  </ul>
+
+  <h2>Trong LAM</h2>
+  <ul>
+    <li><strong>Tự động</strong> là mặc định: máy tự chọn tốc độ, kể cả rất nhanh khi trời sáng — phù hợp
+    thể thao hay xe chạy ngoài nắng.</li>
+    <li><strong>Chế độ Pro</strong> cho chọn tay các tốc độ <strong>1/30, 1/48, 1/60, 1/120, 1/240</strong> và ISO
+    50–6400. Đây là dải của máy quay điện ảnh, đủ cho cầm tay và cho video; LAM không mở tốc độ phơi dài.</li>
+    <li><strong>Video và quy tắc 180°:</strong> tốc độ bằng một nửa thời gian một khung hình cho chuyển động mờ tự
+    nhiên như phim — 24 hình/giây → 1/48, 30 → 1/60, 60 → 1/120. LAM có sẵn preset này, và không cho chọn tốc
+    độ dài hơn một khung hình (không thể quá 360°).</li>
+    <li><strong>Chống rung máy</strong> (Nhanh · Bình thường · Kiên nhẫn): bấm chụp, LAM đợi máy đứng yên rồi mới chụp —
+    hữu ích khi chụp tốc độ chậm trong nhà.</li>
+  </ul>
+
+  <div class="card">
+    <p><strong>Tóm lại:</strong> ban ngày cứ để tự động; trong nhà hoặc khi quay video theo kiểu điện ảnh, dùng
+    1/48–1/60 trong chế độ Pro và bật chống rung máy. Với Ngân Hà hay vệt sao, hãy dùng chế độ thiên văn
+    của chính điện thoại — đó là giới hạn của phần cứng, không phải thứ một app có thể vượt qua.</p>
+  </div>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/">← Tất cả hướng dẫn</a> · <a href="/lam/">Về LAM</a> · <a href="/lam/guides/en/shutter-speed-on-a-phone.html">English</a>
+  </footer>
+</div>
+</body>
+</html>
