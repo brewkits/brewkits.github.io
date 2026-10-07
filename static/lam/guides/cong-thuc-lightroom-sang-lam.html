@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Công thức chỉnh ảnh Lightroom và look phim trong LAM — Hướng dẫn LAM</title>
+<meta name="description" content="Vì sao chép số từ công thức chỉnh ảnh không ra cùng một tấm ảnh, các công thức Lightroom phổ biến thực ra đang làm gì, và look nào trong LAM có cùng tinh thần ngay lúc chụp.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/cong-thuc-lightroom-sang-lam.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/lightroom-recipes-to-lam.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/lightroom-recipes-to-lam.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  h3{font-size:17px;font-weight:700;margin:28px 0 8px;color:var(--primary)}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .diagram{margin:28px 0 0}
+  .diagram svg{width:100%;height:auto;display:block}
+  .diagram-caps{display:flex;gap:16px;margin:12px 0 36px}
+  .diagram-caps div{flex:1;min-width:0;text-align:center;font-size:13px;color:var(--muted)}
+  .diagram-caps b{display:block;color:#fff;font-size:14px;margin-bottom:2px}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+<style>
+  table{width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--ms);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  td b{color:#fff}
+  .tag{display:inline-block;font-family:var(--ms);font-size:11px;padding:1px 6px;border-radius:4px;border:1px solid var(--line);color:var(--muted);margin-left:4px}
+  .tag.free{color:#a9e8b8;border-color:rgba(150,230,170,.4)}
+  .warn{border-color:rgba(255,193,7,.45)}
+  @media (max-width:640px){table{font-size:14px}th,td{padding:8px 6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/">Hướng dẫn LAM</a> · Màu &amp; công thức</p>
+  <h1>Công thức chỉnh ảnh Lightroom và look phim trong LAM</h1>
+  <p class="meta">~7 phút đọc</p>
+
+  <p class="lead">Trên mạng có hàng trăm "công thức chỉnh ảnh": Exposure +50, Highlights −80, Shadows +40,
+  Temp −10… Chép đúng từng con số vẫn ít khi ra ảnh giống. Bài này giải thích vì sao, các công thức đó
+  thực ra đang làm gì, và nên chọn look nào trong LAM để có cùng tinh thần ngay lúc bấm máy.</p>
+
+  <h2>Vì sao chép số không ra cùng một ảnh</h2>
+  <p>Mỗi con số trong công thức là <strong>tương đối</strong>: nó cộng thêm vào một điểm xuất phát. Với
+  Lightroom, điểm xuất phát là ảnh gốc của máy người viết công thức. Với các app filter (mã kiểu PL1, MT2,
+  YU4…), điểm xuất phát còn là chính bộ lọc độc quyền của app đó. Đổi máy, đổi ánh sáng, đổi app là đổi
+  điểm xuất phát, và cùng một "Highlights −80" sẽ cho kết quả khác.</p>
+  <p>Thêm một vấn đề: ảnh điện thoại mặc định đã được máy xử lý sẵn (HDR, làm nét, khử nhiễu). Chỉnh tiếp
+  lên ảnh đó là chỉnh lần hai trên dữ liệu đã bị nén — xem
+  <a href="/lam/guides/sai-lech-2-lan-filter-hau-ky.html">Cái bẫy "sai lệch hai lần"</a>.</p>
+
+  <h2>Các công thức phổ biến thực ra đang làm gì</h2>
+  <p>Đọc kỹ các công thức Lightroom đang được chia sẻ nhiều ở Việt Nam, chúng gần như đều lặp lại một
+  khuôn:</p>
+  <table>
+    <tr><th>Thanh trượt</th><th>Giá trị hay gặp</th><th>Trong ngôn ngữ phim</th></tr>
+    <tr><td><b>Contrast</b></td><td>−25 đến −50</td><td>Phim âm bản tương phản thấp, dải sáng rộng</td></tr>
+    <tr><td><b>Highlights</b></td><td>−46 đến −100</td><td>"Vai" của đường cong phim: vùng sáng uốn mềm thay vì cháy cứng</td></tr>
+    <tr><td><b>Shadows</b></td><td>+26 đến +84</td><td>Vùng tối được nâng — "đáy" phim không đen kịt</td></tr>
+    <tr><td><b>Temperature</b></td><td>−5 đến −30 (hoặc +6 đến +21)</td><td>Cân bằng màu riêng của từng loại phim: lạnh trong trẻo hoặc ấm vàng</td></tr>
+    <tr><td><b>Vibrance / Saturation</b></td><td>+10 đến +30 / −20 đến −36</td><td>Phim "dịu màu" hoặc phim dương bản rực</td></tr>
+    <tr><td><b>Grain</b></td><td>+20</td><td>Hạt bạc của phim</td></tr>
+  </table>
+  <p>Nói cách khác: phần lớn công thức đang cố <strong>bắt chước một cuộn phim</strong> — vai sáng mềm,
+  đáy tối nâng, một tông màu riêng và chút hạt. LAM làm điều đó từ đầu, trên dữ liệu cảm biến lúc chụp,
+  thay vì kéo thanh trượt sau khi ảnh đã thành JPEG.</p>
+
+  <div class="card warn">
+    <p><strong>Đừng chép những giá trị cực đoan.</strong> Highlights −100 cùng Shadows −100, hay Contrast
+    −100, ép mọi vùng sáng-tối về giữa: ảnh xám, bệt, da mất khối. Một cuộn phim thật không bao giờ trông
+    như vậy — dải tương phản thấp vẫn còn điểm đen và điểm trắng.</p>
+  </div>
+
+  <h2>Công thức quen thuộc → look trong LAM</h2>
+  <p>Bảng dưới ghép các phong cách hay gặp với công thức (recipe) và phim có sẵn trong LAM. Đây là cùng
+  <em>tinh thần</em> — không phải bản sao từng con số, vì LAM không làm việc bằng thanh trượt trên JPEG.</p>
+  <table>
+    <tr><th>Phong cách</th><th>Look trong LAM</th><th>Phim</th></tr>
+    <tr><td>Ngược sáng trong trẻo, tông mát</td><td><b>Hanoi Dream</b><span class="tag free">Miễn phí</span> · Chiang Mai Mist</td><td>Pastel 400</td></tr>
+    <tr><td>Vàng ấm ngọt, nắng sớm</td><td><b>Gold Sea Morning</b> · Golden SEA</td><td>Gold 200 · Portia 800</td></tr>
+    <tr><td>Hàn Quốc trong, da hồng nhẹ</td><td><b>Seoul Soft</b> · Busan Bright</td><td>Portia 160</td></tr>
+    <tr><td>Vintage ấm, kỷ niệm</td><td><b>Gold Summer</b> · Bukchon Vintage</td><td>Gold 200 · Gold 400</td></tr>
+    <tr><td>Nhạt màu kiểu Pinterest</td><td><b>Aesthetic Muted</b></td><td>Pastel 400</td></tr>
+    <tr><td>Phố lạnh, điện ảnh</td><td><b>Eternal Street</b> · Jakarta Street</td><td>Eternal 160 · Cinema 800T</td></tr>
+    <tr><td>Phố đêm, đèn neon</td><td><b>Saigon Noir</b><span class="tag free">Miễn phí</span> · Tungsten Night</td><td>CCD 2000 · Cinema 800T</td></tr>
+    <tr><td>Trời xanh, du lịch rực rỡ</td><td><b>Velvet Vivid</b> · Cali Sun</td><td>Velvet 50 · Ultra 50</td></tr>
+    <tr><td>Vlog tự nhiên, ít "filter"</td><td><b>Vlog Bright</b><span class="tag free">Miễn phí</span></td><td>Gold 400</td></tr>
+    <tr><td>Đen trắng phóng sự</td><td><b>Tokyo Mood</b></td><td>Silver 400</td></tr>
+  </table>
+
+  <h2>Tinh chỉnh trong LAM thay cho thanh trượt</h2>
+  <ul>
+    <li><strong>Độ mạnh của phim</strong> — kéo xuống khi muốn nhẹ tay hơn, giống giảm "Amount" của preset.</li>
+    <li><strong>Hạt</strong> — thay cho thanh Grain; hạt của LAM nằm ở vùng trung tính như phim thật, không rải đều cả ảnh.</li>
+    <li><strong>Cân bằng trắng theo Kelvin</strong> (chế độ Pro, 2700–7500 K) — thay cho Temperature, nhưng tác động lúc chụp.</li>
+    <li><strong>Bù sáng EV</strong> (±3) — thay cho Exposure. Hơi dư sáng một chút hợp với các look ngược sáng.</li>
+    <li><strong>True Skin</strong> — thay cho việc chỉnh HSL cam/đỏ để cứu màu da: chọn tông da (Warm SEA, Golden Hour, Neutral, Cool) và LAM chỉnh ngay lúc chụp.</li>
+  </ul>
+  <p>Khi đã ưng một look, LAM cho bạn chia sẻ nó bằng một <a href="/lam/guides/recipe-code-chia-se-look.html">mã
+  công thức 8 ký tự</a> — người khác dán vào là có đúng look đó, không phải chép từng con số.</p>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/">← Tất cả hướng dẫn</a> · <a href="/lam/">Về LAM</a> · <a href="/lam/guides/en/lightroom-recipes-to-lam.html">English</a>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Shutter speed: the numbers to know, and a phone’s limits — LAM Guides</title>
+<meta name="description" content="Shutter speeds by subject, the 1/focal-length handheld rule, the 180° rule for video, and what a phone can and cannot do with exposure time.">
+<link rel="icon" href="/img/icon.png">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/toc-do-man-trap-tren-dien-thoai.html">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.1;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 36px;font-family:var(--ms)}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em;color:#fff}
+  h3{font-size:17px;font-weight:700;margin:28px 0 8px;color:var(--primary)}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .card p:first-child{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .diagram{margin:28px 0 0}
+  .diagram svg{width:100%;height:auto;display:block}
+  .diagram-caps{display:flex;gap:16px;margin:12px 0 36px}
+  .diagram-caps div{flex:1;min-width:0;text-align:center;font-size:13px;color:var(--muted)}
+  .diagram-caps b{display:block;color:#fff;font-size:14px;margin-bottom:2px}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+<style>
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-400-latin.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;
+  src:url(../../fonts/ibm-plex-mono-500-latin.woff2) format('woff2');}
+</style>
+<style>
+  table{width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--ms);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  td b{color:#fff}
+  .tag{display:inline-block;font-family:var(--ms);font-size:11px;padding:1px 6px;border-radius:4px;border:1px solid var(--line);color:var(--muted);margin-left:4px}
+  .tag.free{color:#a9e8b8;border-color:rgba(150,230,170,.4)}
+  .warn{border-color:rgba(255,193,7,.45)}
+  @media (max-width:640px){table{font-size:14px}th,td{padding:8px 6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/lam/guides/en/">LAM Guides</a> · Pro tools</p>
+  <h1>Shutter speed: the numbers to know, and a phone’s limits</h1>
+  <p class="meta">~6 min read</p>
+
+  <p class="lead">Shutter speed is how long the sensor gathers light for one photo. It decides two things at
+  once: how bright the photo is, and whether motion freezes or streaks. This guide sums up the classic
+  camera shutter speeds, then is honest about what a phone can and can't do.</p>
+
+  <h2>Shutter speeds by subject</h2>
+  <table>
+    <tr><th>To shoot</th><th>Suggested speed</th></tr>
+    <tr><td>Handheld, still scene, no blur</td><td>1/50 – 1/60 s</td></tr>
+    <tr><td>People walking</td><td>1/125 s</td></tr>
+    <tr><td>Raindrops, water droplets frozen</td><td>1/250 s</td></tr>
+    <tr><td>Sports, runners</td><td>1/500 – 1/1000 s</td></tr>
+    <tr><td>Moving cars</td><td>1/800 s</td></tr>
+    <tr><td>Birds in flight</td><td>1/2000 s</td></tr>
+    <tr><td>Flowing water as streaks</td><td>1/10 – 2 s</td></tr>
+    <tr><td>Misty water, car light trails</td><td>2 – 10 s</td></tr>
+    <tr><td>The Milky Way</td><td>20 – 30 s</td></tr>
+    <tr><td>Star trails</td><td>10 minutes or more</td></tr>
+  </table>
+  <p>Each doubling of time (1/250 → 1/125) doubles the light — one <strong>stop</strong>. To keep the same
+  brightness when you change speed, compensate with ISO (or aperture, if the camera has one).</p>
+
+  <h2>The handheld rule: 1/focal length</h2>
+  <p>An old film-camera rule: the slowest speed you can hold without camera-shake blur is
+  <strong>1 / focal length (35 mm equivalent)</strong>. Many phones' main cameras are about 24–26 mm
+  equivalent, so the line sits near 1/25 s; a 5× telephoto (~110 mm) needs about 1/100 s. Optical image
+  stabilisation (OIS) buys a few stops, so a stabilised main camera usually holds slower than this.</p>
+  <p>Note: the rule only covers <em>your hands</em>. A moving subject still needs the speeds in the table.</p>
+
+  <h2>Where a phone differs from a camera</h2>
+  <ul>
+    <li><strong>Fixed aperture.</strong> Phone lenses usually can't stop down (the Pixel 6 Pro's main camera is
+    f/1.85), so shutter speed and ISO are the only exposure controls left.</li>
+    <li><strong>Long exposure has a hardware limit.</strong> Measured on a Pixel 6 Pro, the sensor allows at most
+    about <strong>8.3 seconds</strong> on the main camera and about 16 seconds on the ultrawide. A 30-second Milky
+    Way or a 10-minute star trail <strong>cannot be done in one exposure</strong>.</li>
+    <li><strong>Night modes stack frames.</strong> Phone night and astro shots are made by taking many short frames
+    and merging them — not by holding the shutter open for a long time.</li>
+  </ul>
+
+  <h2>In LAM</h2>
+  <ul>
+    <li><strong>Auto</strong> is the default: the phone picks the speed, including very fast ones in bright light —
+    fine for sports or traffic in the sun.</li>
+    <li><strong>Pro mode</strong> lets you set <strong>1/30, 1/48, 1/60, 1/120, 1/240</strong> by hand, with ISO
+    50–6400. That is a cinema camera's range — enough for handheld shooting and video; LAM does not offer long
+    exposures.</li>
+    <li><strong>Video and the 180° rule:</strong> a shutter of half the frame time gives film-like motion blur —
+    24 fps → 1/48, 30 → 1/60, 60 → 1/120. LAM has this as a preset, and won't offer a speed longer than one frame
+    (past 360°).</li>
+    <li><strong>Anti-shake shutter</strong> (Quick · Normal · Patient): press the shutter and LAM waits until the
+    phone is still before it fires — useful for slower speeds indoors.</li>
+  </ul>
+
+  <div class="card">
+    <p><strong>In short:</strong> in daylight, leave it on Auto; indoors or for cinematic video, use 1/48–1/60 in
+    Pro mode with the anti-shake shutter on. For the Milky Way or star trails, use your phone's own astro mode —
+    that is a hardware limit, not something any app can get past.</p>
+  </div>
+
+  <hr>
+  <footer>
+    <a href="/lam/guides/en/">← All guides</a> · <a href="/lam/">About LAM</a> · <a href="/lam/guides/toc-do-man-trap-tren-dien-thoai.html">Tiếng Việt</a>
+  </footer>
+</div>
+</body>
+</html>

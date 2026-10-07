@@ -221,4 +221,41 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html"/>
   </url>
 
+  <url>
+    <loc>https://brewkits.dev/lam/guides/cong-thuc-lightroom-sang-lam.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/cong-thuc-lightroom-sang-lam.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/lightroom-recipes-to-lam.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/lightroom-recipes-to-lam.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/lightroom-recipes-to-lam.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/cong-thuc-lightroom-sang-lam.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/lightroom-recipes-to-lam.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/lightroom-recipes-to-lam.html"/>
+  </url>
+
+  <url>
+    <loc>https://brewkits.dev/lam/guides/toc-do-man-trap-tren-dien-thoai.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/toc-do-man-trap-tren-dien-thoai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html"/>
+  </url>
+  <url>
+    <loc>https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/toc-do-man-trap-tren-dien-thoai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html"/>
+  </url>
 </urlset>
