@@ -428,7 +428,7 @@
       </div>
       <div class="scard">
         <span class="sdot" style="background:#34D2E8"></span>
-        <div class="sname">Pen-F</div>
+        <div class="sname">Slate Blue</div>
         <div class="sdesc" data-i18n="skn3Desc"></div>
       </div>
       <div class="scard">
@@ -513,7 +513,7 @@
     <h2 data-i18n="wlHead"></h2>
     <div class="cta" style="margin-top:32px">
       <a class="btn btn-fill" href="https://play.google.com/store/apps/details?id=dev.brewkits.lam" target="_blank" rel="noopener" data-i18n="dlPlay"></a>
-      <span class="btn btn-out" style="opacity:.55;cursor:default" data-i18n="dlAppStore"></span>
+      <a class="btn btn-out" href="https://apps.apple.com/app/id6773256954" target="_blank" rel="noopener" data-i18n="dlAppStore"></a>
     </div>
   </div>
 </section>
@@ -1367,6 +1367,10 @@ function applyLang(lang){
   });
   try { localStorage.setItem('lam_lang', lang); } catch(e){}
 }
+
+/* 2026-10-07: the App Store build is live (id6773256954) — the status lines said 'in review'. */
+var I18N_LIVE = {"en": {"prelaunch": "● Live on Google Play & the App Store", "dlAppStore": "Download on the App Store", "ctaHint": "Google Play · App Store", "wlPill": "Live on both stores", "wlHead": "Get LAM.", "a6": "Yes — LAM is live on Google Play and the App Store."}, "vi": {"prelaunch": "● Đã có trên Google Play và App Store", "dlAppStore": "Tải trên App Store", "ctaHint": "Google Play · App Store", "wlPill": "Đã có trên cả hai store", "wlHead": "Tải LAM.", "a6": "Rồi — LAM đã có trên Google Play và App Store."}, "zh": {"prelaunch": "● 已上架 Google Play 与 App Store", "dlAppStore": "在 App Store 下载", "ctaHint": "Google Play · App Store", "wlPill": "双平台已上架", "wlHead": "下载 LAM。", "a6": "是的——LAM 已在 Google Play 和 App Store 上架。"}, "zh-TW": {"prelaunch": "● 已上架 Google Play 與 App Store", "dlAppStore": "在 App Store 下載", "ctaHint": "Google Play · App Store", "wlPill": "雙平台已上架", "wlHead": "下載 LAM。", "a6": "是的——LAM 已在 Google Play 與 App Store 上架。"}, "ja": {"prelaunch": "● Google Play と App Store で配信中", "dlAppStore": "App Store でダウンロード", "ctaHint": "Google Play · App Store", "wlPill": "両ストアで配信中", "wlHead": "LAM を手に入れる。", "a6": "はい。LAM は Google Play と App Store で配信中です。"}, "ko": {"prelaunch": "● Google Play와 App Store에서 만나보세요", "dlAppStore": "App Store에서 다운로드", "ctaHint": "Google Play · App Store", "wlPill": "양대 스토어 출시", "wlHead": "LAM 받기.", "a6": "네 — LAM은 Google Play와 App Store에 출시되어 있습니다."}, "th": {"prelaunch": "● พร้อมให้ดาวน์โหลดบน Google Play และ App Store", "dlAppStore": "ดาวน์โหลดบน App Store", "ctaHint": "Google Play · App Store", "wlPill": "มีทั้งสองสโตร์แล้ว", "wlHead": "ดาวน์โหลด LAM", "a6": "ใช่ — LAM มีให้ดาวน์โหลดแล้วบน Google Play และ App Store"}, "id": {"prelaunch": "● Tersedia di Google Play & App Store", "dlAppStore": "Unduh di App Store", "ctaHint": "Google Play · App Store", "wlPill": "Tersedia di kedua toko", "wlHead": "Dapatkan LAM.", "a6": "Ya — LAM sudah tersedia di Google Play dan App Store."}, "ms": {"prelaunch": "● Kini di Google Play & App Store", "dlAppStore": "Muat turun di App Store", "ctaHint": "Google Play · App Store", "wlPill": "Di kedua-dua kedai", "wlHead": "Dapatkan LAM.", "a6": "Ya — LAM kini di Google Play dan App Store."}, "tl": {"prelaunch": "● Nasa Google Play at App Store na", "dlAppStore": "I-download sa App Store", "ctaHint": "Google Play · App Store", "wlPill": "Nasa dalawang store na", "wlHead": "Kunin ang LAM.", "a6": "Oo — nasa Google Play at App Store na ang LAM."}, "km": {"prelaunch": "● មាននៅលើ Google Play និង App Store ហើយ", "dlAppStore": "ទាញយកលើ App Store", "ctaHint": "Google Play · App Store", "wlPill": "មាននៅលើហាងទាំងពីរ", "wlHead": "ទាញយក LAM។", "a6": "បាទ/ចាស — LAM មាននៅលើ Google Play និង App Store ហើយ។"}, "lo": {"prelaunch": "● ມີໃຫ້ດາວໂຫຼດໃນ Google Play ແລະ App Store ແລ້ວ", "dlAppStore": "ດາວໂຫຼດໃນ App Store", "ctaHint": "Google Play · App Store", "wlPill": "ມີທັງສອງຮ້ານແລ້ວ", "wlHead": "ດາວໂຫຼດ LAM.", "a6": "ແມ່ນ — LAM ມີໃຫ້ດາວໂຫຼດແລ້ວໃນ Google Play ແລະ App Store."}};
+Object.keys(I18N_LIVE).forEach(function(l){ if(!I18N[l]) return; Object.keys(I18N_LIVE[l]).forEach(function(k){ I18N[l][k]=I18N_LIVE[l][k]; }); });
 
 (function(){
   var saved; try { saved = localStorage.getItem('lam_lang'); } catch(e){}
