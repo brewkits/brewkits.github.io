@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>LAM — Help &amp; complaints</title>
+<meta name="description" content="Help and complaint handling for LAM · Film &amp; Cine Camera by Brewkits: restore purchases, refunds, missing photos, contact.">
+<link rel="icon" href="/img/icon.png">
+<style>
+  :root{
+    --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
+    --primary:#FFC107; --card:#0a0a0a;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ms:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+    line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:72px 24px 96px}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;margin:0 0 12px}
+  h1{font-size:clamp(34px,7vw,56px);line-height:1.05;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:15px;margin:0 0 40px}
+  h2{font-size:22px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em}
+  p,li{color:#e4e4e7}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul{padding-left:22px}
+  li{margin:6px 0}
+  strong{color:#fff}
+  .lead{font-size:19px;color:#d4d4d8}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0}
+  .tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;border:1px solid var(--line);
+    border-radius:999px;padding:3px 11px;color:var(--muted);margin:0 6px 6px 0}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted);text-decoration:underline}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin:18px 0}
+  .flow .box{flex:1 1 200px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .flow .box h3{margin:0 0 8px;font-size:14px;color:var(--primary);letter-spacing:.02em}
+  .flow .box p{margin:0;font-size:14px;color:#d4d4d8}
+  .flow .arrow{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 14px;color:var(--muted);font-size:20px}
+  @media (max-width:640px){.flow{flex-direction:column}.flow .arrow{transform:rotate(90deg);padding:6px 0}}
+  .langbar{position:fixed;top:12px;right:12px;z-index:60;display:flex;gap:4px;background:rgba(0,0,0,.6);
+    border:1px solid var(--line);border-radius:999px;padding:4px;backdrop-filter:blur(8px)}
+  .langbar button{font-family:var(--ms);font-size:11px;letter-spacing:.3px;color:#aaa;background:transparent;border:0;
+    padding:6px 12px;border-radius:999px;cursor:pointer}
+  .langbar button:hover{color:#fff}
+  .langbar button.on{background:var(--primary);color:#000;font-weight:700}
+  [data-lang-content]{display:none}
+  [data-lang-content].show{display:block}
+</style>
+<style>
+/* IBM Plex Mono — SIL OFL 1.1, self-hosted (fonts/IBM-Plex-Mono-OFL.txt).
+   A privacy policy that promises no third-party data flow must not itself hand the
+   reader's IP to a third party before they have read it. Fonts are served from this
+   origin; nothing on this page contacts an external host. */
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-400-vietnamese.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-500-vietnamese.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+</style>
+</head>
+<body>
+
+<nav class="langbar" aria-label="Language">
+  <button data-lang="en" class="on">EN</button>
+  <button data-lang="vi">VI</button>
+</nav>
+
+<!-- ───────────────────────── ENGLISH ───────────────────────── -->
+<div class="wrap" data-lang-content="en">
+  <p class="kicker">Brewkits · LAM</p>
+  <h1>Help &amp; complaints</h1>
+  <p class="meta">Last updated: 11 October 2026 · LAM · Film &amp; Cine Camera for iOS and Android.</p>
+
+  <div class="card">
+    <p><strong>Write to us:</strong> <a href="mailto:lam@brewkits.dev?subject=LAM%20support">lam@brewkits.dev</a></p>
+    <p>In the app, <strong>Settings → Send Feedback</strong> opens an email that already contains your app version, phone model and OS version — nothing else. You can edit it before sending.</p>
+  </div>
+
+  <h2>How we handle a complaint</h2>
+  <div class="flow">
+    <div class="box"><h3>1 · You write</h3><p>Email, or a reply to our store review response. Tell us what happened and, for purchases, your order ID (never a card number).</p></div>
+    <div class="arrow">→</div>
+    <div class="box"><h3>2 · We confirm</h3><p>We confirm we have received it within <strong>3 working days</strong>.</p></div>
+    <div class="arrow">→</div>
+    <div class="box"><h3>3 · We fix or answer</h3><p>We check the facts, then reply with what we did or what happens next. Purchases that did not unlock Pro are our first priority.</p></div>
+  </div>
+  <p>If you are not satisfied with our answer, you can contact the store you bought from (Apple or Google) or the consumer-protection authority in your country. Nothing on this page limits the rights you have under the law where you live.</p>
+
+  <h2>Common questions</h2>
+  <h3>I paid but Pro did not unlock</h3>
+  <p>Update to the latest version, then open <strong>Settings → Restore Purchases</strong> using the same Apple ID or Google account you bought with. If Pro is still locked, email us your order ID and we will sort it out.</p>
+  <h3>I want a refund</h3>
+  <p>Purchases are processed by Apple or Google, so refunds go through them under their policies. Apple: <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>. Google Play: your order history in the Play Store or <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Google's refund help page</a>. If something on our side caused the problem, tell us as well.</p>
+  <h3>Pro on iPhone and Android</h3>
+  <p>Pro is a one-time purchase per store. Apple and Google track purchases separately, and LAM has no account system, so a purchase on one platform does not carry over to the other.</p>
+  <h3>A photo or video is missing</h3>
+  <p>In versions before 1.0.3, a photo could be lost when <strong>Save to Gallery</strong> was turned off; 1.0.3 fixes this. If anything goes missing on the current version, email us right away with your phone model and what you did just before — we treat it as our most urgent kind of report.</p>
+  <h3>My phone gets warm when recording</h3>
+  <p>Long recordings warm up any phone. When the phone gets hot, LAM lowers recording quality or stops to protect the device, and tells you on screen. If it gets unusually hot, send us your phone model, resolution and clip length.</p>
+  <h3>Is my face or photo sent anywhere?</h3>
+  <p>No. Photos and videos are processed on your device; True Skin's skin map is never saved or sent. Details: <a href="/lam/privacy.html">Privacy Policy</a>.</p>
+
+  <h2>Requirements</h2>
+  <ul>
+    <li>iPhone with iOS 16 or later.</li>
+    <li>Android 11 or later.</li>
+  </ul>
+
+  <hr>
+  <footer>
+    <p>LAM is made by Brewkits · <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="/lam/">LAM home</a> · <a href="/lam/privacy.html">Privacy</a> · <a href="/lam/terms.html">Terms</a></p>
+  </footer>
+</div>
+
+<!-- ───────────────────────── TIẾNG VIỆT ───────────────────────── -->
+<div class="wrap" data-lang-content="vi">
+  <p class="kicker">Brewkits · LAM</p>
+  <h1>Hỗ trợ &amp; khiếu nại</h1>
+  <p class="meta">Cập nhật lần cuối: 11/10/2026 · LAM · Film &amp; Cine Camera trên iOS và Android.</p>
+
+  <div class="card">
+    <p><strong>Liên hệ:</strong> <a href="mailto:lam@brewkits.dev?subject=LAM%20support">lam@brewkits.dev</a></p>
+    <p>Trong ứng dụng, <strong>Cài đặt → Gửi Phản hồi</strong> mở một email đã có sẵn phiên bản app, dòng máy và phiên bản hệ điều hành — không có gì khác. Bạn có thể sửa trước khi gửi.</p>
+  </div>
+
+  <h2>Quy trình tiếp nhận và giải quyết khiếu nại</h2>
+  <div class="flow">
+    <div class="box"><h3>1 · Bạn gửi</h3><p>Qua email, hoặc trả lời phản hồi của chúng tôi trên cửa hàng ứng dụng. Mô tả điều đã xảy ra; với giao dịch mua, gửi kèm mã đơn hàng (không bao giờ gửi số thẻ).</p></div>
+    <div class="arrow">→</div>
+    <div class="box"><h3>2 · Chúng tôi xác nhận</h3><p>Chúng tôi xác nhận đã nhận khiếu nại trong vòng <strong>3 ngày làm việc</strong>.</p></div>
+    <div class="arrow">→</div>
+    <div class="box"><h3>3 · Xử lý và trả lời</h3><p>Chúng tôi kiểm tra sự việc, rồi trả lời bạn việc đã làm hoặc bước tiếp theo. Trường hợp đã trả tiền mà chưa mở được Pro được ưu tiên xử lý trước.</p></div>
+  </div>
+  <p>Nếu chưa đồng ý với kết quả, bạn có thể liên hệ cửa hàng nơi bạn mua (Apple hoặc Google) hoặc cơ quan bảo vệ quyền lợi người tiêu dùng tại nơi bạn sống. Trang này không giới hạn bất kỳ quyền nào bạn có theo pháp luật.</p>
+
+  <h2>Câu hỏi thường gặp</h2>
+  <h3>Đã trả tiền nhưng chưa mở được Pro</h3>
+  <p>Cập nhật lên bản mới nhất, rồi vào <strong>Cài đặt → Khôi phục Giao dịch</strong> bằng đúng Apple ID hoặc tài khoản Google đã dùng để mua. Nếu Pro vẫn khoá, gửi mã đơn hàng cho chúng tôi để được xử lý.</p>
+  <h3>Tôi muốn hoàn tiền</h3>
+  <p>Giao dịch do Apple hoặc Google xử lý, nên hoàn tiền đi qua họ theo chính sách của họ. Apple: <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>. Google Play: lịch sử đơn hàng trong Play Store hoặc <a href="https://support.google.com/googleplay/answer/2479637?hl=vi" target="_blank" rel="noopener">trang hỗ trợ hoàn tiền của Google</a>. Nếu lỗi đến từ phía chúng tôi, hãy báo cho chúng tôi biết.</p>
+  <h3>Pro trên iPhone và Android</h3>
+  <p>Pro là gói mua một lần cho từng cửa hàng. Apple và Google ghi nhận giao dịch riêng, và LAM không có hệ thống tài khoản, nên giao dịch trên nền tảng này không chuyển sang nền tảng kia.</p>
+  <h3>Ảnh hoặc video bị mất</h3>
+  <p>Ở các bản trước 1.0.3, ảnh có thể bị mất khi tắt <strong>Lưu vào Thư viện</strong>; bản 1.0.3 đã sửa lỗi này. Nếu bản hiện tại làm mất bất kỳ ảnh/video nào, hãy email ngay cho chúng tôi kèm dòng máy và thao tác vừa làm — đây là loại báo lỗi chúng tôi xử lý gấp nhất.</p>
+  <h3>Máy ấm lên khi quay</h3>
+  <p>Quay lâu làm điện thoại nào cũng ấm lên. Khi máy nóng, LAM hạ chất lượng quay hoặc dừng để bảo vệ máy, và báo cho bạn trên màn hình. Nếu máy nóng bất thường, gửi cho chúng tôi dòng máy, độ phân giải và thời lượng clip.</p>
+  <h3>Khuôn mặt hay ảnh của tôi có bị gửi đi không?</h3>
+  <p>Không. Ảnh và video được xử lý trên thiết bị của bạn; bản đồ vùng da của True Skin không bao giờ được lưu hay gửi đi. Chi tiết: <a href="/lam/privacy.html">Chính sách quyền riêng tư</a>.</p>
+
+  <h2>Yêu cầu thiết bị</h2>
+  <ul>
+    <li>iPhone chạy iOS 16 trở lên.</li>
+    <li>Android 11 trở lên.</li>
+  </ul>
+
+  <hr>
+  <footer>
+    <p>LAM do Brewkits phát triển · <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="/lam/">Trang chủ LAM</a> · <a href="/lam/privacy.html">Quyền riêng tư</a> · <a href="/lam/terms.html">Điều khoản</a></p>
+  </footer>
+</div>
+
+<script>
+  // No language mixing: exactly ONE full-language block is shown at a time.
+  // Shares the landing's `lam_lang` choice. Legal pages exist in EN + VI only;
+  // any other locale (zh/ja/ko) falls back to the complete EN block.
+  (function(){
+    var btns = document.querySelectorAll('.langbar button');
+    function show(lang){
+      if(lang !== 'vi') lang = 'en';            // EN is default + fallback
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-lang-content]').forEach(function(el){
+        el.classList.toggle('show', el.getAttribute('data-lang-content') === lang);
+      });
+      btns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang') === lang); });
+      try { localStorage.setItem('lam_lang', lang); } catch(e){}
+    }
+    var saved; try { saved = localStorage.getItem('lam_lang'); } catch(e){}
+    btns.forEach(function(b){ b.addEventListener('click', function(){ show(b.getAttribute('data-lang')); }); });
+    show(saved === 'vi' ? 'vi' : 'en');
+  })();
+</script>
+</body>
+</html>
