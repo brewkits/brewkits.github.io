@@ -95,7 +95,7 @@
     <div class="diagram-caps">
       <div><b>Zebra</b>stripes crawl over the blown-out area</div>
       <div><b>False colour</b>one colour = one brightness band</div>
-      <div><b>LOG vs normal</b>LOG stays flatter, keeps more detail</div>
+      <div><b>LOG vs normal</b>LOG stays flatter</div>
     </div>
   </div>
 
@@ -119,15 +119,15 @@
   skin, red means blown out, blue means crushed shadow detail). Looking at a false-colour view tells
   the operator the exposure state of the whole scene at a glance, without reading a histogram.</p>
 
-  <h2>24fps &amp; "Honest" LOG</h2>
+  <h2>24fps &amp; LOG</h2>
   <p>24 frames per second is cinema's standard frame rate (as opposed to the 30fps most casual video
   defaults to) — shooting at 24fps changes how motion feels before colour even enters the picture.</p>
   <p>LOG is a recording style that's <strong>deliberately flat and low-contrast</strong> — footage
   looks grey and unappealing straight out of the camera. That's not a bug: recording flat preserves
   more detail in both shadows and highlights than the camera would show if it applied full contrast
-  live — that detail only "appears" once you grade it afterward. "Honest" here means the LOG file is
-  genuinely flat by a measurable contrast curve, not a grey-tinted filter pretending to look
-  "cinematic" while throwing away the extra detail it's supposed to preserve.</p>
+  live — that detail only "appears" once you grade it afterward. Where LAM stands today: the LOG switch records a flatter file, but its curve is LAM's own, not a
+  published log curve, so a standard S-Log or LogC LUT will not match it. A calibrated log curve, measured on the file,
+  is planned for a later version.</p>
 
   <div class="card">
     <p><strong>Why these four tools are free in LAM:</strong> they're measurement/monitoring tools,
