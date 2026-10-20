@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index,follow">
 <title>Peaking, Zebra, False Colour, 24fps LOG — Explained — LAM Film Guides</title>
-<meta name="description" content="Four monitoring tools borrowed from real cinema cameras, explained without the jargon — and why a flat, unattractive LOG file is actually more useful to grade later.">
+<meta name="description" content="Four monitoring tools borrowed from real cinema cameras, explained without the jargon — and what LOG is for.">
 <link rel="icon" href="/img/icon.png">
 <link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html">
 <link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html">
@@ -125,9 +125,10 @@
   <p>LOG is a recording style that's <strong>deliberately flat and low-contrast</strong> — footage
   looks grey and unappealing straight out of the camera. That's not a bug: recording flat preserves
   more detail in both shadows and highlights than the camera would show if it applied full contrast
-  live — that detail only "appears" once you grade it afterward. Where LAM stands today: the LOG switch records a flatter file, but its curve is LAM's own, not a
-  published log curve, so a standard S-Log or LogC LUT will not match it. A calibrated log curve, measured on the file,
-  is planned for a later version.</p>
+  live — that detail only "appears" once you grade it afterward. That is what LOG means on a cinema camera. Where LAM stands today: the LOG switch makes the file look flatter, but it
+  does not capture extra shadow or highlight detail yet — the curve is applied after the image is already encoded, and it
+  is LAM's own, not a published log curve, so a standard S-Log or LogC LUT will not match it. A proper log curve, measured
+  on the file, is planned for a later version.</p>
 
   <div class="card">
     <p><strong>Why these four tools are free in LAM:</strong> they're measurement/monitoring tools,
