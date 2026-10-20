@@ -143,8 +143,7 @@
     <strong>(1)</strong> there is <em>one</em> grading layer instead of two stacked ones;
     <strong>(2)</strong> you see that layer in the viewfinder <em>before</em> the shutter, so a wrong
     choice is changed on the spot rather than discovered at home; <strong>(3)</strong> on Android, LAM
-    picks the capture mode that skips CameraX's extra multi-frame noise-reduction pass — A/B'd on device,
-    flat areas came out 17% cleaner at equal detail. We would rather state three things that are true
+    picks the capture mode that skips CameraX's extra multi-frame noise-reduction pass. We would rather state three things that are true
     than one that sounds impressive.</p>
   </div>
 
@@ -173,7 +172,7 @@
         <tr>
           <td><strong>Pipeline</strong></td>
           <td>2 conflicting steps: HDR flattens → Filter pulls back down</td>
-          <td>1 single pass directly on raw camera stream</td>
+          <td>1 film grade on the camera stream, before the file is written</td>
         </tr>
         <tr>
           <td><strong>Shadows</strong></td>
@@ -188,7 +187,7 @@
         <tr>
           <td><strong>Skin &amp; Grain</strong></td>
           <td>Waxy skin texture with artificial grain over halo edges</td>
-          <td>Intact skin pore fidelity with light-reactive grain</td>
+          <td>No extra smoothing pass from LAM; grain that follows the light</td>
         </tr>
         <tr>
           <td><strong>Capture Control</strong></td>
