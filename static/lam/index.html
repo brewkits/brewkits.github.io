@@ -793,7 +793,14 @@ function renderLooks(lang) {
 }
 function setUiShots(lang) {
   var l = UI_LANGS.indexOf(lang) >= 0 ? lang : 'en';
-  document.querySelectorAll('img[data-ui]').forEach(function (i) { i.src = 'img/ui/' + l + '/' + i.getAttribute('data-ui') + '.webp'; });
+  document.querySelectorAll('img[data-ui]').forEach(function (i) {
+    i.onerror = function () {
+      if (this.src.indexOf('/en/') === -1) {
+        this.src = 'img/ui/en/' + this.getAttribute('data-ui') + '.webp';
+      }
+    };
+    i.src = 'img/ui/' + l + '/' + i.getAttribute('data-ui') + '.webp';
+  });
 }
 document.addEventListener('input', function (e) {
   if (e.target && e.target.matches && e.target.matches('.ba input')) e.target.parentNode.style.setProperty('--p', e.target.value + '%');
