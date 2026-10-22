@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index,follow">
-<title>Peaking, Zebra, False Color, 24fps LOG là gì? — Hướng dẫn LAM</title>
-<meta name="description" content="4 công cụ monitoring mượn từ máy quay điện ảnh thật, giải thích dễ hiểu — và vì sao 1 file LOG phẳng lại hữu ích hơn để chấm màu, dù nhìn không đẹp lúc quay.">
+<title>Peaking, Zebra, False Color, 24fps LOG là gì? — Hướng dẫn LAM Film</title>
+<meta name="description" content="4 công cụ monitoring mượn từ máy quay điện ảnh thật, giải thích dễ hiểu — và LOG dùng để làm gì.">
 <link rel="icon" href="/img/icon.png">
 <link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html">
 <link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html">
@@ -96,7 +96,7 @@
     <div class="diagram-caps">
       <div><b>Zebra</b>sọc chạy trên vùng vượt ngưỡng sáng</div>
       <div><b>False Color</b>1 màu = 1 dải độ sáng cụ thể</div>
-      <div><b>LOG vs thường</b>LOG phẳng hơn, giữ nhiều chi tiết hơn</div>
+      <div><b>LOG vs thường</b>LOG phẳng hơn</div>
     </div>
   </div>
 
@@ -119,14 +119,15 @@
   chi tiết). Nhìn 1 khung hình phủ false color, người quay biết ngay toàn cảnh đang phơi sáng ra sao
   mà không cần đọc histogram.</p>
 
-  <h2>24fps &amp; "Honest" LOG</h2>
+  <h2>24fps &amp; LOG</h2>
   <p>24 khung hình/giây là tốc độ chuẩn của điện ảnh (khác 30fps quen thuộc của video thường) — chọn
   24fps là chọn "nhìn giống phim" ngay từ nhịp chuyển động, trước cả khi tính đến màu sắc.</p>
   <p>LOG là một cách ghi hình <strong>cố tình phẳng, ít tương phản</strong> — nhìn lúc quay sẽ thấy
   xám, không đẹp. Đây không phải lỗi: ghi phẳng giữ lại nhiều chi tiết ở cả vùng tối và vùng sáng hơn
   mức máy sẽ hiển thị nếu áp tương phản ngay lúc quay — chi tiết đó chỉ "hiện ra" khi bạn chấm màu
-  sau. Chữ "Honest" ở đây nghĩa là file LOG thực sự phẳng đúng nghĩa (đường cong tương phản thật, đo
-  được), không phải một bộ lọc xám giả vờ trông "điện ảnh" mà không giữ thêm chi tiết gì.</p>
+  sau. Đó là LOG trên máy quay điện ảnh. LAM hiện tại: công tắc LOG làm file trông phẳng hơn, nhưng chưa giữ thêm chi tiết ở
+  vùng tối hay vùng sáng — đường cong áp sau khi ảnh đã mã hoá, và là của riêng LAM, không phải một đường log đã công
+  bố, nên LUT S-Log hay LogC chuẩn sẽ không khớp. Một đường log chuẩn, đo trên file, đang được làm cho bản sau.</p>
 
   <div class="card">
     <p><strong>Vì sao 4 công cụ này miễn phí trong LAM:</strong> đây là công cụ đo/kiểm tra, không

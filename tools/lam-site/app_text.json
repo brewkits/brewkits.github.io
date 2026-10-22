@@ -1,0 +1,1734 @@
+{
+ "tags": {
+  "en": {
+   "LAM_CLASSIC": "timeless everyday",
+   "LAM_DISPOSABLE": "party snapshots",
+   "LAM_CCD": "Y2K digicam",
+   "LAM_16MM": "dreamy cinema",
+   "LAM_Y2K": "pink Y2K",
+   "LAM_PORTRA": "studio portraits",
+   "LAM_INSTAX": "instant prints",
+   "LAM_DONG_DUONG": "tropical retro",
+   "LAM_SEOUL": "soft K-style",
+   "LAM_BOX_36": "first snapshots",
+   "LAM_TWIN_LENS": "waist-level portraits",
+   "LAM_HALF_FRAME": "72 frames a roll",
+   "LAM_SLR_70": "the classic SLR",
+   "LAM_INSTANT_FOLD": "square instant",
+   "LAM_SUPER8": "home movies",
+   "LAM_TOY_CAMERA": "toy-camera fun"
+  },
+  "vi": {
+   "LAM_CLASSIC": "thường ngày cổ điển",
+   "LAM_DISPOSABLE": "ảnh tiệc tùng",
+   "LAM_CCD": "máy số Y2K",
+   "LAM_16MM": "điện ảnh mơ màng",
+   "LAM_Y2K": "hồng Y2K",
+   "LAM_PORTRA": "chân dung studio",
+   "LAM_INSTAX": "ảnh in liền",
+   "LAM_DONG_DUONG": "retro nhiệt đới",
+   "LAM_SEOUL": "kiểu Hàn dịu",
+   "LAM_BOX_36": "ảnh chụp đầu tiên",
+   "LAM_TWIN_LENS": "chân dung ngang bụng",
+   "LAM_HALF_FRAME": "72 kiểu một cuộn",
+   "LAM_SLR_70": "SLR kinh điển",
+   "LAM_INSTANT_FOLD": "ảnh in liền vuông",
+   "LAM_SUPER8": "phim gia đình",
+   "LAM_TOY_CAMERA": "vui kiểu máy toy"
+  },
+  "zh": {
+   "LAM_CLASSIC": "经典日常",
+   "LAM_DISPOSABLE": "派对随拍",
+   "LAM_CCD": "Y2K数码",
+   "LAM_16MM": "梦幻电影感",
+   "LAM_Y2K": "粉色Y2K",
+   "LAM_PORTRA": "影棚人像",
+   "LAM_INSTAX": "即时成像",
+   "LAM_DONG_DUONG": "热带复古",
+   "LAM_SEOUL": "柔和韩系",
+   "LAM_BOX_36": "最早的快照",
+   "LAM_TWIN_LENS": "腰平取景人像",
+   "LAM_HALF_FRAME": "一卷72张",
+   "LAM_SLR_70": "经典单反",
+   "LAM_INSTANT_FOLD": "方形即时成像",
+   "LAM_SUPER8": "家庭电影",
+   "LAM_TOY_CAMERA": "玩具相机乐趣"
+  },
+  "zh-TW": {
+   "LAM_CLASSIC": "經典日常",
+   "LAM_DISPOSABLE": "派對隨拍",
+   "LAM_CCD": "Y2K數位",
+   "LAM_16MM": "夢幻電影感",
+   "LAM_Y2K": "粉色Y2K",
+   "LAM_PORTRA": "影棚人像",
+   "LAM_INSTAX": "即時成像",
+   "LAM_DONG_DUONG": "熱帶復古",
+   "LAM_SEOUL": "柔和韓系",
+   "LAM_BOX_36": "最早的快照",
+   "LAM_TWIN_LENS": "腰平取景人像",
+   "LAM_HALF_FRAME": "一卷72張",
+   "LAM_SLR_70": "經典單反",
+   "LAM_INSTANT_FOLD": "方形即時成像",
+   "LAM_SUPER8": "家庭電影",
+   "LAM_TOY_CAMERA": "玩具相機樂趣"
+  },
+  "ja": {
+   "LAM_CLASSIC": "定番の日常",
+   "LAM_DISPOSABLE": "パーティー記録",
+   "LAM_CCD": "Y2Kデジカメ",
+   "LAM_16MM": "夢のシネマ",
+   "LAM_Y2K": "ピンクY2K",
+   "LAM_PORTRA": "スタジオ人物",
+   "LAM_INSTAX": "インスタント写真",
+   "LAM_DONG_DUONG": "トロピカルレトロ",
+   "LAM_SEOUL": "柔らか韓国風",
+   "LAM_BOX_36": "最初のスナップ",
+   "LAM_TWIN_LENS": "ウエストレベルの肖像",
+   "LAM_HALF_FRAME": "1本で72枚",
+   "LAM_SLR_70": "定番の一眼レフ",
+   "LAM_INSTANT_FOLD": "正方形インスタント",
+   "LAM_SUPER8": "ホームムービー",
+   "LAM_TOY_CAMERA": "トイカメラ遊び"
+  },
+  "ko": {
+   "LAM_CLASSIC": "클래식 일상",
+   "LAM_DISPOSABLE": "파티 스냅",
+   "LAM_CCD": "Y2K 디카",
+   "LAM_16MM": "몽환 시네마",
+   "LAM_Y2K": "핑크 Y2K",
+   "LAM_PORTRA": "스튜디오 인물",
+   "LAM_INSTAX": "즉석 인화",
+   "LAM_DONG_DUONG": "트로피컬 레트로",
+   "LAM_SEOUL": "부드러운 K감성",
+   "LAM_BOX_36": "첫 스냅 사진",
+   "LAM_TWIN_LENS": "허리 높이 인물",
+   "LAM_HALF_FRAME": "한 롤에 72컷",
+   "LAM_SLR_70": "클래식 SLR",
+   "LAM_INSTANT_FOLD": "정사각 즉석 사진",
+   "LAM_SUPER8": "가족 영화",
+   "LAM_TOY_CAMERA": "토이 카메라 놀이"
+  },
+  "th": {
+   "LAM_CLASSIC": "ทุกวันคลาสสิก",
+   "LAM_DISPOSABLE": "ภาพปาร์ตี้",
+   "LAM_CCD": "ดิจิแคม Y2K",
+   "LAM_16MM": "หนังฝันๆ",
+   "LAM_Y2K": "ชมพู Y2K",
+   "LAM_PORTRA": "พอร์เทรตสตูดิโอ",
+   "LAM_INSTAX": "ภาพพิมพ์ทันที",
+   "LAM_DONG_DUONG": "เรโทรเขตร้อน",
+   "LAM_SEOUL": "สไตล์เกาหลีนุ่ม",
+   "LAM_BOX_36": "ภาพสแนปแรก",
+   "LAM_TWIN_LENS": "พอร์ตเทรตระดับเอว",
+   "LAM_HALF_FRAME": "72 ภาพต่อม้วน",
+   "LAM_SLR_70": "SLR คลาสสิก",
+   "LAM_INSTANT_FOLD": "ภาพอินสแตนต์จัตุรัส",
+   "LAM_SUPER8": "หนังครอบครัว",
+   "LAM_TOY_CAMERA": "สนุกแบบกล้องของเล่น"
+  },
+  "id": {
+   "LAM_CLASSIC": "sehari-hari klasik",
+   "LAM_DISPOSABLE": "foto pesta",
+   "LAM_CCD": "digicam Y2K",
+   "LAM_16MM": "sinema syahdu",
+   "LAM_Y2K": "Y2K merah muda",
+   "LAM_PORTRA": "potret studio",
+   "LAM_INSTAX": "cetak instan",
+   "LAM_DONG_DUONG": "retro tropis",
+   "LAM_SEOUL": "gaya K lembut",
+   "LAM_BOX_36": "jepretan pertama",
+   "LAM_TWIN_LENS": "potret setinggi pinggang",
+   "LAM_HALF_FRAME": "72 bingkai per rol",
+   "LAM_SLR_70": "SLR klasik",
+   "LAM_INSTANT_FOLD": "foto instan persegi",
+   "LAM_SUPER8": "film rumahan",
+   "LAM_TOY_CAMERA": "seru kamera mainan"
+  },
+  "ms": {
+   "LAM_CLASSIC": "harian klasik",
+   "LAM_DISPOSABLE": "foto pesta",
+   "LAM_CCD": "digicam Y2K",
+   "LAM_16MM": "sinema mimpi",
+   "LAM_Y2K": "merah jambu Y2K",
+   "LAM_PORTRA": "potret studio",
+   "LAM_INSTAX": "cetak segera",
+   "LAM_DONG_DUONG": "retro tropika",
+   "LAM_SEOUL": "gaya K lembut",
+   "LAM_BOX_36": "petikan pertama",
+   "LAM_TWIN_LENS": "potret paras pinggang",
+   "LAM_HALF_FRAME": "72 bingkai segulung",
+   "LAM_SLR_70": "SLR klasik",
+   "LAM_INSTANT_FOLD": "foto segera segi empat",
+   "LAM_SUPER8": "filem keluarga",
+   "LAM_TOY_CAMERA": "seronok kamera mainan"
+  },
+  "tl": {
+   "LAM_CLASSIC": "klasikong araw-araw",
+   "LAM_DISPOSABLE": "mga litrato sa party",
+   "LAM_CCD": "digicam na Y2K",
+   "LAM_16MM": "mapanaginip na sine",
+   "LAM_Y2K": "kulay-rosas na Y2K",
+   "LAM_PORTRA": "larawan sa studio",
+   "LAM_INSTAX": "agarang print",
+   "LAM_DONG_DUONG": "tropikal na retro",
+   "LAM_SEOUL": "malambot na K-style",
+   "LAM_BOX_36": "unang mga kuha",
+   "LAM_TWIN_LENS": "portrait sa taas ng baywang",
+   "LAM_HALF_FRAME": "72 kuha bawat roll",
+   "LAM_SLR_70": "ang klasikong SLR",
+   "LAM_INSTANT_FOLD": "parisukat na instant",
+   "LAM_SUPER8": "mga home movie",
+   "LAM_TOY_CAMERA": "saya ng laruang kamera"
+  },
+  "km": {
+   "LAM_CLASSIC": "ប្រចាំថ្ងៃបុរាណ",
+   "LAM_DISPOSABLE": "រូបពិធីជប់លៀង",
+   "LAM_CCD": "ឌីជីខែម Y2K",
+   "LAM_16MM": "ភាពយន្តសុបិន",
+   "LAM_Y2K": "ផ្កាឈូក Y2K",
+   "LAM_PORTRA": "រូបថតស្ទូឌីយោ",
+   "LAM_INSTAX": "បោះពុម្ពភ្លាមៗ",
+   "LAM_DONG_DUONG": "retro ត្រូពិក",
+   "LAM_SEOUL": "ស្ទីលកូរ៉េទន់",
+   "LAM_BOX_36": "រូបថតដំបូង",
+   "LAM_TWIN_LENS": "រូបបុគ្គលកម្រិតចង្កេះ",
+   "LAM_HALF_FRAME": "72 រូបក្នុងមួយរមូរ",
+   "LAM_SLR_70": "SLR បុរាណ",
+   "LAM_INSTANT_FOLD": "រូបភ្លាមៗការ៉េ",
+   "LAM_SUPER8": "ភាពយន្តគ្រួសារ",
+   "LAM_TOY_CAMERA": "សប្បាយបែបម៉ាស៊ីនថតលេង"
+  },
+  "lo": {
+   "LAM_CLASSIC": "ປະຈຳວັນຄລາສສິກ",
+   "LAM_DISPOSABLE": "ຮູບງານລ້ຽງ",
+   "LAM_CCD": "ດີຈີແຄມ Y2K",
+   "LAM_16MM": "ຮູບເງົາຝັນ",
+   "LAM_Y2K": "ສີບົວ Y2K",
+   "LAM_PORTRA": "ພອດເທຣດສະຕູດິໂອ",
+   "LAM_INSTAX": "ພິມທັນທີ",
+   "LAM_DONG_DUONG": "retro ເຂດຮ້ອນ",
+   "LAM_SEOUL": "ສະໄຕລ໌ເກົາຫຼີນຸ່ມ",
+   "LAM_BOX_36": "ຮູບທຳອິດ",
+   "LAM_TWIN_LENS": "ຮູບຄົນລະດັບແອວ",
+   "LAM_HALF_FRAME": "72 ຮູບຕໍ່ມ້ວນ",
+   "LAM_SLR_70": "SLR ຄລາສສິກ",
+   "LAM_INSTANT_FOLD": "ຮູບທັນທີສີ່ຫຼ່ຽມ",
+   "LAM_SUPER8": "ໜັງຄອບຄົວ",
+   "LAM_TOY_CAMERA": "ມ່ວນແບບກ້ອງຫຼິ້ນ"
+  }
+ },
+ "stories": {
+  "en": {
+   "KODAK_400": {
+    "vibe": "Perfect balance. Warm, nostalgic colors with smooth grain.",
+    "bestFor": "Everyday use, sunny outdoors, street photography."
+   },
+   "FUJI_400H": {
+    "vibe": "Signature cool, greenish Fuji tones. Soft and crystal clear.",
+    "bestFor": "Portraits, cloudy skies, gentle overcast days."
+   },
+   "ILFORD_HP5": {
+    "vibe": "Classic black & white. Deep contrast and coarse grain with a documentary edge.",
+    "bestFor": "Street photography, photojournalism, architecture."
+   },
+   "CINEMA_800": {
+    "vibe": "The soul of night cinema. Tungsten-balanced for glowing reds and cyan-tinged shadows.",
+    "bestFor": "Night squares, neon lights, cyberpunk style."
+   },
+   "PORTRA_800": {
+    "vibe": "A cinematic feel at high sensitivity. Extremely flattering, warm skin tones.",
+    "bestFor": "Night portraits, low light, dim scenes."
+   },
+   "PORTRA_160": {
+    "vibe": "The finest detail. Ultra-fine grain and perfect, natural skin reproduction.",
+    "bestFor": "Studio portraits, soft natural light."
+   },
+   "AGFA_ULTRA": {
+    "vibe": "The most vivid saturation of the film era. Bold color that never clips.",
+    "bestFor": "Autumn landscapes, vibrant outfits, harsh sunny days."
+   },
+   "FUJI_VELVIA": {
+    "vibe": "The landscape legend. High contrast that makes greens and skies pop.",
+    "bestFor": "Nature travel, mountains, vivid scenery."
+   },
+   "CCD_2000": {
+    "vibe": "The gritty color of early digital cameras. A blue cast and digital noise.",
+    "bestFor": "Night flash, Y2K style, grunge."
+   },
+   "CCD_PINK": {
+    "vibe": "A baby-pink filter with low contrast for a dreamy, feminine feel.",
+    "bestFor": "Selfies, gentle vlogs, cute objects."
+   },
+   "DISPOSABLE": {
+    "vibe": "The raw feel of a single-use camera. Fresh greens, cool clean shadows, big grain, random flare.",
+    "bestFor": "Parties, candid moments with friends."
+   },
+   "SUPER8": {
+    "vibe": "Relive the 70s on 8mm film. Massive grain, heavy vignette, amber tones.",
+    "bestFor": "Vintage video, family memories."
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "Golden like a Southeast Asian morning. Fine grain, wide shadows, warm glowing skin.",
+    "bestFor": "Dawn travel shots, outdoor portraits, market streets."
+   },
+   "KODAK_250D": {
+    "vibe": "Ultra-wide latitude, perfectly neutral, ultra-fine grain.",
+    "bestFor": "Outdoor filmmaking, interviews, daytime B-roll."
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "The cool, subdued tone of Asian cinema.",
+    "bestFor": "Rainy street shots, cinematic portraits, contemplative moods."
+   },
+   "MINI_INSTANT": {
+    "vibe": "The instant print in your pocket. Crisp colour, cool shadows, highlights that flare white.",
+    "bestFor": "Friends, parties, photo walls, everyday snapshots."
+   },
+   "TROPIC_200": {
+    "vibe": "Saigon photo shops of the 1990s. Gentle colour, blue-green leaves, soft natural skin.",
+    "bestFor": "Street life, family moments, travel in Southeast Asia."
+   },
+   "NIGHT_500T": {
+    "vibe": "Cinema night film with its backing intact. Cool, clean, wide latitude, no red glow.",
+    "bestFor": "Night streets, interiors under lamps, cinematic video."
+   },
+   "GRIT_400": {
+    "vibe": "The black and white of press and street. Hard highlights, dense blacks, honest grain.",
+    "bestFor": "Street, reportage, portraits with character."
+   },
+   "SQUARE_600": {
+    "vibe": "The square instant print on the fridge door. Pink highlights, green shade, soft and warm.",
+    "bestFor": "Friends at home, signed snapshots, dreamy everyday scenes."
+   },
+   "FADED_72": {
+    "vibe": "A family album from the 1970s, faded with time. Cyan and yellow gone, rosy-red left behind, milky blacks.",
+    "bestFor": "Nostalgic portraits, home scenes, memories."
+   },
+   "ERA_36": {
+    "vibe": "Colour photography at its very beginning, 1936. Muted reds, blue-green leaning colour, a soft old-world palette.",
+    "bestFor": "Old towns, still life, period portraits."
+   },
+   "MONO_125": {
+    "vibe": "A 1950s black-and-white family print. Long smooth greys, gentle contrast, a warm paper tone.",
+    "bestFor": "Family portraits, quiet streets, everyday life."
+   },
+   "AZURE_100": {
+    "vibe": "Slide film for travel. Cool and clean, clear blue skies, dense blacks.",
+    "bestFor": "Sea, sky, cities in daylight."
+   },
+   "PURE_100": {
+    "vibe": "The honest professional slide. Neutral colour, natural skin, a crisp slide finish.",
+    "bestFor": "Portraits, products, true-to-life travel."
+   },
+   "DAILY_200": {
+    "vibe": "The cheap everyday film of the 2000s. Jewel greens, bright blues, a fresh cool feel.",
+    "bestFor": "Parks, nature, daily walks."
+   },
+   "PUNCH_100": {
+    "vibe": "Toy-camera cross-processing: slide film in the wrong chemistry. Yellow-green highlights, blue shadows, hard contrast.",
+    "bestFor": "Parties, street fun, bold experiments."
+   },
+   "CRISP_100": {
+    "vibe": "The finest-grained colour negative. Deep reds, singing blues, sharp and vivid.",
+    "bestFor": "Landscapes, architecture, colourful cities."
+   },
+   "INFRA": {
+    "vibe": "An infrared look: leaves turn pink and red, skies stay deep blue, skin goes pale.",
+    "bestFor": "Gardens, forests, surreal landscapes."
+   },
+   "RISE_200": {
+    "vibe": "The newest film of our time, 2023. Warm orange tint, hard contrast, glowing highlights, visible grain.",
+    "bestFor": "Street, sunsets, experimental photos."
+   },
+   "KODACHROME_64": {
+    "vibe": "The Kodachrome legend, discontinued since 2010. Vivid reds, clean midtones, deep shadows.",
+    "bestFor": "Scenic travel, cityscapes, vintage editorial."
+   }
+  },
+  "vi": {
+   "KODAK_400": {
+    "vibe": "Sự cân bằng hoàn hảo. Màu sắc ấm áp, hoài cổ với hạt grain mượt mà.",
+    "bestFor": "Chụp hàng ngày, nắng đẹp, đường phố."
+   },
+   "FUJI_400H": {
+    "vibe": "Tông màu lạnh, ám xanh lục đặc trưng của dòng Fuji. Dịu mắt và trong trẻo.",
+    "bestFor": "Chân dung, phong cảnh mây trời, ngày râm mát."
+   },
+   "ILFORD_HP5": {
+    "vibe": "Đen trắng kinh điển. Độ tương phản sâu, hạt grain thô mang đậm tính phóng sự.",
+    "bestFor": "Chụp đường phố, ảnh báo chí, kiến trúc."
+   },
+   "CINEMA_800": {
+    "vibe": "Linh hồn điện ảnh đêm. Được tinh chỉnh cân bằng trắng cho đèn huỳnh quang (Tungsten). Đỏ rực rỡ, vùng tối lướt sắc xanh dương.",
+    "bestFor": "Quảng trường đêm, ánh đèn Neon, phong cách Cyberpunk."
+   },
+   "PORTRA_800": {
+    "vibe": "Chất ảnh điện ảnh với độ nhạy sáng cao. Tone màu da cực kỳ nịnh mắt và ấm áp.",
+    "bestFor": "Chân dung ban đêm, ánh sáng yếu, chụp thiếu sáng."
+   },
+   "PORTRA_160": {
+    "vibe": "Độ chi tiết cao nhất. Hạt grain cực mịn, tái tạo màu da hoàn hảo và tự nhiên.",
+    "bestFor": "Chân dung Studio, ánh sáng tự nhiên dịu nhẹ."
+   },
+   "AGFA_ULTRA": {
+    "vibe": "Độ bão hòa màu rực rỡ nhất trong kỷ nguyên máy phim. Rực rỡ nhưng không bị bết màu.",
+    "bestFor": "Phong cảnh mùa thu, trang phục rực rỡ, ngày nắng gắt."
+   },
+   "FUJI_VELVIA": {
+    "vibe": "Huyền thoại chụp phong cảnh. Độ tương phản cao, làm nổi bật sắc xanh lá và bầu trời.",
+    "bestFor": "Du lịch thiên nhiên, đồi núi, phong cảnh rực rỡ."
+   },
+   "CCD_2000": {
+    "vibe": "Màu sắc gai góc của những chiếc máy ảnh kỹ thuật số đời đầu. Ám xanh dương và noise kỹ thuật số.",
+    "bestFor": "Chụp Flash ban đêm, phong cách Y2K, Grunge."
+   },
+   "CCD_PINK": {
+    "vibe": "Lớp filter hồng baby, độ tương phản thấp mang lại cảm giác mộng mơ, nữ tính.",
+    "bestFor": "Selfie, Vlog nhẹ nhàng, đồ vật dễ thương."
+   },
+   "DISPOSABLE": {
+    "vibe": "Cảm giác mộc mạc của máy ảnh dùng 1 lần. Xanh lá tươi, vùng tối mát và sạch, hạt grain to và cháy sáng ngẫu nhiên.",
+    "bestFor": "Tiệc tùng, khoảnh khắc tự nhiên cùng bạn bè."
+   },
+   "SUPER8": {
+    "vibe": "Sống lại những năm 70 với thước phim 8mm. Hạt grain khổng lồ, viền tối (vignette) và màu hổ phách.",
+    "bestFor": "Quay video Vintage, kỷ niệm gia đình."
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "Vàng óng ánh như ánh nắng buổi sáng Đông Nam Á. Hạt grain mịn, bóng tối rộng, màu da ấm rực rỡ.",
+    "bestFor": "Ảnh du lịch ban mai, chân dung ngoại cảnh, đường phố chợ."
+   },
+   "KODAK_250D": {
+    "vibe": "Dải sáng cực rộng, trung tính hoàn hảo, hạt grain cực mịn.",
+    "bestFor": "Quay phim ngoại cảnh, phỏng vấn, B-roll ban ngày."
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "Tông màu lạnh, trầm lắng của điện ảnh châu Á.",
+    "bestFor": "Ảnh đường phố mưa, chân dung điện ảnh, phong cách trầm mặc."
+   },
+   "MINI_INSTANT": {
+    "vibe": "Tấm ảnh in liền trong túi áo. Màu rõ, bóng tối mát, vùng sáng dễ loá trắng.",
+    "bestFor": "Bạn bè, tiệc tùng, tường ảnh, chụp hằng ngày."
+   },
+   "TROPIC_200": {
+    "vibe": "Tiệm ảnh Sài Gòn thập niên 90. Màu dịu, lá xanh ngả lam, da mềm tự nhiên.",
+    "bestFor": "Đời sống phố phường, khoảnh khắc gia đình, du lịch Đông Nam Á."
+   },
+   "NIGHT_500T": {
+    "vibe": "Phim điện ảnh quay đêm còn nguyên lớp chống loá. Mát, sạch, dải sáng rộng, không quầng đỏ.",
+    "bestFor": "Phố đêm, nội thất dưới đèn, video điện ảnh."
+   },
+   "GRIT_400": {
+    "vibe": "Đen trắng của báo chí và đường phố. Vùng sáng gắt, đen đặc, hạt chân thật.",
+    "bestFor": "Đường phố, phóng sự, chân dung có cá tính."
+   },
+   "SQUARE_600": {
+    "vibe": "Tấm ảnh in liền vuông dán cửa tủ lạnh. Vùng sáng ngả hồng, bóng râm ngả lục, mềm và ấm.",
+    "bestFor": "Bạn bè ở nhà, ảnh ký tên, khoảnh khắc thường ngày mơ màng."
+   },
+   "FADED_72": {
+    "vibe": "Album gia đình thập niên 70 phai theo năm tháng. Lam và vàng đã nhạt, chỉ còn đỏ hồng, đen sữa.",
+    "bestFor": "Chân dung hoài niệm, cảnh trong nhà, kỷ niệm."
+   },
+   "ERA_36": {
+    "vibe": "Buổi đầu của ảnh màu, năm 1936. Đỏ trầm, màu ngả lam-lục, bảng màu dịu kiểu xưa.",
+    "bestFor": "Phố cổ, tĩnh vật, chân dung cổ điển."
+   },
+   "MONO_125": {
+    "vibe": "Ảnh đen trắng gia đình thập niên 50. Thang xám dài và mượt, tương phản nhẹ, giấy in tông ấm.",
+    "bestFor": "Chân dung gia đình, phố vắng, đời thường."
+   },
+   "AZURE_100": {
+    "vibe": "Phim slide cho du lịch. Mát và sạch, trời xanh trong, đen đặc.",
+    "bestFor": "Biển, bầu trời, phố ban ngày."
+   },
+   "PURE_100": {
+    "vibe": "Phim slide chuyên nghiệp trung thực. Màu trung tính, da tự nhiên, độ trong của slide.",
+    "bestFor": "Chân dung, sản phẩm, du lịch đúng màu."
+   },
+   "DAILY_200": {
+    "vibe": "Phim rẻ hằng ngày của thập niên 2000. Xanh lá như ngọc, xanh lam tươi, cảm giác mát mẻ.",
+    "bestFor": "Công viên, thiên nhiên, dạo phố mỗi ngày."
+   },
+   "PUNCH_100": {
+    "vibe": "Tráng chéo kiểu máy toy: phim slide tráng nhầm thuốc. Vùng sáng vàng lục, vùng tối xanh lam, tương phản gắt.",
+    "bestFor": "Tiệc tùng, đường phố vui nhộn, thử nghiệm táo bạo."
+   },
+   "CRISP_100": {
+    "vibe": "Phim âm bản màu hạt mịn nhất. Đỏ sâu, xanh lam rực, sắc nét và tươi.",
+    "bestFor": "Phong cảnh, kiến trúc, phố phường nhiều màu."
+   },
+   "INFRA": {
+    "vibe": "Chất ảnh hồng ngoại: lá cây hoá hồng đỏ, trời giữ xanh thẫm, da nhạt đi.",
+    "bestFor": "Vườn, rừng, phong cảnh siêu thực."
+   },
+   "RISE_200": {
+    "vibe": "Cuộn phim mới nhất của thời nay, 2023. Ám cam ấm, tương phản gắt, vùng sáng toả quầng, hạt rõ.",
+    "bestFor": "Đường phố, hoàng hôn, ảnh thử nghiệm."
+   },
+   "KODACHROME_64": {
+    "vibe": "Huyền thoại Kodachrome đã ngưng sản xuất từ 2010. Đỏ tươi rực rỡ, trung gian sạch, bóng tối đậm sâu.",
+    "bestFor": "Ảnh du lịch danh lam, phố thị, phong cách editorial vintage."
+   }
+  },
+  "zh": {
+   "KODAK_400": {
+    "vibe": "完美的平衡。温暖怀旧的色彩，细腻的颗粒感。",
+    "bestFor": "日常拍摄、晴天户外、街头摄影。"
+   },
+   "FUJI_400H": {
+    "vibe": "富士标志性的清冷偏绿色调。柔和而通透。",
+    "bestFor": "人像、多云天空、柔和的阴天。"
+   },
+   "ILFORD_HP5": {
+    "vibe": "经典黑白。深邃反差与粗犷颗粒，浓郁的纪实感。",
+    "bestFor": "街头、新闻纪实、建筑。"
+   },
+   "CINEMA_800": {
+    "vibe": "夜色电影的灵魂。钨丝灯白平衡，红色炽亮，暗部泛青。",
+    "bestFor": "夜间街区、霓虹灯、赛博朋克。"
+   },
+   "PORTRA_800": {
+    "vibe": "高感光下的电影质感。极其讨喜的温暖肤色。",
+    "bestFor": "夜景人像、弱光、昏暗场景。"
+   },
+   "PORTRA_160": {
+    "vibe": "极致的细节。超细颗粒，完美自然的肤色还原。",
+    "bestFor": "影棚人像、柔和自然光。"
+   },
+   "AGFA_ULTRA": {
+    "vibe": "胶片时代最鲜艳的饱和度。大胆却不溢色。",
+    "bestFor": "秋日风景、鲜艳穿搭、烈日晴天。"
+   },
+   "FUJI_VELVIA": {
+    "vibe": "风光摄影的传奇。高反差让绿意与天空跃然而出。",
+    "bestFor": "自然旅行、山峦、鲜艳风光。"
+   },
+   "CCD_2000": {
+    "vibe": "早期数码相机的粗粝色彩。偏蓝色调与数码噪点。",
+    "bestFor": "夜间闪光、Y2K、垃圾摇滚风。"
+   },
+   "CCD_PINK": {
+    "vibe": "婴儿粉滤镜配上低反差，梦幻而柔美。",
+    "bestFor": "自拍、轻松Vlog、可爱小物。"
+   },
+   "DISPOSABLE": {
+    "vibe": "一次性相机的质朴质感。清新的绿色、清凉干净的暗部、大颗粒、随机光斑。",
+    "bestFor": "派对、和朋友的自然瞬间。"
+   },
+   "SUPER8": {
+    "vibe": "用8mm胶片重返70年代。巨大颗粒、浓重暗角、琥珀色调。",
+    "bestFor": "复古影片、家庭记忆。"
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "如东南亚清晨般的金黄。细腻颗粒、宽广暗部、温暖发光的肤色。",
+    "bestFor": "清晨旅拍、户外人像、市集街头。"
+   },
+   "KODAK_250D": {
+    "vibe": "超宽宽容度、完美中性、超细颗粒。",
+    "bestFor": "户外拍摄、访谈、日间空镜。"
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "亚洲电影般清冷内敛的色调。",
+    "bestFor": "雨天街拍、电影感人像、静谧氛围。"
+   },
+   "MINI_INSTANT": {
+    "vibe": "口袋里的即时成像照片。色彩清晰，暗部偏冷，高光容易泛白。",
+    "bestFor": "朋友、派对、照片墙、日常随拍。"
+   },
+   "TROPIC_200": {
+    "vibe": "90年代西贡照相馆的颜色。色彩柔和，树叶偏青绿，肤色自然柔美。",
+    "bestFor": "街头生活、家庭时光、东南亚旅行。"
+   },
+   "NIGHT_500T": {
+    "vibe": "保留防光晕层的夜间电影胶片。清冷干净，宽容度大，没有红色光晕。",
+    "bestFor": "夜晚街道、灯光下的室内、电影感视频。"
+   },
+   "GRIT_400": {
+    "vibe": "新闻与街头的黑白。高光硬朗，黑色浓重，颗粒真实。",
+    "bestFor": "街头、纪实、有个性的人像。"
+   },
+   "SQUARE_600": {
+    "vibe": "贴在冰箱门上的方形即时成像照片。高光偏粉，阴影偏绿，柔和温暖。",
+    "bestFor": "在家的朋友、签名快照、梦幻般的日常。"
+   },
+   "FADED_72": {
+    "vibe": "随岁月褪色的70年代家庭相册。青色和黄色褪去，只留下红润，黑色如奶。",
+    "bestFor": "怀旧人像、居家场景、回忆。"
+   },
+   "ERA_36": {
+    "vibe": "彩色摄影的开端，1936年。红色沉稳，色彩偏青绿，柔和的旧时代色调。",
+    "bestFor": "老城、静物、复古人像。"
+   },
+   "MONO_125": {
+    "vibe": "1950年代的黑白家庭照片。灰阶绵长顺滑，反差柔和，相纸带暖调。",
+    "bestFor": "家庭合影、安静的街道、日常生活。"
+   },
+   "AZURE_100": {
+    "vibe": "为旅行而生的反转片。清冷干净，蓝天通透，黑色厚重。",
+    "bestFor": "海、天空、白天的城市。"
+   },
+   "PURE_100": {
+    "vibe": "诚实的专业反转片。中性色彩，自然肤色，反转片的通透。",
+    "bestFor": "人像、产品、真实的旅行。"
+   },
+   "DAILY_200": {
+    "vibe": "2000年代平价的日常胶卷。宝石般的绿，鲜亮的蓝，清新偏冷。",
+    "bestFor": "公园、自然、日常散步。"
+   },
+   "PUNCH_100": {
+    "vibe": "玩具相机交叉冲洗：反转片用负片药水冲。高光黄绿，暗部偏蓝，反差强烈。",
+    "bestFor": "派对、街头玩乐、大胆实验。"
+   },
+   "CRISP_100": {
+    "vibe": "颗粒最细的彩色负片。深红、亮蓝，锐利鲜艳。",
+    "bestFor": "风景、建筑、色彩丰富的城市。"
+   },
+   "INFRA": {
+    "vibe": "红外风格：树叶变成粉红，天空保持深蓝，肤色变白。",
+    "bestFor": "花园、森林、超现实风景。"
+   },
+   "RISE_200": {
+    "vibe": "2023年，这个时代最新的胶卷。暖橙底色，强反差，高光泛光，颗粒明显。",
+    "bestFor": "街头、日落、实验摄影。"
+   },
+   "KODACHROME_64": {
+    "vibe": "柯达克罗姆的传奇，2010年停产。鲜红明快、干净中间调、深邃暗部。",
+    "bestFor": "名胜旅拍、城市风光、复古时尚大片。"
+   }
+  },
+  "zh-TW": {
+   "KODAK_400": {
+    "vibe": "完美的平衡。溫暖懷舊的色彩，細膩的顆粒感。",
+    "bestFor": "日常拍攝、晴天戶外、街頭攝影。"
+   },
+   "FUJI_400H": {
+    "vibe": "富士標誌性的清冷偏綠色調。柔和而通透。",
+    "bestFor": "人像、多雲天空、柔和的陰天。"
+   },
+   "ILFORD_HP5": {
+    "vibe": "經典黑白。深邃反差與粗獷顆粒，濃郁的紀實感。",
+    "bestFor": "街頭、新聞紀實、建築。"
+   },
+   "CINEMA_800": {
+    "vibe": "夜色電影的靈魂。鎢絲燈白平衡，紅色熾亮，暗部泛青。",
+    "bestFor": "夜間街區、霓虹燈、賽博朋克。"
+   },
+   "PORTRA_800": {
+    "vibe": "高感光下的電影質感。極其討喜的溫暖膚色。",
+    "bestFor": "夜景人像、弱光、昏暗場景。"
+   },
+   "PORTRA_160": {
+    "vibe": "極致的細節。超細顆粒，完美自然的膚色還原。",
+    "bestFor": "影棚人像、柔和自然光。"
+   },
+   "AGFA_ULTRA": {
+    "vibe": "膠片時代最鮮豔的飽和度。大膽卻不溢色。",
+    "bestFor": "秋日風景、鮮豔穿搭、烈日晴天。"
+   },
+   "FUJI_VELVIA": {
+    "vibe": "風光攝影的傳奇。高反差讓綠意與天空躍然而出。",
+    "bestFor": "自然旅行、山巒、鮮豔風光。"
+   },
+   "CCD_2000": {
+    "vibe": "早期數碼相機的粗糲色彩。偏藍色調與數碼噪點。",
+    "bestFor": "夜間閃光、Y2K、垃圾搖滾風。"
+   },
+   "CCD_PINK": {
+    "vibe": "嬰兒粉濾鏡配上低反差，夢幻而柔美。",
+    "bestFor": "自拍、輕鬆Vlog、可愛小物。"
+   },
+   "DISPOSABLE": {
+    "vibe": "一次性相機的質樸質感。清新的綠色、清涼乾淨的暗部、大顆粒、隨機光斑。",
+    "bestFor": "派對、和朋友的自然瞬間。"
+   },
+   "SUPER8": {
+    "vibe": "用8mm膠片重返70年代。巨大顆粒、濃重暗角、琥珀色調。",
+    "bestFor": "復古影片、家庭記憶。"
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "如東南亞清晨般的金黃。細膩顆粒、寬廣暗部、溫暖發光的膚色。",
+    "bestFor": "清晨旅拍、戶外人像、市集街頭。"
+   },
+   "KODAK_250D": {
+    "vibe": "超寬寬容度、完美中性、超細顆粒。",
+    "bestFor": "戶外拍攝、訪談、日間空鏡。"
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "亞洲電影般清冷內斂的色調。",
+    "bestFor": "雨天街拍、電影感人像、靜謐氛圍。"
+   },
+   "MINI_INSTANT": {
+    "vibe": "口袋裡的即時成像照片。色彩清晰，暗部偏冷，高光容易泛白。",
+    "bestFor": "朋友、派對、照片牆、日常隨拍。"
+   },
+   "TROPIC_200": {
+    "vibe": "90年代西貢照相館的顏色。色彩柔和，樹葉偏青綠，膚色自然柔美。",
+    "bestFor": "街頭生活、家庭時光、東南亞旅行。"
+   },
+   "NIGHT_500T": {
+    "vibe": "保留防光暈層的夜間電影底片。清冷乾淨，寬容度大，沒有紅色光暈。",
+    "bestFor": "夜晚街道、燈光下的室內、電影感影片。"
+   },
+   "GRIT_400": {
+    "vibe": "新聞與街頭的黑白。高光硬朗，黑色濃重，顆粒真實。",
+    "bestFor": "街頭、紀實、有個性的人像。"
+   },
+   "SQUARE_600": {
+    "vibe": "貼在冰箱門上的方形即時成像照片。高光偏粉，陰影偏綠，柔和溫暖。",
+    "bestFor": "在家的朋友、簽名快照、夢幻般的日常。"
+   },
+   "FADED_72": {
+    "vibe": "隨歲月褪色的70年代家庭相簿。青色和黃色褪去，只留下紅潤，黑色如奶。",
+    "bestFor": "懷舊人像、居家場景、回憶。"
+   },
+   "ERA_36": {
+    "vibe": "彩色攝影的開端，1936年。紅色沉穩，色彩偏青綠，柔和的舊時代色調。",
+    "bestFor": "老城、靜物、復古人像。"
+   },
+   "MONO_125": {
+    "vibe": "1950年代的黑白家庭照片。灰階綿長順滑，反差柔和，相紙帶暖調。",
+    "bestFor": "家庭合影、安靜的街道、日常生活。"
+   },
+   "AZURE_100": {
+    "vibe": "為旅行而生的正片。清冷乾淨，藍天通透，黑色厚重。",
+    "bestFor": "海、天空、白天的城市。"
+   },
+   "PURE_100": {
+    "vibe": "誠實的專業正片。中性色彩，自然膚色，正片的通透。",
+    "bestFor": "人像、產品、真實的旅行。"
+   },
+   "DAILY_200": {
+    "vibe": "2000年代平價的日常底片。寶石般的綠，鮮亮的藍，清新偏冷。",
+    "bestFor": "公園、自然、日常散步。"
+   },
+   "PUNCH_100": {
+    "vibe": "玩具相機交叉沖洗：正片用負片藥水沖。高光黃綠，暗部偏藍，反差強烈。",
+    "bestFor": "派對、街頭玩樂、大膽實驗。"
+   },
+   "CRISP_100": {
+    "vibe": "顆粒最細的彩色負片。深紅、亮藍，銳利鮮豔。",
+    "bestFor": "風景、建築、色彩豐富的城市。"
+   },
+   "INFRA": {
+    "vibe": "紅外風格：樹葉變成粉紅，天空保持深藍，膚色變白。",
+    "bestFor": "花園、森林、超現實風景。"
+   },
+   "RISE_200": {
+    "vibe": "2023年，這個時代最新的底片。暖橙底色，強反差，高光泛光，顆粒明顯。",
+    "bestFor": "街頭、日落、實驗攝影。"
+   },
+   "KODACHROME_64": {
+    "vibe": "柯達克羅姆的傳奇，2010年停產。鮮紅明快、乾淨中間調、深邃暗部。",
+    "bestFor": "名勝旅拍、城市風光、復古時尚大片。"
+   }
+  },
+  "ja": {
+   "KODAK_400": {
+    "vibe": "完璧なバランス。温かくノスタルジックな色と、滑らかな粒状感。",
+    "bestFor": "日常のスナップ、晴れた屋外、ストリート撮影。"
+   },
+   "FUJI_400H": {
+    "vibe": "フジ特有のクールで緑がかったトーン。柔らかく澄んだ描写。",
+    "bestFor": "ポートレート、曇り空、穏やかな曇天。"
+   },
+   "ILFORD_HP5": {
+    "vibe": "クラシックなモノクロ。深いコントラストと粗い粒状感、ドキュメンタリーの質感。",
+    "bestFor": "ストリート、報道写真、建築。"
+   },
+   "CINEMA_800": {
+    "vibe": "夜のシネマの魂。タングステンバランスで赤が輝き、影はシアンを帯びる。",
+    "bestFor": "夜の街、ネオン、サイバーパンク。"
+   },
+   "PORTRA_800": {
+    "vibe": "高感度でも映画のような質感。肌を美しく見せる温かなトーン。",
+    "bestFor": "夜のポートレート、低照度、暗いシーン。"
+   },
+   "PORTRA_160": {
+    "vibe": "最高の解像感。極細の粒状感と、自然で完璧な肌の再現。",
+    "bestFor": "スタジオポートレート、柔らかな自然光。"
+   },
+   "AGFA_ULTRA": {
+    "vibe": "フィルム時代で最も鮮やかな彩度。大胆な色でも破綻しない。",
+    "bestFor": "秋の風景、鮮やかな衣装、強い日差し。"
+   },
+   "FUJI_VELVIA": {
+    "vibe": "風景写真の伝説。高コントラストで緑と空が際立つ。",
+    "bestFor": "自然の旅、山々、鮮やかな風景。"
+   },
+   "CCD_2000": {
+    "vibe": "初期デジカメの荒々しい色。青みがかったノイズとデジタルの質感。",
+    "bestFor": "夜のフラッシュ、Y2K、グランジ。"
+   },
+   "CCD_PINK": {
+    "vibe": "ベビーピンクのフィルターと低コントラストで、夢見るような優しさ。",
+    "bestFor": "セルフィー、ゆるいVlog、かわいい小物。"
+   },
+   "DISPOSABLE": {
+    "vibe": "使い捨てカメラの素朴な質感。みずみずしい緑、涼しく澄んだシャドウ、大きな粒状感、ランダムなフレア。",
+    "bestFor": "パーティー、友達との自然な瞬間。"
+   },
+   "SUPER8": {
+    "vibe": "8mmフィルムで蘇る70年代。大粒の粒状感、強いビネット、琥珀色。",
+    "bestFor": "ヴィンテージ動画、家族の思い出。"
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "東南アジアの朝のような黄金色。繊細な粒状感、広い影、温かく輝く肌。",
+    "bestFor": "朝の旅スナップ、屋外ポートレート、市場の通り。"
+   },
+   "KODAK_250D": {
+    "vibe": "広いラチチュード、完璧なニュートラル、極細の粒状感。",
+    "bestFor": "屋外撮影、インタビュー、日中のBロール。"
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "アジア映画のクールで抑えたトーン。",
+    "bestFor": "雨のストリート、シネマティックなポートレート、静謐なムード。"
+   },
+   "MINI_INSTANT": {
+    "vibe": "ポケットの中のインスタントプリント。くっきりした色、涼しい影、白く飛びやすいハイライト。",
+    "bestFor": "友だち、パーティー、フォトウォール、日常のスナップ。"
+   },
+   "TROPIC_200": {
+    "vibe": "90年代サイゴンの写真屋の色。穏やかな色、青みがかった緑、柔らかく自然な肌。",
+    "bestFor": "街の暮らし、家族の時間、東南アジアの旅。"
+   },
+   "NIGHT_500T": {
+    "vibe": "反射防止層を残したままの夜の映画フィルム。涼しく澄んで、ラティチュードは広く、赤いにじみはない。",
+    "bestFor": "夜の街、照明の下の室内、シネマ風の動画。"
+   },
+   "GRIT_400": {
+    "vibe": "報道とストリートのモノクロ。硬いハイライト、締まった黒、正直な粒子。",
+    "bestFor": "ストリート、ルポルタージュ、味のあるポートレート。"
+   },
+   "SQUARE_600": {
+    "vibe": "冷蔵庫に貼られた正方形のインスタントプリント。ピンクのハイライト、緑の影、柔らかく温かい。",
+    "bestFor": "家で過ごす友だち、サイン入りのスナップ、夢のような日常。"
+   },
+   "FADED_72": {
+    "vibe": "時とともに色褪せた70年代の家族アルバム。シアンと黄色が消え、赤みだけが残り、黒はミルク色。",
+    "bestFor": "懐かしいポートレート、家の情景、思い出。"
+   },
+   "ERA_36": {
+    "vibe": "カラー写真の始まり、1936年。落ち着いた赤、青緑寄りの色、柔らかな古い時代のパレット。",
+    "bestFor": "旧市街、静物、時代を感じるポートレート。"
+   },
+   "MONO_125": {
+    "vibe": "1950年代のモノクロ家族写真。長く滑らかなグレー、穏やかなコントラスト、温かみのある印画紙の色。",
+    "bestFor": "家族写真、静かな通り、日々の暮らし。"
+   },
+   "AZURE_100": {
+    "vibe": "旅のためのスライドフィルム。涼しく澄んだ色、青い空、締まった黒。",
+    "bestFor": "海、空、昼の街。"
+   },
+   "PURE_100": {
+    "vibe": "正直なプロ用スライド。ニュートラルな色、自然な肌、スライドらしいキレ。",
+    "bestFor": "ポートレート、商品、ありのままの旅。"
+   },
+   "DAILY_200": {
+    "vibe": "涼しげな日常フィルム。宝石のような緑、鮮やかな青、涼やかな印象。",
+    "bestFor": "公園、自然、毎日の散歩。"
+   },
+   "PUNCH_100": {
+    "vibe": "トイカメラのクロスプロセス：スライドを別の現像液で。黄緑のハイライト、青い影、硬いコントラスト。",
+    "bestFor": "パーティー、街遊び、大胆な実験。"
+   },
+   "CRISP_100": {
+    "vibe": "最も粒子の細かいカラーネガ。深い赤、鮮烈な青、シャープで鮮やか。",
+    "bestFor": "風景、建築、カラフルな街。"
+   },
+   "INFRA": {
+    "vibe": "赤外線の世界観：葉はピンクと赤に、空は深い青のまま、肌は白っぽく。",
+    "bestFor": "庭、森、シュールな風景。"
+   },
+   "RISE_200": {
+    "vibe": "2023年、いちばん新しいフィルム。暖かなオレンジ、硬いコントラスト、光るハイライト、見える粒子。",
+    "bestFor": "ストリート、夕暮れ、実験的な写真。"
+   },
+   "KODACHROME_64": {
+    "vibe": "2010年に生産終了したコダクロームの伝説。鮮烈な赤、クリーンな中間調、深い影。",
+    "bestFor": "名所の旅、都市風景、ヴィンテージなエディトリアル。"
+   }
+  },
+  "ko": {
+   "KODAK_400": {
+    "vibe": "완벽한 균형. 따뜻하고 아련한 색감과 부드러운 그레인.",
+    "bestFor": "일상 스냅, 맑은 야외, 거리 사진."
+   },
+   "FUJI_400H": {
+    "vibe": "후지 특유의 시원하고 초록빛 도는 톤. 부드럽고 맑은 묘사.",
+    "bestFor": "인물, 흐린 하늘, 잔잔한 흐린 날."
+   },
+   "ILFORD_HP5": {
+    "vibe": "클래식 흑백. 깊은 대비와 거친 그레인, 다큐멘터리 감성.",
+    "bestFor": "거리 사진, 포토저널리즘, 건축."
+   },
+   "CINEMA_800": {
+    "vibe": "밤 영화의 영혼. 텅스텐 밸런스로 붉은빛이 빛나고 그림자는 청록빛.",
+    "bestFor": "밤거리, 네온, 사이버펑크."
+   },
+   "PORTRA_800": {
+    "vibe": "고감도에서도 영화 같은 질감. 피부를 돋보이게 하는 따뜻한 톤.",
+    "bestFor": "야간 인물, 저조도, 어두운 장면."
+   },
+   "PORTRA_160": {
+    "vibe": "최고의 디테일. 초미세 그레인과 완벽하고 자연스러운 피부 재현.",
+    "bestFor": "스튜디오 인물, 부드러운 자연광."
+   },
+   "AGFA_ULTRA": {
+    "vibe": "필름 시대 가장 선명한 채도. 과감한 색도 뭉개지지 않아요.",
+    "bestFor": "가을 풍경, 화려한 의상, 강한 햇빛."
+   },
+   "FUJI_VELVIA": {
+    "vibe": "풍경 사진의 전설. 높은 대비로 초록과 하늘이 살아나요.",
+    "bestFor": "자연 여행, 산, 선명한 풍경."
+   },
+   "CCD_2000": {
+    "vibe": "초기 디지털카메라의 거친 색감. 푸른 기운과 디지털 노이즈.",
+    "bestFor": "야간 플래시, Y2K, 그런지."
+   },
+   "CCD_PINK": {
+    "vibe": "베이비 핑크 필터와 낮은 대비로 몽환적이고 사랑스러운 느낌.",
+    "bestFor": "셀피, 잔잔한 브이로그, 귀여운 소품."
+   },
+   "DISPOSABLE": {
+    "vibe": "일회용 카메라의 투박한 질감. 싱그러운 초록, 시원하고 깨끗한 그림자, 큰 그레인, 무작위 플레어.",
+    "bestFor": "파티, 친구와의 자연스러운 순간."
+   },
+   "SUPER8": {
+    "vibe": "8mm 필름으로 되살아나는 70년대. 거대한 그레인, 짙은 비네팅, 앰버 톤.",
+    "bestFor": "빈티지 영상, 가족의 추억."
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "동남아의 아침 같은 황금빛. 고운 그레인, 넓은 그림자, 따뜻하게 빛나는 피부.",
+    "bestFor": "아침 여행 스냅, 야외 인물, 시장 거리."
+   },
+   "KODAK_250D": {
+    "vibe": "넓은 관용도, 완벽한 중립, 초미세 그레인.",
+    "bestFor": "야외 촬영, 인터뷰, 낮 B롤."
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "아시아 영화의 차분하고 절제된 톤.",
+    "bestFor": "비 오는 거리, 시네마틱 인물, 사색적인 무드."
+   },
+   "MINI_INSTANT": {
+    "vibe": "주머니 속 즉석 사진. 선명한 색, 시원한 그림자, 하얗게 날아가기 쉬운 하이라이트.",
+    "bestFor": "친구, 파티, 사진 벽, 일상 스냅."
+   },
+   "TROPIC_200": {
+    "vibe": "90년대 사이공 사진관의 색. 부드러운 색, 청록빛 나뭇잎, 자연스러운 피부.",
+    "bestFor": "거리의 일상, 가족의 순간, 동남아시아 여행."
+   },
+   "NIGHT_500T": {
+    "vibe": "헐레이션 방지층을 그대로 둔 밤의 영화 필름. 시원하고 깨끗하며 관용도가 넓고 붉은 번짐이 없다.",
+    "bestFor": "밤거리, 조명 아래 실내, 시네마틱 영상."
+   },
+   "GRIT_400": {
+    "vibe": "보도와 거리의 흑백. 강한 하이라이트, 깊은 검정, 정직한 입자.",
+    "bestFor": "스트리트, 르포르타주, 개성 있는 인물."
+   },
+   "SQUARE_600": {
+    "vibe": "냉장고 문에 붙인 정사각형 즉석 사진. 분홍빛 하이라이트, 초록빛 그늘, 부드럽고 따뜻하다.",
+    "bestFor": "집에서의 친구들, 사인한 스냅, 꿈같은 일상."
+   },
+   "FADED_72": {
+    "vibe": "세월에 바랜 70년대 가족 앨범. 청록과 노랑이 빠지고 붉은빛만 남은, 우윳빛 검정.",
+    "bestFor": "향수 어린 인물, 집 안 풍경, 추억."
+   },
+   "ERA_36": {
+    "vibe": "컬러 사진의 시작, 1936년. 차분한 빨강, 청록으로 기운 색, 부드러운 옛 시대의 팔레트.",
+    "bestFor": "옛 거리, 정물, 시대감 있는 인물."
+   },
+   "MONO_125": {
+    "vibe": "1950년대 흑백 가족 사진. 길고 매끄러운 회색, 부드러운 대비, 따뜻한 인화지 톤.",
+    "bestFor": "가족 사진, 조용한 거리, 일상."
+   },
+   "AZURE_100": {
+    "vibe": "여행을 위한 슬라이드 필름. 시원하고 깨끗한 색, 맑은 하늘, 깊은 검정.",
+    "bestFor": "바다, 하늘, 낮의 도시."
+   },
+   "PURE_100": {
+    "vibe": "정직한 프로 슬라이드. 중립적인 색, 자연스러운 피부, 슬라이드다운 선명함.",
+    "bestFor": "인물, 제품, 있는 그대로의 여행."
+   },
+   "DAILY_200": {
+    "vibe": "2000년대의 저렴한 일상 필름. 보석 같은 초록, 선명한 파랑, 시원한 느낌.",
+    "bestFor": "공원, 자연, 매일의 산책."
+   },
+   "PUNCH_100": {
+    "vibe": "토이 카메라 크로스 프로세스: 슬라이드를 다른 약품으로. 노랑-초록 하이라이트, 파란 그림자, 강한 대비.",
+    "bestFor": "파티, 거리의 재미, 과감한 실험."
+   },
+   "CRISP_100": {
+    "vibe": "가장 입자가 고운 컬러 네거티브. 깊은 빨강, 생생한 파랑, 선명하고 화사함.",
+    "bestFor": "풍경, 건축, 다채로운 도시."
+   },
+   "INFRA": {
+    "vibe": "적외선 느낌: 나뭇잎은 분홍과 빨강으로, 하늘은 짙은 파랑, 피부는 창백하게.",
+    "bestFor": "정원, 숲, 초현실적인 풍경."
+   },
+   "RISE_200": {
+    "vibe": "2023년, 지금 가장 새로운 필름. 따뜻한 주황빛, 강한 대비, 빛나는 하이라이트, 보이는 입자.",
+    "bestFor": "거리, 노을, 실험적인 사진."
+   },
+   "KODACHROME_64": {
+    "vibe": "2010년 단종된 코다크롬의 전설. 선명한 빨강, 깨끗한 중간톤, 깊은 그림자.",
+    "bestFor": "명소 여행, 도시 풍경, 빈티지 에디토리얼."
+   }
+  },
+  "th": {
+   "KODAK_400": {
+    "vibe": "ความสมดุลที่สมบูรณ์แบบ โทนสีอบอุ่นชวนให้นึกถึงอดีตพร้อมลายไม้เรียบลื่น",
+    "bestFor": "การใช้งานในชีวิตประจำวัน, กลางแจ้งที่มีแสงแดดจ้า, การถ่ายภาพแนวสตรีท"
+   },
+   "FUJI_400H": {
+    "vibe": "โทนฟูจิสีเขียวอันเป็นเอกลักษณ์ นุ่มนวลและกระจ่างใส",
+    "bestFor": "ภาพบุคคล ท้องฟ้ามีเมฆมาก วันที่มีเมฆครึ้มเบาๆ"
+   },
+   "ILFORD_HP5": {
+    "vibe": "คลาสสิคขาวดำ. คอนทราสต์ที่ลุ่มลึกและเกรนหยาบพร้อมขอบสารคดี",
+    "bestFor": "การถ่ายภาพแนวสตรีท วารสารศาสตร์ด้วยภาพ สถาปัตยกรรม"
+   },
+   "CINEMA_800": {
+    "vibe": "จิตวิญญาณแห่งการชมภาพยนตร์ยามค่ำคืน ทังสเตนมีความสมดุลสำหรับสีแดงที่เปล่งประกายและเงาที่แต่งแต้มด้วยสีฟ้า",
+    "bestFor": "จัตุรัสกลางคืน ไฟนีออน สไตล์ไซเบอร์พังค์"
+   },
+   "PORTRA_800": {
+    "vibe": "ความรู้สึกแบบภาพยนตร์ที่มีความไวสูง โทนสีผิวที่อบอุ่นและสอพลอมาก",
+    "bestFor": "ภาพบุคคลตอนกลางคืน แสงน้อย ฉากสลัว"
+   },
+   "PORTRA_160": {
+    "vibe": "รายละเอียดที่ดีที่สุด เม็ดละเอียดพิเศษและการสร้างผิวใหม่ที่สมบูรณ์แบบและเป็นธรรมชาติ",
+    "bestFor": "ภาพสตูดิโอ แสงธรรมชาตินวลๆ"
+   },
+   "AGFA_ULTRA": {
+    "vibe": "ความอิ่มตัวที่คมชัดที่สุดแห่งยุคภาพยนตร์ สีหนาที่ไม่เคยหนีบ",
+    "bestFor": "ทิวทัศน์ในฤดูใบไม้ร่วง เสื้อผ้าที่มีชีวิตชีวา วันที่มีแดดจัด"
+   },
+   "FUJI_VELVIA": {
+    "vibe": "ตำนานภูมิทัศน์ คอนทราสต์สูงที่ทำให้สีเขียวและท้องฟ้าโดดเด่น",
+    "bestFor": "ท่องเที่ยวธรรมชาติ ภูเขา ทิวทัศน์ที่สดใส"
+   },
+   "CCD_2000": {
+    "vibe": "สีหยาบของกล้องดิจิตอลในยุคแรกๆ โทนสีน้ำเงินและเสียงดิจิตอล",
+    "bestFor": "แฟลชกลางคืน สไตล์ Y2K กรันจ์"
+   },
+   "CCD_PINK": {
+    "vibe": "ฟิลเตอร์สีชมพูเบบี้ที่มีความเปรียบต่างต่ำให้ความรู้สึกเหมือนฝันและเป็นผู้หญิง",
+    "bestFor": "เซลฟี่, วิดีโอบล็อกเบาๆ, วัตถุน่ารักๆ"
+   },
+   "DISPOSABLE": {
+    "vibe": "ความรู้สึกดิบๆ ของกล้องแบบใช้ครั้งเดียว เขียวสดชื่น เงาเย็นและสะอาด เม็ดใหญ่ แสงแฟลร์แบบสุ่ม",
+    "bestFor": "ปาร์ตี้ ช่วงเวลาสบายๆ กับเพื่อนฝูง"
+   },
+   "SUPER8": {
+    "vibe": "หวนคิดถึงยุค 70 ด้วยฟิล์ม 8 มม. เกรนขนาดใหญ่ บทความหนา โทนสีอำพัน",
+    "bestFor": "วิดีโอวินเทจ ความทรงจำของครอบครัว"
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "สีทองเหมือนยามเช้าของเอเชียตะวันออกเฉียงใต้ เม็ดละเอียด เงากว้าง ผิวเปล่งประกายอบอุ่น",
+    "bestFor": "ภาพถ่ายท่องเที่ยวยามรุ่งสาง ภาพบุคคลกลางแจ้ง ถนนในตลาด"
+   },
+   "KODAK_250D": {
+    "vibe": "ละติจูดที่กว้างมาก เมล็ดที่เป็นกลางและละเอียดมาก",
+    "bestFor": "การสร้างภาพยนตร์กลางแจ้ง การสัมภาษณ์ B-roll ในเวลากลางวัน"
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "โทนเย็นและนุ่มนวลของหนังเอเชีย",
+    "bestFor": "ภาพถนนสายฝน ภาพบุคคลในภาพยนตร์ อารมณ์ครุ่นคิด"
+   },
+   "MINI_INSTANT": {
+    "vibe": "ภาพอินสแตนต์ในกระเป๋า สีคมชัด เงาโทนเย็น ไฮไลต์ขาวโพลนง่าย",
+    "bestFor": "เพื่อน ปาร์ตี้ ผนังรูป ภาพสแนปประจำวัน"
+   },
+   "TROPIC_200": {
+    "vibe": "ร้านถ่ายรูปไซ่ง่อนยุค 90 สีนุ่มนวล ใบไม้เขียวอมฟ้า ผิวเป็นธรรมชาติและนุ่มนวล",
+    "bestFor": "ชีวิตริมถนน ช่วงเวลาครอบครัว การเดินทางในเอเชียตะวันออกเฉียงใต้"
+   },
+   "NIGHT_500T": {
+    "vibe": "ฟิล์มภาพยนตร์กลางคืนที่ยังมีชั้นกันแสงฟุ้ง เย็น สะอาด ละติจูดกว้าง ไม่มีแสงเรืองสีแดง",
+    "bestFor": "ถนนยามค่ำคืน ภายในใต้แสงโคมไฟ วิดีโอสไตล์ภาพยนตร์"
+   },
+   "GRIT_400": {
+    "vibe": "ขาวดำของงานข่าวและถนน ไฮไลต์แข็ง ดำแน่น เกรนตรงไปตรงมา",
+    "bestFor": "สตรีท สารคดีข่าว พอร์ตเทรตที่มีเอกลักษณ์"
+   },
+   "SQUARE_600": {
+    "vibe": "ภาพอินสแตนต์สี่เหลี่ยมจัตุรัสบนประตูตู้เย็น ไฮไลต์อมชมพู เงาอมเขียว นุ่มและอบอุ่น",
+    "bestFor": "เพื่อนที่บ้าน ภาพที่มีลายเซ็น ชีวิตประจำวันแสนฝัน"
+   },
+   "FADED_72": {
+    "vibe": "อัลบั้มครอบครัวยุค 70 ที่ซีดจางตามกาลเวลา ฟ้าอมเขียวและเหลืองหายไป เหลือแต่แดงอมชมพู ดำเป็นสีน้ำนม",
+    "bestFor": "พอร์ตเทรตแบบคิดถึง ภาพในบ้าน ความทรงจำ"
+   },
+   "ERA_36": {
+    "vibe": "จุดเริ่มต้นของภาพสี ปี 1936 แดงที่สงบ สีเอนไปทางเขียวอมฟ้า จานสีนุ่มแบบยุคเก่า",
+    "bestFor": "เมืองเก่า ภาพหุ่นนิ่ง พอร์ตเทรตแบบย้อนยุค"
+   },
+   "MONO_125": {
+    "vibe": "ภาพครอบครัวขาวดำยุค 50 โทนเทายาวและเนียน คอนทราสต์อ่อนโยน กระดาษโทนอุ่น",
+    "bestFor": "ภาพครอบครัว ถนนเงียบสงบ ชีวิตประจำวัน"
+   },
+   "AZURE_100": {
+    "vibe": "ฟิล์มสไลด์สำหรับการเดินทาง เย็นและใส ท้องฟ้าสีฟ้าใส ดำแน่น",
+    "bestFor": "ทะเล ท้องฟ้า เมืองตอนกลางวัน"
+   },
+   "PURE_100": {
+    "vibe": "สไลด์มืออาชีพที่ซื่อตรง สีเป็นกลาง ผิวเป็นธรรมชาติ ความใสแบบสไลด์",
+    "bestFor": "พอร์ตเทรต สินค้า การเดินทางสีจริง"
+   },
+   "DAILY_200": {
+    "vibe": "ฟิล์มราคาประหยัดประจำวันยุค 2000 เขียวดั่งอัญมณี ฟ้าสดใส ความรู้สึกเย็นสดชื่น",
+    "bestFor": "สวนสาธารณะ ธรรมชาติ การเดินเล่นทุกวัน"
+   },
+   "PUNCH_100": {
+    "vibe": "ครอสโพรเซสแบบกล้องของเล่น: ฟิล์มสไลด์ในน้ำยาผิดประเภท ไฮไลต์เหลืองอมเขียว เงาสีฟ้า คอนทราสต์จัด",
+    "bestFor": "ปาร์ตี้ ความสนุกริมถนน การทดลองกล้าหาญ"
+   },
+   "CRISP_100": {
+    "vibe": "ฟิล์มเนกาทีฟสีที่เกรนละเอียดที่สุด แดงลึก ฟ้าสด คมและสดใส",
+    "bestFor": "ทิวทัศน์ สถาปัตยกรรม เมืองหลากสี"
+   },
+   "INFRA": {
+    "vibe": "ลุคอินฟราเรด: ใบไม้กลายเป็นชมพูและแดง ท้องฟ้ายังน้ำเงินเข้ม ผิวซีดลง",
+    "bestFor": "สวน ป่า ทิวทัศน์เหนือจริง"
+   },
+   "RISE_200": {
+    "vibe": "ฟิล์มใหม่ที่สุดในยุคของเรา ปี 2023 โทนส้มอบอุ่น คอนทราสต์จัด ไฮไลต์เรืองแสง เกรนชัด",
+    "bestFor": "สตรีท พระอาทิตย์ตก ภาพทดลอง"
+   },
+   "KODACHROME_64": {
+    "vibe": "ตำนาน Kodachrome ยุติการผลิตตั้งแต่ปี 2010 สีแดงสดใส โทนสีกลางที่สะอาดตา และเงาที่ลึก",
+    "bestFor": "การเดินทางที่สวยงาม ทิวทัศน์เมือง บทบรรณาธิการวินเทจ"
+   }
+  },
+  "id": {
+   "KODAK_400": {
+    "vibe": "Keseimbangan sempurna. Warna-warna hangat dan nostalgia dengan butiran halus.",
+    "bestFor": "Penggunaan sehari-hari, di luar ruangan yang cerah, fotografi jalanan."
+   },
+   "FUJI_400H": {
+    "vibe": "Nada khas Fuji yang sejuk dan kehijauan. Lembut dan jernih.",
+    "bestFor": "Potret, langit mendung, hari mendung lembut."
+   },
+   "ILFORD_HP5": {
+    "vibe": "Hitam putih klasik. Kontras mendalam dan butiran kasar dengan sentuhan dokumenter.",
+    "bestFor": "Fotografi jalanan, foto jurnalistik, arsitektur."
+   },
+   "CINEMA_800": {
+    "vibe": "Jiwa bioskop malam. Seimbang tungsten untuk warna merah menyala dan bayangan semburat sian.",
+    "bestFor": "Kotak malam, lampu neon, gaya cyberpunk."
+   },
+   "PORTRA_800": {
+    "vibe": "Nuansa sinematik dengan sensitivitas tinggi. Warna kulit yang sangat bagus dan hangat.",
+    "bestFor": "Potret malam, cahaya redup, pemandangan redup."
+   },
+   "PORTRA_160": {
+    "vibe": "Detil terbaik. Butir ultra halus dan reproduksi kulit alami yang sempurna.",
+    "bestFor": "Potret studio, cahaya alami lembut."
+   },
+   "AGFA_ULTRA": {
+    "vibe": "Saturasi paling jelas di era film. Warna berani yang tidak pernah terpotong.",
+    "bestFor": "Pemandangan musim gugur, pakaian cerah, hari-hari cerah yang terik."
+   },
+   "FUJI_VELVIA": {
+    "vibe": "Legenda lanskap. Kontras tinggi yang membuat warna hijau dan langit menonjol.",
+    "bestFor": "Perjalanan alam, pegunungan, pemandangan yang hidup."
+   },
+   "CCD_2000": {
+    "vibe": "Warna berpasir dari kamera digital awal. Pemeran biru dan gangguan digital.",
+    "bestFor": "Kilatan malam, gaya Y2K, grunge."
+   },
+   "CCD_PINK": {
+    "vibe": "Filter warna baby-pink dengan kontras rendah untuk kesan feminin dan dreamy.",
+    "bestFor": "Selfie, vlog lembut, objek lucu."
+   },
+   "DISPOSABLE": {
+    "vibe": "Nuansa mentah dari kamera sekali pakai. Hijau segar, bayangan sejuk dan bersih, butiran besar, suar acak.",
+    "bestFor": "Pesta, momen candid bersama teman."
+   },
+   "SUPER8": {
+    "vibe": "Hidupkan kembali tahun 70an dalam film 8mm. Butiran besar, sketsa tebal, warna kuning.",
+    "bestFor": "Video antik, kenangan keluarga."
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "Keemasan seperti pagi di Asia Tenggara. Butiran halus, bayangan lebar, kulit bercahaya hangat.",
+    "bestFor": "Foto perjalanan saat fajar, potret luar ruangan, jalan-jalan pasar."
+   },
+   "KODAK_250D": {
+    "vibe": "Garis lintang sangat lebar, netral sempurna, butiran sangat halus.",
+    "bestFor": "Pembuatan film luar ruangan, wawancara, B-roll siang hari."
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "Nuansa sinema Asia yang sejuk dan tenang.",
+    "bestFor": "Bidikan jalanan yang hujan, potret sinematik, suasana kontemplatif."
+   },
+   "MINI_INSTANT": {
+    "vibe": "Foto instan di saku Anda. Warna tegas, bayangan sejuk, highlight yang mudah memutih.",
+    "bestFor": "Teman, pesta, dinding foto, jepretan sehari-hari."
+   },
+   "TROPIC_200": {
+    "vibe": "Toko foto Saigon tahun 90-an. Warna lembut, daun hijau kebiruan, kulit alami yang halus.",
+    "bestFor": "Kehidupan jalanan, momen keluarga, perjalanan di Asia Tenggara."
+   },
+   "NIGHT_500T": {
+    "vibe": "Film bioskop malam dengan lapisan anti-halasinya utuh. Sejuk, bersih, latitude lebar, tanpa pendar merah.",
+    "bestFor": "Jalanan malam, interior di bawah lampu, video sinematik."
+   },
+   "GRIT_400": {
+    "vibe": "Hitam putih pers dan jalanan. Highlight keras, hitam pekat, butiran jujur.",
+    "bestFor": "Jalanan, reportase, potret berkarakter."
+   },
+   "SQUARE_600": {
+    "vibe": "Foto instan persegi di pintu kulkas. Highlight merah muda, bayangan hijau, lembut dan hangat.",
+    "bestFor": "Teman di rumah, jepretan bertanda tangan, keseharian yang syahdu."
+   },
+   "FADED_72": {
+    "vibe": "Album keluarga tahun 70-an yang pudar dimakan waktu. Sian dan kuning hilang, tersisa merah kemerahan, hitam seperti susu.",
+    "bestFor": "Potret nostalgia, suasana rumah, kenangan."
+   },
+   "ERA_36": {
+    "vibe": "Awal mula fotografi berwarna, 1936. Merah yang kalem, warna condong hijau kebiruan, palet lembut zaman dulu.",
+    "bestFor": "Kota tua, still life, potret bernuansa zaman."
+   },
+   "MONO_125": {
+    "vibe": "Cetakan keluarga hitam putih tahun 50-an. Gradasi abu-abu panjang dan halus, kontras lembut, kertas bernada hangat.",
+    "bestFor": "Potret keluarga, jalan yang sepi, kehidupan sehari-hari."
+   },
+   "AZURE_100": {
+    "vibe": "Film slide untuk perjalanan. Sejuk dan bersih, langit biru jernih, hitam pekat.",
+    "bestFor": "Laut, langit, kota di siang hari."
+   },
+   "PURE_100": {
+    "vibe": "Slide profesional yang jujur. Warna netral, kulit alami, kejernihan khas slide.",
+    "bestFor": "Potret, produk, perjalanan dengan warna asli."
+   },
+   "DAILY_200": {
+    "vibe": "Film murah sehari-hari tahun 2000-an. Hijau bak permata, biru cerah, nuansa sejuk.",
+    "bestFor": "Taman, alam, jalan-jalan harian."
+   },
+   "PUNCH_100": {
+    "vibe": "Cross-process ala kamera mainan: film slide dengan kimia yang keliru. Highlight kuning kehijauan, bayangan biru, kontras keras.",
+    "bestFor": "Pesta, keseruan jalanan, eksperimen berani."
+   },
+   "CRISP_100": {
+    "vibe": "Film negatif warna dengan butiran paling halus. Merah pekat, biru menyala, tajam dan hidup.",
+    "bestFor": "Lanskap, arsitektur, kota penuh warna."
+   },
+   "INFRA": {
+    "vibe": "Tampilan inframerah: daun menjadi merah muda dan merah, langit tetap biru tua, kulit memucat.",
+    "bestFor": "Taman, hutan, lanskap surealis."
+   },
+   "RISE_200": {
+    "vibe": "Film terbaru di zaman kita, 2023. Rona oranye hangat, kontras keras, highlight berpendar, butiran terlihat.",
+    "bestFor": "Jalanan, matahari terbenam, foto eksperimental."
+   },
+   "KODACHROME_64": {
+    "vibe": "Legenda Kodachrome, dihentikan sejak 2010. Merah cerah, midtone bersih, bayangan dalam.",
+    "bestFor": "Perjalanan indah, pemandangan kota, editorial vintage."
+   }
+  },
+  "ms": {
+   "KODAK_400": {
+    "vibe": "Keseimbangan sempurna. Warna hangat dan nostalgia dengan butiran halus.",
+    "bestFor": "Penggunaan setiap hari, di luar yang cerah, fotografi jalanan."
+   },
+   "FUJI_400H": {
+    "vibe": "Nada Fuji yang sejuk dan kehijauan. Lembut dan jernih.",
+    "bestFor": "Potret, langit mendung, hari mendung lembut."
+   },
+   "ILFORD_HP5": {
+    "vibe": "Hitam & putih klasik. Kontras dalam dan butiran kasar dengan tepi dokumentari.",
+    "bestFor": "Fotografi jalanan, foto jurnalistik, seni bina."
+   },
+   "CINEMA_800": {
+    "vibe": "Jiwa pawagam malam. Tungsten-seimbang untuk merah bercahaya dan bayang-bayang berwarna sian.",
+    "bestFor": "Petak malam, lampu neon, gaya cyberpunk."
+   },
+   "PORTRA_800": {
+    "vibe": "Rasa sinematik pada sensitiviti tinggi. Warna kulit yang sangat menyanjung dan hangat.",
+    "bestFor": "Potret malam, cahaya malap, pemandangan malap."
+   },
+   "PORTRA_160": {
+    "vibe": "Perincian terbaik. Bijirin ultra halus dan pembiakan kulit semulajadi yang sempurna.",
+    "bestFor": "Potret studio, cahaya semula jadi yang lembut."
+   },
+   "AGFA_ULTRA": {
+    "vibe": "Tepu paling jelas dalam era filem. Warna berani yang tidak pernah klip.",
+    "bestFor": "Landskap musim luruh, pakaian meriah, hari cerah yang teruk."
+   },
+   "FUJI_VELVIA": {
+    "vibe": "Lagenda landskap. Kontras tinggi yang menjadikan kehijauan dan langit muncul.",
+    "bestFor": "Perjalanan alam, gunung, pemandangan yang terang."
+   },
+   "CCD_2000": {
+    "vibe": "Warna berpasir kamera digital awal. Pelakon biru dan bunyi digital.",
+    "bestFor": "Denyar malam, gaya Y2K, grunge."
+   },
+   "CCD_PINK": {
+    "vibe": "Penapis bayi-merah jambu dengan kontras rendah untuk rasa feminin yang indah.",
+    "bestFor": "Selfie, vlog lembut, objek comel."
+   },
+   "DISPOSABLE": {
+    "vibe": "Rasa mentah kamera sekali guna. Hijau segar, bayang sejuk dan bersih, bijirin besar, suar rawak.",
+    "bestFor": "Majlis, momen berterus terang dengan rakan-rakan."
+   },
+   "SUPER8": {
+    "vibe": "Hidupkan semula tahun 70-an pada filem 8mm. Bijirin besar, vignet berat, ton ambar.",
+    "bestFor": "Video vintaj, kenangan keluarga."
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "Emas seperti pagi Asia Tenggara. Bijirin halus, bayang-bayang lebar, kulit bercahaya hangat.",
+    "bestFor": "Gambar perjalanan subuh, potret luar, jalan pasar."
+   },
+   "KODAK_250D": {
+    "vibe": "Latitud ultra lebar, neutral sempurna, butiran ultra halus.",
+    "bestFor": "Pembikinan filem luar, temu bual, B-roll siang hari."
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "Nada pawagam Asia yang sejuk dan tenang.",
+    "bestFor": "Gambar jalanan hujan, potret sinematik, mood kontemplatif."
+   },
+   "MINI_INSTANT": {
+    "vibe": "Foto segera di dalam poket. Warna jelas, bayang sejuk, sorotan yang mudah menjadi putih.",
+    "bestFor": "Kawan, parti, dinding foto, petikan harian."
+   },
+   "TROPIC_200": {
+    "vibe": "Kedai foto Saigon tahun 90-an. Warna lembut, daun hijau kebiruan, kulit semula jadi yang lembut.",
+    "bestFor": "Kehidupan jalanan, saat bersama keluarga, perjalanan di Asia Tenggara."
+   },
+   "NIGHT_500T": {
+    "vibe": "Filem pawagam malam dengan lapisan anti-halasinya masih utuh. Sejuk, bersih, latitud luas, tanpa cahaya merah.",
+    "bestFor": "Jalan waktu malam, ruang dalam di bawah lampu, video sinematik."
+   },
+   "GRIT_400": {
+    "vibe": "Hitam putih akhbar dan jalanan. Sorotan keras, hitam pekat, bijian yang jujur.",
+    "bestFor": "Jalanan, laporan, potret berkarakter."
+   },
+   "SQUARE_600": {
+    "vibe": "Foto segera segi empat di pintu peti sejuk. Sorotan merah jambu, bayang hijau, lembut dan hangat.",
+    "bestFor": "Kawan di rumah, petikan bertandatangan, harian yang bagai mimpi."
+   },
+   "FADED_72": {
+    "vibe": "Album keluarga tahun 70-an yang pudar dimamah masa. Sian dan kuning hilang, tinggal merah kemerahan, hitam seperti susu.",
+    "bestFor": "Potret nostalgia, suasana rumah, kenangan."
+   },
+   "ERA_36": {
+    "vibe": "Permulaan fotografi berwarna, 1936. Merah yang lembut, warna condong hijau kebiruan, palet lembut zaman dahulu.",
+    "bestFor": "Bandar lama, alam benda, potret bergaya zaman."
+   },
+   "MONO_125": {
+    "vibe": "Cetakan keluarga hitam putih tahun 50-an. Kelabu panjang dan licin, kontras lembut, kertas bernada hangat.",
+    "bestFor": "Potret keluarga, jalan yang sunyi, kehidupan harian."
+   },
+   "AZURE_100": {
+    "vibe": "Filem slaid untuk perjalanan. Sejuk dan bersih, langit biru jernih, hitam pekat.",
+    "bestFor": "Laut, langit, bandar pada siang hari."
+   },
+   "PURE_100": {
+    "vibe": "Slaid profesional yang jujur. Warna neutral, kulit semula jadi, kejernihan slaid.",
+    "bestFor": "Potret, produk, perjalanan dengan warna sebenar."
+   },
+   "DAILY_200": {
+    "vibe": "Filem harian murah tahun 2000-an. Hijau bagai permata, biru terang, rasa segar dan sejuk.",
+    "bestFor": "Taman, alam semula jadi, bersiar-siar setiap hari."
+   },
+   "PUNCH_100": {
+    "vibe": "Proses silang gaya kamera mainan: filem slaid dalam kimia yang salah. Sorotan kuning kehijauan, bayang biru, kontras keras.",
+    "bestFor": "Parti, keseronokan jalanan, eksperimen berani."
+   },
+   "CRISP_100": {
+    "vibe": "Filem negatif warna dengan bijian paling halus. Merah pekat, biru menyala, tajam dan hidup.",
+    "bestFor": "Landskap, seni bina, bandar penuh warna."
+   },
+   "INFRA": {
+    "vibe": "Rupa inframerah: daun menjadi merah jambu dan merah, langit kekal biru tua, kulit menjadi pucat.",
+    "bestFor": "Taman, hutan, landskap surealis."
+   },
+   "RISE_200": {
+    "vibe": "Filem terbaharu zaman kita, 2023. Rona oren hangat, kontras keras, sorotan bercahaya, bijian ketara.",
+    "bestFor": "Jalanan, matahari terbenam, foto eksperimen."
+   },
+   "KODACHROME_64": {
+    "vibe": "Legenda Kodachrome, dihentikan sejak 2010. Merah terang, nada tengah bersih, bayang-bayang dalam.",
+    "bestFor": "Perjalanan indah, pemandangan bandar, editorial vintaj."
+   }
+  },
+  "tl": {
+   "KODAK_400": {
+    "vibe": "Perpektong balanse. Mainit, nostalhik na mga kulay na may makinis na butil.",
+    "bestFor": "Araw-araw na gamit, maaraw sa labas, street photography."
+   },
+   "FUJI_400H": {
+    "vibe": "Signature cool, greenish Fuji tones. Malambot at mala-kristal.",
+    "bestFor": "Mga larawan, maulap na kalangitan, banayad na maulap na araw."
+   },
+   "ILFORD_HP5": {
+    "vibe": "Klasikong itim at puti. Malalim na kaibahan at magaspang na butil na may gilid ng dokumentaryo.",
+    "bestFor": "Street photography, photojournalism, arkitektura."
+   },
+   "CINEMA_800": {
+    "vibe": "Ang kaluluwa ng night cinema. Tungsten-balanced para sa kumikinang na pula at cyan-tinged na mga anino.",
+    "bestFor": "Mga night square, neon lights, cyberpunk style."
+   },
+   "PORTRA_800": {
+    "vibe": "Isang cinematic na pakiramdam sa mataas na sensitivity. Lubhang nakakabigay-puri, mainit-init na kulay ng balat.",
+    "bestFor": "Mga larawan sa gabi, mahinang ilaw, madilim na mga eksena."
+   },
+   "PORTRA_160": {
+    "vibe": "Ang pinakamagandang detalye. Napakahusay na butil at perpekto, natural na pagpaparami ng balat.",
+    "bestFor": "Mga portrait ng studio, malambot na natural na liwanag."
+   },
+   "AGFA_ULTRA": {
+    "vibe": "Ang pinaka matingkad na saturation ng panahon ng pelikula. Naka-bold na kulay na hindi na-clip.",
+    "bestFor": "Mga tanawin ng taglagas, makulay na damit, malupit na maaraw na araw."
+   },
+   "FUJI_VELVIA": {
+    "vibe": "Ang alamat ng landscape. Mataas na contrast na nagpapalabas ng mga gulay at kalangitan.",
+    "bestFor": "Paglalakbay sa kalikasan, kabundukan, matingkad na tanawin."
+   },
+   "CCD_2000": {
+    "vibe": "Ang magaspang na kulay ng mga naunang digital camera. Isang asul na cast at digital na ingay.",
+    "bestFor": "Night flash, istilong Y2K, grunge."
+   },
+   "CCD_PINK": {
+    "vibe": "Isang baby-pink na filter na may mababang contrast para sa isang parang panaginip, pambabae na pakiramdam.",
+    "bestFor": "Mga selfie, magiliw na vlog, mga cute na bagay."
+   },
+   "DISPOSABLE": {
+    "vibe": "Ang hilaw na pakiramdam ng isang single-use na camera. Sariwang berde, malamig at malinis na anino, malaking butil, random flare.",
+    "bestFor": "Mga party, candid moments kasama ang mga kaibigan."
+   },
+   "SUPER8": {
+    "vibe": "Ibalik ang 70s sa 8mm na pelikula. Napakalaking butil, mabigat na vignette, amber tone.",
+    "bestFor": "Vintage na video, mga alaala ng pamilya."
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "Gintong parang umaga sa Southeast Asia. Pinong butil, malapad na anino, mainit na kumikinang na balat.",
+    "bestFor": "Mga kuha sa paglalakbay sa madaling araw, mga larawan sa labas, mga lansangan ng pamilihan."
+   },
+   "KODAK_250D": {
+    "vibe": "Ultra-wide latitude, perpektong neutral, napaka-pinong butil.",
+    "bestFor": "Panlabas na paggawa ng pelikula, mga panayam, pang-araw na B-roll."
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "Ang cool, subdued tone ng Asian cinema.",
+    "bestFor": "Mga maulan na kuha sa kalye, cinematic na portrait, mapagnilay-nilay na mood."
+   },
+   "MINI_INSTANT": {
+    "vibe": "Ang instant na litrato sa iyong bulsa. Malinaw na kulay, malamig na anino, highlight na madaling pumuti.",
+    "bestFor": "Mga kaibigan, party, pader ng litrato, araw-araw na kuha."
+   },
+   "TROPIC_200": {
+    "vibe": "Mga photo shop ng Saigon noong dekada 90. Malambot na kulay, berdeng-bughaw na dahon, natural at malambot na balat.",
+    "bestFor": "Buhay sa kalye, sandali ng pamilya, paglalakbay sa Timog-Silangang Asya."
+   },
+   "NIGHT_500T": {
+    "vibe": "Pelikulang pang-sinehan sa gabi na buo pa ang anti-halation layer. Malamig, malinis, malawak ang latitude, walang pulang liwanag.",
+    "bestFor": "Kalye sa gabi, loob ng bahay sa ilalim ng ilaw, cinematic na video."
+   },
+   "GRIT_400": {
+    "vibe": "Ang black and white ng pahayagan at kalye. Matigas na highlight, siksik na itim, tapat na butil.",
+    "bestFor": "Kalye, reportage, mga portrait na may karakter."
+   },
+   "SQUARE_600": {
+    "vibe": "Ang parisukat na instant na litrato sa pinto ng ref. Pink na highlight, berdeng lilim, malambot at mainit.",
+    "bestFor": "Mga kaibigan sa bahay, pinirmahang kuha, mapangaraping araw-araw."
+   },
+   "FADED_72": {
+    "vibe": "Isang family album noong dekada 70 na kumupas sa paglipas ng panahon. Nawala ang cyan at dilaw, naiwan ang mapulang kulay, gatas na itim.",
+    "bestFor": "Nostalgic na portrait, eksena sa bahay, mga alaala."
+   },
+   "ERA_36": {
+    "vibe": "Ang simula ng kulay na litrato, 1936. Mahinahong pula, kulay na kumikiling sa berdeng-bughaw, malambot na paleta ng nakaraan.",
+    "bestFor": "Lumang bayan, still life, portrait na pang-panahon."
+   },
+   "MONO_125": {
+    "vibe": "Isang itim-at-puting litrato ng pamilya noong dekada 50. Mahaba at makinis na abo, banayad na contrast, mainit na tono ng papel.",
+    "bestFor": "Portrait ng pamilya, tahimik na kalye, araw-araw na buhay."
+   },
+   "AZURE_100": {
+    "vibe": "Slide film para sa paglalakbay. Malamig at malinis, malinaw na asul na langit, siksik na itim.",
+    "bestFor": "Dagat, langit, lungsod sa araw."
+   },
+   "PURE_100": {
+    "vibe": "Ang tapat na propesyonal na slide. Neutral na kulay, natural na balat, linaw ng slide.",
+    "bestFor": "Portrait, produkto, totoong kulay ng biyahe."
+   },
+   "DAILY_200": {
+    "vibe": "Ang murang pang-araw-araw na film ng dekada 2000. Berdeng parang hiyas, matingkad na asul, sariwang lamig.",
+    "bestFor": "Parke, kalikasan, araw-araw na paglalakad."
+   },
+   "PUNCH_100": {
+    "vibe": "Toy-camera cross-processing: slide film sa maling kemikal. Dilaw-berdeng highlight, asul na anino, matigas na contrast.",
+    "bestFor": "Party, saya sa kalye, matatapang na eksperimento."
+   },
+   "CRISP_100": {
+    "vibe": "Ang color negative na may pinakapinong butil. Malalim na pula, matingkad na asul, matalas at buhay.",
+    "bestFor": "Tanawin, arkitektura, makukulay na lungsod."
+   },
+   "INFRA": {
+    "vibe": "Isang infrared na itsura: nagiging pink at pula ang mga dahon, nananatiling malalim na asul ang langit, pumuputla ang balat.",
+    "bestFor": "Hardin, kagubatan, surreal na tanawin."
+   },
+   "RISE_200": {
+    "vibe": "Ang pinakabagong film ng ating panahon, 2023. Mainit na kahel na tint, matigas na contrast, kumikinang na highlight, kitang butil.",
+    "bestFor": "Kalye, paglubog ng araw, eksperimental na larawan."
+   },
+   "KODACHROME_64": {
+    "vibe": "Ang Kodachrome legend, itinigil mula noong 2010. Matingkad na pula, malinis na midtones, malalim na anino.",
+    "bestFor": "Magandang paglalakbay, cityscape, vintage editorial."
+   }
+  },
+  "km": {
+   "KODAK_400": {
+    "vibe": "តុល្យភាពល្អឥតខ្ចោះ។ ពណ៌ក្តៅ ស្រណោះស្រណោក ជាមួយនឹងគ្រាប់ធញ្ញជាតិរលោង។",
+    "bestFor": "ការប្រើប្រាស់ប្រចាំថ្ងៃ ពន្លឺថ្ងៃនៅខាងក្រៅ ការថតរូបតាមដងផ្លូវ។"
+   },
+   "FUJI_400H": {
+    "vibe": "ហត្ថលេខាពណ៌ Fuji ពណ៌បៃតងខ្ចី។ ទន់ និងភ្លឺថ្លា។",
+    "bestFor": "រូបគំនូរ, ផ្ទៃមេឃមានពពក, ថ្ងៃស្រពោនទន់ភ្លន់។"
+   },
+   "ILFORD_HP5": {
+    "vibe": "ស និងខ្មៅបុរាណ។ កម្រិតពណ៌ជ្រៅ និងគ្រាប់ធញ្ញជាតិរដុបជាមួយនឹងគែមឯកសារ។",
+    "bestFor": "ស្ថាបត្យកម្ម ថតរូបតាមដងផ្លូវ។"
+   },
+   "CINEMA_800": {
+    "vibe": "ព្រលឹងនៃភាពយន្តពេលយប់។ Tungsten-មានតុល្យភាពសម្រាប់ពណ៌ក្រហមភ្លឺ និងស្រមោលពណ៌ខៀវខ្ចី។",
+    "bestFor": "ការ៉េពេលយប់ ពន្លឺអ៊ីយូតា រចនាប័ទ្ម cyberpunk ។"
+   },
+   "PORTRA_800": {
+    "vibe": "អារម្មណ៍ភាពយន្តនៅភាពប្រែប្រួលខ្ពស់។ សម្លេងស្បែកក្តៅក្រហាយខ្លាំង។",
+    "bestFor": "រូបថតពេលយប់ ពន្លឺតិច ទេសភាពស្រអាប់។"
+   },
+   "PORTRA_160": {
+    "vibe": "ព័ត៌មានលម្អិតល្អបំផុត។ គ្រាប់ធញ្ញជាតិល្អឥតខ្ចោះ និងល្អឥតខ្ចោះ បន្តពូជស្បែកធម្មជាតិ។",
+    "bestFor": "រូបថតស្ទូឌីយោ ពន្លឺធម្មជាតិទន់។"
+   },
+   "AGFA_ULTRA": {
+    "vibe": "ការតិត្ថិភាពដ៏រស់រវើកបំផុតនៃយុគសម័យខ្សែភាពយន្ត។ ពណ៌ដិតដែលមិនជាប់។",
+    "bestFor": "ទេសភាពរដូវស្លឹកឈើជ្រុះ សំលៀកបំពាក់រស់រវើក ថ្ងៃដែលមានពន្លឺថ្ងៃខ្លាំង។"
+   },
+   "FUJI_VELVIA": {
+    "vibe": "រឿងព្រេងនិទានទេសភាព។ កម្រិតពណ៌ខ្ពស់ដែលធ្វើឱ្យពណ៌បៃតង និងផ្ទៃមេឃលេចឡើង។",
+    "bestFor": "ដំណើរកំសាន្តធម្មជាតិ ភ្នំ ទេសភាពរស់រវើក។"
+   },
+   "CCD_2000": {
+    "vibe": "ពណ៌ក្រម៉ៅនៃកាមេរ៉ាឌីជីថលដំបូង។ សម្លេងពណ៌ខៀវ និងឌីជីថល។",
+    "bestFor": "ពន្លឺពេលយប់, រចនាប័ទ្ម Y2K, grunge ។"
+   },
+   "CCD_PINK": {
+    "vibe": "តម្រង​ពណ៌​ផ្កាឈូក​សម្រាប់​ទារក​ដែល​មាន​កម្រិត​ពណ៌​ទាប​សម្រាប់​អារម្មណ៍​នារី​ដែល​ស្រមើស្រមៃ។",
+    "bestFor": "ការថតសែលហ្វី, វីដេអូឃ្លីបដ៏ទន់ភ្លន់, វត្ថុគួរឱ្យស្រលាញ់។"
+   },
+   "DISPOSABLE": {
+    "vibe": "អារម្មណ៍ឆៅនៃកាមេរ៉ាប្រើតែមួយ។ ពណ៌បៃតងស្រស់ ស្រមោលត្រជាក់ស្អាត គ្រាប់ធំ ពន្លឺចៃដន្យ។",
+    "bestFor": "ពិធីជប់លៀង, ពេលវេលាច្បាស់លាស់ជាមួយមិត្តភក្តិ។"
+   },
+   "SUPER8": {
+    "vibe": "រំលឹកទសវត្សរ៍ទី 70 លើខ្សែភាពយន្ត 8mm ។ គ្រាប់​ធញ្ញជាតិ​ដ៏​ធំ ពន្លឺ​ពណ៌​ធ្ងន់ សម្លេង​ពណ៌​លឿង។",
+    "bestFor": "វីដេអូបុរាណ អនុស្សាវរីយ៍គ្រួសារ។"
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "មាសដូចព្រឹកអាស៊ីអាគ្នេយ៍។ គ្រាប់ធញ្ញជាតិល្អ ស្រមោលធំទូលាយ ស្បែកភ្លឺចែងចាំង។",
+    "bestFor": "រូបថតធ្វើដំណើរពេលព្រឹកព្រលឹម រូបថតខាងក្រៅ ផ្លូវផ្សារ។"
+   },
+   "KODAK_250D": {
+    "vibe": "រយៈទទឹងជ្រុល អព្យាក្រឹតឥតខ្ចោះ គ្រាប់ធញ្ញជាតិល្អបំផុត។",
+    "bestFor": "ការ​ថត​រឿង​ក្រៅ​ឆាក ការ​សម្ភាសន៍​ពេល​ថ្ងៃ B-roll ។"
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "ទឹកដមសម្លេងដ៏ត្រជាក់នៃភាពយន្តអាស៊ី។",
+    "bestFor": "រូបគំនូរតាមដងផ្លូវភ្លៀង រូបភាពយន្ត អារម្មណ៍សញ្ជឹងគិត។"
+   },
+   "MINI_INSTANT": {
+    "vibe": "រូបថតភ្លាមៗនៅក្នុងហោប៉ៅ។ ពណ៌ច្បាស់ ស្រមោលត្រជាក់ ផ្នែកភ្លឺងាយឡើងស។",
+    "bestFor": "មិត្តភក្តិ ពិធីជប់លៀង ជញ្ជាំងរូបថត ការថតប្រចាំថ្ងៃ។"
+   },
+   "TROPIC_200": {
+    "vibe": "ហាងថតរូបនៅសៃហ្គននៅទសវត្សរ៍ឆ្នាំ 90។ ពណ៌ទន់ ស្លឹកឈើបៃតងលាយខៀវ ស្បែកធម្មជាតិទន់ល្មើយ។",
+    "bestFor": "ជីវិតតាមផ្លូវ ពេលវេលាគ្រួសារ ការធ្វើដំណើរនៅអាស៊ីអាគ្នេយ៍។"
+   },
+   "NIGHT_500T": {
+    "vibe": "ហ្វីលភាពយន្តពេលយប់ដែលនៅមានស្រទាប់ការពារពន្លឺភ្លាត។ ត្រជាក់ ស្អាត ជួរពន្លឺធំទូលាយ គ្មានពន្លឺក្រហម។",
+    "bestFor": "ផ្លូវពេលយប់ ខាងក្នុងក្រោមចង្កៀង វីដេអូបែបភាពយន្ត។"
+   },
+   "GRIT_400": {
+    "vibe": "ស-ខ្មៅនៃសារព័ត៌មាន និងផ្លូវ។ ផ្នែកភ្លឺរឹង ខ្មៅក្រាស់ គ្រាប់ហ្វីលពិតប្រាកដ។",
+    "bestFor": "ផ្លូវ របាយការណ៍ រូបបុគ្គលមានចរិតលក្ខណៈ។"
+   },
+   "SQUARE_600": {
+    "vibe": "រូបថតភ្លាមៗរាងការ៉េនៅលើទ្វារទូទឹកកក។ ផ្នែកភ្លឺពណ៌ផ្កាឈូក ម្លប់ពណ៌បៃតង ទន់ និងកក់ក្តៅ។",
+    "bestFor": "មិត្តភក្តិនៅផ្ទះ រូបថតមានហត្ថលេខា ជីវិតប្រចាំថ្ងៃដូចសុបិន។"
+   },
+   "FADED_72": {
+    "vibe": "អាល់ប៊ុមគ្រួសារទសវត្សរ៍ 70 ដែលស្រអាប់តាមពេលវេលា។ ពណ៌ខៀវខ្ចី និងលឿងបាត់ នៅសល់តែពណ៌ក្រហមស្រាល ខ្មៅដូចទឹកដោះគោ។",
+    "bestFor": "រូបបុគ្គលនឹករលឹក ទិដ្ឋភាពក្នុងផ្ទះ អនុស្សាវរីយ៍។"
+   },
+   "ERA_36": {
+    "vibe": "ការចាប់ផ្តើមនៃរូបថតពណ៌ ឆ្នាំ 1936។ ពណ៌ក្រហមស្ងប់ ពណ៌ទៅរកខៀវបៃតង ក្ដារលាយពណ៌ទន់នៃសម័យមុន។",
+    "bestFor": "ទីក្រុងចាស់ វត្ថុស្ងៀម រូបបុគ្គលបែបសម័យ។"
+   },
+   "MONO_125": {
+    "vibe": "រូបថតគ្រួសារស-ខ្មៅទសវត្សរ៍ 50។ ពណ៌ប្រផេះវែង និងរលោង កម្រិតពន្លឺស្រាល ក្រដាសពណ៌កក់ក្តៅ។",
+    "bestFor": "រូបថតគ្រួសារ ផ្លូវស្ងាត់ ជីវិតប្រចាំថ្ងៃ។"
+   },
+   "AZURE_100": {
+    "vibe": "ហ្វីលស្លាយសម្រាប់ការធ្វើដំណើរ។ ត្រជាក់ និងស្អាត មេឃខៀវថ្លា ខ្មៅក្រាស់។",
+    "bestFor": "សមុទ្រ មេឃ ទីក្រុងពេលថ្ងៃ។"
+   },
+   "PURE_100": {
+    "vibe": "ហ្វីលស្លាយអាជីពដ៏ស្មោះត្រង់។ ពណ៌អព្យាក្រឹត ស្បែកធម្មជាតិ ភាពច្បាស់នៃស្លាយ។",
+    "bestFor": "រូបបុគ្គល ផលិតផល ការធ្វើដំណើរពណ៌ពិត។"
+   },
+   "DAILY_200": {
+    "vibe": "ហ្វីលថោកប្រចាំថ្ងៃនៃទសវត្សរ៍ 2000។ បៃតងដូចត្បូង ខៀវភ្លឺ អារម្មណ៍ស្រស់ត្រជាក់។",
+    "bestFor": "សួនច្បារ ធម្មជាតិ ការដើរលេងប្រចាំថ្ងៃ។"
+   },
+   "PUNCH_100": {
+    "vibe": "ការលាងឆ្លងបែបម៉ាស៊ីនថតលេង៖ ហ្វីលស្លាយក្នុងថ្នាំខុសប្រភេទ។ ផ្នែកភ្លឺលឿងបៃតង ស្រមោលខៀវ កម្រិតពន្លឺខ្លាំង។",
+    "bestFor": "ពិធីជប់លៀង ការលេងតាមផ្លូវ ការពិសោធន៍ក្លាហាន។"
+   },
+   "CRISP_100": {
+    "vibe": "ហ្វីលអវិជ្ជមានពណ៌ដែលគ្រាប់ល្អិតបំផុត។ ក្រហមជ្រៅ ខៀវរស់រវើក មុតស្រួច និងរស់រវើក។",
+    "bestFor": "ទេសភាព ស្ថាបត្យកម្ម ទីក្រុងចម្រុះពណ៌។"
+   },
+   "INFRA": {
+    "vibe": "រូបរាងអ៊ីនហ្វ្រារ៉េដ៖ ស្លឹកឈើក្លាយជាពណ៌ផ្កាឈូក និងក្រហម មេឃនៅខៀវចាស់ ស្បែកស្លេក។",
+    "bestFor": "សួន ព្រៃ ទេសភាពអស្ចារ្យ។"
+   },
+   "RISE_200": {
+    "vibe": "ហ្វីលថ្មីបំផុតនៃសម័យយើង ឆ្នាំ 2023។ ពណ៌ទឹកក្រូចកក់ក្តៅ កម្រិតពន្លឺខ្លាំង ផ្នែកភ្លឺបញ្ចេញពន្លឺ គ្រាប់មើលឃើញ។",
+    "bestFor": "ផ្លូវ ថ្ងៃលិច រូបថតពិសោធន៍។"
+   },
+   "KODACHROME_64": {
+    "vibe": "រឿងព្រេងនិទាន Kodachrome ឈប់ផលិតតាំងពីឆ្នាំ 2010។ ពណ៌ក្រហមរស់រវើក សម្លេងកណ្តាលស្អាត ស្រមោលជ្រៅ។",
+    "bestFor": "ដំណើរកំសាន្តទេសភាព ទេសភាពទីក្រុង វិចារណកថារសជាតិ។"
+   }
+  },
+  "lo": {
+   "KODAK_400": {
+    "vibe": "ຄວາມສົມດຸນທີ່ສົມບູນແບບ. ສີທີ່ອົບອຸ່ນ, nostalgic ມີເມັດກ້ຽງ.",
+    "bestFor": "ການນໍາໃຊ້ປະຈໍາວັນ, ແດດອອກນອກ, ການຖ່າຍຮູບຖະຫນົນ."
+   },
+   "FUJI_400H": {
+    "vibe": "ລາຍເຊັນຂອງສຽງ Fuji ເຢັນ, ສີຂຽວ. ອ່ອນນຸ້ມ ແລະຊັດເຈນ.",
+    "bestFor": "ຮູບຄົນ, ທ້ອງຟ້າມີເມກ, ມື້ໝອກຄ້ຳອ່ອນໆ."
+   },
+   "ILFORD_HP5": {
+    "vibe": "ຄລາສິກສີດໍາແລະສີຂາວ. ຄວາມຄົມຊັດເລິກ ແລະ ເມັດຫຍາບທີ່ມີຂອບສາລະຄະດີ.",
+    "bestFor": "ການຖ່າຍຮູບຕາມຖະຫນົນ, ນັກຂ່າວ, ສະຖາປັດຕະຍະກໍາ."
+   },
+   "CINEMA_800": {
+    "vibe": "ຈິດວິນຍານຂອງຮູບເງົາໃນຕອນກາງຄືນ. Tungsten-ດຸ່ນດ່ຽງສໍາລັບສີແດງທີ່ເຫຼື້ອມເປັນເງົາແລະເງົາສີຂຽວ.",
+    "bestFor": "ສີ່ຫຼ່ຽມກາງຄືນ, ໄຟ neon, ແບບ cyberpunk."
+   },
+   "PORTRA_800": {
+    "vibe": "ຄວາມຮູ້ສຶກ cinematic ທີ່ຄວາມອ່ອນໄຫວສູງ. ໂທນຜິວໜັງທີ່ອົບອຸ່ນ, ຟົດຟື້ນທີ່ສຸດ.",
+    "bestFor": "ຮູບຖ່າຍກາງຄືນ, ແສງໜ້ອຍ, ສາກມືດ."
+   },
+   "PORTRA_160": {
+    "vibe": "ລາຍລະອຽດທີ່ດີທີ່ສຸດ. ເມັດພືດທີ່ລະອຽດອ່ອນ ແລະສົມບູນແບບ, ການສືບພັນຂອງຜິວໜັງຕາມທຳມະຊາດ.",
+    "bestFor": "ຮູບຖ່າຍສະຕູດິໂອ, ແສງທຳມະຊາດອ່ອນໆ."
+   },
+   "AGFA_ULTRA": {
+    "vibe": "ການອີ່ມຕົວ vivid ທີ່ສຸດຂອງຍຸກເດ. ສີເຂັ້ມທີ່ບໍ່ເຄີຍຕັດ.",
+    "bestFor": "ພູມສັນຖານດູໃບໄມ້ລົ່ນ, ເຄື່ອງນຸ່ງທີ່ມີຊີວິດຊີວາ, ມື້ທີ່ມີບ່ອນມີແດດທີ່ຮຸນແຮງ."
+   },
+   "FUJI_VELVIA": {
+    "vibe": "ນິທານພູມສັນຖານ. ຄວາມຄົມຊັດສູງທີ່ເຮັດໃຫ້ສີຂຽວ ແລະທ້ອງຟ້າປະກົດຂຶ້ນ.",
+    "bestFor": "ການທ່ອງທ່ຽວທໍາມະຊາດ, ພູເຂົາ, ທິວທັດ vivid."
+   },
+   "CCD_2000": {
+    "vibe": "ສີເຂັ້ມຂອງກ້ອງດິຈິຕອລຕົ້ນໆ. ສຽງໂຫວດທັງຫມົດສີຟ້າແລະດິຈິຕອນ.",
+    "bestFor": "ແຟລດກາງຄືນ, ແບບ Y2K, grunge."
+   },
+   "CCD_PINK": {
+    "vibe": "ຟິວເຕີເດັກນ້ອຍສີບົວທີ່ມີຄວາມຄົມຊັດຕໍ່າເພື່ອໃຫ້ຄວາມຮູ້ສຶກຝັນເປັນຜູ້ຍິງ.",
+    "bestFor": "ເຊວຟີ, vlogs ອ່ອນໂຍນ, ວັດຖຸທີ່ໜ້າຮັກ."
+   },
+   "DISPOSABLE": {
+    "vibe": "ຄວາມຮູ້ສຶກດິບຂອງກ້ອງຖ່າຍຮູບທີ່ໃຊ້ຄັ້ງດຽວ. ສີຂຽວສົດ, ເງົາເຢັນ ແລະ ສະອາດ, ເມັດໃຫຍ່, ແສງແຟຣສຸ່ມ.",
+    "bestFor": "ງານລ້ຽງ, ຊ່ວງເວລາຈິງໆກັບໝູ່ເພື່ອນ."
+   },
+   "SUPER8": {
+    "vibe": "ກັບຄືນສູ່ຍຸກ 70s ໃນຮູບເງົາ 8mm. ເມັດພືດຂະຫນາດໃຫຍ່, vignette ຫນັກ, ໂຕນອໍາພັນ.",
+    "bestFor": "ວິດີໂອ Vintage, ຄວາມຊົງຈໍາຂອງຄອບຄົວ."
+   },
+   "KODAK_GOLD_200": {
+    "vibe": "ສີທອງຄືກັບຕອນເຊົ້າຂອງອາຊີຕາເວັນອອກສຽງໃຕ້. ເມັດພືດລະອຽດ, ເງົາກວ້າງ, ຜິວຫນັງທີ່ອົບອຸ່ນ.",
+    "bestFor": "ຖ່າຍຮູບການເດີນທາງອາລຸນ, ຮູບຄົນນອກ, ຖະໜົນຕະຫຼາດ."
+   },
+   "KODAK_250D": {
+    "vibe": "ເສັ້ນຂະໜານກວ້າງສຸດ, ເປັນກາງຢ່າງສົມບູນ, ເມັດພືດລະອຽດທີ່ສຸດ.",
+    "bestFor": "ການຖ່າຍທຳໜັງກາງແຈ້ງ, ການສໍາພາດ, ຕອນກາງເວັນ B-roll."
+   },
+   "FUJI_ETERNA_160": {
+    "vibe": "ນ້ຳສຽງເຢັນສະບາຍຂອງຮູບເງົາອາຊີ.",
+    "bestFor": "ການສັກຢາຕາມຖະຫນົນຝົນ, ຮູບຄົນໃນ cinematic, ອາລົມ contemplative."
+   },
+   "MINI_INSTANT": {
+    "vibe": "ຮູບພິມທັນທີໃນກະເປົ໋າ. ສີຄົມຊັດ, ເງົາເຢັນ, ສ່ວນແຈ້ງຂາວງ່າຍ.",
+    "bestFor": "ໝູ່ເພື່ອນ, ງານລ້ຽງ, ຝາຮູບ, ຮູບປະຈຳວັນ."
+   },
+   "TROPIC_200": {
+    "vibe": "ຮ້ານຖ່າຍຮູບໄຊງ່ອນຊຸມປີ 90. ສີອ່ອນໂຍນ, ໃບໄມ້ຂຽວອົມຟ້າ, ຜິວທຳມະຊາດອ່ອນນຸ້ມ.",
+    "bestFor": "ຊີວິດຕາມຖະໜົນ, ຊ່ວງເວລາຄອບຄົວ, ການທ່ອງທ່ຽວອາຊີຕາເວັນອອກສຽງໃຕ້."
+   },
+   "NIGHT_500T": {
+    "vibe": "ຟິມຮູບເງົາກາງຄືນທີ່ຍັງມີຊັ້ນກັນແສງສະທ້ອນ. ເຢັນ, ສະອາດ, ຊ່ວງແສງກວ້າງ, ບໍ່ມີແສງແດງ.",
+    "bestFor": "ຖະໜົນກາງຄືນ, ພາຍໃນໃຕ້ໂຄມໄຟ, ວິດີໂອແບບຮູບເງົາ."
+   },
+   "GRIT_400": {
+    "vibe": "ຂາວດຳຂອງໜັງສືພິມ ແລະ ຖະໜົນ. ສ່ວນແຈ້ງແຂງ, ດຳເຂັ້ມ, ເມັດຟິມທີ່ຈິງໃຈ.",
+    "bestFor": "ຖະໜົນ, ລາຍງານຂ່າວ, ຮູບຄົນທີ່ມີເອກະລັກ."
+   },
+   "SQUARE_600": {
+    "vibe": "ຮູບພິມທັນທີຮູບສີ່ຫຼ່ຽມຕິດປະຕູຕູ້ເຢັນ. ສ່ວນແຈ້ງອົມບົວ, ເງົາອົມຂຽວ, ອ່ອນ ແລະ ອົບອຸ່ນ.",
+    "bestFor": "ໝູ່ເພື່ອນຢູ່ເຮືອນ, ຮູບທີ່ມີລາຍເຊັນ, ຊີວິດປະຈຳວັນຄືຄວາມຝັນ."
+   },
+   "FADED_72": {
+    "vibe": "ອະລະບຳຄອບຄົວຊຸມປີ 70 ທີ່ຈາງໄປຕາມເວລາ. ສີຟ້າ ແລະ ເຫຼືອງຫາຍໄປ ເຫຼືອແຕ່ສີແດງອົມບົວ, ສີດຳຄືນົມ.",
+    "bestFor": "ຮູບຄົນແບບຄິດຮອດ, ພາບໃນເຮືອນ, ຄວາມຊົງຈຳ."
+   },
+   "ERA_36": {
+    "vibe": "ຈຸດເລີ່ມຕົ້ນຂອງຮູບສີ, ປີ 1936. ສີແດງສະຫງົບ, ສີອຽງໄປທາງຂຽວອົມຟ້າ, ຈານສີອ່ອນໆແບບສະໄໝເກົ່າ.",
+    "bestFor": "ເມືອງເກົ່າ, ພາບນິ່ງ, ຮູບຄົນແບບຍຸກເກົ່າ."
+   },
+   "MONO_125": {
+    "vibe": "ຮູບຄອບຄົວຂາວດຳຊຸມປີ 50. ສີເທົາຍາວ ແລະ ລຽບ, ຄວາມຕ່າງແສງອ່ອນໆ, ເຈ້ຍໂທນອົບອຸ່ນ.",
+    "bestFor": "ຮູບຄອບຄົວ, ຖະໜົນງຽບ, ຊີວິດປະຈຳວັນ."
+   },
+   "AZURE_100": {
+    "vibe": "ຟິມສະໄລສຳລັບການທ່ອງທ່ຽວ. ເຢັນ ແລະ ສະອາດ, ທ້ອງຟ້າຄາມໃສ, ສີດຳເຂັ້ມ.",
+    "bestFor": "ທະເລ, ທ້ອງຟ້າ, ເມືອງຍາມກາງເວັນ."
+   },
+   "PURE_100": {
+    "vibe": "ສະໄລມືອາຊີບທີ່ຊື່ສັດ. ສີເປັນກາງ, ຜິວທຳມະຊາດ, ຄວາມໃສແບບສະໄລ.",
+    "bestFor": "ຮູບຄົນ, ສິນຄ້າ, ການທ່ອງທ່ຽວສີຈິງ."
+   },
+   "DAILY_200": {
+    "vibe": "ຟິມລາຄາຖືກປະຈຳວັນຂອງຊຸມປີ 2000. ຂຽວຄືແກ້ວ, ຟ້າສົດໃສ, ຄວາມຮູ້ສຶກສົດຊື່ນເຢັນ.",
+    "bestFor": "ສວນສາທາລະນະ, ທຳມະຊາດ, ການຍ່າງປະຈຳວັນ."
+   },
+   "PUNCH_100": {
+    "vibe": "ການລ້າງຂ້າມແບບກ້ອງຫຼິ້ນ: ຟິມສະໄລໃນນ້ຳຢາຜິດປະເພດ. ສ່ວນແຈ້ງເຫຼືອງອົມຂຽວ, ເງົາຟ້າ, ຄວາມຕ່າງແສງແຂງ.",
+    "bestFor": "ງານລ້ຽງ, ຄວາມມ່ວນຕາມຖະໜົນ, ການທົດລອງທີ່ກ້າຫານ."
+   },
+   "CRISP_100": {
+    "vibe": "ຟິມເນເກທິບສີທີ່ເມັດລະອຽດທີ່ສຸດ. ແດງເລິກ, ຟ້າສົດ, ຄົມຊັດ ແລະ ມີຊີວິດຊີວາ.",
+    "bestFor": "ທິວທັດ, ສະຖາປັດຕະຍະກຳ, ເມືອງຫຼາກສີ."
+   },
+   "INFRA": {
+    "vibe": "ແບບອິນຟຣາເຣດ: ໃບໄມ້ກາຍເປັນສີບົວ ແລະ ແດງ, ທ້ອງຟ້າຍັງຄາມເຂັ້ມ, ຜິວຈາງລົງ.",
+    "bestFor": "ສວນ, ປ່າ, ທິວທັດເໜືອຈິງ."
+   },
+   "RISE_200": {
+    "vibe": "ຟິມໃໝ່ທີ່ສຸດໃນຍຸກເຮົາ, ປີ 2023. ສີສົ້ມອົບອຸ່ນ, ຄວາມຕ່າງແສງແຂງ, ສ່ວນແຈ້ງເຫຼື້ອມ, ເມັດຟິມເຫັນຊັດ.",
+    "bestFor": "ຖະໜົນ, ຕາເວັນຕົກ, ຮູບທົດລອງ."
+   },
+   "KODACHROME_64": {
+    "vibe": "ນິທານ Kodachrome, ຢຸດເຊົາຕັ້ງແຕ່ປີ 2010. ສີແດງສົດໃສ, ສຽງກາງທີ່ສະອາດ, ເງົາເລິກ.",
+    "bestFor": "ການ​ເດີນ​ທາງ​ທີ່​ສວຍ​ງາມ​, cityscapes​, vintage ບັນ​ນາ​ທິ​ການ​."
+   }
+  }
+ }
+}
