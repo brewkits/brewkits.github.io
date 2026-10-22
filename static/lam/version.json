@@ -1,9 +1,10 @@
 {
   "latestVersionCode": 20,
   "minVersionCode": 1,
-  "latestVersionCodeIos": 12,
+  "latestVersionCodeIos": 18,
   "minVersionCodeIos": 1,
   "latestVersionName": "1.0.3",
   "storeUrl": "market://details?id=dev.brewkits.lam",
-  "storeUrlIos": "itms-apps://apps.apple.com/app/id6773256954"
+  "storeUrlIos": "itms-apps://apps.apple.com/app/id6773256954",
+  "latestVersionNameIos": "1.0.3"
 }
