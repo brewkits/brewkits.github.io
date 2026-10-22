@@ -60,6 +60,7 @@ const config: Config = {
           label: 'Docs',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {href: 'https://brewkits.dev/lam/', label: 'LAM App', position: 'left'},
         {
           href: 'https://github.com/brewkits',
           label: 'GitHub',
@@ -70,6 +71,19 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
+        {
+          title: 'Products',
+          items: [
+            {
+              label: 'LAM · Film Camera',
+              href: 'https://brewkits.dev/lam/',
+            },
+            {
+              label: 'LAM Guides',
+              href: 'https://brewkits.dev/lam/guides/',
+            },
+          ],
+        },
         {
           title: 'Docs',
           items: [
