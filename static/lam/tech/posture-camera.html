@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi" data-status="draft">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gập máy, đổi máy ảnh · LAM Kỹ thuật</title>
+<meta name="lam-title-vi" content="Gập máy, đổi máy ảnh · LAM Kỹ thuật">
+<meta name="lam-title-en" content="Fold the phone, change the camera · LAM Engineering">
+<meta name="description" content="Ghi chép kỹ thuật của LAM: thiết kế kính ngắm theo tư thế gập trên điện thoại gập — quang học TLR và kính mờ khổ lớn, nhận diện tư thế trên Android và iOS, lật ảnh trong GPU và các bẫy toạ độ.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://brewkits.dev/lam/tech/posture-camera.html">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/tech/posture-camera.html?lang=vi">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/tech/posture-camera.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/tech/posture-camera.html">
+<meta name="theme-color" content="#0b0907">
+<meta property="og:title" content="Gập máy, đổi máy ảnh — LAM Kỹ thuật">
+<meta property="og:description" content="Thiết kế kính ngắm theo tư thế gập: quang học, nhận diện tư thế, lật ảnh trong GPU.">
+<meta property="og:type" content="article">
+<link rel="icon" href="/img/icon.png">
+<link rel="stylesheet" href="tech.css">
+</head>
+<body>
+<div class="bar">
+  <a class="home" href="index.html"><b>LAM</b> · <span lang="vi">Kỹ thuật</span><span lang="en">Engineering</span></a>
+  <span class="sp"></span>
+  <div class="langs" role="group" aria-label="Language">
+    <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</div>
+
+<main class="wrap">
+<header class="hero">
+  <div class="kicker"><span lang="vi">Ghi chép kỹ thuật · Camera &amp; thiết bị gập</span><span lang="en">Engineering note · Camera &amp; foldables</span></div>
+  <h1><span lang="vi">Gập máy, đổi máy ảnh</span><span lang="en">Fold the phone, change the camera</span></h1>
+  <p class="dek" lang="vi">Cách LAM biến tư thế gập của điện thoại thành kính ngắm của những máy ảnh film khác nhau — từ quang học, cảm biến bản lề, đến một phép lật toạ độ trong GPU và những cái bẫy đi kèm.</p>
+  <p class="dek" lang="en">How LAM turns the fold posture of a phone into the viewfinder of different film cameras — from optics and hinge sensors to a coordinate flip on the GPU and the traps that come with it.</p>
+  <div class="meta">
+    <span class="chip draft"><span lang="vi">Bản nháp · chưa phát hành</span><span lang="en">Draft · unpublished</span></span>
+    <span class="chip"><span lang="vi">Viết 26/10/2026</span><span lang="en">Written 2026-10-26</span></span>
+    <span class="chip"><span lang="vi">Phát hành</span><span lang="en">Published</span>&nbsp;<span class="tbd">TBD</span></span>
+    <span class="chip">Android · iOS</span>
+  </div>
+  <nav class="toc" aria-label="Contents">
+    <span class="kicker"><span lang="vi">Nội dung</span><span lang="en">Contents</span></span>
+    <ol></ol>
+  </nav>
+</header>
+
+<section class="tldr">
+  <div class="kicker"><span lang="vi">Tóm tắt</span><span lang="en">In short</span></div>
+  <ul lang="vi">
+    <li>Trên điện thoại gập, nửa máy chứa camera phải dựng đứng để nhìn về phía chủ thể. Nửa còn lại tự nhiên nằm ngang và hướng lên mắt người chụp — đúng vị trí tấm kính mờ của máy ảnh ngắm ngang thắt lưng.</li>
+    <li><span class="plan">LAM gắn mỗi tư thế với một <strong>thân máy</strong> riêng: khổ phim và quang học kính ngắm thay đổi theo, không chỉ bố cục màn hình.</span></li>
+    <li><span class="plan">Quang học của kính ngắm quy về một phép biến đổi toạ độ: TLR lật trái–phải, máy khổ lớn xoay 180°. LAM áp dụng nó đúng một chỗ — khi lấy mẫu texture trong GPU — và đảo ngược nó cho mọi thao tác chạm.</span></li>
+    <li>Ảnh lưu ra luôn đúng chiều thực tế. Phép lật chỉ thuộc về kính ngắm.</li>
+  </ul>
+  <ul lang="en">
+    <li>On a foldable, the half that carries the cameras has to stand upright to face the subject. The other half naturally lies flat and faces the photographer's eyes — exactly where the ground glass of a waist-level camera sits.</li>
+    <li><span class="plan">LAM maps each posture to its own <strong>camera body</strong>: the film format and the finder optics change with it, not just the screen layout.</span></li>
+    <li><span class="plan">Finder optics reduce to a coordinate transform: a TLR flips left–right, a large-format camera rotates 180°. LAM applies it in exactly one place — when sampling the texture on the GPU — and inverts it for every touch.</span></li>
+    <li>Saved photos always keep the real-world orientation. The flip belongs to the finder only.</li>
+  </ul>
+</section>
+
+<h2 id="why"><span lang="vi">Vì sao tư thế cầm máy quan trọng</span><span lang="en">Why the way you hold the camera matters</span></h2>
+<p lang="vi">Khi giơ một chiếc điện thoại lên ngang mắt và hướng về ai đó, ngôn ngữ cơ thể nói rõ ràng: tôi đang chụp bạn. Máy ảnh ngắm ngang thắt lưng tạo ra một quan hệ khác. Người chụp cầm máy trước bụng, cúi đầu nhìn xuống tấm kính mờ, và mắt không đối diện trực tiếp với chủ thể.</p>
+<p lang="en">Raise a phone to eye level and point it at someone, and the body language is unambiguous: I am photographing you. A waist-level camera creates a different relationship. The photographer holds the camera at the waist, looks down into the ground glass, and does not meet the subject eye to eye through a lens.</p>
+<p lang="vi">Nhiếp ảnh gia đường phố <a href="#src-maier">Vivian Maier</a> (1926–2009) chụp phần lớn tác phẩm của mình bằng máy hai ống kính <span class="tm">Rolleiflex</span>, cầm ở ngang thắt lưng. Tư thế này còn hạ thấp điểm nhìn xuống ngang ngực của chủ thể, và đi kèm khung ảnh vuông 6×6 của phim 120 — mười hai kiểu trên một cuộn.</p>
+<p lang="en">Street photographer <a href="#src-maier">Vivian Maier</a> (1926–2009) made most of her work with a twin-lens <span class="tm">Rolleiflex</span> held at the waist. The posture also lowers the point of view to the subject's chest, and comes with the square 6×6 frame of 120 film — twelve exposures per roll.</p>
+<p lang="vi">Điện thoại gập là những thiết bị phổ thông có thể tái tạo tư thế đó mà không cần phụ kiện. Câu hỏi của bài này là: làm thế nào để phần mềm hiểu được tư thế, và nên thay đổi những gì khi tư thế thay đổi.</p>
+<p lang="en">Foldable phones are the mass-market devices that can recreate that posture without an accessory. This note asks how software can understand the posture, and what should change when the posture changes.</p>
+
+<h2 id="optics"><span lang="vi">Quang học: hai kiểu kính mờ</span><span lang="en">Optics: two kinds of ground glass</span></h2>
+<p lang="vi">Máy hai ống kính (TLR) có một ống kính để ngắm và một ống kính để chụp. Ánh sáng từ ống kính ngắm gặp một tấm gương nghiêng 45° rồi hắt lên tấm kính mờ nằm ngang ở nóc máy. Ống kính lật ảnh 180°, tấm gương lật lại theo chiều dọc, nên trên kính mờ ảnh <strong>đứng thẳng nhưng bị đảo trái–phải</strong>. Chủ thể bước sang phải, trên kính ngắm họ đi sang trái. Máy SLR có lăng kính năm mặt để sửa điều này; TLR thì không.</p>
+<p lang="en">A twin-lens reflex (TLR) has one lens for viewing and one for taking. Light from the viewing lens hits a mirror at 45° and is thrown up onto a horizontal ground glass on top of the camera. The lens rotates the image by 180° and the mirror flips it back vertically, so on the glass the image is <strong>upright but reversed left to right</strong>. A subject who steps right moves left in the finder. An SLR adds a pentaprism to correct this; a TLR does not.</p>
+<p lang="vi">Máy view camera khổ lớn (ví dụ phim tấm 4×5 inch) không có gương. Ống kính chiếu thẳng lên tấm kính mờ ở lưng máy, nên ảnh bị <strong>xoay 180°</strong> — vừa lộn ngược vừa đảo trái–phải. Người chụp trùm vải đen lên đầu để nhìn rõ ảnh trên kính, và học cách bố cục với một hình ảnh lộn ngược.</p>
+<p lang="en">A large-format view camera (for example 4×5 inch sheet film) has no mirror. The lens projects straight onto a ground glass at the back, so the image is <strong>rotated 180°</strong> — upside down and reversed left to right. The photographer works under a dark cloth to see the glass, and learns to compose an inverted image.</p>
+
+<figure>
+  <svg viewBox="0 0 640 270" role="img" aria-labelledby="fig1t">
+    <title id="fig1t">TLR and view camera optical paths</title>
+    <g fill="none" stroke="#8a7f6c" stroke-width="1.5">
+      <rect x="110" y="70" width="100" height="160" rx="6"/>
+      <path d="M125 70 L115 38 M205 70 L215 38"/>
+      <path d="M400 95 L400 205 M400 95 L560 80 M400 205 L560 220"/>
+    </g>
+    <g fill="none" stroke="#d4af37" stroke-width="2">
+      <circle cx="110" cy="112" r="13"/><circle cx="110" cy="182" r="13"/>
+      <path d="M145 142 L195 92"/>
+      <path d="M125 70 L205 70" stroke-width="3"/>
+      <path d="M560 70 L560 230" stroke-width="3"/>
+      <rect x="394" y="138" width="12" height="24" rx="3"/>
+    </g>
+    <g fill="none" stroke="#f6dc8f" stroke-width="1.2" stroke-dasharray="4 4">
+      <path d="M48 112 L175 112 L175 70"/>
+      <path d="M358 150 L400 150 L560 150"/>
+    </g>
+    <path d="M175 22 L175 36 M170 31 L175 37 L180 31" stroke="#f3ecdf" stroke-width="1.5" fill="none"/>
+    <path d="M622 150 L606 150 M611 145 L605 150 L611 155" stroke="#f3ecdf" stroke-width="1.5" fill="none"/>
+    <g font-family="IBM Plex Mono, ui-monospace, monospace" font-size="11" fill="#bdb19c">
+      <text x="18" y="257">TLR</text><text x="338" y="257">VIEW CAMERA 4×5</text>
+      <text x="222" y="146" lang="vi">gương 45°</text><text x="222" y="146" lang="en">45° mirror</text>
+      <text x="222" y="74" lang="vi">kính mờ</text><text x="222" y="74" lang="en">ground glass</text>
+      <text x="552" y="246" text-anchor="end" lang="vi">kính mờ</text><text x="552" y="246" text-anchor="end" lang="en">ground glass</text>
+      <text x="400" y="226" text-anchor="middle" lang="vi">ống kính</text><text x="400" y="226" text-anchor="middle" lang="en">lens</text>
+    </g>
+    <g font-family="Georgia, serif" font-size="26" fill="#f3ecdf">
+      <text x="22" y="122">F</text>
+      <text x="332" y="160">F</text>
+    </g>
+    <g font-family="Georgia, serif" font-size="22" fill="#d4af37">
+      <text transform="translate(186 60) scale(-1 1)">F</text>
+      <text transform="translate(596 114) rotate(180)">F</text>
+    </g>
+  </svg>
+  <figcaption><span lang="vi">Hình 1. Trái: TLR — ánh sáng qua ống kính ngắm, phản xạ ở gương 45°, ảnh trên kính mờ đứng thẳng nhưng đảo trái–phải. Phải: view camera — không có gương, ảnh trên kính mờ xoay 180°.</span><span lang="en">Figure 1. Left: TLR — light through the viewing lens reflects off a 45° mirror; the image on the glass is upright but reversed left to right. Right: view camera — no mirror; the image on the glass is rotated 180°.</span></figcaption>
+</figure>
+
+<p lang="vi">Với phần mềm, cả hai kiểu kính ngắm chỉ là một phép biến đổi trên toạ độ chuẩn hoá (u, v) của khung hình:</p>
+<p lang="en">For software, both finders are just a transform on the normalised (u, v) coordinates of the frame:</p>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Kính ngắm</span><span lang="en">Finder</span></th>
+    <th><span lang="vi">Biến đổi</span><span lang="en">Transform</span></th>
+    <th><span lang="vi">Hệ quả khi lia máy</span><span lang="en">What panning feels like</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span lang="vi">Ngang mắt</span><span lang="en">Eye level</span></td><td><code>(u, v)</code></td><td><span lang="vi">Bình thường</span><span lang="en">Normal</span></td></tr>
+    <tr><td><span lang="vi">Ngang thắt lưng (TLR)</span><span lang="en">Waist level (TLR)</span></td><td><code>(1 − u, v)</code></td><td><span lang="vi">Ngang bị đảo, dọc giữ nguyên</span><span lang="en">Horizontal reversed, vertical kept</span></td></tr>
+    <tr><td><span lang="vi">Kính mờ khổ lớn</span><span lang="en">Large-format glass</span></td><td><code>(1 − u, 1 − v)</code></td><td><span lang="vi">Cả hai chiều bị đảo</span><span lang="en">Both axes reversed</span></td></tr>
+  </tbody>
+</table></div>
+<p lang="vi">Cả ba phép biến đổi đều <strong>tự nghịch đảo</strong>: áp dụng hai lần thì về nguyên trạng. Chỉ một hàm vừa biến ảnh để hiển thị, vừa biến điểm chạm ngược lại toạ độ gốc. Tính chất nhỏ này giúp mã xử lý chạm gọn hơn rất nhiều (xem <a href="#pipeline">phần lật ảnh</a>).</p>
+<p lang="en">All three transforms are <strong>involutions</strong>: applying one twice gives the original back. One function both transforms the image for display and maps a touch point back to the original coordinates. That small property keeps the touch-handling code much simpler (see <a href="#pipeline">the flip section</a>).</p>
+
+<h2 id="geometry"><span lang="vi">Hình học của máy gập</span><span lang="en">The geometry of a foldable</span></h2>
+<p lang="vi">Trên máy gập dọc kiểu vỏ sò, cụm camera sau nằm ở mặt ngoài của nửa trên. Khi mở máy khoảng 90° và giữ nửa có camera dựng đứng, nửa dưới nằm ngang và màn hình trong của nó hướng lên trên. Người chụp nhìn xuống nửa dưới — một tấm kính mờ kỹ thuật số.</p>
+<p lang="en">On a clamshell foldable, the rear cameras sit on the outer face of the top half. Open it to roughly 90° with the camera half upright, and the bottom half lies flat with its inner screen facing up. The photographer looks down into the bottom half — a digital ground glass.</p>
+<p lang="vi">Máy gập kiểu cuốn sách (Pixel Fold, iPhone Duo, nhiều đời Galaxy Z Fold…) cũng có thể đứng theo tư thế này nếu xoay máy để bản lề nằm ngang. Nhưng nửa nào chứa camera — nửa trên hay nửa dưới — phụ thuộc vào chiều người dùng xoay máy. Phần mềm không được giả định; nó phải đọc trọng lực để biết nửa nào đang nằm ngang.</p>
+<p lang="en">Book-style foldables (Pixel Fold, iPhone Duo, several Galaxy Z Fold generations…) can take the same posture when rotated so the hinge is horizontal. But which half carries the cameras — top or bottom — depends on which way the user turned the phone. Software must not assume; it has to read gravity to know which half is lying flat.</p>
+
+<figure>
+  <svg viewBox="0 0 640 240" role="img" aria-labelledby="fig2t">
+    <title id="fig2t">Clamshell foldable held at waist level</title>
+    <path d="M200 190 L420 190" stroke="#d4af37" stroke-width="7" stroke-linecap="round"/>
+    <path d="M200 190 L200 40" stroke="#8a7f6c" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="200" cy="190" r="7" fill="#0b0907" stroke="#f6dc8f" stroke-width="2"/>
+    <circle cx="190" cy="62" r="6" fill="#f6dc8f"/>
+    <path d="M184 62 L70 62" stroke="#f6dc8f" stroke-width="1.2" stroke-dasharray="4 4"/>
+    <path d="M400 40 L330 178" stroke="#f3ecdf" stroke-width="1.2" stroke-dasharray="3 5"/>
+    <circle cx="405" cy="32" r="9" fill="none" stroke="#f3ecdf" stroke-width="1.5"/>
+    <g font-family="Georgia, serif" font-size="26" fill="#f3ecdf"><text x="36" y="72">F</text></g>
+    <g font-family="IBM Plex Mono, ui-monospace, monospace" font-size="11" fill="#bdb19c">
+      <text x="212" y="52" lang="vi">camera hướng về chủ thể</text><text x="212" y="52" lang="en">cameras face the subject</text>
+      <text x="236" y="216" lang="vi">nửa dưới nằm ngang = kính mờ</text><text x="236" y="216" lang="en">flat bottom half = ground glass</text>
+      <text x="420" y="36" lang="vi">mắt nhìn xuống</text><text x="420" y="36" lang="en">eye looks down</text>
+      <text x="120" y="214" lang="vi">bản lề ~90°</text><text x="120" y="214" lang="en">hinge ~90°</text>
+    </g>
+  </svg>
+  <figcaption><span lang="vi">Hình 2. Máy gập vỏ sò ở tư thế ngang thắt lưng (nhìn ngang). Nửa có camera dựng đứng; nửa còn lại nằm ngang dưới mắt người chụp.</span><span lang="en">Figure 2. A clamshell foldable at waist level (side view). The camera half stands upright; the other half lies flat under the photographer's eyes.</span></figcaption>
+</figure>
+
+<h2 id="bodies"><span lang="vi">Tư thế → thân máy</span><span lang="en">Posture → camera body</span></h2>
+<p lang="vi">Phần lớn ứng dụng camera trên máy gập chỉ đổi <em>bố cục</em>: kính ngắm một nửa, nút bấm nửa kia. <span class="plan">LAM đi xa hơn một bước. Mỗi tư thế gợi ý một thân máy với khổ phim, quang học kính ngắm và nhịp chụp riêng — như cầm lên một chiếc máy ảnh khác.</span></p>
+<p lang="en">Most camera apps on foldables change only the <em>layout</em>: finder on one half, buttons on the other. <span class="plan">LAM goes one step further. Each posture suggests a camera body with its own film format, finder optics and shooting rhythm — like picking up a different camera.</span></p>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Tư thế</span><span lang="en">Posture</span></th>
+    <th><span lang="vi">Thân máy</span><span lang="en">Body</span></th>
+    <th><span lang="vi">Khổ · kính ngắm</span><span lang="en">Format · finder</span></th>
+    <th><span lang="vi">Thiết bị</span><span lang="en">Devices</span></th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><span lang="vi">Mở phẳng hoặc điện thoại thường, ngang mắt</span><span lang="en">Flat or a regular phone, at eye level</span></td>
+      <td><span lang="vi">Các thân máy hiện có của LAM</span><span lang="en">LAM's existing bodies</span></td>
+      <td><span lang="vi">Theo từng thân máy · ngang mắt</span><span lang="en">Per body · eye level</span></td>
+      <td><span lang="vi">Mọi máy</span><span lang="en">All</span></td>
+    </tr>
+    <tr>
+      <td><span lang="vi">Gập dở, bản lề ngang, cầm tay</span><span lang="en">Half-open, hinge horizontal, handheld</span></td>
+      <td>TLR 6×6</td>
+      <td><span lang="vi">Vuông · đảo trái–phải (có công tắc tắt)</span><span lang="en">Square · left–right reversed (can be switched off)</span></td>
+      <td><span lang="vi">Vỏ sò, cuốn sách</span><span lang="en">Clamshell, book</span></td>
+    </tr>
+    <tr>
+      <td><span lang="vi">Máy cuốn sách mở phẳng, chọn chế độ kính mờ</span><span lang="en">Book-style fully open, ground-glass mode chosen</span></td>
+      <td><span lang="vi">Khổ lớn 4×5</span><span lang="en">Large format 4×5</span></td>
+      <td><span lang="vi">5:4 · xoay 180° (có công tắc dựng thẳng)</span><span lang="en">5:4 · rotated 180° (can be set upright)</span></td>
+      <td><span lang="vi">Cuốn sách</span><span lang="en">Book</span></td>
+    </tr>
+    <tr>
+      <td><span lang="vi">Gập kín, dùng màn hình ngoài</span><span lang="en">Closed, on the outer screen</span></td>
+      <td><span lang="vi">Máy siêu nhỏ</span><span lang="en">Subminiature</span></td>
+      <td><span lang="vi">Khung nhỏ, chụp nhanh · ngang mắt</span><span lang="en">Small frame, quick shooting · eye level</span></td>
+      <td><span lang="vi">Vỏ sò</span><span lang="en">Clamshell</span></td>
+    </tr>
+    <tr>
+      <td><span lang="vi">Gập dở, đặt yên trên mặt phẳng</span><span lang="en">Half-open, resting still on a surface</span></td>
+      <td><span lang="vi">Không đổi thân máy</span><span lang="en">Body unchanged</span></td>
+      <td><span lang="vi">Gợi ý hẹn giờ và phơi sáng lâu</span><span lang="en">Suggests self-timer and long exposure</span></td>
+      <td><span lang="vi">Vỏ sò, cuốn sách</span><span lang="en">Clamshell, book</span></td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="note">
+  <span class="kicker"><span lang="vi">Quyết định thiết kế</span><span lang="en">Design decisions</span></span>
+  <p lang="vi">Tư thế <strong>gợi ý</strong> thân máy, không ép buộc: người dùng có thể khoá thân máy đang dùng. Khi đang giữa một cuộn phim, đổi tư thế sẽ <span class="tbd">TBD: chỉ đổi kính ngắm, hay hỏi trước khi đổi cuộn</span>. Công tắc đảo trái–phải mặc định <span class="tbd">TBD</span>.</p>
+  <p lang="en">The posture <strong>suggests</strong> a body; it does not force one: the user can lock the current body. Mid-roll, a posture change will <span class="tbd">TBD: switch only the finder, or ask before changing roll</span>. The left–right reversal switch defaults to <span class="tbd">TBD</span>.</p>
+</div>
+
+<h2 id="architecture"><span lang="vi">Kiến trúc nhận diện tư thế</span><span lang="en">Posture-detection architecture</span></h2>
+<p lang="vi">Không nền tảng nào trả lời thẳng câu hỏi "người dùng đang cầm máy như một chiếc TLR". Ứng dụng phải ghép nhiều tín hiệu thô lại với nhau.</p>
+<p lang="en">No platform directly answers the question "is the user holding this like a TLR". The app has to combine several coarse signals.</p>
+<h3><span lang="vi">Tín hiệu trên Android</span><span lang="en">Signals on Android</span></h3>
+<ul lang="vi">
+  <li><a href="#src-folding"><code>FoldingFeature</code></a> của Jetpack WindowManager cho biết trạng thái <code>FLAT</code> hoặc <code>HALF_OPENED</code>, hướng bản lề <code>HORIZONTAL</code>/<code>VERTICAL</code>, vị trí bản lề và liệu nó có chia đôi vùng hiển thị hay không. Tư thế "tabletop" là <code>HALF_OPENED</code> + <code>HORIZONTAL</code>. API này <strong>không</strong> trả về góc bản lề.</li>
+  <li><a href="#src-hinge"><code>Sensor.TYPE_HINGE_ANGLE</code></a> (API 30) trả về góc bản lề, nhưng là phần cứng tuỳ chọn — mã phải chạy đúng khi cảm biến này không có.</li>
+  <li>Cảm biến trọng lực cho biết nửa nào đang nằm ngang, và máy đang được cầm tay hay đặt yên.</li>
+  <li>Màn hình mà Activity đang chạy cho biết người dùng đang dùng màn hình trong hay màn hình ngoài.</li>
+</ul>
+<ul lang="en">
+  <li>Jetpack WindowManager's <a href="#src-folding"><code>FoldingFeature</code></a> reports a <code>FLAT</code> or <code>HALF_OPENED</code> state, a <code>HORIZONTAL</code>/<code>VERTICAL</code> hinge orientation, the hinge bounds and whether it separates the display. "Tabletop" is <code>HALF_OPENED</code> + <code>HORIZONTAL</code>. It does <strong>not</strong> report the hinge angle.</li>
+  <li><a href="#src-hinge"><code>Sensor.TYPE_HINGE_ANGLE</code></a> (API 30) reports the hinge angle, but it is optional hardware — the code must behave correctly without it.</li>
+  <li>The gravity sensor tells which half is lying flat, and whether the phone is handheld or resting still.</li>
+  <li>The display the Activity runs on tells whether the user is on the inner or the outer screen.</li>
+</ul>
+<h3><span lang="vi">Tín hiệu trên iOS</span><span lang="en">Signals on iOS</span></h3>
+<p lang="vi">iOS 27.1 thêm API bản lề cho iPhone Duo: <a href="#src-ios-hinge"><code>onHingeChange(isEnabled:_:)</code></a> trong SwiftUI và <code>UIHingeInteraction</code> trong UIKit, trả về trạng thái (đóng, mở một phần, mở hẳn) cùng góc bản lề. Giao diện LAM viết bằng Compose Multiplatform và được nhúng trong UIKit, nên LAM dùng <span class="tbd">TBD: API UIKit hay SwiftUI</span>.</p>
+<p lang="en">iOS 27.1 adds hinge APIs for iPhone Duo: <a href="#src-ios-hinge"><code>onHingeChange(isEnabled:_:)</code></a> in SwiftUI and <code>UIHingeInteraction</code> in UIKit, reporting a status (closed, partially open, fully open) and the hinge angle. LAM's UI is written in Compose Multiplatform hosted in UIKit, so LAM uses <span class="tbd">TBD: the UIKit or SwiftUI API</span>.</p>
+<h3><span lang="vi">Một máy trạng thái chung</span><span lang="en">One shared state machine</span></h3>
+<p lang="vi"><span class="plan">Các tín hiệu nền tảng được chuẩn hoá thành một mô hình chung trong <code>commonMain</code>, rồi đi qua một máy trạng thái thuần Kotlin.</span> Máy trạng thái có độ trễ chống rung: tư thế chỉ được xác nhận sau khi giữ ổn định <span class="tbd">TBD ms</span>, để kính ngắm không nhấp nháy khi bản lề ở gần ngưỡng hoặc người dùng đang mở máy. <span class="plan">Vì là mã thuần, nó được kiểm thử trên máy host mà không cần thiết bị.</span></p>
+<p lang="en"><span class="plan">Platform signals are normalised into one model in <code>commonMain</code>, then fed to a pure-Kotlin state machine.</span> The state machine is debounced: a posture is confirmed only after it holds for <span class="tbd">TBD ms</span>, so the finder does not flicker when the hinge sits near a threshold or the user is still opening the phone. <span class="plan">Being pure code, it is tested on the host without a device.</span></p>
+<figure>
+  <svg viewBox="0 0 640 250" role="img" aria-labelledby="fig3t">
+    <title id="fig3t">Posture state machine</title>
+    <g fill="#120f0b" stroke="#d4af37" stroke-width="1.5">
+      <rect x="250" y="100" width="140" height="44" rx="10"/>
+      <rect x="20" y="20" width="170" height="44" rx="10"/>
+      <rect x="450" y="20" width="170" height="44" rx="10"/>
+      <rect x="20" y="186" width="170" height="44" rx="10"/>
+      <rect x="450" y="186" width="170" height="44" rx="10"/>
+    </g>
+    <g stroke="#8a7f6c" stroke-width="1.3" fill="none">
+      <path d="M250 112 L190 56"/><path d="M390 112 L450 56"/>
+      <path d="M250 134 L190 196"/><path d="M390 134 L450 196"/>
+    </g>
+    <g font-family="IBM Plex Mono, ui-monospace, monospace" font-size="11.5" fill="#f3ecdf" text-anchor="middle">
+      <text x="320" y="127">EYE LEVEL</text>
+      <text x="105" y="47">WAIST · TLR 6×6</text>
+      <text x="535" y="47">GLASS · 4×5</text>
+      <text x="105" y="213">COVER · SUBMINI</text>
+      <text x="535" y="213">RESTING · TIMER</text>
+    </g>
+    <g font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#bdb19c" text-anchor="middle">
+      <text x="200" y="92">HALF_OPENED</text>
+      <text x="440" y="92" lang="vi">mở phẳng + chọn</text><text x="440" y="92" lang="en">flat + chosen</text>
+      <text x="200" y="168" lang="vi">màn hình ngoài</text><text x="200" y="168" lang="en">outer screen</text>
+      <text x="440" y="168" lang="vi">gập dở + đứng yên</text><text x="440" y="168" lang="en">half-open + still</text>
+    </g>
+  </svg>
+  <figcaption><span lang="vi">Hình 3. Máy trạng thái tư thế (đơn giản hoá). Mọi chuyển trạng thái đều qua độ trễ chống rung; người dùng có thể khoá thân máy để bỏ qua nó.</span><span lang="en">Figure 3. The posture state machine (simplified). Every transition goes through the debounce; the user can lock the body to bypass it.</span></figcaption>
+</figure>
+<h3><span lang="vi">Không khởi động lại camera</span><span lang="en">No camera restart</span></h3>
+<p lang="vi">Gập hoặc mở máy làm thay đổi kích thước cửa sổ. Trên Android, Activity của LAM vốn đã khai báo xử lý các thay đổi cấu hình kích thước màn hình, nên Activity không bị tạo lại và phiên camera tiếp tục chạy — một quyết định có từ trước để không làm đứt bản quay video. Đổi tư thế vì thế chỉ là bố cục lại giao diện và đổi kích thước bề mặt hiển thị của bộ dựng hình. Thời gian kính ngắm bị gián đoạn khi đổi tư thế: <span class="tbd">TBD đo trên máy thật</span>.</p>
+<p lang="en">Folding or unfolding changes the window size. On Android, LAM's Activity already handles the screen-size configuration changes itself, so it is not recreated and the camera session keeps running — a decision made earlier so a video recording is never torn down. A posture change is therefore a re-layout plus a resize of the renderer's surface. Finder interruption during a posture change: <span class="tbd">TBD, measured on device</span>.</p>
+<p lang="vi">Một hệ quả khó hơn: LAM khoá màn hình ở chiều dọc. Máy cuốn sách ở tư thế tabletop lại được cầm theo chiều ngang, nên bố cục và chiều ảnh phải tính từ tư thế thay vì từ góc xoay của hệ thống. Cách LAM xử lý: <span class="tbd">TBD</span>.</p>
+<p lang="en">A harder consequence: LAM locks the screen to portrait. A book-style phone in tabletop posture is held in landscape, so layout and image orientation must be derived from the posture rather than from the system rotation. How LAM handles it: <span class="tbd">TBD</span>.</p>
+
+<h2 id="pipeline"><span lang="vi">Lật ảnh ở đâu, và những cái bẫy</span><span lang="en">Where to flip, and the traps</span></h2>
+<p lang="vi">Kính ngắm của LAM vốn đã đi qua bộ dựng hình GPU riêng — OpenGL ES trên Android, Metal trên iOS — nơi màu phim được áp vào từng khung hình. <span class="plan">Phép biến đổi kính ngắm chỉ là một thay đổi nhỏ trên toạ độ lấy mẫu texture trong cùng shader đó: không thêm lượt vẽ, không cấp phát thêm bộ đệm, không sao chép điểm ảnh trên CPU.</span></p>
+<p lang="en">LAM's finder already runs through its own GPU renderer — OpenGL ES on Android, Metal on iOS — where the film look is applied to every frame. <span class="plan">The finder transform is a small change to the texture-sampling coordinates in that same shader: no extra pass, no extra buffer, no pixel copy on the CPU.</span></p>
+<pre><code>// GLSL, simplified. finder: 0 = eye level, 1 = waist level (TLR), 2 = large-format glass
+vec2 finderUv(vec2 uv, int finder) {
+    if (finder == 1) return vec2(1.0 - uv.x, uv.y);
+    if (finder == 2) return vec2(1.0 - uv.x, 1.0 - uv.y);
+    return uv;
+}</code></pre>
+<p lang="vi">Phần khó không nằm ở phép lật, mà ở mọi thứ khác phải biết đến nó.</p>
+<p lang="en">The hard part is not the flip itself but everything else that has to know about it.</p>
+<h3><span lang="vi">Bẫy 1 — chạm để lấy nét</span><span lang="en">Trap 1 — tap to focus</span></h3>
+<p lang="vi">Người dùng chạm vào một điểm trên kính ngắm đã bị lật. Nếu đưa thẳng toạ độ đó cho camera, máy sẽ lấy nét ở phía đối diện. Toạ độ chạm phải đi qua phép biến đổi ngược trước khi đổi sang toạ độ đo sáng của cảm biến. Vì các phép biến đổi tự nghịch đảo, đó chính là cùng một hàm. Trước dự án này, ánh xạ chạm của LAM giả định màn hình luôn ở chiều dọc; tư thế mới buộc ánh xạ phải tính cả kính ngắm lẫn hướng bố cục.</p>
+<p lang="en">The user taps a point on a flipped finder. Pass that coordinate straight to the camera and it focuses on the opposite side. The tap has to go through the inverse transform before it is converted to sensor metering coordinates. Because the transforms are involutions, that is the same function. Before this project, LAM's tap mapping assumed a portrait-locked display; the new postures force it to account for both the finder and the layout orientation.</p>
+<pre><code>// Kotlin, illustrative — not LAM's source.
+enum class FinderOptics { EYE_LEVEL, WAIST_LEVEL, GROUND_GLASS }
+
+/** Maps a point between finder space and preview space (0..1). Self-inverse. */
+fun FinderOptics.map(x: Float, y: Float): Pair&lt;Float, Float&gt; = when (this) {
+    FinderOptics.EYE_LEVEL -&gt; x to y
+    FinderOptics.WAIST_LEVEL -&gt; (1f - x) to y
+    FinderOptics.GROUND_GLASS -&gt; (1f - x) to (1f - y)
+}</code></pre>
+<h3><span lang="vi">Bẫy 2 — lớp phủ</span><span lang="en">Trap 2 — overlays</span></h3>
+<p lang="vi">Khung nhận diện khuôn mặt, vòng lấy nét và thước cân bằng phải đi theo hình ảnh đã lật. Ngược lại, chữ và số trên HUD — tốc độ, khẩu độ, số kiểu còn lại — không bao giờ được lật, nếu không người dùng sẽ đọc chữ ngược. <span class="plan">LAM vẽ HUD ở một lớp nằm ngoài phép biến đổi.</span> Lưới một phần ba đối xứng nên không bị ảnh hưởng.</p>
+<p lang="en">Face boxes, the focus reticle and the level indicator must follow the flipped image. HUD text and numbers — shutter speed, aperture, frames left — must never be flipped, or the user reads mirrored text. <span class="plan">LAM draws the HUD in a layer outside the transform.</span> A rule-of-thirds grid is symmetric and unaffected.</p>
+<h3><span lang="vi">Bẫy 3 — ảnh lưu ra</span><span lang="en">Trap 3 — the saved photo</span></h3>
+<p lang="vi">Phép lật chỉ thuộc về kính ngắm. Ảnh lưu ra phải đúng như cảnh thật — LAM không lật ảnh chụp, và việc áp màu phim lúc chụp diễn ra trên khung hình gốc từ cảm biến.</p>
+<p lang="en">The flip belongs to the finder only. The saved photo must match the real scene — LAM does not flip the capture, and the film look applied at capture runs on the original frame from the sensor.</p>
+<h3><span lang="vi">Bẫy 4 — chiều của ảnh khi máy nằm ngang</span><span lang="en">Trap 4 — orientation when the phone lies flat</span></h3>
+<p lang="vi">Ở tư thế ngang thắt lưng, nửa màn hình nằm gần như song song với mặt đất. Cảm biến hướng của hệ điều hành thường không chắc chắn khi máy nằm phẳng, và có thể gắn chiều sai cho ảnh — ảnh bị xoay hoặc lộn ngược. Chiều của ảnh chụp phải được tính từ nửa máy có camera (đang dựng đứng), không phải từ nửa màn hình đang nằm ngang.</p>
+<p lang="en">At waist level, the screen half lies almost parallel to the ground. The OS orientation sensor is often unsure when a device lies flat and can tag the photo with the wrong orientation — rotated or upside down. The capture orientation must be derived from the camera half (which stands upright), not from the screen half lying flat.</p>
+
+<h2 id="constraints"><span lang="vi">Ràng buộc: nền tảng, pháp lý, đạo đức</span><span lang="en">Constraints: platform, legal, ethical</span></h2>
+<ul lang="vi">
+  <li><strong>Tiếng màn trập.</strong> Ở Nhật Bản và Hàn Quốc, điện thoại phát tiếng khi chụp theo tiêu chuẩn ngành và quy định. Camera2 và CameraX không tự phát tiếng, nên ứng dụng phải tự làm. Trên Android, khi quốc gia của mạng di động hoặc SIM là Nhật Bản hay Hàn Quốc, LAM bỏ âm màn trập riêng của từng thân máy và dùng âm màn trập của hệ thống — âm mà thiết bị ở hai thị trường này không cho tắt. Từ API 33, <a href="#src-shutter"><code>MediaActionSound.mustPlayShutterSound()</code></a> cho biết trực tiếp thiết bị có bắt buộc phát tiếng hay không; LAM chuyển sang API này: <span class="tbd">TBD</span>. Kín đáo không có nghĩa là im lặng.</li>
+  <li><strong>Không phải máy gập nào cũng hỗ trợ tư thế gập dở.</strong> Samsung cho biết Galaxy Z Fold8 <a href="#src-fold8">không hỗ trợ Flex Mode</a>. LAM nhận diện tư thế từ tín hiệu thực tế của từng máy chứ không theo tên máy; hành vi trên Z Fold8: <span class="tbd">TBD kiểm thử trên máy thật</span>.</li>
+  <li><strong>Quyền riêng tư.</strong> Chụp ngang thắt lưng là về một quan hệ khác với chủ thể, không phải về việc chụp người khác mà họ không biết. LAM không quảng bá tính năng này như một camera ẩn. Luật về chụp ảnh người ở nơi công cộng khác nhau giữa các quốc gia và vẫn áp dụng đầy đủ.</li>
+  <li><strong>Màn hình ngoài.</strong> Trên Galaxy Z Flip, mục Labs chỉ cho phép một danh sách ứng dụng do Samsung chọn; các ứng dụng khác chỉ chạy trên màn hình ngoài khi người dùng cài Good Lock MultiStar và tự bật. Trên Motorola Razr, người dùng cho phép từng ứng dụng trong cài đặt. Thân máy siêu nhỏ vì thế cần một bước hướng dẫn, và phải có đường lui khi không được phép.</li>
+  <li><strong>Góc bản lề không phải lúc nào cũng có.</strong> Thiết kế phải chạy đúng chỉ với trạng thái gập, coi góc bản lề là thông tin bổ sung.</li>
+  <li><strong>Surface Duo</strong> đã hết hỗ trợ từ nhà sản xuất, nên nằm ngoài phạm vi; mã nhận biết bản lề chung vẫn không đặt nội dung vắt qua khe giữa hai màn hình.</li>
+</ul>
+<ul lang="en">
+  <li><strong>Shutter sound.</strong> In Japan and South Korea, phones play a sound on capture under industry standards and regulation. Camera2 and CameraX play no sound themselves, so the app has to. On Android, when the mobile network or SIM country is Japan or South Korea, LAM drops each body's own shutter sound and uses the system shutter sound — the one devices in those markets do not let you silence. Since API 33, <a href="#src-shutter"><code>MediaActionSound.mustPlayShutterSound()</code></a> tells directly whether the device must play it; LAM moves to that API: <span class="tbd">TBD</span>. Discreet does not mean silent.</li>
+  <li><strong>Not every foldable supports a half-open posture.</strong> Samsung says the Galaxy Z Fold8 <a href="#src-fold8">does not support Flex Mode</a>. LAM detects the posture from each device's real signals, not from its model name; behaviour on the Z Fold8: <span class="tbd">TBD, tested on device</span>.</li>
+  <li><strong>Privacy.</strong> Waist-level shooting is about a different relationship with the subject, not about photographing people without their knowledge. LAM does not market it as a hidden camera. Laws on photographing people in public differ between countries and still fully apply.</li>
+  <li><strong>Outer screens.</strong> On a Galaxy Z Flip, Labs only allows a list of apps chosen by Samsung; other apps run on the outer screen only after the user installs Good Lock MultiStar and enables them. On a Motorola Razr, the user allows each app in settings. The subminiature body therefore needs an onboarding step and a fallback when it is not allowed.</li>
+  <li><strong>The hinge angle is not always available.</strong> The design must work from the fold state alone and treat the angle as extra information.</li>
+  <li><strong>Surface Duo</strong> is out of manufacturer support, so it is out of scope; the generic hinge-aware layout still keeps content off the gap between the two screens.</li>
+</ul>
+
+<h2 id="market"><span lang="vi">Thị trường tại thời điểm viết</span><span lang="en">The market at the time of writing</span></h2>
+<p lang="vi">Trước khi làm, chúng tôi khảo sát 74 ứng dụng, dự án camera và camera gốc của các máy gập (26/10/2026, chỉ dùng nguồn công khai: trang store, lịch sử cập nhật, website nhà phát triển, báo chí).</p>
+<p lang="en">Before building, we surveyed 74 camera apps, projects and foldable stock cameras (2026-10-26, public sources only: store pages, update histories, developer websites, press).</p>
+<ul lang="vi">
+  <li>Kính ngắm ngang thắt lưng có đảo trái–phải trên điện thoại thường đã có từ đầu những năm 2010.</li>
+  <li>Camera gốc của phần lớn máy gập lớn có bố cục khi gập dở, và nhiều máy có xem trước cho chủ thể trên màn hình ngoài; có hãng còn tự chuyển sang chế độ quay kiểu máy quay cầm tay khi gập 90°.</li>
+  <li>Giữa ngày Apple công bố iPhone Duo (9/9/2026) và ngày máy lên kệ (23/10/2026), từ bốn ứng dụng film độc lập trở lên trên iOS đã phát hành kính ngắm ngang thắt lưng cho máy này; một số có thêm đảo trái–phải, tay quay lên phim, nắp kính ngắm, hoặc lên phim bằng thao tác gập máy.</li>
+  <li>Chúng tôi <strong>chưa tìm thấy</strong>: một ứng dụng film bên thứ ba có kính ngắm TLR trên máy gập Android; một ứng dụng gắn mỗi tư thế với một thân máy có khổ phim và quang học kính ngắm riêng; một ứng dụng giả lập kính mờ khổ lớn lộn ngược mà vẫn chụp và lưu ảnh qua nó.</li>
+</ul>
+<ul lang="en">
+  <li>Waist-level finders with left–right reversal on regular phones have existed since the early 2010s.</li>
+  <li>Most stock cameras on major foldables have a half-folded layout, and many show a subject preview on the outer screen; at least one maker switches to a camcorder-style mode when folded to 90°.</li>
+  <li>Between the iPhone Duo announcement (2026-09-09) and its release (2026-10-23), four or more independent iOS film apps shipped waist-level finders for it; some add left–right reversal, a winding crank, a finder hood, or film advance by a fold gesture.</li>
+  <li>We <strong>did not find</strong>: a third-party film app with a TLR finder on Android foldables; an app that maps each posture to a body with its own film format and finder optics; an app that simulates an inverted large-format ground glass and still captures and saves through it.</li>
+</ul>
+<p class="note" lang="vi">"Chưa tìm thấy" không có nghĩa là không tồn tại. Thị trường thay đổi rất nhanh sau khi một nền tảng mới ra mắt; khảo sát sẽ được chạy lại trước khi bài này phát hành (<span class="tbd">TBD ngày khảo sát lại</span>).</p>
+<p class="note" lang="en">"Did not find" does not mean it does not exist. The market moves fast after a platform launch; the survey will be rerun before this note is published (<span class="tbd">TBD re-survey date</span>).</p>
+
+<h2 id="results"><span lang="vi">Kết quả đo</span><span lang="en">Measurements</span></h2>
+<p lang="vi">Mọi con số dưới đây được đo trên thiết bị thật, không phải giả lập.</p>
+<p lang="en">Every number below is measured on physical devices, not on a simulator.</p>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Chỉ số</span><span lang="en">Metric</span></th>
+    <th><span lang="vi">Kết quả</span><span lang="en">Result</span></th>
+    <th><span lang="vi">Thiết bị</span><span lang="en">Device</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span lang="vi">Thời gian từ khi gập đến khi kính ngắm mới hiện</span><span lang="en">Time from fold to the new finder appearing</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+    <tr><td><span lang="vi">Số khung hình kính ngắm bị mất khi đổi tư thế</span><span lang="en">Finder frames dropped during a posture change</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+    <tr><td><span lang="vi">Chi phí GPU của phép biến đổi kính ngắm</span><span lang="en">GPU cost of the finder transform</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+    <tr><td><span lang="vi">Nhiệt độ và pin sau 10 phút ở chế độ TLR</span><span lang="en">Thermal and battery after 10 minutes in TLR mode</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+    <tr><td><span lang="vi">Thiết bị đã kiểm thử</span><span lang="en">Devices tested</span></td><td colspan="2"><span class="tbd">TBD</span></td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="lessons"><span lang="vi">Bài học</span><span lang="en">Lessons</span></h2>
+<ol lang="vi">
+  <li><strong>Phần cứng quyết định giao diện.</strong> Vị trí cụm camera quyết định nửa nào phải dựng đứng, và vì thế quyết định kính ngắm nằm ở đâu — trước mọi sở thích bố cục.</li>
+  <li><strong>Quang học là một phép biến đổi toạ độ.</strong> Đặt nó ở đúng một chỗ trong bộ dựng hình, rồi đảo ngược nó cho mọi đầu vào. Ba phép biến đổi tự nghịch đảo giữ mã gọn.</li>
+  <li><strong>Tín hiệu tư thế rất thô.</strong> Thiết kế theo trạng thái gập, không theo góc; chống rung mọi chuyển đổi.</li>
+  <li><strong>Đóng dấu ngày cho mọi khảo sát.</strong> Một tính năng có thể từ "chưa ai làm" thành "đã có" chỉ trong vài tuần sau khi một nền tảng ra mắt.</li>
+  <li><span class="tbd">TBD: bài học từ quá trình hiện thực và kiểm thử trên máy thật</span></li>
+</ol>
+<ol lang="en">
+  <li><strong>Hardware decides the interface.</strong> Where the cameras sit decides which half must stand upright, and therefore where the finder goes — before any layout preference.</li>
+  <li><strong>Optics is a coordinate transform.</strong> Put it in exactly one place in the renderer, then invert it for every input. Three self-inverse transforms keep the code small.</li>
+  <li><strong>Posture signals are coarse.</strong> Design around the fold state, not the angle; debounce every transition.</li>
+  <li><strong>Date-stamp every survey.</strong> A feature can go from "nobody does this" to "already shipped" within weeks of a platform launch.</li>
+  <li><span class="tbd">TBD: lessons from implementation and on-device testing</span></li>
+</ol>
+</main>
+
+<footer class="foot wrap">
+  <p lang="vi"><strong>Nhãn hiệu.</strong> <span class="tm">Rolleiflex</span> và các tên máy ảnh khác được nhắc đến thuộc về chủ sở hữu tương ứng, chỉ được dùng để nói về lịch sử và quang học. LAM không liên kết với các hãng này. Thân máy trong LAM mang tên chung theo khổ phim.</p>
+  <p lang="en"><strong>Trademarks.</strong> <span class="tm">Rolleiflex</span> and other camera names mentioned belong to their respective owners and are used only to discuss history and optics. LAM is not affiliated with them. LAM's bodies carry generic names after their film format.</p>
+  <p lang="vi"><strong>Nguồn</strong></p>
+  <p lang="en"><strong>Sources</strong></p>
+  <ol>
+    <li id="src-maier"><a href="https://en.wikipedia.org/wiki/Vivian_Maier">Vivian Maier — Wikipedia</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Twin-lens_reflex_camera">Twin-lens reflex camera — Wikipedia</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Waist-level_finder">Waist-level finder — Wikipedia</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/View_camera">View camera — Wikipedia</a></li>
+    <li id="src-folding"><a href="https://developer.android.com/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware">Make your app fold aware — Android Developers</a></li>
+    <li><a href="https://developer.android.com/reference/androidx/window/layout/FoldingFeature">FoldingFeature — Android Developers</a></li>
+    <li id="src-hinge"><a href="https://developer.android.com/reference/android/hardware/Sensor#TYPE_HINGE_ANGLE">Sensor.TYPE_HINGE_ANGLE — Android Developers</a></li>
+    <li id="src-shutter"><a href="https://developer.android.com/reference/android/media/MediaActionSound">MediaActionSound — Android Developers</a></li>
+    <li id="src-ios-hinge"><a href="https://developer.apple.com/documentation/swiftui/view/onhingechange(isenabled:_:)">onHingeChange(isEnabled:_:) — Apple Developer</a></li>
+    <li><a href="https://developer.apple.com/documentation/uikit/uihingeinteraction">UIHingeInteraction — Apple Developer</a></li>
+    <li><a href="https://www.apple.com/ie/iphone-duo/">iPhone Duo — Apple</a></li>
+    <li><a href="https://www.androidauthority.com/samsung-galaxy-z-flip-7-flex-window-good-lock-3575045">Galaxy Z Flip 7 Flex Window and Good Lock — Android Authority</a></li>
+    <li><a href="https://androidcentral.com/apps-software/how-set-up-use-motorola-razr-cover-screen-apps">Motorola Razr cover screen apps — Android Central</a></li>
+    <li id="src-fold8"><a href="https://www.samsung.com/us/support/answer/ANS00087402/">Use Flex mode and view apps on Galaxy foldable phones — Samsung</a>; <a href="https://www.sammobile.com/news/looking-for-flex-mode-on-the-galaxy-z-fold-8-dont-bother/">Flex Mode on the Galaxy Z Fold 8 — SamMobile</a></li>
+    <li><a href="https://petapixel.com/2023/11/06/korean-smartphones-have-mandatory-shutter-sounds-8-in-10-want-it-muted">Korean smartphones have mandatory shutter sounds — PetaPixel</a></li>
+  </ol>
+  <p lang="vi">© 2026 Brewkits · LAM. Ghi chép kỹ thuật; nội dung có thể được cập nhật khi tính năng thay đổi.</p>
+  <p lang="en">© 2026 Brewkits · LAM. Engineering note; content may be updated as the feature changes.</p>
+</footer>
+<script src="tech.js"></script>
+</body>
+</html>
