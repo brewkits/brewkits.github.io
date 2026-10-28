@@ -79,9 +79,9 @@
       <p class="flow-label">Film-style grading (LAM)</p>
       <div class="flow-box">📷 Original photo</div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Fixed colour transform (LUT)<span>no guessing, nothing invented</span></div>
+      <div class="flow-box good">Fixed colour transform (LUT)<span>no detail invented</span></div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Still your exact captured pixels</div>
+      <div class="flow-box good">Still the detail you captured</div>
     </div>
   </div>
 
@@ -203,7 +203,11 @@
 
   <p>In LAM this rule is kept consistent end to end: the frame you see in the viewfinder while
   shooting has already gone through the same grading engine that saves the final photo or video —
-  there's no separate "AI pass" bolted on afterward. What you frame is what you get.</p>
+  no generative model repaints the image afterward. What you frame is what you get.</p>
+
+  <p>To be complete: LAM does run exactly one small model, on your phone, to find skin (True Skin) — so skin
+  is rendered naturally while walls, wood or food of a similar colour are left alone. That model only says
+  <em>where</em> the skin is; it adds, smooths and invents no detail.</p>
 
   <hr>
   <footer>
