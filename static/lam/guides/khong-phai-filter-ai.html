@@ -79,9 +79,9 @@
       <p class="flow-label">Grading phim thật (LAM)</p>
       <div class="flow-box">📷 Ảnh gốc</div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Phép biến đổi màu cố định (LUT)<span>không đoán, không vẽ thêm</span></div>
+      <div class="flow-box good">Phép biến đổi màu cố định (LUT)<span>không vẽ thêm chi tiết</span></div>
       <div class="flow-arrow">↓</div>
-      <div class="flow-box good">Vẫn đúng từng pixel bạn đã chụp</div>
+      <div class="flow-box good">Vẫn là chi tiết bạn đã chụp</div>
     </div>
   </div>
 
@@ -199,8 +199,12 @@
   thuật toán dìm sáng nâng tối quá đà rồi lại bị một lớp filter hậu kỳ bẻ cong lần thứ hai.</p>
 
   <p>Trong LAM, quy tắc này được giữ nhất quán: khung hình bạn thấy trong viewfinder lúc đang chụp
-  đã đi qua đúng engine chấm màu sẽ dùng để lưu ảnh/video cuối — không có bước "xử lý AI" nào chèn
-  thêm sau đó. Ảnh bạn thấy lúc bấm máy là ảnh bạn nhận được.</p>
+  đã đi qua đúng engine chấm màu sẽ dùng để lưu ảnh/video cuối — không có mô hình sinh ảnh nào vẽ lại
+  ảnh sau đó. Ảnh bạn thấy lúc bấm máy là ảnh bạn nhận được.</p>
+
+  <p>Nói cho đủ: LAM có chạy đúng một mô hình nhỏ, ngay trên điện thoại, để tìm vùng da (True Skin) — nhờ vậy
+  màu da được chỉnh tự nhiên mà tường, gỗ hay đồ ăn trùng màu da không bị đổi theo. Mô hình đó chỉ chỉ ra
+  <em>chỗ nào</em> là da; nó không thêm, không làm mịn và không bịa ra chi tiết nào.</p>
 
   <hr>
   <footer>

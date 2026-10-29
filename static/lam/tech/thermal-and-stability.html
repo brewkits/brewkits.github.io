@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi" data-status="draft">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Máy nóng, khung ngắm vẫn vững · LAM Kỹ thuật</title>
+<meta name="lam-title-vi" content="Máy nóng, khung ngắm vẫn vững · LAM Kỹ thuật">
+<meta name="lam-title-en" content="A hot phone, a steady finder · LAM Engineering">
+<meta name="description" content="Ghi chép kỹ thuật của LAM: đọc nhiệt độ của điện thoại một cách trung thực, thứ tự những gì app nhường lại khi máy nóng, pin và bộ nhớ, và cách giữ khung ngắm không giật — với số đo trên máy thật.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://brewkits.dev/lam/tech/thermal-and-stability.html">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/tech/thermal-and-stability.html?lang=vi">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/tech/thermal-and-stability.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/tech/thermal-and-stability.html">
+<meta name="theme-color" content="#0b0907">
+<meta property="og:title" content="Máy nóng, khung ngắm vẫn vững — LAM Kỹ thuật">
+<meta property="og:description" content="Nhiệt, pin, bộ nhớ và độ mượt của khung ngắm trong một app camera, đo trên máy thật.">
+<meta property="og:type" content="article">
+<link rel="icon" href="/img/icon.png">
+<link rel="stylesheet" href="tech.css">
+</head>
+<body>
+<div class="bar">
+  <a class="home" href="index.html"><b>LAM</b> · <span lang="vi">Kỹ thuật</span><span lang="en">Engineering</span></a>
+  <span class="sp"></span>
+  <div class="langs" role="group" aria-label="Language">
+    <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</div>
+
+<main class="wrap">
+<header class="hero">
+  <div class="kicker"><span lang="vi">Ghi chép kỹ thuật · Nhiệt, pin &amp; độ ổn định</span><span lang="en">Engineering note · Heat, battery &amp; stability</span></div>
+  <h1><span lang="vi">Máy nóng, khung ngắm vẫn vững</span><span lang="en">A hot phone, a steady finder</span></h1>
+  <p class="dek" lang="vi">Một app camera bắt cảm biến, bộ xử lý ảnh, GPU và bộ mã hoá video cùng chạy một lúc, nên điện thoại nóng lên trong vài phút. Bài này ghi lại cách LAM đọc nhiệt độ, những gì app nhường lại trước và sau, và một lỗi làm khung ngắm giật mà chúng tôi chỉ tìm ra nhờ đo.</p>
+  <p class="dek" lang="en">A camera app runs the sensor, the image processor, the GPU and the video encoder at once, so a phone heats up within minutes. This note covers how LAM reads heat, what the app gives up and in which order, and a bug that made the finder stutter which we found only by measuring.</p>
+  <div class="meta">
+    <span class="chip draft"><span lang="vi">Bản nháp · chưa phát hành</span><span lang="en">Draft · unpublished</span></span>
+    <span class="chip"><span lang="vi">Viết 29/10/2026</span><span lang="en">Written 2026-10-29</span></span>
+    <span class="chip"><span lang="vi">Phát hành</span><span lang="en">Published</span>&nbsp;<span class="tbd">TBD</span></span>
+    <span class="chip">Android · iOS</span>
+  </div>
+  <nav class="toc" aria-label="Contents">
+    <span class="kicker"><span lang="vi">Nội dung</span><span lang="en">Contents</span></span>
+    <ol></ol>
+  </nav>
+</header>
+
+<section class="tldr">
+  <div class="kicker"><span lang="vi">Tóm tắt</span><span lang="en">In short</span></div>
+  <ul lang="vi">
+    <li>Cầm tay quay 1080p, một Pixel 6 Pro lên mức nhiệt CRITICAL của Android sau khoảng 2,5 phút. Hệ điều hành hạ xung nhân lớn xuống khoảng một phần ba, nhưng LAM vẫn giữ 24 fps và bitrate đầy đủ suốt 8 phút đo.</li>
+    <li>LAM đi theo mức nhiệt của hệ điều hành, không tự đặt ngưỡng °C cho từng dòng máy. Nhãn nóng trên màn hình hiện chậm hơn hệ điều hành một nấc, và chỉ đỏ khi phải dừng quay.</li>
+    <li>Khi máy nóng, app nhường theo thứ tự: hiệu ứng của khung ngắm trước, rồi tốc độ khung hình và tác vụ nặng. Màu phim trong file đang quay không bao giờ bị cắt giữa chừng.</li>
+    <li>Khung ngắm để yên tốn khoảng 4 W. Vì vậy camera tự nghỉ khi không ai dùng, và nghỉ sớm hơn khi máy càng nóng.</li>
+    <li>Khung ngắm từng giật tới 1,7 giây khi vuốt chọn phim lúc máy nóng. Nguyên nhân không phải GPU mà là bộ đếm tự nghỉ không thấy những lần chạm ấy. Sau khi sửa, không lần đứng nào quá 317 ms.</li>
+  </ul>
+  <ul lang="en">
+    <li>Hand-held at 1080p, a Pixel 6 Pro reaches Android's CRITICAL thermal status after about 2.5 minutes. The OS caps the big cores at about a third of their clock, yet LAM held 24 fps and full bitrate for the 8 minutes measured.</li>
+    <li>LAM follows the operating system's thermal level instead of setting °C thresholds per phone model. The on-screen heat label shows one step behind the OS, and turns red only when recording has to stop.</li>
+    <li>When the phone is hot, the app gives things up in order: the finder's effects, then frame rate and heavy jobs. The film look in a clip being recorded is never cut mid-take.</li>
+    <li>An idle finder costs about 4 W. So the camera rests when nobody is using it, and rests sooner the hotter the phone is.</li>
+    <li>The finder used to freeze for up to 1.7 seconds while swiping through films on a hot phone. The cause was not the GPU but the idle timer not seeing those touches. After the fix the longest freeze was 317 ms.</li>
+  </ul>
+</section>
+
+<h2 id="why"><span lang="vi">Vì sao app camera làm máy nóng</span><span lang="en">Why camera apps heat a phone</span></h2>
+<p lang="vi">Mở camera là bật một dây chuyền chạy liên tục: cảm biến đọc 30 khung hình mỗi giây, bộ xử lý ảnh (ISP) khử nhiễu và cân màu, GPU vẽ màu phim lên từng khung, màn hình sáng hết cỡ ngoài trời, và khi quay thì thêm bộ mã hoá video. Không phần nào được nghỉ giữa hai khung hình.</p>
+<p lang="en">Opening the camera starts a pipeline that never pauses: the sensor reads 30 frames a second, the image signal processor (ISP) denoises and balances colour, the GPU draws the film look on every frame, the screen runs at full brightness outdoors, and recording adds the video encoder. No stage gets to rest between frames.</p>
+<p lang="vi">Chúng tôi đo trên một Pixel 6 Pro cầm tay, cắm sạc nhưng pin giữ ở 85 % nên không nạp:</p>
+<p lang="en">We measured a hand-held Pixel 6 Pro, plugged in but holding its battery at 85 %, so it was not charging:</p>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Thời điểm (quay 1080p)</span><span lang="en">Time (1080p recording)</span></th>
+    <th><span lang="vi">Mức nhiệt Android</span><span lang="en">Android thermal status</span></th>
+    <th><span lang="vi">Ghi chú</span><span lang="en">Notes</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span lang="vi">Bắt đầu</span><span lang="en">Start</span></td><td><code>1 LIGHT</code></td><td><span lang="vi">Nhiệt da ảo (VIRTUAL-SKIN) 42 °C</span><span lang="en">Virtual skin temperature 42 °C</span></td></tr>
+    <tr><td><span lang="vi">1 phút</span><span lang="en">1 minute</span></td><td><code>3 SEVERE</code></td><td><span lang="vi">Hệ điều hành bắt đầu hạ xung</span><span lang="en">The OS starts throttling</span></td></tr>
+    <tr><td><span lang="vi">2,5 phút</span><span lang="en">2.5 minutes</span></td><td><code>4 CRITICAL</code></td><td><span lang="vi">Nhân lớn từ 2,8 GHz xuống khoảng 1 GHz; da 50 °C</span><span lang="en">Big cores from 2.8 GHz to about 1 GHz; skin 50 °C</span></td></tr>
+    <tr><td><span lang="vi">8 phút</span><span lang="en">8 minutes</span></td><td><code>4 CRITICAL</code></td><td><span lang="vi">Vẫn 24 fps, bitrate đầy đủ</span><span lang="en">Still 24 fps, full bitrate</span></td></tr>
+  </tbody>
+</table></div>
+<p lang="vi">Hai điều rút ra. Nhiệt không đến từ việc sạc: máy không nạp mà vẫn lên CRITICAL. Và máy nóng không có nghĩa là app phải hỏng: hệ điều hành hạ xung thật, nhưng một dây chuyền được thiết kế cho mức xung thấp vẫn giữ được nhịp khung hình.</p>
+<p lang="en">Two takeaways. The heat does not come from charging: the phone was not charging and still reached CRITICAL. And a hot phone does not have to mean a broken app: the OS really does throttle, but a pipeline designed for the lower clock still holds its frame rate.</p>
+
+<h2 id="reading"><span lang="vi">Đọc nhiệt độ một cách trung thực</span><span lang="en">Reading heat honestly</span></h2>
+<p lang="vi">Android cho app hai tín hiệu. <a href="#src-status">Thermal status</a> là mức thô từ 0 (NONE) đến 6 (SHUTDOWN), do chính nhà sản xuất định nghĩa. <a href="#src-headroom">Thermal headroom</a> là một số dự báo, trong đó 1.0 ứng với mức SEVERE. Hai tín hiệu này không phải lúc nào cũng khớp nhau, và mỗi dòng chip lệch theo một kiểu.</p>
+<p lang="en">Android gives an app two signals. <a href="#src-status">Thermal status</a> is a coarse level from 0 (NONE) to 6 (SHUTDOWN), defined by the manufacturer. <a href="#src-headroom">Thermal headroom</a> is a forecast in which 1.0 corresponds to SEVERE. The two do not always agree, and each chip family disagrees in its own way.</p>
+<ul lang="vi">
+  <li><strong>Tensor (Pixel):</strong> headroom vọt lên theo tải camera ngay cả khi máy còn mát, nên chỉ đọc headroom sẽ báo nóng quá sớm.</li>
+  <li><strong>MediaTek (một máy Galaxy A tầm trung):</strong> status giữ ở 0 suốt bài đo trong khi headroom dao động quanh <code>0.65–0.75</code>.</li>
+  <li><strong>Một máy Snapdragon của Sony:</strong> headroom luôn bằng <code>0.000</code> và status giữ ở 0 suốt bài, tức là máy không báo gì cả.</li>
+</ul>
+<ul lang="en">
+  <li><strong>Tensor (Pixel):</strong> headroom jumps with camera load even on a cool phone, so reading headroom alone reports heat too early.</li>
+  <li><strong>MediaTek (a mid-range Galaxy A):</strong> status stayed at 0 for the whole run while headroom moved around <code>0.65–0.75</code>.</li>
+  <li><strong>A Snapdragon phone from Sony:</strong> headroom read <code>0.000</code> and status stayed at 0 throughout, which means the phone reports nothing at all.</li>
+</ul>
+<p lang="vi">Vì thế LAM ghép hai tín hiệu: headroom cho biết sớm, status đặt sàn và trần. Khi hệ điều hành mới ở SEVERE, LAM không tự báo cao hơn SERIOUS, vì theo định nghĩa của Android thì headroom 1.0 chính là điểm SEVERE. Mức khẩn cấp vẫn luôn được báo, không bao giờ bị hạ. LAM cũng không đặt ngưỡng °C cho từng dòng máy: ngưỡng nhiệt da của chính Pixel 6 Pro đã đổi theo bản ROM, và máy trong phòng lab được làm mát nên không giống máy cầm tay.</p>
+<p lang="en">So LAM combines the two: headroom gives early warning, status sets a floor and a ceiling. While the OS says SEVERE, LAM does not report higher than SERIOUS on its own, because Android defines headroom 1.0 as exactly the SEVERE point. The emergency level always passes through and is never lowered. LAM also sets no °C thresholds per model: the Pixel 6 Pro's own skin thresholds changed between ROM releases, and lab phones are cooled, so they do not behave like a phone in a hand.</p>
+<p lang="vi">Nhãn trên màn hình đi chậm hơn hệ điều hành một nấc. Ở SERIOUS, LAM ghi "Hơi nóng" màu hổ phách. Ở CRITICAL thì ghi "Nóng" màu cam. Màu đỏ "Quá nóng" chỉ dành cho lúc buộc phải dừng quay. Nhãn chỉ có ích khi nó không báo động giả: nếu chữ đã đỏ trong khi máy chưa hề nhắc gì, người dùng sẽ thôi tin nó.</p>
+<p lang="en">The on-screen label runs one step behind the OS. At SERIOUS, LAM shows an amber "Warm"; at CRITICAL, an orange "Hot". Red "Too hot" is reserved for when recording has to stop. A label is only useful if it does not cry wolf: if it turns red while the phone itself has said nothing, people stop trusting it.</p>
+
+<h2 id="ladder"><span lang="vi">Nhường cái gì trước</span><span lang="en">What to give up, and in which order</span></h2>
+<p lang="vi">Mọi app camera đều phải giảm tải khi nóng. Điều cần quyết định là giảm theo thứ tự nào. Thứ tự của LAM đi từ cái người dùng khó nhận ra đến cái dễ nhận ra:</p>
+<p lang="en">Every camera app has to shed load when hot. The real question is the order. LAM's order runs from what people notice least to what they notice most:</p>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Mức của LAM</span><span lang="en">LAM level</span></th>
+    <th><span lang="vi">Khung ngắm (không quay)</span><span lang="en">Finder (not recording)</span></th>
+    <th><span lang="vi">Khi quay</span><span lang="en">While recording</span></th>
+    <th><span lang="vi">Camera tự nghỉ sau</span><span lang="en">Camera rests after</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td>NOMINAL · FAIR</td><td><span lang="vi">Đủ màu phim</span><span lang="en">Full film look</span></td><td><span lang="vi">Đủ màu phim</span><span lang="en">Full film look</span></td><td><span lang="vi">Theo cài đặt của người dùng</span><span lang="en">The user's setting</span></td></tr>
+    <tr><td>SERIOUS</td><td><span lang="vi">Bỏ hạt, halation và quang sai màu; giữ viền tối, tông, cân trắng, màu da. Tốc độ khung hình giảm dần từ mức này</span><span lang="en">Grain, halation and chromatic aberration off; vignette, tone, white balance and skin kept. The frame rate steps down from here</span></td><td><span lang="vi">Đủ màu phim. Chụp liên tiếp và gộp ảnh đêm tạm nghỉ</span><span lang="en">Full film look. Bursts and night merging pause</span></td><td><span lang="vi">45 giây</span><span lang="en">45 seconds</span></td></tr>
+    <tr><td>CRITICAL</td><td><span lang="vi">Như trên</span><span lang="en">As above</span></td><td><span lang="vi">Đủ màu phim</span><span lang="en">Full film look</span></td><td><span lang="vi">15 giây</span><span lang="en">15 seconds</span></td></tr>
+    <tr><td>EMERGENCY</td><td><span lang="vi">Như trên</span><span lang="en">As above</span></td><td><span lang="vi">Dừng quay an toàn, file được đóng gọn</span><span lang="en">Recording stops safely, the file is closed cleanly</span></td><td><span lang="vi">8 giây</span><span lang="en">8 seconds</span></td></tr>
+  </tbody>
+</table></div>
+<p lang="vi">Hai quyết định đáng giải thích. Một là, <strong>file đang quay luôn giữ đủ màu phim</strong>. Bộ mã hoá video lấy hình từ cùng bộ dựng hình với khung ngắm, nên cắt hiệu ứng là cắt luôn vào file. Chúng tôi đã đo: cắt hiệu ứng khi quay chỉ tiết kiệm khoảng 130 mW trên tổng 3,7 W, không đổi được thêm thời gian quay nào thấy được, mà file thì xấu đi.</p>
+<p lang="en">Two decisions deserve an explanation. One: <strong>a clip being recorded always keeps the full film look</strong>. The video encoder takes its frames from the same renderer as the finder, so cutting an effect cuts it from the file too. We measured it: shedding effects while recording saved about 130 mW of a 3.7 W take, bought no visible recording time, and made the file worse.</p>
+<p lang="vi">Hai là, <strong>"Tắt" vẫn là tắt</strong>. Nhiệt chỉ làm thời gian chờ tự nghỉ ngắn lại, không bao giờ dài ra. Nếu người dùng đã tắt tính năng tự nghỉ, máy nóng không phải lý do để app tự bật lại nó.</p>
+<p lang="en">Two: <strong>"Off" stays off</strong>. Heat only ever shortens the idle wait, never lengthens it. If the user switched auto-rest off, a hot phone is no reason for the app to switch it back on.</p>
+
+<h2 id="battery"><span lang="vi">Pin và bộ nhớ</span><span lang="en">Battery and memory</span></h2>
+<p lang="vi">Phép đo quan trọng về pin là phép đo khung ngắm để yên. Trên Pixel 6 Pro, đo xen kẽ, độ sáng màn hình cố định, 8 mẫu mỗi điều kiện: camera nghỉ tốn 348 mA, khung ngắm chạy tốn 1398 mA. Chỉ riêng khung ngắm đã tốn khoảng 1050 mA, tức chừng 4 W, kể cả khi không chụp gì. Đó là lý do bậc thang thời gian chờ ở trên tồn tại: ở mức CRITICAL, 45 giây khung ngắm chạy không cần thiết ứng với khoảng hai phút nguội máy.</p>
+<p lang="en">The battery measurement that matters is the idle finder. On a Pixel 6 Pro, interleaved, fixed screen brightness, 8 samples per condition: a resting camera drew 348 mA, a running finder 1398 mA. The finder alone costs about 1050 mA, roughly 4 W, even when nothing is being shot. That is why the idle ladder above exists: at CRITICAL, 45 needless seconds of finder cost about two minutes of cooling.</p>
+<p lang="vi">Với bộ nhớ, nguyên tắc là không để việc nặng chạy cùng lúc với khung ngắm khi không cần.</p>
+<p lang="en">For memory, the rule is to keep heavy work from running alongside the finder when it does not have to.</p>
+<ul lang="vi">
+  <li>Bộ phân tích khung hình (đo sáng, màu da) không bao giờ xếp hàng: nếu khung trước chưa xử lý xong thì khung mới bị bỏ qua, thay vì dồn lại làm chậm cả dây chuyền.</li>
+  <li><span class="plan">Tráng âm bản RAW được chia thành từng dải. Máy có từ khoảng 7,5 GB RAM tráng 4 dải song song, máy ít RAM hơn tráng 2 dải. Khi máy ở SERIOUS trở lên, việc tráng tạm chờ.</span></li>
+  <li>Trong lượt kiểm thử dài khi máy nóng, bộ nhớ của app đạt đỉnh 736 MB (PSS) trên Pixel 6 Pro.</li>
+</ul>
+<ul lang="en">
+  <li>Frame analysers (metering, skin tone) never queue: if the previous frame is still being processed, the new one is dropped instead of piling up and slowing the whole pipeline.</li>
+  <li><span class="plan">RAW negatives are developed in bands. Phones with about 7.5 GB of RAM or more develop 4 bands in parallel, phones with less develop 2. At SERIOUS and above, developing waits.</span></li>
+  <li>In a long test run on a hot phone, the app's memory peaked at 736 MB (PSS) on a Pixel 6 Pro.</li>
+</ul>
+
+<h2 id="smooth"><span lang="vi">Một khung ngắm không giật</span><span lang="en">A finder that does not stutter</span></h2>
+<p lang="vi">Người dùng thấy độ mượt trước khi thấy nhiệt độ. Một khung ngắm đứng nửa giây mỗi lần đổi phim làm cả app có cảm giác chập chờn, dù ảnh chụp ra vẫn đẹp. Vì vậy chúng tôi đo bằng cách quay màn hình 40 giây trong lúc vuốt dải thân máy, phim và công thức, rồi đếm những khoảng hở giữa các khung hình được ghi.</p>
+<p lang="en">People notice smoothness before they notice heat. A finder that freezes for half a second on every film change makes the whole app feel shaky, even when the photos are fine. So we measured it: record the screen for 40 seconds while swiping the body, film and recipe strips, then count the gaps between recorded frames.</p>
+<p lang="vi">Giả thuyết ban đầu của chúng tôi sai. Chúng tôi nghĩ mỗi lần đổi look, GPU phải biên dịch lại shader ngay trên khung hình đang vẽ, nên đã viết một bản lưu sẵn shader và biên dịch ở luồng nền. Số đo không ủng hộ: trong 40 giây chỉ có 0 đến 8 lần biên dịch, và những lần đứng dài xảy ra ở cả bản cũ lẫn bản mới, đúng cùng thời điểm. Bản đó bị gác lại.</p>
+<p lang="en">Our initial hypothesis was wrong. We assumed each look change made the GPU recompile a shader on the frame being drawn, so we wrote a version that cached shaders and compiled them on a background thread. The numbers did not support it: there were between 0 and 8 compiles in 40 seconds, and the longest freezes happened in the old and the new build alike, at the same moments. That change was shelved.</p>
+<p lang="vi">Ghép từng lần đứng hình với nhật ký hệ thống mới ra thủ phạm thật: <strong>camera tự nghỉ ngay giữa lúc người dùng đang chọn phim</strong>. Ở bố cục Boutique, khung ngắm chỉ là một ô phía trên; bảng điều khiển có các dải chọn nằm ngoài vùng mà bộ đếm tự nghỉ lắng nghe. Máy đang ở CRITICAL nên thời gian chờ chỉ còn 15 giây, và camera đóng đúng 15 giây sau lần đổi thân máy cuối, dù sau đó đã có sáu lần vuốt phim. Bản sửa rất nhỏ: mọi lần chạm trong bảng điều khiển đều tính là đang dùng.</p>
+<p lang="en">Matching each freeze against the system log found the real culprit: <strong>the camera went to rest while the user was choosing films</strong>. In the Boutique layout the finder is only a window at the top; the control panel with the strips sits outside the area the idle timer listens to. The phone was at CRITICAL, so the wait was 15 seconds, and the camera closed exactly 15 seconds after the last body change, despite six film swipes after it. The fix is small: every touch in the control panel counts as use.</p>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Pixel 6 Pro, máy nóng, 40 giây vuốt</span><span lang="en">Pixel 6 Pro, hot, 40 seconds of swiping</span></th>
+    <th><span lang="vi">Trước</span><span lang="en">Before</span></th>
+    <th><span lang="vi">Sau</span><span lang="en">After</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span lang="vi">Số lần đứng hình trên 100 ms</span><span lang="en">Freezes longer than 100 ms</span></td><td>12–14</td><td>8</td></tr>
+    <tr><td><span lang="vi">Lần đứng dài tối đa</span><span lang="en">Longest freeze</span></td><td>826–1676 ms</td><td>317 ms</td></tr>
+    <tr><td><span lang="vi">Camera tự nghỉ trong lúc đang vuốt</span><span lang="en">Camera rested while swiping</span></td><td><span lang="vi">Có</span><span lang="en">Yes</span></td><td><span lang="vi">Không</span><span lang="en">No</span></td></tr>
+    <tr><td><span lang="vi">Để yên, camera vẫn tự nghỉ</span><span lang="en">Left alone, camera still rests</span></td><td><span lang="vi">Có</span><span lang="en">Yes</span></td><td><span lang="vi">Có, sau 46 giây ở SERIOUS</span><span lang="en">Yes, after 46 seconds at SERIOUS</span></td></tr>
+  </tbody>
+</table></div>
+<p class="note" lang="vi">Lượt "trước" chạy ở mức nhiệt 4, lượt "sau" ở mức 3: máy được dùng liên tục nên không thể giữ đúng một mức. Số lần tự nghỉ được đếm từ nhật ký, không phụ thuộc mức nhiệt.</p>
+<p class="note" lang="en">The "before" runs were at thermal status 4, the "after" run at 3: the phone was in continuous use, so its level could not be held exactly. The rest events are counted from the log and do not depend on the level.</p>
+<h3 id="wake"><span lang="vi">Camera đã nghỉ thì một chạm vẫn chụp được</span><span lang="en">A resting camera still shoots on one tap</span></h3>
+<p lang="vi">Khi máy nóng, camera nghỉ sau 15 đến 45 giây không chạm. Trước đây cú chạm vào nút chụp chỉ đánh thức camera và bị bỏ, nên ảnh nào cũng tốn hai lần chạm; trên máy nóng, nhịp đó đủ để lỡ khoảnh khắc. Bây giờ chạm vào nút chụp hoặc nút quay vừa đánh thức camera vừa chạy đúng hành động đó, ngay khi camera báo đã chạy lại. Nếu sau 5 giây camera vẫn chưa sẵn sàng, cú chạm bị bỏ chứ không bắn vào một camera đang ngái ngủ. Ảnh vẫn chờ phơi sáng ổn định như mọi lần chụp.</p>
+<p lang="en">When the phone is hot, the camera rests after 15 to 45 seconds without a touch. Until now the tap on the shutter that woke it only woke it and was dropped, so every shot cost two taps; on a hot phone that gap is enough to miss the moment. Now a tap on the shutter or the record button both wakes the camera and runs that action as soon as the camera reports it is running again. If the camera is not ready after 5 seconds, the tap is dropped rather than fired into a half-awake camera. A still still waits for exposure to settle, as every shot does.</p>
+<p class="note" lang="vi">Pixel 6 Pro, bản debug, ngày 29/10, mức nhiệt 2 đến 3: sau khi camera nghỉ, một chạm vào nút chụp lưu một ảnh, một chạm vào nút quay bắt đầu quay (clip lưu được). Một máy, một ngày; chưa đo trên iPhone.</p>
+<p class="note" lang="en">Pixel 6 Pro, debug build, 29 Oct, thermal status 2 to 3: after the camera rested, one tap on the shutter saved a photo and one tap on record started recording (the clip was saved). One phone, one day; not yet measured on iPhone.</p>
+
+<h3 id="ftl2"><span lang="vi">Test Lab, vòng hai: ba chip, một kiểu im lặng</span><span lang="en">Test Lab, round two: three chips, one kind of silence</span></h3>
+<p lang="vi">Vòng hai (29/10) chạy cùng quy trình: quay 1080p liên tục, ghi status, headroom và fps mỗi 5 giây. Máy lab nằm trong giá được làm mát, nên đọc hình dạng đường cong chứ không lấy số làm ngưỡng.</p>
+<p lang="en">Round two (29 Oct) used the same procedure: continuous 1080p, logging status, headroom and fps every 5 seconds. The lab phones sit in a cooled rack, so we read the shape of the curves, not the numbers as thresholds.</p>
+<ul lang="vi">
+  <li><strong>Galaxy A35 (Exynos 1380):</strong> status lên 3 sau khoảng 6 đến 8 phút, headroom vượt 1,0. Hệ điều hành báo nóng và LAM làm theo.</li>
+  <li><strong>Galaxy A15 (MediaTek MT6789):</strong> chạy lại bản rút gọn (1 phút ngắm, 4 phút quay). Máy lab dùng chung bắt đầu đã ấm (pin 36,1 °C, trạng thái 1), nên không so thẳng với lần trước. Trạng thái leo 1 → 2 → 3 sau khoảng một phút quay → 4 sau khoảng ba phút rưỡi; LAM theo đúng từng bước và quay xong. Không im lặng.</li>
+  <li><strong>realme C53 (Unisoc):</strong> headroom trả về NaN và status đứng ở 0 suốt bài. Hệ điều hành không nói gì, nên LAM không có gì để theo. Pin tăng từ 26,9 lên 34,3 °C trong lúc đó: đó là tín hiệu có sẵn (xem bên dưới).</li>
+</ul>
+<ul lang="en">
+  <li><strong>Galaxy A35 (Exynos 1380):</strong> status reached 3 after about 6 to 8 minutes, headroom above 1.0. The OS reports the heat and LAM follows it.</li>
+  <li><strong>Galaxy A15 (MediaTek MT6789):</strong> re-run with the shortened soak (1 minute of finder, 4 of recording). The shared lab phone started warm (battery 36.1 °C, status 1), so it does not compare directly with the earlier run. Status climbed 1 → 2 → 3 after about a minute of recording → 4 after about three and a half; LAM followed each step and the take finished. Not silent.</li>
+  <li><strong>realme C53 (Unisoc):</strong> headroom returned NaN and status stayed at 0 for the whole run. The OS says nothing, so LAM has nothing to follow. The battery went from 26.9 to 34.3 °C meanwhile: the signal that was there (see below).</li>
+</ul>
+<h3 id="battery"><span lang="vi">Khi hệ điều hành im lặng, nhìn vào pin</span><span lang="en">When the OS is silent, look at the battery</span></h3>
+<p lang="vi">Cả realme C53 lẫn Xperia 1 V (đo ngày 25/10) đều ngồi im qua cả một lần quay 1080p: không headroom, trạng thái luôn bằng 0, trong khi pin nóng lên 7 đến 10 °C. LAM ở mức bình thường trên cả hai, nên không có biện pháp bảo vệ nào được bật. Bây giờ, nếu hệ điều hành không nói gì suốt một phút (không có headroom dùng được và trạng thái chưa bao giờ trên 0), LAM đọc nhiệt độ pin: từ 37 °C là "ấm", từ 40 °C là "hơi nóng", từ 43 °C là "nóng". Nó không bao giờ hạ thấp mức mà hệ điều hành báo, và một khi hệ điều hành đã lên tiếng một lần trong phiên thì tín hiệu pin bị tắt cho cả phiên. Vì vậy Pixel, Galaxy và cả Galaxy A15 (trạng thái 0 nhưng có headroom hợp lệ) không bị đụng tới.</p>
+<p lang="en">Both the realme C53 and the Xperia 1 V (measured 25 Oct) sat silent through a whole 1080p recording: no headroom, status always 0, while the battery warmed by 7 to 10 °C. LAM stayed at its normal level on both, so none of its protection engaged. Now, if the OS says nothing for a minute (no usable headroom and a status that never rose above 0), LAM reads the battery temperature: from 37 °C it is "warm", from 40 °C "hot-ish", from 43 °C "hot". It never lowers a level the OS reports, and once the OS has spoken at all in a session the battery signal is off for the rest of it. So Pixels, Galaxies and even the Galaxy A15 (status 0 but a valid headroom) are left alone.</p>
+<p class="note" lang="vi">Mỏ neo là một điểm đo thật: Pixel 6 Pro cầm tay ở 43 °C khi hệ điều hành báo CRITICAL. Hai ngưỡng thấp hơn được đặt dưới nó. Máy rack nguội hơn tay: hai máy im lặng chỉ lên 34,3 và 38 °C, nên C53 không kích hoạt và Xperia chỉ chạm mức đầu. Các con số là giả thuyết cho tới khi một máy im lặng được đo trong tay. <span class="tbd">TBD</span></p>
+<p class="note" lang="en">The anchor is a single measured point: a hand-held Pixel 6 Pro at 43 °C when the OS reported CRITICAL. The two lower thresholds sit below it. Rack phones are cooler than a hand: the two silent phones only reached 34.3 and 38 °C, so the C53 never triggers and the Xperia reaches only the lowest level. The numbers are a hypothesis until a silent phone is measured in a hand. <span class="tbd">TBD</span></p>
+<p class="note" lang="vi">Mỗi chip một lần chạy (A15: bản rút gọn, bắt đầu ấm); chưa đủ để lập bảng ngưỡng theo dòng máy. <span class="tbd">TBD</span></p>
+<p class="note" lang="en">One run per chip (A15: shortened, started warm); not enough to build per-chip thresholds. <span class="tbd">TBD</span></p>
+
+<p lang="vi">Còn hai nguồn giật nhỏ hơn: luồng giao diện bị khoá 117–177 ms, một lần do animation, một lần do thư viện giao diện duyệt toàn bộ cây phần tử cho dịch vụ content capture của hệ thống. Ngoài ra, đổi sang thân máy có tỉ lệ khung hoặc tốc độ khung khác vẫn phải mở lại phiên camera. LAM phủ một lớp tối nhẹ lên khung ngắm trong lúc đó, thay vì để người dùng thấy hình đứng.</p>
+<p lang="en">Two smaller sources of stutter remain: the UI thread was blocked for 117–177 ms, once by an animation and once by the UI toolkit walking its whole element tree for the system's content-capture service. And switching to a body with a different frame shape or frame rate still reopens the camera session. LAM dims the finder gently while that happens, instead of showing a frozen frame.</p>
+
+<h2 id="governor"><span lang="vi">Bộ điều phối tài nguyên</span><span lang="en">The resource governor</span></h2>
+<p lang="vi">Mục tiêu là đổi một chút tốc độ lấy sự ổn định: tráng phim có thể chậm hơn vài giây, nhưng khung ngắm không được giật. Phần này mô tả thiết kế; những câu đánh dấu là chưa xây xong.</p>
+<p lang="en">The goal is to trade a little speed for stability: developing may take a few seconds longer, but the finder must not stutter. This section describes the design; marked sentences are not built yet.</p>
+<ul lang="vi">
+  <li><span class="plan">Một hàng đợi ưu tiên cho mọi việc nặng chạy nền: tráng âm bản, đo hạt, mô hình màu da, các bộ phân tích cảnh. Khung hình của khung ngắm luôn được ưu tiên trước.</span></li>
+  <li><span class="plan">Trong khoảng nửa giây sau mỗi lần đổi look, các bộ phân tích tạm dừng để khung hình đầu của look mới không phải tranh tài nguyên.</span></li>
+  <li><span class="plan">Ở SERIOUS trở lên, hoặc khi hệ điều hành báo sắp thiếu bộ nhớ (<a href="#src-trim">onTrimMemory</a>), các bộ phân tích chạy nửa tốc độ, bộ nhớ đệm ảnh được dọn bớt và việc tráng chờ.</span></li>
+  <li><span class="plan">Đổi tỉ lệ khung trong chế độ ảnh bằng cách cắt khung trong GPU thay vì mở lại phiên camera; giữ chung một cây khung ngắm khi chuyển giữa Boutique và toàn màn hình.</span></li>
+</ul>
+<ul lang="en">
+  <li><span class="plan">One priority queue for every heavy background job: developing negatives, grain probes, the skin-tone model, scene analysers. The finder's frame always takes precedence.</span></li>
+  <li><span class="plan">For about half a second after each look change, analysers pause so the new look's frames do not compete for resources.</span></li>
+  <li><span class="plan">At SERIOUS and above, or when the OS warns of low memory (<a href="#src-trim">onTrimMemory</a>), analysers run at half rate, image caches are trimmed and developing waits.</span></li>
+  <li><span class="plan">Change the frame shape in photo mode by cropping on the GPU instead of reopening the camera session, and keep a single finder tree when switching between Boutique and full screen.</span></li>
+</ul>
+
+<h2 id="testing"><span lang="vi">Kiểm thử thế nào</span><span lang="en">How it is tested</span></h2>
+<ul lang="vi">
+  <li><strong>Máy thật, khi nóng.</strong> Một bộ kịch bản chạy khoảng 40 phút trên bản phát hành (đã qua R8), với Pixel giữ ở mức nhiệt 4 suốt lượt. Kết quả: giao diện giật khoảng 1 % khung hình khi chụp liên tiếp, 7–14 % khi quay, không lỗi lưu file nào.</li>
+  <li><strong><a href="#src-ftl">Firebase Test Lab</a>.</strong> Mỗi lượt quay 1080p liên tục 10 phút trên nhiều dòng chip, ghi status, headroom và fps mỗi 5 giây. Máy lab được làm mát và không có tay cầm, nên chúng tôi chỉ đọc hình dạng đường cong, không lấy số °C làm ngưỡng.</li>
+  <li><strong>Test trên máy tính</strong> cho mọi quy tắc thuần: bậc thang thời gian chờ, cách ghép status với headroom, nhãn nhiệt. Mỗi bài test được thử phá để chắc nó biết báo lỗi.</li>
+</ul>
+<ul lang="en">
+  <li><strong>Real phones, hot.</strong> A scenario suite runs for about 40 minutes on the release build (after R8), with the Pixel held at thermal status 4 throughout. Result: UI jank of about 1 % of frames during bursts and 7–14 % while recording, with no failed saves.</li>
+  <li><strong><a href="#src-ftl">Firebase Test Lab</a>.</strong> Ten minutes of continuous 1080p per run across chip families, logging status, headroom and fps every 5 seconds. Lab phones are cooled and nobody holds them, so we read only the shape of the curves and never take their °C as thresholds.</li>
+  <li><strong>Host tests</strong> for every pure rule: the idle ladder, how status and headroom combine, the heat label. Each test was deliberately broken once to make sure it can fail.</li>
+</ul>
+
+<h2 id="open"><span lang="vi">Những gì còn mở</span><span lang="en">What is still open</span></h2>
+<ul lang="vi">
+  <li><strong>Máy không báo nhiệt.</strong> Với những máy luôn báo headroom bằng 0, LAM cần một nguồn dự phòng từ nhiệt độ pin. <span class="tbd">TBD: thiết kế và số đo</span></li>
+  <li><strong>Máy tầm trung giá rẻ.</strong> Trên một máy MediaTek bán chạy, 96 % khung giao diện của khung ngắm bị giật trong 3 phút đo (trung vị 38 ms), trong khi cùng bài đo trên Pixel 6 là 40 %. Đây là việc ưu tiên tiếp theo. <span class="tbd">TBD: kết quả sau khi tối ưu</span></li>
+  <li><strong>Bảng theo dòng chip.</strong> Exynos tầm trung lên mức 4 sau 10 phút ngay cả trong lab được làm mát; chúng tôi cần thêm Unisoc và các dòng MediaTek khác. <span class="tbd">TBD: bảng đầy đủ</span></li>
+  <li><strong>iPhone.</strong> iOS chỉ cho bốn mức <a href="#src-ios">thermalState</a>. Bản sửa bộ đếm tự nghỉ nằm trong phần mã dùng chung nên áp dụng cho cả iPhone. <span class="tbd">TBD: số đo độ mượt trên iPhone</span></li>
+</ul>
+<ul lang="en">
+  <li><strong>Phones that report no heat.</strong> For phones whose headroom always reads 0, LAM needs a fallback from battery temperature. <span class="tbd">TBD: design and measurements</span></li>
+  <li><strong>Budget mid-range phones.</strong> On a popular MediaTek phone, 96 % of the finder's UI frames were janky over 3 minutes (median 38 ms), against 40 % on a Pixel 6 in the same test. This is the next priority. <span class="tbd">TBD: results after optimising</span></li>
+  <li><strong>Per-chip tables.</strong> A mid-range Exynos reached status 4 after 10 minutes even in a cooled lab; we still need Unisoc and more MediaTek families. <span class="tbd">TBD: the full table</span></li>
+  <li><strong>iPhone.</strong> iOS offers four <a href="#src-ios">thermalState</a> levels. The idle-timer fix lives in shared code, so it applies to iPhone too. <span class="tbd">TBD: smoothness numbers on iPhone</span></li>
+</ul>
+
+<h2 id="lessons"><span lang="vi">Bài học</span><span lang="en">Lessons</span></h2>
+<ol lang="vi">
+  <li><strong>Đo trước khi sửa.</strong> Bản sửa "hợp lý" ban đầu của chúng tôi nhắm sai chỗ. Ghép từng lần đứng hình với nhật ký hệ thống chỉ mất vài phút và chỉ ra thủ phạm thật.</li>
+  <li><strong>Đi theo hệ điều hành, không đi trước nó.</strong> Nhãn nhiệt báo động sớm hơn chính chiếc máy thì chỉ làm người dùng lo, và rồi họ thôi tin nó.</li>
+  <li><strong>Bảo vệ thứ người dùng đang ghi lại.</strong> Khung ngắm có thể đơn giản đi khi nóng; file đang quay thì không.</li>
+  <li><strong>Mọi tín hiệu "đang dùng" phải đến được bộ tiết kiệm pin.</strong> Một tính năng tiết kiệm pin mà không thấy người dùng thì sẽ tắt camera ngay trong tay họ.</li>
+</ol>
+<ol lang="en">
+  <li><strong>Measure before fixing.</strong> Our own "reasonable" fix aimed at the wrong place. Matching each freeze against the system log took minutes and named the real culprit.</li>
+  <li><strong>Follow the operating system, do not run ahead of it.</strong> A heat label that alarms earlier than the phone itself only worries people, and then they stop trusting it.</li>
+  <li><strong>Protect what the user is recording.</strong> The finder may simplify when hot; the clip being recorded may not.</li>
+  <li><strong>Every "in use" signal must reach the power saver.</strong> A battery saver that cannot see the user will close the camera in their hands.</li>
+</ol>
+</main>
+
+<footer class="foot wrap">
+  <p lang="vi"><strong>Thiết bị.</strong> Pixel, Galaxy, Xperia, Tensor, Exynos, Snapdragon, MediaTek và Unisoc là nhãn hiệu của chủ sở hữu tương ứng, chỉ được nhắc đến để ghi rõ thiết bị đã đo. LAM không liên kết với các hãng này.</p>
+  <p lang="en"><strong>Devices.</strong> Pixel, Galaxy, Xperia, Tensor, Exynos, Snapdragon, MediaTek and Unisoc are trademarks of their respective owners, named only to identify the devices measured. LAM is not affiliated with them.</p>
+  <p lang="vi"><strong>Nguồn</strong></p>
+  <p lang="en"><strong>Sources</strong></p>
+  <ol>
+    <li id="src-status"><a href="https://developer.android.com/reference/android/os/PowerManager#getCurrentThermalStatus()">PowerManager.getCurrentThermalStatus() — Android Developers</a></li>
+    <li id="src-headroom"><a href="https://developer.android.com/reference/android/os/PowerManager#getThermalHeadroom(int)">PowerManager.getThermalHeadroom(int) — Android Developers</a></li>
+    <li><a href="https://developer.android.com/games/optimize/adpf/thermal">Thermal API — Android Developers</a></li>
+    <li id="src-trim"><a href="https://developer.android.com/reference/android/content/ComponentCallbacks2#onTrimMemory(int)">ComponentCallbacks2.onTrimMemory(int) — Android Developers</a></li>
+    <li id="src-ios"><a href="https://developer.apple.com/documentation/foundation/processinfo/thermalstate">ProcessInfo.ThermalState — Apple Developer</a></li>
+    <li id="src-ftl"><a href="https://firebase.google.com/docs/test-lab">Firebase Test Lab — Firebase</a></li>
+  </ol>
+  <p lang="vi">© 2026 Brewkits · LAM. Ghi chép kỹ thuật; số liệu đo trên thiết bị và ngày ghi trong bài, có thể được cập nhật.</p>
+  <p lang="en">© 2026 Brewkits · LAM. Engineering note; measurements are from the devices and dates stated, and may be updated.</p>
+</footer>
+<script src="tech.js"></script>
+</body>
+</html>
