@@ -164,6 +164,26 @@
 </table></div>
 <p class="note" lang="vi">Lượt "trước" chạy ở mức nhiệt 4, lượt "sau" ở mức 3: máy được dùng liên tục nên không thể giữ đúng một mức. Số lần tự nghỉ được đếm từ nhật ký, không phụ thuộc mức nhiệt.</p>
 <p class="note" lang="en">The "before" runs were at thermal status 4, the "after" run at 3: the phone was in continuous use, so its level could not be held exactly. The rest events are counted from the log and do not depend on the level.</p>
+<h3 id="wake"><span lang="vi">Camera đã nghỉ thì một chạm vẫn chụp được</span><span lang="en">A resting camera still shoots on one tap</span></h3>
+<p lang="vi">Khi máy nóng, camera nghỉ sau 15 đến 45 giây không chạm. Trước đây cú chạm vào nút chụp chỉ đánh thức camera và bị bỏ, nên ảnh nào cũng tốn hai lần chạm; trên máy nóng, nhịp đó đủ để lỡ khoảnh khắc. Bây giờ chạm vào nút chụp hoặc nút quay vừa đánh thức camera vừa chạy đúng hành động đó, ngay khi camera báo đã chạy lại. Nếu sau 5 giây camera vẫn chưa sẵn sàng, cú chạm bị bỏ chứ không bắn vào một camera đang ngái ngủ. Ảnh vẫn chờ phơi sáng ổn định như mọi lần chụp.</p>
+<p lang="en">When the phone is hot, the camera rests after 15 to 45 seconds without a touch. Until now the tap on the shutter that woke it only woke it and was dropped, so every shot cost two taps; on a hot phone that gap is enough to miss the moment. Now a tap on the shutter or the record button both wakes the camera and runs that action as soon as the camera reports it is running again. If the camera is not ready after 5 seconds, the tap is dropped rather than fired into a half-awake camera. A still still waits for exposure to settle, as every shot does.</p>
+<p class="note" lang="vi">Pixel 6 Pro, bản debug, ngày 29/10, mức nhiệt 2 đến 3: sau khi camera nghỉ, một chạm vào nút chụp lưu một ảnh, một chạm vào nút quay bắt đầu quay (clip lưu được). Một máy, một ngày; chưa đo trên iPhone.</p>
+<p class="note" lang="en">Pixel 6 Pro, debug build, 29 Oct, thermal status 2 to 3: after the camera rested, one tap on the shutter saved a photo and one tap on record started recording (the clip was saved). One phone, one day; not yet measured on iPhone.</p>
+
+<h3 id="ftl2"><span lang="vi">Test Lab, vòng hai: hai chip, hai kiểu im lặng</span><span lang="en">Test Lab, round two: two chips, two kinds of silence</span></h3>
+<p lang="vi">Vòng hai (29/10) chạy cùng quy trình: quay 1080p liên tục, ghi status, headroom và fps mỗi 5 giây. Máy lab nằm trong giá được làm mát, nên đọc hình dạng đường cong chứ không lấy số làm ngưỡng.</p>
+<p lang="en">Round two (29 Oct) used the same procedure: continuous 1080p, logging status, headroom and fps every 5 seconds. The lab phones sit in a cooled rack, so we read the shape of the curves, not the numbers as thresholds.</p>
+<ul lang="vi">
+  <li><strong>Galaxy A35 (Exynos 1380):</strong> status lên 3 sau khoảng 6 đến 8 phút, headroom vượt 1,0. Hệ điều hành báo nóng và LAM làm theo.</li>
+  <li><strong>realme C53 (Unisoc):</strong> headroom trả về NaN và status đứng ở 0 suốt bài. Hệ điều hành không nói gì, nên LAM không có gì để theo. Cần một tín hiệu dự phòng từ nhiệt độ pin; <span class="tbd">TBD</span> chưa làm.</li>
+</ul>
+<ul lang="en">
+  <li><strong>Galaxy A35 (Exynos 1380):</strong> status reached 3 after about 6 to 8 minutes, headroom above 1.0. The OS reports the heat and LAM follows it.</li>
+  <li><strong>realme C53 (Unisoc):</strong> headroom returned NaN and status stayed at 0 for the whole run. The OS says nothing, so LAM has nothing to follow. A fallback signal from battery temperature is needed; <span class="tbd">TBD</span> not built yet.</li>
+</ul>
+<p class="note" lang="vi">Mỗi chip một lần chạy; chưa đủ để lập bảng ngưỡng theo dòng máy. <span class="tbd">TBD</span></p>
+<p class="note" lang="en">One run per chip; not enough to build per-chip thresholds. <span class="tbd">TBD</span></p>
+
 <p lang="vi">Còn hai nguồn giật nhỏ hơn: luồng giao diện bị khoá 117–177 ms, một lần do animation, một lần do thư viện giao diện duyệt toàn bộ cây phần tử cho dịch vụ content capture của hệ thống. Ngoài ra, đổi sang thân máy có tỉ lệ khung hoặc tốc độ khung khác vẫn phải mở lại phiên camera. LAM phủ một lớp tối nhẹ lên khung ngắm trong lúc đó, thay vì để người dùng thấy hình đứng.</p>
 <p lang="en">Two smaller sources of stutter remain: the UI thread was blocked for 117–177 ms, once by an animation and once by the UI toolkit walking its whole element tree for the system's content-capture service. And switching to a body with a different frame shape or frame rate still reopens the camera session. LAM dims the finder gently while that happens, instead of showing a frozen frame.</p>
 

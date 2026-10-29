@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi" data-status="draft">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Âm bản sạch · LAM Kỹ thuật</title>
+<meta name="lam-title-vi" content="Âm bản sạch · LAM Kỹ thuật">
+<meta name="lam-title-en" content="A clean negative · LAM Engineering">
+<meta name="description" content="Ghi chép kỹ thuật của LAM: khử nhiễu để ảnh sạch hơn mà không giả hơn trước khi áp màu phim — tách nhiễu màu khỏi hạt sáng, đo nhiễu của chính tấm ảnh, và một ngân sách hạt chung cho cảm biến và phim.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://brewkits.dev/lam/tech/clean-negative.html">
+<link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/tech/clean-negative.html?lang=vi">
+<link rel="alternate" hreflang="en" href="https://brewkits.dev/lam/tech/clean-negative.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://brewkits.dev/lam/tech/clean-negative.html">
+<meta name="theme-color" content="#0b0907">
+<meta property="og:title" content="Âm bản sạch — LAM Kỹ thuật">
+<meta property="og:description" content="Khử nhiễu để ảnh sạch hơn mà không giả hơn: nhiễu màu, hạt sáng, và một ngân sách hạt chung.">
+<meta property="og:type" content="article">
+<link rel="icon" href="/img/icon.png">
+<link rel="stylesheet" href="tech.css">
+</head>
+<body>
+<div class="bar">
+  <a class="home" href="index.html"><b>LAM</b> · <span lang="vi">Kỹ thuật</span><span lang="en">Engineering</span></a>
+  <span class="sp"></span>
+  <div class="langs" role="group" aria-label="Language">
+    <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</div>
+
+<main class="wrap">
+<header class="hero">
+  <div class="kicker"><span lang="vi">Ghi chép kỹ thuật · Xử lý ảnh</span><span lang="en">Engineering note · Image processing</span></div>
+  <h1><span lang="vi">Âm bản sạch</span><span lang="en">A clean negative</span></h1>
+  <p class="dek" lang="vi">Làm sao để khung hình đưa vào màu phim của LAM sạch hơn mà không giả hơn: tách nhiễu màu khỏi hạt sáng, đo nhiễu của chính tấm ảnh thay vì đoán theo ISO, và cho hạt cảm biến với hạt phim dùng chung một ngân sách.</p>
+  <p class="dek" lang="en">How to make the frame that enters LAM's film look cleaner without making it faker: separate colour noise from luminance grain, measure the noise of the photo itself instead of guessing from ISO, and let sensor grain and film grain share one budget.</p>
+  <div class="meta">
+    <span class="chip draft"><span lang="vi">Bản nháp · chưa phát hành</span><span lang="en">Draft · unpublished</span></span>
+    <span class="chip"><span lang="vi">Viết 27/10/2026</span><span lang="en">Written 2026-10-27</span></span>
+    <span class="chip"><span lang="vi">Phát hành</span><span lang="en">Published</span>&nbsp;<span class="tbd">TBD</span></span>
+    <span class="chip">Android · iOS</span>
+  </div>
+  <nav class="toc" aria-label="Contents">
+    <span class="kicker"><span lang="vi">Nội dung</span><span lang="en">Contents</span></span>
+    <ol></ol>
+  </nav>
+</header>
+
+<section class="tldr">
+  <div class="kicker"><span lang="vi">Tóm tắt</span><span lang="en">In short</span></div>
+  <ul lang="vi">
+    <li>Bộ xử lý ảnh (ISP) của điện thoại làm mịn độ sáng và làm nét cạnh. Màu phim đặt lên trên một khung hình như vậy sẽ thừa hưởng da sáp và viền sáng quanh cạnh.</li>
+    <li>LAM tách nhiễu làm hai loại. <strong>Nhiễu màu</strong> (đốm đỏ–xanh) được khử mạnh. <strong>Hạt sáng</strong> được giữ nguyên, vì đó là chất liệu của phim.</li>
+    <li>Độ mạnh khử nhiễu và lượng hạt phim thêm vào được tính từ nhiễu <strong>đo trên chính tấm ảnh</strong>. Nhiễu cộng theo bình phương, nên LAM chỉ thêm phần hạt còn thiếu.</li>
+    <li>Trong đường xử lý này không có mô hình tạo sinh nào vẽ lại pixel. Mọi bước là bộ lọc cổ điển với tham số được đo.</li>
+    <li>Đo trên Pixel 6 Pro: nhiễu màu vùng tối về ngang mức của ISP. Halo quanh cạnh giảm khoảng một nửa. Đổi lại, ảnh mềm hơn, và vùng sáng nhỏ không còn được ISP kéo tối cục bộ.</li>
+  </ul>
+  <ul lang="en">
+    <li>A phone's image signal processor (ISP) smooths luminance and sharpens edges. A film look laid on top of such a frame inherits waxy skin and bright rims around edges.</li>
+    <li>LAM splits noise in two. <strong>Colour noise</strong> (red–green speckle) is cleaned hard. <strong>Luminance grain</strong> is kept, because it is what film is made of.</li>
+    <li>The cleaning strength and the film grain added are computed from noise <strong>measured on the photo itself</strong>. Noise adds in quadrature, so LAM adds only the grain still missing.</li>
+    <li>No generative model repaints pixels in this pipeline. Every step is a classic filter with measured parameters.</li>
+    <li>Measured on a Pixel 6 Pro: shadow colour noise comes down to the ISP's own level, and the halo around edges roughly halves. In exchange the photo is softer, and small bright areas are no longer darkened locally by the ISP.</li>
+  </ul>
+</section>
+
+<h2 id="problem"><span lang="vi">Vì sao không dùng khử nhiễu mặc định</span><span lang="en">Why not the default noise reduction</span></h2>
+<p lang="vi">Khử nhiễu trong ISP được tối ưu để ảnh trông sạch khi xem ngay trên điện thoại. Cách đơn giản để giảm sai số so với ảnh "đúng" là làm mịn. <a href="#src-pd">Blau và Michaeli (2018)</a> chứng minh rằng sai số thấp và cảm giác tự nhiên kéo về hai phía ngược nhau. Bộ lọc tối ưu cho sai số sẽ xoá vi kết cấu: lỗ chân lông, sợi vải, hạt gỗ. Đó là nguồn gốc của da sáp và vẻ màu nước.</p>
+<p lang="en">ISP noise reduction is tuned so the photo looks clean when viewed on the phone. The fastest way to reduce error against the "true" image is to smooth. <a href="#src-pd">Blau and Michaeli (2018)</a> proved that low error and a natural look pull in opposite directions. A filter tuned for error erases micro-texture: pores, cloth weave, wood grain. That is where waxy skin and the watercolour look come from.</p>
+<p lang="vi">Sau khi khử nhiễu, ISP làm nét lại cạnh. Làm nét tạo ra một viền sáng và một viền tối ở hai bên mỗi cạnh mạnh. Đó là một dấu hiệu rất dễ nhận ra của "ảnh điện thoại". Một màu phim tốt không xoá được hai thứ này, vì chúng đã nằm sẵn trong pixel.</p>
+<p lang="en">After noise reduction, the ISP sharpens the edges back. Sharpening creates a bright rim and a dark rim on either side of every strong edge, a sign of a "phone photo" that is very easy to spot. A good film look cannot remove either, because both are already in the pixels.</p>
+
+<h2 id="principles"><span lang="vi">Sáu nguyên tắc</span><span lang="en">Six principles</span></h2>
+<p lang="vi">Mọi thay đổi trong bài này phải qua được sáu nguyên tắc. Chúng là luật của LAM, được viết ra trước khi bắt đầu phần việc này.</p>
+<p lang="en">Every change in this note has to pass six principles. They are LAM's rules, written down before this work started.</p>
+<ol lang="vi">
+  <li><strong>Không mô hình nào vẽ lại pixel</strong> theo mặc định. Máy học chỉ được chọn tham số.</li>
+  <li><strong>Hạt sáng là phim; nhiễu màu là "máy hỏng".</strong> Khử nhiễu màu mạnh, không làm mịn độ sáng.</li>
+  <li><strong>Thứ tự:</strong> khử nhiễu trước khi áp màu, không bao giờ sau khi thêm hạt, không bao giờ trên ảnh đã áp màu.</li>
+  <li><strong>Chi tiết thật:</strong> chi tiết từ nhiều khung chỉ đến từ các khung thật đã căn chỉnh, ô nào lệch thì loại.</li>
+  <li><strong>Thấy gì được nấy:</strong> kiểm tra trên file lưu ra, không phải trên kính ngắm.</li>
+  <li><strong>Khuôn mặt, chữ và kết cấu da</strong> không bị thay đổi.</li>
+</ol>
+<ol lang="en">
+  <li><strong>No model repaints pixels</strong> by default. Machine learning may only choose parameters.</li>
+  <li><strong>Luminance grain is film; colour noise is "a broken camera".</strong> Clean colour noise hard; do not smooth luminance.</li>
+  <li><strong>Order:</strong> denoise before the grade, never after grain is added, never on a graded file.</li>
+  <li><strong>Real detail:</strong> multi-frame detail comes only from real, aligned frames; misaligned tiles are rejected.</li>
+  <li><strong>What you see is what you get:</strong> verify on the saved file, not on the viewfinder.</li>
+  <li><strong>Faces, text and skin texture</strong> are never changed.</li>
+</ol>
+
+<h2 id="layers"><span lang="vi">Bốn lớp</span><span lang="en">Four layers</span></h2>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Lớp</span><span lang="en">Layer</span></th>
+    <th><span lang="vi">Làm gì</span><span lang="en">What it does</span></th>
+    <th><span lang="vi">Trạng thái</span><span lang="en">Status</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span lang="vi">1. Nguồn trung thực</span><span lang="en">1. An honest source</span></td><td><span lang="vi">Yêu cầu ISP xử lý ở mức tối thiểu: tắt làm nét, khử nhiễu ở mức nhẹ mà máy hỗ trợ. Trên iOS: một khung RAW Bayer, tự giải mã với khử nhiễu sáng và làm nét bằng 0.</span><span lang="en">Ask the ISP for its lightest processing: sharpening off, noise reduction at the lightest mode the device offers. On iOS: one Bayer RAW frame, developed with luminance noise reduction and sharpening at 0.</span></td><td><span lang="vi">Ảnh: đã làm, đang kiểm tra trên máy. Video: <span class="tbd">TBD</span></span><span lang="en">Stills: built, in device testing. Video: <span class="tbd">TBD</span></span></td></tr>
+    <tr><td><span lang="vi">2. Nhiễu màu</span><span lang="en">2. Colour noise</span></td><td><span lang="vi">Chỉ sửa kênh màu; độ sáng giữ nguyên từng pixel. Lọc song phương có dẫn hướng bằng độ sáng, ô 8 px, độ mạnh theo nhiễu đo được.</span><span lang="en">Changes the colour channels only; luminance is kept pixel for pixel. A luminance-guided joint-bilateral filter on 8 px cells, with strength set by the measured noise.</span></td><td><span lang="vi">Ảnh Android: đã làm, đang kiểm tra trên máy. Video: <span class="plan">bản GPU theo cùng thuật toán</span></span><span lang="en">Android stills: built, in device testing. Video: <span class="plan">a GPU version of the same algorithm</span></span></td></tr>
+    <tr><td><span lang="vi">3. Độ sáng</span><span lang="en">3. Luminance</span></td><td><span lang="vi">Không làm mịn. Chỉ làm sạch bằng nhiều khung thật, ghép theo từng ô trong không gian tuyến tính.</span><span lang="en">No smoothing. Cleaner luminance only from more real frames, merged tile by tile in linear light.</span></td><td><span class="plan"><span lang="vi">Đang review</span><span lang="en">In review</span></span></td></tr>
+    <tr><td><span lang="vi">4. Ngân sách hạt</span><span lang="en">4. Grain budget</span></td><td><span lang="vi">Hạt cảm biến và hạt phim cộng lại vừa bằng độ hạt của loại phim.</span><span lang="en">Sensor grain plus film grain lands on the film stock's grain.</span></td><td><span lang="vi">Ảnh: đã làm, đang kiểm tra trên máy</span><span lang="en">Stills: built, in device testing</span></td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="chroma"><span lang="vi">Lớp 2: nhiễu màu, không đụng độ sáng</span><span lang="en">Layer 2: colour noise, luminance untouched</span></h2>
+<p lang="vi">Mắt người phân giải màu kém hơn nhiều so với độ sáng. Đó là lý do JPEG và video lưu kênh màu ở một nửa độ phân giải theo mỗi chiều (4:2:0) mà gần như không ai nhận ra. LAM dùng cùng một sự thật đó theo hướng ngược lại. Nhiễu màu có thể được trung bình hoá trên vùng rộng mà mắt không thấy mất gì, miễn là màu không tràn qua cạnh.</p>
+<p lang="en">The eye resolves colour far less finely than luminance. That is why JPEG and video store colour at half resolution in each direction (4:2:0) and almost nobody notices. LAM uses the same fact the other way round: colour noise can be averaged over a wide area without the eye missing anything, as long as colour does not bleed across an edge.</p>
+<p lang="vi">Cách làm như sau:</p>
+<p lang="en">Here is how:</p>
+<ol lang="vi">
+  <li>Đổi ảnh sang Y (độ sáng) và Cb/Cr (màu) theo BT.601.</li>
+  <li>Tính trung bình Y, Cb, Cr trên từng ô 8×8 pixel.</li>
+  <li>Dựng lại màu của từng pixel từ 4 ô lân cận. Mỗi ô có trọng số bằng khoảng cách song tuyến nhân với độ gần giữa độ sáng của ô và độ sáng của pixel. Ô bên kia một cạnh sáng–tối gần như không được tính, nên màu không tràn qua cạnh.</li>
+  <li>Giữ nguyên Y của từng pixel. Hạt và chi tiết sáng không bị chạm vào.</li>
+</ol>
+<ol lang="en">
+  <li>Convert the photo to Y (luminance) and Cb/Cr (colour), BT.601.</li>
+  <li>Average Y, Cb and Cr over each 8×8 pixel cell.</li>
+  <li>Rebuild each pixel's colour from the 4 nearest cells. Each cell is weighted by its bilinear distance times how close its luminance is to the pixel's. A cell across a light–dark edge barely counts, so colour does not bleed across the edge.</li>
+  <li>Keep each pixel's own Y, so grain and luminance detail stay untouched.</li>
+</ol>
+<p lang="vi">Ô 8 px, không phải 4 px, vì ảnh JPEG của máy đã ở dạng 4:2:0. Nhiễu màu của nó vốn đến theo cụm 2×2. Một ô 4×4 chỉ chứa khoảng 4 mẫu độc lập, và đo thực tế chỉ giảm nhiễu 1,8 lần. Một ô 8×8 chứa khoảng 16 mẫu.</p>
+<p lang="en">The cells are 8 px, not 4 px, because the camera JPEG is already 4:2:0. Its colour noise arrives in 2×2 clumps, so a 4×4 cell holds only about 4 independent samples, and in measurement it cut speckle by just 1.8×. An 8×8 cell holds about 16.</p>
+
+<h2 id="measure"><span lang="vi">Đo nhiễu của chính tấm ảnh</span><span lang="en">Measuring the photo's own noise</span></h2>
+<p lang="vi">ISO chỉ là một con số trong EXIF. Hai tấm ảnh cùng ISO có thể có lượng nhiễu rất khác nhau, tuỳ chế độ xử lý và độ sáng cảnh. LAM đo nhiễu trên mỗi tấm ảnh trước khi thay đổi bất kỳ pixel nào.</p>
+<p lang="en">ISO is just a number in the EXIF. Two photos at the same ISO can carry very different noise, depending on the processing mode and the scene brightness. LAM measures the noise of each photo before changing any pixel.</p>
+<p lang="vi">Phiên bản ban đầu dùng bộ ước lượng kinh điển của <a href="#src-immerkaer">Immerkær (1996)</a>: một bộ lọc Laplacian 3×3 triệt tiêu cấu trúc trơn, rồi lấy trung vị để kết cấu không làm lệch kết quả. Trên máy thật, nó <strong>đo sai</strong>. Nó báo nhiễu màu 0,3 trên những tấm ảnh mà vùng tối vẫn còn lốm đốm. Nguyên nhân: sau demosaic và nén 4:2:0, nhiễu của máy không còn là nhiễu trắng từng pixel mà là những mảng loang rộng vài pixel. Bộ lọc 3×3 không nhìn thấy chúng.</p>
+<p lang="en">The initial version used the classic estimator of <a href="#src-immerkaer">Immerkær (1996)</a>: a 3×3 Laplacian cancels smooth structure, and a median keeps texture from biasing the result. On the device it <strong>measured wrong</strong>. It reported colour noise of 0.3 on photos whose shadows still showed speckle. The cause: after demosaic and 4:2:0 compression, camera noise is no longer white per-pixel noise but blotches a few pixels wide, which a 3×3 filter does not see.</p>
+<p lang="vi">Bản hiện tại đo đúng thứ mà mắt thấy:</p>
+<p lang="en">The current version measures what the eye sees:</p>
+<ul lang="vi">
+  <li><strong>Nhiễu màu:</strong> trung vị độ lệch chuẩn Cr trong các khối 8×8 phẳng về độ sáng, trong 30% số khối tối hơn cả. Lốm đốm màu là chuyện của vùng tối.</li>
+  <li><strong>Hạt sáng:</strong> trung vị độ lệch chuẩn Y trong 25% số khối 8×8 phẳng hơn cả ở vùng trung tính.</li>
+</ul>
+<ul lang="en">
+  <li><strong>Colour noise:</strong> the median Cr standard deviation over 8×8 blocks that are flat in luminance, among the darkest 30% of the frame. Colour speckle is a shadow problem.</li>
+  <li><strong>Luminance grain:</strong> the median Y standard deviation over the flattest 25% of 8×8 mid-tone blocks.</li>
+</ul>
+<p lang="vi">Số đo trong app khớp với số đo lại bằng Python trên cùng các file. Ảnh nào không có lốm đốm màu thì bước khử được bỏ qua hoàn toàn.</p>
+<p lang="en">The in-app values match a Python re-measurement of the same files. A photo with no colour speckle skips the cleaning step entirely.</p>
+<h3 id="leds"><span lang="vi">Đèn nhỏ có màu không phải nhiễu</span><span lang="en">Small coloured lights are not noise</span></h3>
+<p lang="vi">Một bộ lọc màu chỉ nhìn thấy "một điểm màu khác hẳn xung quanh" sẽ coi đèn LED xanh hay đỏ trong ảnh là nhiễu và xám nó đi. Lần thử đầu trên ảnh thật đã làm đúng như vậy: một đèn đỏ nhỏ mất gần hết màu. Hai kiểm tra bây giờ cùng giữ màu lại. Một là, một điểm chỉ được coi là lốm đốm nếu độ sáng của nó cũng lẻ loi so với xung quanh; đèn thật sáng hơn hẳn nền. Hai là, màu lệch ra khỏi vùng lân cận quá xa so với nhiễu đo được (nhiều lần độ lệch chuẩn) thì được xem là màu thật, không phải nhiễu. Cả hai đều có test, và cả hai đều đã được thử ngược: bỏ kiểm tra thì test thất bại.</p>
+<p lang="en">A colour filter that only sees "a spot of a very different colour from its surroundings" will treat a blue or red LED in the frame as noise and grey it out. The earliest test on a real photo did exactly that: a small red light lost nearly all its colour. Two checks now keep the colour. One: a spot counts as speckle only if its luminance is also isolated from its neighbours; a real light is far brighter than the background. Two: a colour that departs from its neighbourhood by many times the measured noise is treated as real colour, not noise. Both have tests, and both were tested the other way round: remove the check and the test fails.</p>
+
+<h2 id="budget"><span lang="vi">Lớp 4: một ngân sách hạt</span><span lang="en">Layer 4: one grain budget</span></h2>
+<p lang="vi">Hai nguồn nhiễu độc lập không cộng thẳng mà cộng theo bình phương, vì phương sai của tổng các biến độc lập bằng tổng các phương sai: σ²<sub>tổng</sub> = σ²<sub>cảm biến</sub> + σ²<sub>phim</sub>. Vì vậy LAM thêm vào:</p>
+<p lang="en">Two independent noise sources do not add linearly; they add in quadrature, because the variance of a sum of independent variables is the sum of their variances: σ²<sub>total</sub> = σ²<sub>sensor</sub> + σ²<sub>film</sub>. So LAM adds:</p>
+<pre><code>g_add = sqrt(max(0, g_target² − σ_sensor²))</code></pre>
+<p lang="vi">Ảnh sạch nhận đủ hạt của loại phim. Ảnh đã nhiều hạt hơn mức của phim thì không được thêm gì. Mức mục tiêu <code>g_target</code> không cố định: nó bằng hạt của loại phim nhân với đường cong ISO (400/ISO, dưới ISO 400 giữ nguyên, sàn 0,2). Phim ở ISO cao trông không dày hạt hơn phim ISO thấp, và một khung chụp trong nhà tối không bị chất thêm hạt lên trên nhiễu cảm biến. Ở bản khởi đầu của lớp này, đường cong ISO bị bỏ và mục tiêu luôn là hạt đầy đủ của phim; đo trên máy cho thấy ảnh trong nhà dày hơn hẳn bản 1.0.3 (xem phần Kết quả đo, mục cập nhật ngày 29/10).</p>
+<p lang="en">A clean photo gets the stock's full grain; a photo already grainier than the stock gets none. The target <code>g_target</code> is not fixed: it is the stock's grain times the ISO curve (400/ISO, unchanged below ISO 400, floored at 0.2). A stock at high ISO does not look grainier than one at low ISO, and a frame shot in a dim room is not stacked with grain on top of its sensor noise. The initial version of this layer dropped the ISO curve and always aimed at the stock's full grain; measuring on the phone showed indoor photos much grainier than 1.0.3 (see Measurements, the 29 Oct update).</p>
+<p lang="vi">Ý tưởng tách hạt ra để xử lý riêng không mới. Công cụ hạt phim của chuẩn video AV1 khử hạt trước khi nén, chỉ gửi tham số mô tả hạt, rồi để bộ giải mã tổng hợp lại hạt (<a href="#src-av1">Norkin &amp; Birkbeck, 2018</a>).</p>
+<p lang="en">Treating grain as its own layer is not new. AV1's film grain tool removes grain before compression, sends only parameters describing it, and lets the decoder synthesise the grain again (<a href="#src-av1">Norkin &amp; Birkbeck, 2018</a>).</p>
+<figure>
+  <svg viewBox="0 0 640 230" role="img" aria-labelledby="fig1t">
+    <title id="fig1t">Grain budget: sensor and film grain add in quadrature</title>
+    <g fill="none" stroke="#8a7f6c" stroke-width="1.2">
+      <path d="M60 30 L60 190 L600 190"/>
+      <path d="M60 64 L600 64" stroke-dasharray="4 5"/>
+    </g>
+    <g fill="#d4af37">
+      <rect x="110" y="64" width="70" height="126" opacity=".35"/>
+      <rect x="250" y="138" width="70" height="52"/><rect x="250" y="64" width="70" height="74" opacity=".35"/>
+      <rect x="390" y="96" width="70" height="94"/><rect x="390" y="64" width="70" height="32" opacity=".35"/>
+      <rect x="530" y="44" width="70" height="146"/>
+    </g>
+    <g font-family="IBM Plex Mono, ui-monospace, monospace" font-size="11" fill="#bdb19c">
+      <text x="64" y="58" lang="vi">mức hạt của phim</text><text x="64" y="58" lang="en">stock grain target</text>
+      <text x="145" y="210" text-anchor="middle" lang="vi">cảm biến 0</text><text x="145" y="210" text-anchor="middle" lang="en">sensor 0</text>
+      <text x="285" y="210" text-anchor="middle" lang="vi">cảm biến thấp</text><text x="285" y="210" text-anchor="middle" lang="en">low sensor</text>
+      <text x="425" y="210" text-anchor="middle" lang="vi">cảm biến cao</text><text x="425" y="210" text-anchor="middle" lang="en">high sensor</text>
+      <text x="565" y="210" text-anchor="middle" lang="vi">vượt mức</text><text x="565" y="210" text-anchor="middle" lang="en">over target</text>
+    </g>
+  </svg>
+  <figcaption><span lang="vi">Hình 1. Đậm: hạt có sẵn từ cảm biến. Nhạt: hạt LAM thêm vào. Hai phần cộng theo bình phương nên vừa chạm mức của phim (nét đứt). Ở cột cuối, cảm biến đã vượt mức nên LAM không thêm gì; LAM không khử bớt hạt sáng.</span><span lang="en">Figure 1. Solid: grain already there from the sensor. Light: grain LAM adds. The two add in quadrature and land on the stock's level (dashed). In the last column the sensor is already over it, so LAM adds nothing; LAM does not remove luminance grain.</span></figcaption>
+</figure>
+
+<h2 id="results"><span lang="vi">Kết quả đo</span><span lang="en">Measurements</span></h2>
+<p lang="vi">Pixel 6 Pro, bản debug, máy đặt cố định, cùng khung hình (độ lệch giữa các tấm: 0 px theo tương quan pha). Hai cảnh: A trong nhà tối (ISO 1379 ở ảnh thường, 2140 ở Natural, 1/33 s) và B dưới đèn (ISO 44, 1/101 s). Hai ảnh thường liên tiếp được dùng làm đối chứng, để biết chênh lệch bao nhiêu là do ngẫu nhiên. Các chỉ số chi tiết được đo trên file gốc trước khi LAM áp màu, đã cân tone và trừ nền nhiễu.</p>
+<p lang="en">Pixel 6 Pro, debug build, fixed camera, same framing (phase-correlation shift between shots: 0 px). Two scenes: A, a dim interior (ISO 1379 ordinary, 2140 Natural, 1/33 s), and B, lamp-lit (ISO 44, 1/101 s). Two back-to-back ordinary shots serve as the control, showing how much difference is just chance. Detail metrics are measured on the original file before LAM's grade, tone-matched, with the noise floor subtracted.</p>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Chỉ số</span><span lang="en">Metric</span></th>
+    <th><span lang="vi">Ảnh thường</span><span lang="en">Ordinary</span></th>
+    <th>Natural</th>
+    <th><span lang="vi">Đối chứng</span><span lang="en">Control</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span lang="vi">Nhiễu màu vùng tối, file lưu (A)</span><span lang="en">Shadow colour noise, saved file (A)</span></td><td>0.4</td><td>0.4</td><td>0.4</td></tr>
+    <tr><td><span lang="vi">Nhiễu màu vùng tối, Natural không khử màu (lần đo đầu)</span><span lang="en">Shadow colour noise, Natural without the colour pass (earlier run)</span></td><td>0.4</td><td>3.7</td><td>—</td></tr>
+    <tr><td><span lang="vi">Halo quanh cạnh mạnh, file gốc (B)</span><span lang="en">Overshoot at strong edges, original (B)</span></td><td>3.3</td><td>1.6</td><td>3.1</td></tr>
+    <tr><td><span lang="vi">Năng lượng chi tiết 2–8 px, file gốc (B)</span><span lang="en">Detail energy 2–8 px, original (B)</span></td><td>1.0</td><td>0.7</td><td>0.9</td></tr>
+    <tr><td><span lang="vi">Hạt sáng trước khi áp màu (A)</span><span lang="en">Luminance grain before the grade (A)</span></td><td>1.3</td><td>3.6</td><td>—</td></tr>
+    <tr><td><span lang="vi">Hạt LAM thêm vào, σ (A)</span><span lang="en">Grain LAM adds, σ (A)</span></td><td>≈2.0 <span lang="vi">(đường cong ISO)</span><span lang="en">(ISO curve)</span></td><td>≈6.0 <span lang="vi">(ngân sách)</span><span lang="en">(budget)</span></td><td>—</td></tr>
+    <tr><td><span lang="vi">Thời gian khử màu + đo, mỗi ảnh</span><span lang="en">Colour pass + measurement, per photo</span></td><td>—</td><td><span lang="vi">≈0,7 s (debug)</span><span lang="en">≈0.7 s (debug)</span></td><td><span class="tbd">TBD release</span></td></tr>
+  </tbody>
+</table></div>
+<p class="note" lang="vi">Đơn vị: mã 8-bit (0–255). Gold 400 có mức hạt mục tiêu σ ≈ 7,0. Đây là một máy, hai cảnh, một bản debug; chưa đủ để kết luận cho mọi thiết bị.</p>
+<p class="note" lang="en">Units: 8-bit codes (0–255). Gold 400's target grain is σ ≈ 7.0. This is one device, two scenes and a debug build, not enough to generalise to every device.</p>
+<p lang="vi">Đọc bảng một cách trung thực:</p>
+<p lang="en">Reading the table honestly:</p>
+<ul lang="vi">
+  <li><strong>Nhiễu màu được giải quyết.</strong> Tắt khử nhiễu của ISP làm nhiễu màu vùng tối tăng gần 9 lần. Lớp 2 đưa nó về ngang mức của ISP, và độ sáng giữ nguyên từng pixel.</li>
+  <li><strong>Halo giảm khoảng một nửa</strong> khi tắt làm nét của ISP.</li>
+  <li><strong>Nhưng ảnh mềm hơn.</strong> Năng lượng chi tiết giảm khoảng 30%, nhiều hơn hẳn mức ngẫu nhiên. Làm nét của ISP không chỉ tạo halo, nó còn khuếch đại kết cấu thật. Một số kết cấu in rất mịn gần như biến mất. Đây là cái giá phải trả của nguồn trung thực trên máy này. Có nên bù lại bằng một bước làm nét nhẹ không tạo halo hay không là quyết định còn mở (<span class="tbd">TBD</span>).</li>
+  <li><strong>Không còn tone mapping cục bộ.</strong> Phân bố độ sáng toàn ảnh của hai chế độ gần như trùng nhau. Nhưng ở ảnh thường, ISP kéo tối riêng những vùng sáng nhỏ: một tấm poster đo được Y 164 ở ảnh thường và 197 ở Natural, trong khi trung bình toàn ảnh chỉ là 98,8 và 100. Ở Natural, vùng sáng thật đi vào vai của đường cong phim và nhạt màu như trên phim: một thanh đồng vàng trông gần trắng. Chúng tôi giữ cách này: vùng sáng thuộc về cảm biến, còn vai đường cong thuộc về phim.</li>
+</ul>
+<ul lang="en">
+  <li><strong>Colour noise is solved.</strong> Turning the ISP's noise reduction off raises shadow colour noise almost ninefold. Layer 2 brings it back to the ISP's own level, with luminance kept pixel for pixel.</li>
+  <li><strong>The halo roughly halves</strong> with the ISP's sharpening off.</li>
+  <li><strong>But the photo is softer.</strong> Detail energy drops by about 30%, well beyond chance. ISP sharpening does more than draw halos: it also amplifies real texture, and some very fine printed texture nearly disappears. That is the price of an honest source on this device. Whether to win it back with a gentle, halo-free sharpening step is still open (<span class="tbd">TBD</span>).</li>
+  <li><strong>No more local tone mapping.</strong> The whole-frame brightness distributions of the two modes nearly match. But in the ordinary photo the ISP darkens small bright areas on their own: a poster reads Y 164 ordinary and 197 Natural, while the frame means are 98.8 and 100. In Natural, a truly bright area enters the film curve's shoulder and loses colour as it would on film: a gold strip reads almost white. We keep it that way: the highlight belongs to the sensor, the shoulder to the film.</li>
+</ul>
+
+<h2 id="raw"><span lang="vi">Âm bản RAW: tráng lại bằng chính LAM</span><span lang="en">The RAW negative: developed by LAM itself</span></h2>
+<p lang="vi">Khi bật Giữ âm bản, LAM lưu thêm tệp RAW (DNG) của 12 ảnh mới chụp. Đây là đường đi mà LAM tự tráng ảnh từ dữ liệu cảm biến thay vì dùng ảnh đã qua ISP của điện thoại: tái tạo màu theo thuật toán Malvar–He–Cutler (lọc 5×5, giữ cạnh tốt hơn nội suy song tuyến tính), rồi bước khử nhiễu màu có bảo vệ như trên. Không có làm nét, không có làm mịn độ sáng. Chế độ Natural thì khác: nó vẫn đi qua ISP, chỉ ở mức xử lý tối thiểu mà máy cho phép.</p>
+<p lang="en">With Keep negatives on, LAM also stores the RAW (DNG) of the last 12 photos. This is the path where LAM develops a photo from sensor data itself instead of using the phone's ISP output: demosaicing with the Malvar–He–Cutler method (a 5×5 filter that keeps edges better than bilinear interpolation), then the guarded colour pass described above. No sharpening, no luminance smoothing. The Natural mode is different: it still goes through the ISP, at the lightest processing the device allows.</p>
+<p lang="vi">Tệp DNG ghi kèm hồ sơ nhiễu của cảm biến, để trình chỉnh sửa khác đọc được. LAM hiện chỉ đọc và ghi lại cặp hệ số đứng đầu danh sách; chưa dùng nó để điều khiển bước khử nhiễu.</p>
+<p lang="en">The DNG carries the sensor's noise profile so other editors can read it. LAM currently reads and logs only the leading coefficient pair; it does not yet use it to drive the denoising step.</p>
+
+<h3 id="after"><span lang="vi">Cập nhật 29/10: Natural trong nhà sau khi chỉnh</span><span lang="en">29 Oct update: Natural indoors after the fix</span></h3>
+<p lang="vi">Bảng trên cho thấy Natural trong nhà có hạt sáng gấp khoảng 3 lần ảnh thường. Nhiễu sáng của cảm biến chiếm hết ngân sách hạt, nên ảnh trông dày hạt hơn bản 1.0.3 và thanh cường độ hạt hầu như không đổi gì. Hai thay đổi: Natural xin ISP khử nhiễu ở mức FAST thay vì tắt hẳn (vẫn tắt làm nét), và mục tiêu hạt theo đường cong ISO như trên. Đo lại trên cùng máy, cùng một cảnh trong nhà, bản debug:</p>
+<p lang="en">The table above shows Natural indoors carrying about three times the luminance grain of an ordinary photo. The sensor's own luminance noise used up the whole grain budget, so the photo looked grainier than 1.0.3 and the grain-strength slider hardly changed anything. Two changes: Natural now asks the ISP for noise reduction at the FAST level instead of off (sharpening stays off), and the grain target follows the ISO curve as above. Measured again on the same phone, one indoor scene, debug build:</p>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Chỉ số (Natural, trong nhà)</span><span lang="en">Metric (Natural, indoors)</span></th>
+    <th><span lang="vi">Trước</span><span lang="en">Before</span></th>
+    <th><span lang="vi">Sau</span><span lang="en">After</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span lang="vi">Nhiễu sáng của cảm biến, σ</span><span lang="en">Sensor luminance noise, σ</span></td><td>5.7</td><td>1.1</td></tr>
+    <tr><td><span lang="vi">Nhiễu màu, σ</span><span lang="en">Colour noise, σ</span></td><td>2.2</td><td>≈0.5</td></tr>
+    <tr><td><span lang="vi">Hạt sáng trước khi thêm hạt phim, σ</span><span lang="en">Luminance grain before film grain, σ</span></td><td>7.0</td><td>1.5</td></tr>
+    <tr><td><span lang="vi">Thời gian lưu một ảnh</span><span lang="en">Time to save one photo</span></td><td>7.4–8.8 s</td><td>3.3–5.3 s</td></tr>
+  </tbody>
+</table></div>
+<p class="note" lang="vi">Đơn vị: mã 8-bit. Một máy, một cảnh, một bản debug; các phép đo "trước" và "sau" cùng cảnh nhưng khác lần chụp, nên đọc theo hướng thay đổi chứ không theo từng chữ số. Ngay sau khi khởi động lại, lượt chụp tiếp theo đôi khi hết giờ chờ lấy nét và phơi sáng tự động; đó là hành vi cũ, không do thay đổi này.</p>
+<p class="note" lang="en">Units: 8-bit codes. One device, one scene, a debug build; the "before" and "after" runs shoot the same scene on different takes, so read the direction of change, not each digit. Right after a restart, the next shot sometimes times out waiting for autofocus and exposure to settle; that behaviour predates this change.</p>
+<p lang="vi">Chưa kiểm trên iPhone: ở đó Natural giải mã RAW Bayer với khử nhiễu sáng bằng 0, nên có thể dày hạt tương tự. Phép đo trên iPhone <span class="tbd">TBD</span>.</p>
+<p lang="en">Not yet checked on iPhone: there Natural develops Bayer RAW with luminance noise reduction at 0, so it may be as grainy. The iPhone measurement is <span class="tbd">TBD</span>.</p>
+
+<h2 id="video"><span lang="vi">Video</span><span lang="en">Video</span></h2>
+<p lang="vi">Video có ngân sách thời gian chặt hơn nhiều: 33 ms cho mỗi khung ở 30 fps, trong đó màu phim đã chiếm phần lớn. <span class="plan">Lớp 2 cho video chạy trên GPU: một lưới màu độ phân giải thấp (1/8) dựng từ khung camera, rồi dựng lại màu từng pixel bằng cùng trọng số với bản ảnh tĩnh. Lưới được làm mượt theo thời gian chỉ ở những ô đứng yên, nên vật chuyển động không để lại vệt.</span> Mức khử nhiễu của ISP cho video sẽ được chọn bằng một phép so sánh trên file thật. Khử nhiễu tắt hẳn tiêu tốn bit của bộ mã hoá cho nhiễu cảm biến, nên không mặc định là tắt.</p>
+<p lang="en">Video has a much tighter time budget: 33 ms per frame at 30 fps, most of which the film look already uses. <span class="plan">Layer 2 for video runs on the GPU: a low-resolution (1/8) colour grid built from the camera frame, then each pixel's colour is rebuilt with the same weights as the stills version. The grid is smoothed over time only in cells that are still, so moving subjects leave no trails.</span> The ISP's noise reduction level for video will be chosen by an A/B on real files. With noise reduction fully off, the encoder spends its bits on sensor noise, so off is not assumed.</p>
+<div class="tbl"><table>
+  <thead><tr>
+    <th><span lang="vi">Mức ISP (video)</span><span lang="en">ISP level (video)</span></th>
+    <th><span lang="vi">Nhiễu màu</span><span lang="en">Colour noise</span></th>
+    <th><span lang="vi">Hạt sáng</span><span lang="en">Luminance grain</span></th>
+    <th><span lang="vi">Bitrate</span><span lang="en">Bitrate</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span lang="vi">Mặc định (làm nét + khử nhiễu)</span><span lang="en">Default (sharpening + NR)</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+    <tr><td><span lang="vi">Tắt làm nét</span><span lang="en">Sharpening off</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+    <tr><td><span lang="vi">Tắt làm nét + tắt khử nhiễu</span><span lang="en">Sharpening off + NR off</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="rejected"><span lang="vi">Những gì chúng tôi không dùng</span><span lang="en">What we did not use</span></h2>
+<p lang="vi">Các mô hình khử nhiễu và tăng cường video dạng sinh (generative) cho ảnh rất sạch. Nhưng chúng làm vậy bằng cách vẽ ra kết cấu mới: một lỗ chân lông, một sợi tóc, một nét chữ không có trong cảnh. Điều đó vi phạm nguyên tắc 1 và 6, nên chúng không có trong LAM theo mặc định.</p>
+<p lang="en">Generative denoising and video enhancement models produce very clean frames. They do it by drawing new texture: a pore, a strand of hair, a letter stroke that was not in the scene. That breaks principles 1 and 6, so they are not in LAM by default.</p>
+<p lang="vi">Ghép nhiều khung cho vùng tối là cách trung thực để làm sạch độ sáng, vì nó lấy thêm photon thật (<a href="#src-hdrplus">Hasinoff và cộng sự, 2016</a>). <span class="plan">LAM ghép theo từng ô trong không gian tuyến tính và loại ô không khớp để tránh bóng ma.</span> Bước này còn đang được review.</p>
+<p lang="en">Merging several frames in low light is the honest way to clean luminance, because it gathers more real photons (<a href="#src-hdrplus">Hasinoff et al., 2016</a>). <span class="plan">LAM merges tile by tile in linear light and rejects tiles that do not match, to avoid ghosts.</span> That step is still in review.</p>
+
+<h2 id="lessons"><span lang="vi">Bài học</span><span lang="en">Lessons</span></h2>
+<ol lang="vi">
+  <li><strong>Đo trên file lưu, rồi đo trên file gốc.</strong> So hai file đã áp màu chủ yếu là so hạt mà chính LAM thêm vào. Kết luận về nguồn phải đo trước khi áp màu.</li>
+  <li><strong>Bộ ước lượng kinh điển giả định nhiễu trắng.</strong> Nhiễu của điện thoại sau demosaic và JPEG thì không trắng. Kiểm tra bộ đo trên máy thật trước khi tin nó.</li>
+  <li><strong>Luôn có một cặp đối chứng.</strong> Hai ảnh thường liên tiếp cho biết bao nhiêu phần trăm chênh lệch chỉ là ngẫu nhiên.</li>
+  <li><strong>Tìm nguyên nhân trước khi sửa.</strong> Thanh đồng nhạt màu trông như lỗi tone, nhưng phân vị toàn ảnh trùng nhau. Đó là tone mapping cục bộ, và việc bỏ nó là đúng nguyên tắc.</li>
+  <li><span class="tbd">TBD: bài học từ video và từ iPhone</span></li>
+</ol>
+<ol lang="en">
+  <li><strong>Measure the saved file, then the original.</strong> Comparing two graded files mostly compares the grain LAM itself added. Conclusions about the source have to be measured before the grade.</li>
+  <li><strong>Classic estimators assume white noise.</strong> Phone noise after demosaic and JPEG is not white. Check an estimator on a real device before trusting it.</li>
+  <li><strong>Always keep a control pair.</strong> Two back-to-back ordinary shots tell you how much of a difference is just chance.</li>
+  <li><strong>Find the cause before fixing.</strong> The pale gold strip looked like a tone bug, but the whole-frame percentiles matched. It was local tone mapping, and dropping it is the principle at work.</li>
+  <li><span class="tbd">TBD: lessons from video and from the iPhone</span></li>
+</ol>
+</main>
+
+<footer class="foot wrap">
+  <p lang="vi"><strong>Thiết bị.</strong> Tên thiết bị chỉ để ghi rõ máy đã dùng để đo. LAM không liên kết với các nhà sản xuất này.</p>
+  <p lang="en"><strong>Devices.</strong> Device names only record which hardware the measurements were taken on. LAM is not affiliated with their makers.</p>
+  <p lang="vi"><strong>Nguồn</strong></p>
+  <p lang="en"><strong>Sources</strong></p>
+  <ol>
+    <li id="src-pd"><a href="https://arxiv.org/abs/1711.06077">Blau &amp; Michaeli, The Perception-Distortion Tradeoff, CVPR 2018 — arXiv</a></li>
+    <li id="src-immerkaer"><a href="https://doi.org/10.1006/cviu.1996.0060">Immerkær, Fast Noise Variance Estimation, CVIU 1996 — DOI</a> <span class="tbd">TBD verify DOI</span></li>
+    <li id="src-av1"><a href="https://doi.org/10.1109/DCC.2018.00039">Norkin &amp; Birkbeck, Film Grain Synthesis for AV1 Video Codec, DCC 2018 — DOI</a> <span class="tbd">TBD verify DOI</span></li>
+    <li id="src-hdrplus"><a href="https://research.google/pubs/burst-photography-for-high-dynamic-range-and-low-light-imaging-on-mobile-cameras/">Hasinoff et al., Burst photography for high dynamic range and low-light imaging on mobile cameras, SIGGRAPH Asia 2016</a></li>
+    <li><a href="https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#NOISE_REDUCTION_MODE">CaptureRequest.NOISE_REDUCTION_MODE — Android Developers</a></li>
+    <li><a href="https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#EDGE_MODE">CaptureRequest.EDGE_MODE — Android Developers</a></li>
+    <li><a href="https://developer.apple.com/documentation/coreimage/cirawfilter">CIRAWFilter — Apple Developer</a></li>
+  </ol>
+  <p lang="vi">© 2026 Brewkits · LAM. Ghi chép kỹ thuật; nội dung có thể được cập nhật khi tính năng thay đổi.</p>
+  <p lang="en">© 2026 Brewkits · LAM. Engineering note; content may be updated as the feature changes.</p>
+</footer>
+<script src="tech.js"></script>
+</body>
+</html>
