@@ -57,12 +57,12 @@ FILMS = [  # enum, name, plate code, pro
     ('CRISP_100', 'Crisp 100', 'CRS100', True), ('DAILY_200', 'Daily 200', 'DLY200', True),
     ('RISE_200', 'Rise 200', 'RSE200', True), ('SQUARE_600', 'Square 600', 'SQ600', True),
     ('FADED_72', 'Faded 72', 'FDD72', True), ('ERA_36', 'Era 36', 'ERA36', True),
-    ('INFRA', 'Infra', 'INFRA', True), ('ILFORD_HP5', 'Silver 400', 'SLV400', True),
+    ('INFRA', 'Infra', 'INFRA', True), ('ILFORD_HP5', 'Silver 400', 'SLV400', False),
     ('GRIT_400', 'Grit 400', 'GRT400', True), ('MONO_125', 'Mono 125', 'MON125', True),
 ]
 MONO = {'ILFORD_HP5', 'GRIT_400', 'MONO_125'}
 assert len(BODIES) == 16 and len(FILMS) == 31
-assert sum(not b[3] for b in BODIES) == 6 and sum(not f[3] for f in FILMS) == 9
+assert sum(not b[3] for b in BODIES) == 6 and sum(not f[3] for f in FILMS) == 10
 
 data = {
     'bodies': [{'k': k, 'n': n, 'd': d, 'p': p, 'f': f, 'h': hues[k], 't': {l: app['tags'][l][k] for l in PATCH}} for k, n, d, p, f in BODIES],
