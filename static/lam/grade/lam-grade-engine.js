@@ -32,7 +32,7 @@
     { key: 'KODACHROME_64',   name: 'Colorchrome 64', code: 'CCH64',  pro: true,  grain: 0.0180, stableId: 15, leak: 'NONE',        hal: 0.35, mono: false, iso: 64,   pushable: true  },
     { key: 'MINI_INSTANT',    name: 'Mini Instant',   code: 'MINI',   pro: false, grain: 0.0300, stableId: 16, leak: 'NONE',        hal: 1.00, mono: false, iso: null, pushable: false },
     { key: 'TROPIC_200',      name: 'Tropic 200',     code: 'TRP200', pro: false, grain: 0.0400, stableId: 17, leak: 'NONE',        hal: 1.10, mono: false, iso: 200,  pushable: true  },
-    { key: 'NIGHT_500T',      name: 'Night 500T',     code: 'N500T',  pro: true,  grain: 0.0350, stableId: 18, leak: 'NONE',        hal: 0.50, mono: false, iso: 500,  pushable: true  },
+    { key: 'NIGHT_500T',      name: 'Night 500T',     code: 'N500T',  pro: false, grain: 0.0350, stableId: 18, leak: 'NONE',        hal: 0.50, mono: false, iso: 500,  pushable: true  },
     { key: 'GRIT_400',        name: 'Grit 400',       code: 'GRT400', pro: true,  grain: 0.0500, stableId: 19, leak: 'NONE',        hal: 0.00, mono: true,  iso: 400,  pushable: true  },
     { key: 'SQUARE_600',      name: 'Square 600',     code: 'SQ600',  pro: true,  grain: 0.0150, stableId: 20, leak: 'NONE',        hal: 0.50, mono: false, iso: null, pushable: false },
     { key: 'FADED_72',        name: 'Faded 72',       code: 'FDD72',  pro: true,  grain: 0.0450, stableId: 21, leak: 'NONE',        hal: 1.10, mono: false, iso: 100,  pushable: true  },
@@ -47,12 +47,14 @@
     { key: 'RISE_200',        name: 'Rise 200',       code: 'RSE200', pro: true,  grain: 0.0550, stableId: 30, leak: 'NONE',        hal: 1.40, mono: false, iso: 200,  pushable: true  }
   ];
 
+  // "One shooting day" curated order (CameraUiState.kt 2026-11-25)
   var CURATED_KEYS = [
-    'KODAK_400', 'MINI_INSTANT', 'TROPIC_200', 'CINEMA_800', 'NIGHT_500T', 'KODAK_GOLD_200',
-    'PORTRA_800', 'CCD_2000', 'KODAK_250D', 'DISPOSABLE', 'SQUARE_600', 'PUNCH_100',
-    'CRISP_100', 'RISE_200', 'FUJI_VELVIA', 'CCD_PINK', 'PORTRA_160', 'FUJI_400H',
-    'FUJI_ETERNA_160', 'AGFA_ULTRA', 'KODACHROME_64', 'DAILY_200', 'AZURE_100', 'PURE_100',
-    'FADED_72', 'SUPER8', 'ERA_36', 'MONO_125', 'INFRA', 'GRIT_400', 'ILFORD_HP5'
+    'KODAK_400', 'KODAK_GOLD_200', 'FUJI_400H', 'TROPIC_200', 'NIGHT_500T',
+    'CINEMA_800', 'KODAK_250D', 'FUJI_ETERNA_160', 'PORTRA_160', 'PORTRA_800',
+    'FUJI_VELVIA', 'AGFA_ULTRA', 'KODACHROME_64', 'AZURE_100', 'PURE_100',
+    'CRISP_100', 'DAILY_200', 'RISE_200', 'MINI_INSTANT', 'SQUARE_600',
+    'CCD_2000', 'CCD_PINK', 'DISPOSABLE', 'PUNCH_100', 'FADED_72',
+    'ERA_36', 'SUPER8', 'INFRA', 'ILFORD_HP5', 'MONO_125', 'GRIT_400'
   ];
 
   var STOCK_BY_KEY = {};
@@ -99,7 +101,7 @@
     { id: 'LAM_DONG_DUONG', name: 'Saigon',       fmt: 'Tropical 35mm', pro: false, roll: 36, vig: 0.32, hal: 0.22, grainScale: 1.0, stamp: false, frame: 'THIN',         defStock: 'TROPIC_200',   defSkin: 'WARM_SEA',     hud: 'SAIGON · TROPICAL 35MM',
       diffEn: '90s SEA compact: warmer 0.22 tropical halation + 0.32 vignette, paired with Tropic 200 & Warm SEA.',
       diffVi: 'Máy compact Sài Gòn thập niên 90: halation nắng nhiệt đới 0.22 + tối góc 0.32, đi cùng Tropic 200 & Warm SEA.' },
-    { id: 'INSTANT_MINI',   name: 'Instant Mini', fmt: 'Instant Print', pro: false, roll: 10, vig: 0.35, hal: 0.15, grainScale: 1.0, stamp: false, frame: 'POLAROID',     defStock: 'MINI_INSTANT', defSkin: 'WARM_SEA',     hud: 'INSTANT MINI · 62×46MM',
+    { id: 'INSTANT_MINI',   name: 'Pocket Instant', fmt: 'Instant Print', pro: false, roll: 10, vig: 0.35, hal: 0.15, grainScale: 1.0, stamp: false, frame: 'POLAROID',     defStock: 'MINI_INSTANT', defSkin: 'WARM_SEA',     hud: 'POCKET INSTANT · 62×46MM',
       diffEn: 'Instant print card frame, 0.15 emulsion halation, 0.35 60mm lens falloff & 10-pack counter.',
       diffVi: 'Khung giấy in lấy liền, halation nhũ tương 0.15, tối góc ống 60mm (0.35) & hộp 10 tấm.' },
     { id: 'LAM_CCD',        name: 'CCD Digicam',  fmt: 'Y2K Sensor',    pro: false, roll: 99, vig: 0.15, hal: 0.00, grainScale: 1.0, stamp: false, frame: 'NONE',         defStock: 'CCD_2000',     defSkin: 'COOL_NEUTRAL', hud: 'CCD DIGICAM · 2003',
