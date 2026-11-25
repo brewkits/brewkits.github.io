@@ -5,17 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index,follow">
 <title>LAM Film — Terms of Service</title>
-<meta name="description" content="Terms of Service for LAM · Film &amp; Cine Camera by Brewkits. One-time purchase, no subscription.">
+<meta name="description" content="Terms of Service for LAM · Film Camera &amp; Cinema by Brewkits. One-time purchase, no subscription.">
 <link rel="canonical" href="https://brewkits.dev/lam/terms.html">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CBSTBHS88"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0CBSTBHS88');
-</script>
-<link rel="icon" href="/img/icon.png">
+<link rel="icon" href="icon-1024.png">
 <style>
   :root{
     --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
@@ -51,6 +43,18 @@
   .langbar button.on{background:var(--primary);color:#000;font-weight:700}
   [data-lang-content]{display:none}
   [data-lang-content].show{display:block}
+
+  .subnav{position:sticky;top:0;z-index:80;background:rgba(10,10,10,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line)}
+  .subnav-in{max-width:980px;margin:0 auto;padding:0 18px;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .subbrand{display:inline-flex;align-items:center;gap:9px;color:#fff;font-weight:800;letter-spacing:.04em;font-size:16px;text-decoration:none}
+  .subbrand:hover{text-decoration:none;color:var(--primary)}
+  .subbrand img{width:26px;height:26px;border-radius:6px}
+  .sublinks{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13.5px}
+  .sublinks a{color:var(--muted);text-decoration:none;font-weight:500}
+  .sublinks a:hover,.sublinks a[aria-current="page"]{color:var(--primary);text-decoration:none}
+  .langbar{position:static;display:inline-flex;gap:4px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:3px}
+  @media (max-width:560px){.subnav-in{padding:8px 14px}.sublinks{gap:10px;font-size:12.5px}.wrap{padding-top:44px}}
 </style>
 <style>
 /* IBM Plex Mono — SIL OFL 1.1, self-hosted (fonts/IBM-Plex-Mono-OFL.txt).
@@ -67,16 +71,28 @@
 </head>
 <body>
 
-<nav class="langbar" aria-label="Language">
-  <button data-lang="en" class="on">EN</button>
-  <button data-lang="vi">VI</button>
-</nav>
+<header class="subnav">
+  <div class="subnav-in">
+    <a class="subbrand" href="index.html"><img src="icon-1024.png" width="26" height="26" alt="LAM"><span>LAM.</span></a>
+    <nav class="sublinks" aria-label="Site navigation">
+      <a href="index.html">← App</a>
+      <a href="manual.html">Manual</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html" aria-current="page">Terms</a>
+    </nav>
+    <nav class="langbar" aria-label="Language">
+      <button data-lang="en" class="on">EN</button>
+      <button data-lang="vi">VI</button>
+    </nav>
+  </div>
+</header>
 
 <!-- ───────────────────────── ENGLISH ───────────────────────── -->
 <div class="wrap" data-lang-content="en">
   <p class="kicker">Brewkits · LAM</p>
   <h1>Terms of Service</h1>
-  <p class="meta">Last updated: 22 October 2026 · Applies to the <strong>LAM · Film &amp; Cine Camera</strong> app for iOS and Android.</p>
+  <p class="meta">Last updated: 22 October 2026 · Applies to the <strong>LAM · Film Camera &amp; Cinema</strong> app for iOS and Android.</p>
 
   <p class="lead">LAM is a one-time purchase. Buy it once, keep it — no subscriptions, no recurring charges. By downloading or using LAM, you agree to these terms.</p>
 
@@ -88,7 +104,7 @@
 
   <h2>3. Purchases — one-time, no subscription</h2>
   <div class="card">
-    <p style="margin:0"><strong>LAM Lifetime Pro</strong> is a <strong>one-time, non-consumable purchase ($19.99 USD or local equivalent)</strong>. It unlocks every camera body and film, every recipe outside the Food Pack, Process Zero, .cube LUT export and import, camera skins, and removes the LAM mark from photos and the 3-minute clip limit; it also includes future updates. Manual controls stay available without Pro. <strong>LAM Food Pack</strong> is a separate one-time purchase ($4.99 USD or local equivalent) that Pro does not include. <strong>There is no subscription and no recurring billing.</strong></p>
+    <p style="margin:0"><strong>LAM Lifetime Pro</strong> is a <strong>one-time, non-consumable purchase ($19.99 USD or local equivalent)</strong>. It unlocks every camera body and film, every recipe outside the add-on packs, Straight (ungraded capture), .cube LUT export and import, camera skins, and removes the LAM mark from photos and the 3-minute clip limit; it also includes future updates. Manual controls stay available without Pro. <strong>LAM Lens Pack</strong>, <strong>LAM Food Pack</strong> and <strong>LAM Concert Pack</strong> are separate standalone one-time purchases ($4.99 USD each or local equivalent) that Pro does not include. <strong>There is no subscription and no recurring billing.</strong></p>
   </div>
   <ul>
     <li>Payment is charged to your App Store or Google Play account at confirmation of purchase.</li>
@@ -103,7 +119,7 @@
   <p>You are solely responsible for the content you capture and how you use it, including obtaining any consent required to photograph or record other people, and complying with the laws of your location. Do not use the App for anything unlawful.</p>
 
   <h2>6. Your content</h2>
-  <p>You own everything you capture with LAM. We claim no rights over your photos or videos. The App processes them on your device — see our <a href="https://brewkits.dev/lam/privacy.html">Privacy Policy</a>.</p>
+  <p>You own everything you capture with LAM. We claim no rights over your photos or videos. The App processes them on your device — see our <a href="manual.html">Camera Manual</a> · <a href="support.html">Help &amp; Complaints</a> · <a href="privacy.html">Privacy Policy</a>.</p>
 
   <h2>7. Intellectual property</h2>
   <p>The App, its name, design, film-stock looks, shaders, and underlying technology are owned by Brewkits and protected by intellectual-property law. The licence in Section 2 does not transfer any of these rights to you.</p>
@@ -116,7 +132,7 @@
   <p>To the maximum extent permitted by law, Brewkits is not liable for any indirect, incidental, or consequential damages, or for any loss of data or content, arising from your use of the App. Where liability cannot be excluded, it is limited to the amount you paid for the App.</p>
 
   <h2>10. Changes</h2>
-  <p>We may update these Terms. Material changes will be reflected by the date above and, where appropriate, noted in-app. The current version always lives at <a href="https://brewkits.dev/lam/terms.html">brewkits.dev/lam/terms.html</a>.</p>
+  <p>We may update these Terms. Material changes will be reflected by the date above and, where appropriate, noted in-app. The current version always lives at <a href="terms.html">brewkits.dev/lam/terms.html</a>.</p>
 
   <h2>11. Governing law</h2>
   <p>These Terms are governed by the laws of the jurisdiction in which Brewkits is established (Vietnam), without prejudice to any mandatory consumer-protection rights you have in your own country of residence.</p>
@@ -126,7 +142,7 @@
 
   <hr>
   <footer>
-    <p><a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="mailto:datacenter111@gmail.com">datacenter111@gmail.com</a> · <a href="/lam/">LAM home</a> · <a href="/lam/privacy.html">Privacy Policy</a> · <a href="https://brewkits.dev">Brewkits</a></p>
+    <p><a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="index.html">LAM home</a> · <a href="manual.html">Camera Manual</a> · <a href="support.html">Help &amp; Complaints</a> · <a href="privacy.html">Privacy Policy</a> · <a href="https://brewkits.dev">Brewkits</a></p>
   </footer>
 </div>
 
@@ -134,7 +150,7 @@
 <div class="wrap" data-lang-content="vi">
   <p class="kicker">Brewkits · LAM</p>
   <h1>Điều khoản dịch vụ</h1>
-  <p class="meta">Cập nhật lần cuối: 22/10/2026 · Áp dụng cho ứng dụng <strong>LAM · Film &amp; Cine Camera</strong> trên iOS và Android.</p>
+  <p class="meta">Cập nhật lần cuối: 22/10/2026 · Áp dụng cho ứng dụng <strong>LAM · Film Camera &amp; Cinema</strong> trên iOS và Android.</p>
 
   <p class="lead">LAM là sản phẩm mua một lần. Mua một lần, dùng mãi — không subscription, không thu phí định kỳ. Khi tải hoặc sử dụng LAM, bạn đồng ý với các điều khoản này.</p>
 
@@ -146,7 +162,7 @@
 
   <h2>3. Mua hàng — một lần, không subscription</h2>
   <div class="card">
-    <p style="margin:0"><strong>LAM Lifetime Pro</strong> là <strong>giao dịch mua một lần, không tiêu hao (non-consumable) ($19.99 USD hoặc mức tương đương theo vùng)</strong>. Nó mở khoá mọi thân máy và film, mọi công thức ngoài Food Pack, Process Zero, xuất và nhập .cube, lớp da máy, gỡ dấu LAM khỏi ảnh và bỏ giới hạn clip 3 phút; đồng thời bao gồm các bản cập nhật trong tương lai. Các chế độ chỉnh tay vẫn dùng được khi không có Pro. <strong>LAM Food Pack</strong> là giao dịch mua một lần riêng ($4.99 USD hoặc mức tương đương theo vùng) và Pro không bao gồm gói này. <strong>Không có subscription và không thu phí định kỳ.</strong></p>
+    <p style="margin:0"><strong>LAM Lifetime Pro</strong> là <strong>giao dịch mua một lần, không tiêu hao (non-consumable) ($19.99 USD hoặc mức tương đương theo vùng)</strong>. Nó mở khoá mọi thân máy và film, mọi công thức ngoài các gói mở rộng, Straight (ungraded capture), xuất và nhập .cube, lớp da máy, gỡ dấu LAM khỏi ảnh và bỏ giới hạn clip 3 phút; đồng thời bao gồm các bản cập nhật trong tương lai. Các chế độ chỉnh tay vẫn dùng được khi không có Pro. <strong>LAM Lens Pack</strong>, <strong>LAM Food Pack</strong> và <strong>LAM Concert Pack</strong> là các giao dịch mua một lần độc lập ($4.99 USD mỗi gói hoặc mức tương đương theo vùng) và Pro không bao gồm các gói này. <strong>Không có subscription và không thu phí định kỳ.</strong></p>
   </div>
   <ul>
     <li>Khoản thanh toán được tính vào tài khoản App Store hoặc Google Play của bạn khi xác nhận mua.</li>
@@ -161,7 +177,7 @@
   <p>Bạn hoàn toàn chịu trách nhiệm về nội dung mình chụp/quay và cách sử dụng, bao gồm việc xin sự đồng ý cần thiết khi chụp hoặc ghi hình người khác, và tuân thủ luật pháp tại nơi bạn ở. Không sử dụng Ứng dụng cho bất kỳ mục đích trái pháp luật nào.</p>
 
   <h2>6. Nội dung của bạn</h2>
-  <p>Bạn sở hữu mọi thứ bạn chụp/quay bằng LAM. Chúng tôi không đòi bất kỳ quyền nào đối với ảnh hoặc video của bạn. Ứng dụng xử lý chúng trên thiết bị của bạn — xem <a href="https://brewkits.dev/lam/privacy.html">Chính sách bảo mật</a> của chúng tôi.</p>
+  <p>Bạn sở hữu mọi thứ bạn chụp/quay bằng LAM. Chúng tôi không đòi bất kỳ quyền nào đối với ảnh hoặc video của bạn. Ứng dụng xử lý chúng trên thiết bị của bạn — xem <a href="manual.html">Cẩm nang máy</a> · <a href="support.html">Hỗ trợ &amp; Khiếu nại</a> · <a href="privacy.html">Chính sách bảo mật</a> của chúng tôi.</p>
 
   <h2>7. Sở hữu trí tuệ</h2>
   <p>Ứng dụng, tên gọi, thiết kế, các hệ màu phim, shader và công nghệ nền tảng thuộc sở hữu của Brewkits và được bảo hộ bởi luật sở hữu trí tuệ. Giấy phép ở Mục 2 không chuyển giao bất kỳ quyền nào trong số này cho bạn.</p>
@@ -174,7 +190,7 @@
   <p>Trong phạm vi tối đa pháp luật cho phép, Brewkits không chịu trách nhiệm cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên hay hệ quả nào, hoặc cho bất kỳ mất mát dữ liệu hay nội dung nào, phát sinh từ việc bạn sử dụng Ứng dụng. Khi trách nhiệm không thể loại trừ, nó được giới hạn ở số tiền bạn đã trả cho Ứng dụng.</p>
 
   <h2>10. Thay đổi</h2>
-  <p>Chúng tôi có thể cập nhật các Điều khoản này. Thay đổi đáng kể sẽ được phản ánh qua ngày ở trên và, khi phù hợp, được ghi chú trong ứng dụng. Phiên bản hiện hành luôn nằm tại <a href="https://brewkits.dev/lam/terms.html">brewkits.dev/lam/terms.html</a>.</p>
+  <p>Chúng tôi có thể cập nhật các Điều khoản này. Thay đổi đáng kể sẽ được phản ánh qua ngày ở trên và, khi phù hợp, được ghi chú trong ứng dụng. Phiên bản hiện hành luôn nằm tại <a href="terms.html">brewkits.dev/lam/terms.html</a>.</p>
 
   <h2>11. Luật điều chỉnh</h2>
   <p>Các Điều khoản này được điều chỉnh bởi luật pháp tại nơi Brewkits được thành lập (Việt Nam), không ảnh hưởng đến bất kỳ quyền bảo vệ người tiêu dùng bắt buộc nào mà bạn có tại quốc gia cư trú của mình.</p>
@@ -184,7 +200,7 @@
 
   <hr>
   <footer>
-    <p><a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="mailto:datacenter111@gmail.com">datacenter111@gmail.com</a> · <a href="/lam/">Trang chủ LAM</a> · <a href="/lam/privacy.html">Chính sách bảo mật</a> · <a href="https://brewkits.dev">Brewkits</a></p>
+    <p><a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="index.html">Trang chủ LAM</a> · <a href="manual.html">Cẩm nang máy</a> · <a href="support.html">Hỗ trợ &amp; Khiếu nại</a> · <a href="privacy.html">Chính sách bảo mật</a> · <a href="https://brewkits.dev">Brewkits</a></p>
   </footer>
 </div>
 

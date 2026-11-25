@@ -5,17 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index,follow">
 <title>LAM Film — Privacy Policy</title>
-<meta name="description" content="Privacy Policy for LAM · Film &amp; Cine Camera by Brewkits. Photos and audio are processed on-device. No advertising IDs, no tracking.">
+<meta name="description" content="Privacy Policy for LAM · Film Camera &amp; Cinema by Brewkits. Photos and audio are processed on-device. No advertising IDs, no tracking.">
 <link rel="canonical" href="https://brewkits.dev/lam/privacy.html">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CBSTBHS88"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0CBSTBHS88');
-</script>
-<link rel="icon" href="/img/icon.png">
+<link rel="icon" href="icon-1024.png">
 <style>
   :root{
     --bg:#000; --fg:#fff; --muted:#a1a1aa; --line:#27272a;
@@ -62,6 +54,18 @@
   .langbar button.on{background:var(--primary);color:#000;font-weight:700}
   [data-lang-content]{display:none}
   [data-lang-content].show{display:block}
+
+  .subnav{position:sticky;top:0;z-index:80;background:rgba(10,10,10,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line)}
+  .subnav-in{max-width:980px;margin:0 auto;padding:0 18px;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .subbrand{display:inline-flex;align-items:center;gap:9px;color:#fff;font-weight:800;letter-spacing:.04em;font-size:16px;text-decoration:none}
+  .subbrand:hover{text-decoration:none;color:var(--primary)}
+  .subbrand img{width:26px;height:26px;border-radius:6px}
+  .sublinks{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13.5px}
+  .sublinks a{color:var(--muted);text-decoration:none;font-weight:500}
+  .sublinks a:hover,.sublinks a[aria-current="page"]{color:var(--primary);text-decoration:none}
+  .langbar{position:static;display:inline-flex;gap:4px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:3px}
+  @media (max-width:560px){.subnav-in{padding:8px 14px}.sublinks{gap:10px;font-size:12.5px}.wrap{padding-top:44px}}
 </style>
 <style>
 /* IBM Plex Mono — SIL OFL 1.1, self-hosted (fonts/IBM-Plex-Mono-OFL.txt).
@@ -78,16 +82,28 @@
 </head>
 <body>
 
-<nav class="langbar" aria-label="Language">
-  <button data-lang="en" class="on">EN</button>
-  <button data-lang="vi">VI</button>
-</nav>
+<header class="subnav">
+  <div class="subnav-in">
+    <a class="subbrand" href="index.html"><img src="icon-1024.png" width="26" height="26" alt="LAM"><span>LAM.</span></a>
+    <nav class="sublinks" aria-label="Site navigation">
+      <a href="index.html">← App</a>
+      <a href="manual.html">Manual</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+    <nav class="langbar" aria-label="Language">
+      <button data-lang="en" class="on">EN</button>
+      <button data-lang="vi">VI</button>
+    </nav>
+  </div>
+</header>
 
 <!-- ───────────────────────── ENGLISH ───────────────────────── -->
 <div class="wrap" data-lang-content="en">
   <p class="kicker">Brewkits · LAM</p>
   <h1>Privacy Policy</h1>
-  <p class="meta">Last updated: 25 November 2026 · Applies to the <strong>LAM · Film &amp; Cine Camera</strong> app for iOS and Android.</p>
+  <p class="meta">Last updated: 25 November 2026 · Applies to the <strong>LAM · Film Camera &amp; Cinema</strong> app for iOS and Android.</p>
 
   <p class="lead">LAM is a camera app built around one principle: your photos and videos are yours. Image and audio processing happens <strong>on your device</strong>. We do not use advertising identifiers, we do not track you across apps, and we never sell your data.</p>
 
@@ -119,7 +135,7 @@
     <tr><td>Anonymous usage / app-activity events</td><td>Firebase Analytics (Google)</td><td>Understand which features are used. Optional — gated behind the same consent prompt.</td></tr>
     <tr><td>Approximate location (country / city level)</td><td>Firebase Analytics (Google)</td><td>Derived by Google from the masked IP address of your connection — never GPS, never street level. Used to read usage by region. Optional — same consent prompt.</td></tr>
     <tr><td>App performance traces (startup, capture and render timings)</td><td>Firebase Performance Monitoring (Google)</td><td>Find slow paths and thermal stalls on real devices. Optional — same consent prompt.</td></tr>
-    <tr><td>Purchase history</td><td>RevenueCat &amp; Apple/Google billing</td><td>Validate your one-time in-app purchases (Pro Mode, Food Pack) and restore them across your devices. Tied to a <strong>pseudonymous</strong> ID, not to your name or email.</td></tr>
+    <tr><td>Purchase history</td><td>RevenueCat &amp; Apple/Google billing</td><td>Validate your one-time in-app purchases (Pro Mode, Lens Pack, Food Pack, Concert Pack) and restore them across your devices. Tied to a <strong>pseudonymous</strong> ID, not to your name or email.</td></tr>
     <tr><td>Pseudonymous app identifiers</td><td>Firebase install ID, RevenueCat user ID</td><td>Group the above events for a single install. <strong>Not advertising IDs</strong> and not the IDFA.</td></tr>
     <tr><td>App version check</td><td>Brewkits (self-hosted, brewkits.dev)</td><td>Checks for a newer app version at launch, once you've finished onboarding. No account or device identifier is sent, and this is <strong>not</strong> gated behind the analytics consent prompt — declining analytics still lets you know about an available update.</td></tr>
     <tr><td>ML Kit library usage statistics (Android only)</td><td>Google ML Kit</td><td>The on-device face detection library reports its own usage statistics to Google: library version, device model, OS version, app and system language, country, mobile network code and a random install identifier. <strong>No photos, video frames or face data</strong> are included. This is sent by the library itself and is <strong>not</strong> controlled by the analytics consent prompt. Not used on iOS (Apple's Vision framework sends nothing).</td></tr>
@@ -167,11 +183,14 @@
   <p>LAM contains no age-restricted content and is rated for all ages. It is not directed to children, and we do not knowingly collect personal data from anyone under 16. If you believe anyone under 16 has provided us data, contact <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> and we will delete it.</p>
 
   <h2>10. Changes</h2>
-  <p>If this policy changes materially, we will update the date above and, where appropriate, notify you in-app. The current version always lives at <a href="https://brewkits.dev/lam/privacy.html">brewkits.dev/lam/privacy.html</a>.</p>
+  <p>If this policy changes materially, we will update the date above and, where appropriate, notify you in-app. The current version always lives at <a href="privacy.html">brewkits.dev/lam/privacy.html</a>.</p>
+
+  <h2>11. This website (brewkits.dev/lam)</h2>
+  <p>The LAM website pages (<code>/lam/*</code>) set <strong>no cookies</strong>, load <strong>no advertising or analytics scripts</strong>, and serve fonts locally from our own origin so reading this policy never hands your IP address to an analytics vendor. Clicking an App Store or Google Play download badge opens Apple or Google with standard store campaign attribution parameters.</p>
 
   <hr>
   <footer>
-    <p>Questions? <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="mailto:datacenter111@gmail.com">datacenter111@gmail.com</a> · <a href="/lam/">LAM home</a> · <a href="/lam/terms.html">Terms of Service</a> · <a href="https://brewkits.dev">Brewkits</a></p>
+    <p>Questions? <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="index.html">LAM home</a> · <a href="manual.html">Camera Manual</a> · <a href="support.html">Help &amp; Complaints</a> · <a href="terms.html">Terms of Service</a> · <a href="https://brewkits.dev">Brewkits</a></p>
   </footer>
 </div>
 
@@ -179,7 +198,7 @@
 <div class="wrap" data-lang-content="vi">
   <p class="kicker">Brewkits · LAM</p>
   <h1>Chính sách bảo mật</h1>
-  <p class="meta">Cập nhật lần cuối: 25/11/2026 · Áp dụng cho ứng dụng <strong>LAM · Film &amp; Cine Camera</strong> trên iOS và Android.</p>
+  <p class="meta">Cập nhật lần cuối: 25/11/2026 · Áp dụng cho ứng dụng <strong>LAM · Film Camera &amp; Cinema</strong> trên iOS và Android.</p>
 
   <p class="lead">LAM là ứng dụng máy ảnh xây trên một nguyên tắc: ảnh và video của bạn là của bạn. Việc xử lý hình ảnh và âm thanh diễn ra <strong>ngay trên thiết bị của bạn</strong>. Chúng tôi không dùng định danh quảng cáo, không theo dõi bạn xuyên ứng dụng, và không bao giờ bán dữ liệu của bạn.</p>
 
@@ -211,7 +230,7 @@
     <tr><td>Sự kiện sử dụng / hoạt động ẩn danh</td><td>Firebase Analytics (Google)</td><td>Hiểu tính năng nào được dùng. Tuỳ chọn — phụ thuộc cùng hộp thoại đồng ý đó.</td></tr>
     <tr><td>Vị trí gần đúng (mức quốc gia / thành phố)</td><td>Firebase Analytics (Google)</td><td>Google suy ra từ địa chỉ IP đã che của kết nối — không dùng GPS, không tới mức đường phố. Dùng để xem mức sử dụng theo khu vực. Tuỳ chọn — cùng hộp thoại đồng ý.</td></tr>
     <tr><td>Dấu vết hiệu năng ứng dụng (thời gian khởi động, chụp, dựng hình)</td><td>Firebase Performance Monitoring (Google)</td><td>Tìm các đoạn chậm và hiện tượng nghẽn do nhiệt trên máy thật. Tuỳ chọn — cùng hộp thoại đồng ý.</td></tr>
-    <tr><td>Lịch sử mua hàng</td><td>RevenueCat &amp; thanh toán Apple/Google</td><td>Xác thực giao dịch mua trong ứng dụng (Pro Mode, Food Pack) một lần và khôi phục trên các thiết bị của bạn. Gắn với một ID <strong>ẩn danh</strong>, không gắn với tên hay email của bạn.</td></tr>
+    <tr><td>Lịch sử mua hàng</td><td>RevenueCat &amp; thanh toán Apple/Google</td><td>Xác thực giao dịch mua trong ứng dụng (Pro Mode, Lens Pack, Food Pack, Concert Pack) một lần và khôi phục trên các thiết bị của bạn. Gắn với một ID <strong>ẩn danh</strong>, không gắn với tên hay email của bạn.</td></tr>
     <tr><td>Định danh ứng dụng ẩn danh</td><td>Firebase install ID, RevenueCat user ID</td><td>Nhóm các sự kiện trên cho một lượt cài đặt. <strong>Không phải định danh quảng cáo</strong> và không phải IDFA.</td></tr>
     <tr><td>Kiểm tra phiên bản ứng dụng</td><td>Brewkits (tự lưu trữ, brewkits.dev)</td><td>Kiểm tra phiên bản mới hơn khi mở app, sau khi bạn hoàn tất giới thiệu lần đầu. Không gửi tài khoản hay định danh thiết bị, và mục này <strong>không</strong> phụ thuộc hộp thoại đồng ý phân tích — từ chối phân tích vẫn cho bạn biết khi có bản cập nhật.</td></tr>
     <tr><td>Thống kê sử dụng của thư viện ML Kit (chỉ Android)</td><td>Google ML Kit</td><td>Thư viện phát hiện khuôn mặt chạy trên máy tự gửi thống kê sử dụng của nó cho Google: phiên bản thư viện, model máy, phiên bản hệ điều hành, ngôn ngữ app và hệ thống, quốc gia, mã nhà mạng và một mã cài đặt ngẫu nhiên. <strong>Không kèm ảnh, khung hình video hay dữ liệu khuôn mặt.</strong> Dữ liệu này do thư viện tự gửi và <strong>không</strong> phụ thuộc hộp thoại đồng ý phân tích. Không dùng trên iOS (framework Vision của Apple không gửi gì).</td></tr>
@@ -259,11 +278,14 @@
   <p>LAM không chứa nội dung giới hạn độ tuổi và được xếp hạng phù hợp với mọi lứa tuổi. Ứng dụng không hướng tới trẻ em, và chúng tôi không cố ý thu thập dữ liệu cá nhân từ bất kỳ ai dưới 16 tuổi. Nếu bạn cho rằng người dưới 16 tuổi đã cung cấp dữ liệu cho chúng tôi, hãy liên hệ <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> và chúng tôi sẽ xoá.</p>
 
   <h2>10. Thay đổi</h2>
-  <p>Nếu chính sách này thay đổi đáng kể, chúng tôi sẽ cập nhật ngày ở trên và, khi phù hợp, thông báo cho bạn trong ứng dụng. Phiên bản hiện hành luôn nằm tại <a href="https://brewkits.dev/lam/privacy.html">brewkits.dev/lam/privacy.html</a>.</p>
+  <p>Nếu chính sách này thay đổi đáng kể, chúng tôi sẽ cập nhật ngày ở trên và, khi phù hợp, thông báo cho bạn trong ứng dụng. Phiên bản hiện hành luôn nằm tại <a href="privacy.html">brewkits.dev/lam/privacy.html</a>.</p>
+
+  <h2>11. Trang web này (brewkits.dev/lam)</h2>
+  <p>Các trang web của LAM (<code>/lam/*</code>) <strong>không đặt cookie</strong>, <strong>không nạp mã theo dõi hay quảng cáo</strong>, và tự lưu trữ phông chữ ngay trên cùng tên miền để việc đọc trang không gửi địa chỉ IP của bạn cho bên phân tích thứ ba. Khi bạn bấm nút tải App Store hoặc Google Play, liên kết chuyển sang cửa hàng kèm tham số đo chiến dịch tiêu chuẩn của Apple/Google.</p>
 
   <hr>
   <footer>
-    <p>Câu hỏi? <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="mailto:datacenter111@gmail.com">datacenter111@gmail.com</a> · <a href="/lam/">Trang chủ LAM</a> · <a href="/lam/terms.html">Điều khoản dịch vụ</a> · <a href="https://brewkits.dev">Brewkits</a></p>
+    <p>Câu hỏi? <a href="mailto:lam@brewkits.dev">lam@brewkits.dev</a> · <a href="index.html">Trang chủ LAM</a> · <a href="manual.html">Cẩm nang máy</a> · <a href="support.html">Hỗ trợ &amp; Khiếu nại</a> · <a href="terms.html">Điều khoản dịch vụ</a> · <a href="https://brewkits.dev">Brewkits</a></p>
   </footer>
 </div>
 
