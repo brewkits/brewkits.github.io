@@ -438,6 +438,7 @@ footer .flinks{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margi
   <div>© 2026 Brewkits · NO COOKIES · NO ADS · NO ACCOUNT REQUIRED</div>
 </footer>
 
+<script src="telemetry/lam-telemetry.js"></script>
 <script>
 (function(){
   var isApple = /iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent || '');
@@ -445,8 +446,9 @@ footer .flinks{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margi
   if (cta && !isApple) {
     cta.href = 'https://play.google.com/store/apps/details?id=dev.brewkits.lam&referrer=utm_source%3Dwebsite%26utm_medium%3Dmanual%26utm_campaign%3Dnav_cta';
   }
+  if (window.LamTelemetry) window.LamTelemetry.updateContext({}, 'manual_reader');
 
-  function setLang(lang) {
+  function setLang(lang, byUser) {
     lang = (lang === 'vi') ? 'vi' : 'en';
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-lang-block]').forEach(function(el){
@@ -461,11 +463,22 @@ footer .flinks{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margi
     var fg = document.getElementById('footGuideHref');
     if (fg) fg.href = (lang === 'vi') ? 'guides/' : 'guides/en/';
     try { localStorage.setItem('lam_lang', lang); } catch(e){}
+    if (byUser && window.LamTelemetry) {
+      window.LamTelemetry.refreshStoreLinks();
+      window.LamTelemetry.track('lang_switch', { target_lang: lang });
+    }
     setupSpy();
   }
 
   document.querySelectorAll('[data-set-lang]').forEach(function(b){
-    b.addEventListener('click', function(){ setLang(b.getAttribute('data-set-lang')); });
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-set-lang'), true); });
+  });
+
+  document.addEventListener('click', function(e){
+    var tocLink = e.target.closest('.mtoc a[href^="#"]');
+    if (tocLink && window.LamTelemetry) {
+      window.LamTelemetry.track('manual_section_click', { section_id: tocLink.getAttribute('href').slice(1) });
+    }
   });
 
   function setupSpy() {

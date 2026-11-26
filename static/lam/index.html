@@ -1399,6 +1399,7 @@ html[dir=rtl] .vf-stage,html[dir=rtl] .btq-phone{direction:ltr}
   <div class="copy" data-i18n="footCopy"></div>
 </footer>
 
+<script src="telemetry/lam-telemetry.js"></script>
 <script src="grade/lam-grade-engine.js"></script>
 <script>
 var PRICES = {
@@ -1482,6 +1483,7 @@ function setPlatformPriority(plat) {
       : 'https://play.google.com/store/apps/details?id=dev.brewkits.lam&referrer=utm_source%3Dwebsite%26utm_medium%3Dlanding%26utm_campaign%3Dnav_cta';
     navIco.innerHTML = isApple ? APPLE_ICO_HTML : PLAY_ICO_HTML;
   }
+  if (window.LamTelemetry) window.LamTelemetry.refreshStoreLinks();
   document.querySelectorAll('[data-sim-plat]').forEach(function (b) {
     b.classList.toggle('on', b.getAttribute('data-sim-plat') === plat);
   });
@@ -1818,6 +1820,10 @@ function selectSimBody(idx) {
   document.querySelectorAll('#simBodies .sim-b').forEach(function (btn, i) { btn.classList.toggle('on', i === SIM_BODY_IDX); });
   syncViewfinderVisuals();
   var p = GE.STOCK_BY_KEY[SIM_STOCK_KEY] || GE.STOCKS[0];
+  if (window.LamTelemetry) {
+    window.LamTelemetry.updateContext({ sim_body: b.id, sim_recipe: '' }, 'sim_' + b.id + '_' + p.key);
+    window.LamTelemetry.track('sim_body_select', { body_id: b.id, body_name: b.name, is_pro: b.pro ? 1 : 0 });
+  }
   var lang = document.documentElement.lang || 'en';
   var msg = lang === 'vi'
     ? (b.name + ': ' + b.diffVi + ' (Giữ nguyên bảng màu phim ' + p.name + '!)')
@@ -1827,7 +1833,7 @@ function selectSimBody(idx) {
   showSimDiff(t(lang, 'simBodyChangedTag'), msg);
 }
 
-function selectSimStockByKey(stockKey, announce) {
+function selectSimStockByKey(stockKey, announce, triggerSource) {
   var st = GE && GE.STOCK_BY_KEY[stockKey];
   if (!st) return;
   SIM_STOCK_KEY = st.key;
@@ -1841,6 +1847,10 @@ function selectSimStockByKey(stockKey, announce) {
   syncViewfinderVisuals();
   if (announce) {
     var b = SIM_BODIES[SIM_BODY_IDX];
+    if (window.LamTelemetry) {
+      window.LamTelemetry.updateContext({ sim_film: st.key, sim_recipe: '' }, 'sim_' + b.id + '_' + st.key);
+      window.LamTelemetry.track('sim_film_select', { film_key: st.key, film_code: st.code, is_pro: st.pro ? 1 : 0, trigger: triggerSource || 'dropdown' });
+    }
     var rp = currentRenderParams();
     var lang = document.documentElement.lang || 'en';
     var msg = lang === 'vi'
@@ -1856,6 +1866,9 @@ function selectSimSkin(idx) {
   SIM_SKIN_IDX = Math.max(0, Math.min(SIM_SKINS.length - 1, idx));
   syncViewfinderVisuals();
   var sk = SIM_SKINS[SIM_SKIN_IDX];
+  if (window.LamTelemetry) {
+    window.LamTelemetry.track('sim_skin_select', { skin_key: sk.key });
+  }
   var lang = document.documentElement.lang || 'en';
   var msg = lang === 'vi'
     ? ('True Skin v2 → ' + sk.label + ' (kéo tâm sắc độ da YCbCr mà không ám màu bầu trời/lá cây). Mã Recipe: ' + computeRecipeCode() + '.')
@@ -1886,6 +1899,10 @@ function loadRecipeInSim(rIdx) {
   }
   syncViewfinderVisuals();
   var code = computeRecipeCode();
+  if (window.LamTelemetry) {
+    window.LamTelemetry.updateContext({ sim_body: SIM_BODIES[SIM_BODY_IDX].id, sim_film: r.key, sim_recipe: code }, 'rec_' + r.name);
+    window.LamTelemetry.track('sim_recipe_preset', { recipe_name: r.name, film_key: r.key, recipe_code: code });
+  }
   var lang = document.documentElement.lang || 'en';
   var msg = lang === 'vi'
     ? ('Đã nạp công thức "' + r.name + '" (' + code + '): ' + r.stock + ' · Độ đậm ' + Math.round(r.filterStrength * 100) + '% · Hạt ' + GE.GrainSlider.percent(r.grainIntensity) + '%' + (r.kelvin ? (' · WB ' + r.kelvin + 'K') : '') + '.')
@@ -1902,6 +1919,7 @@ function applyDecodedRecipeCode(rawStr) {
   var dec = GE.RecipeCodec.decode(rawStr);
   if (!dec) {
     if (rInput) rInput.classList.add('err');
+    if (window.LamTelemetry) window.LamTelemetry.track('sim_recipe_decode', { valid: 0, film_key: 'invalid' });
     showSimDiff(t(lang, 'simRecipeLoadedTag'), t(lang, 'simInvalidCode') + ': "' + rawStr.trim().toUpperCase() + '"');
     return;
   }
@@ -1918,18 +1936,29 @@ function applyDecodedRecipeCode(rawStr) {
   SIM_HIGHLIGHT_ROLLOFF = 0;
   SIM_SKINS.forEach(function (sk, i) { if (sk.key === dec.skinToneMode) SIM_SKIN_IDX = i; });
   syncViewfinderVisuals();
+  var outCode = computeRecipeCode();
+  if (window.LamTelemetry) {
+    window.LamTelemetry.updateContext({ sim_film: dec.filmStock, sim_recipe: outCode }, 'decode_' + dec.filmStock);
+    window.LamTelemetry.track('sim_recipe_decode', { valid: 1, film_key: dec.filmStock, recipe_code: outCode });
+  }
   var st = GE.STOCK_BY_KEY[dec.filmStock];
   var label = dec.legacyPresetName ? (dec.legacyPresetName + ' · ' + st.name) : st.name;
-  showSimDiff(t(lang, 'simRecipeLoadedTag'), label + ' · ' + Math.round(dec.filterStrength * 100) + '% · ' + GE.GrainSlider.percent(dec.grainIntensity) + '% grain · ' + computeRecipeCode());
+  showSimDiff(t(lang, 'simRecipeLoadedTag'), label + ' · ' + Math.round(dec.filterStrength * 100) + '% · ' + GE.GrainSlider.percent(dec.grainIntensity) + '% grain · ' + outCode);
 }
 
+var _simShutterTracked = 0;
 function fireSimShutter() {
   var stage = document.getElementById('vfStage');
   if (!stage) return;
-  var cap = SIM_BODIES[SIM_BODY_IDX].roll;
+  var curBody = SIM_BODIES[SIM_BODY_IDX];
+  var cap = curBody.roll;
   SIM_EXP = (SIM_EXP % cap) + 1;
   SIM_TIME_SEED += 1.73;
   syncViewfinderVisuals();
+  if (window.LamTelemetry && _simShutterTracked < 3) {
+    _simShutterTracked++;
+    window.LamTelemetry.track('sim_shutter_fire', { body_id: curBody.id, film_key: SIM_STOCK_KEY, frame_num: SIM_EXP });
+  }
   stage.classList.remove('snap');
   void stage.offsetWidth;
   stage.classList.add('snap');
@@ -2280,9 +2309,14 @@ function applyLang(lang) {
     langPop.addEventListener('click', function (e) {
       var b = e.target.closest('button[data-lang]');
       if (!b) return;
+      var chosen = b.getAttribute('data-lang');
       langPop.classList.remove('open');
       langBtn.setAttribute('aria-expanded', 'false');
-      applyLang(b.getAttribute('data-lang'));
+      applyLang(chosen);
+      if (window.LamTelemetry) {
+        window.LamTelemetry.refreshStoreLinks();
+        window.LamTelemetry.track('lang_switch', { target_lang: chosen });
+      }
     });
     document.addEventListener('click', function () {
       langPop.classList.remove('open');
@@ -2326,7 +2360,11 @@ function applyLang(lang) {
     var sb = e.target.closest('button[data-scene]');
     if (sb) {
       SIM_USER_UPLOADED = false;
-      loadSimSceneUrl(sb.getAttribute('data-scene'), false);
+      var sUrl = sb.getAttribute('data-scene');
+      loadSimSceneUrl(sUrl, false);
+      if (window.LamTelemetry) {
+        window.LamTelemetry.track('sim_scene_change', { scene_type: 'preset', scene_id: sUrl.replace(/^.*\//, '').replace(/\..*$/, '') });
+      }
     }
   });
   var upTrig = document.getElementById('simUploadTrigger');
@@ -2337,6 +2375,10 @@ function applyLang(lang) {
       if (this.files && this.files[0]) {
         var blobUrl = URL.createObjectURL(this.files[0]);
         loadSimSceneUrl(blobUrl, true);
+        if (window.LamTelemetry) {
+          window.LamTelemetry.markFlag('upload');
+          window.LamTelemetry.track('sim_scene_change', { scene_type: 'user_photo_local', scene_id: 'local_file' });
+        }
       }
     });
   }
@@ -2345,6 +2387,7 @@ function applyLang(lang) {
     SIM_SPLIT_ON = !SIM_SPLIT_ON;
     splitBtn.setAttribute('aria-pressed', SIM_SPLIT_ON ? 'true' : 'false');
     syncViewfinderVisuals();
+    if (window.LamTelemetry) window.LamTelemetry.track('sim_split_compare', { enabled: SIM_SPLIT_ON ? 1 : 0 });
   });
 
   // Interactive drag on Before/After Split Divider
@@ -2377,7 +2420,7 @@ function applyLang(lang) {
   });
   var selAll = document.getElementById('simAllStocksSelect');
   if (selAll) selAll.addEventListener('change', function () {
-    selectSimStockByKey(this.value, true);
+    selectSimStockByKey(this.value, true, 'dropdown');
   });
   var skBox = document.getElementById('simSkinPills');
   if (skBox) skBox.addEventListener('click', function (e) {
@@ -2390,27 +2433,47 @@ function applyLang(lang) {
     if (b) loadRecipeInSim(parseInt(b.getAttribute('data-jump-rec'), 10) || 0);
   });
   var strRange = document.getElementById('simStrengthRange');
-  if (strRange) strRange.addEventListener('input', function () {
-    SIM_STRENGTH = (parseInt(this.value, 10) || 0) / 100.0;
-    syncViewfinderVisuals();
-  });
+  if (strRange) {
+    strRange.addEventListener('input', function () {
+      SIM_STRENGTH = (parseInt(this.value, 10) || 0) / 100.0;
+      syncViewfinderVisuals();
+    });
+    strRange.addEventListener('change', function () {
+      if (window.LamTelemetry) window.LamTelemetry.track('sim_slider_adjust', { control: 'strength', value: parseInt(this.value, 10) || 0 });
+    });
+  }
   var gRange = document.getElementById('simGrainRange');
-  if (gRange) gRange.addEventListener('input', function () {
-    var pos = (parseInt(this.value, 10) || 0) / 100.0;
-    SIM_GRAIN_INTENSITY = GE ? GE.GrainSlider.intensity(pos) : (pos * 0.75);
-    syncViewfinderVisuals();
-  });
+  if (gRange) {
+    gRange.addEventListener('input', function () {
+      var pos = (parseInt(this.value, 10) || 0) / 100.0;
+      SIM_GRAIN_INTENSITY = GE ? GE.GrainSlider.intensity(pos) : (pos * 0.75);
+      syncViewfinderVisuals();
+    });
+    gRange.addEventListener('change', function () {
+      if (window.LamTelemetry) window.LamTelemetry.track('sim_slider_adjust', { control: 'grain', value: parseInt(this.value, 10) || 0 });
+    });
+  }
   var hRange = document.getElementById('simHalRange');
-  if (hRange) hRange.addEventListener('input', function () {
-    SIM_HAL_OVERRIDE = (parseInt(this.value, 10) || 0) / 100.0;
-    syncViewfinderVisuals();
-  });
+  if (hRange) {
+    hRange.addEventListener('input', function () {
+      SIM_HAL_OVERRIDE = (parseInt(this.value, 10) || 0) / 100.0;
+      syncViewfinderVisuals();
+    });
+    hRange.addEventListener('change', function () {
+      if (window.LamTelemetry) window.LamTelemetry.track('sim_slider_adjust', { control: 'halation', value: parseInt(this.value, 10) || 0 });
+    });
+  }
   var kRange = document.getElementById('simKelvinRange');
-  if (kRange) kRange.addEventListener('input', function () {
-    var kv = parseInt(this.value, 10) || 6500;
-    SIM_KELVIN = Math.abs(kv - 6500) < 50 ? 0 : kv;
-    syncViewfinderVisuals();
-  });
+  if (kRange) {
+    kRange.addEventListener('input', function () {
+      var kv = parseInt(this.value, 10) || 6500;
+      SIM_KELVIN = Math.abs(kv - 6500) < 50 ? 0 : kv;
+      syncViewfinderVisuals();
+    });
+    kRange.addEventListener('change', function () {
+      if (window.LamTelemetry) window.LamTelemetry.track('sim_slider_adjust', { control: 'kelvin', value: SIM_KELVIN || 6500 });
+    });
+  }
   var pushBox = document.getElementById('simPushPills');
   if (pushBox) pushBox.addEventListener('click', function (e) {
     var b = e.target.closest('button[data-push]');
@@ -2418,6 +2481,10 @@ function applyLang(lang) {
     SIM_PUSH_STOPS = parseInt(b.getAttribute('data-push'), 10) || 0;
     syncViewfinderVisuals();
     var rp = currentRenderParams();
+    if (window.LamTelemetry) {
+      if (rp.pushStops !== 0) window.LamTelemetry.markFlag('push');
+      window.LamTelemetry.track('sim_push_pull', { push_stops: rp.pushStops, film_key: rp.stock.key });
+    }
     var ei = GE.RollPushDevelop.exposureIndex(rp.stock, rp.pushStops);
     var lang = document.documentElement.lang || 'en';
     var stopTxt = rp.pushStops > 0 ? ('+' + rp.pushStops) : String(rp.pushStops);
@@ -2464,6 +2531,10 @@ function applyLang(lang) {
   if (copyBtn) copyBtn.addEventListener('click', function () {
     var code = computeRecipeCode();
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).catch(function(){});
+    if (window.LamTelemetry) {
+      window.LamTelemetry.markFlag('copy');
+      window.LamTelemetry.track('sim_recipe_copy', { recipe_code: code, film_key: SIM_STOCK_KEY, body_id: SIM_BODIES[SIM_BODY_IDX].id });
+    }
     var lang = document.documentElement.lang || 'en';
     copyBtn.textContent = t(lang, 'simCopied');
     setTimeout(function () { copyBtn.textContent = t(document.documentElement.lang || 'en', 'simCopyBtn'); }, 1400);
@@ -2472,15 +2543,20 @@ function applyLang(lang) {
   if (cubeBtn && GE) cubeBtn.addEventListener('click', function () {
     var spec = currentRecipeSpec();
     var st = GE.STOCK_BY_KEY[spec.filmStock] || GE.STOCKS[0];
+    var outCode = computeRecipeCode();
     var cube = GE.generateCube(spec);
     var blob = new Blob([cube], { type: 'text/plain;charset=utf-8' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'lam_' + st.name.toLowerCase().replace(/[^a-z0-9]+/g, '_') + '_' + computeRecipeCode() + '.cube';
+    a.download = 'lam_' + st.name.toLowerCase().replace(/[^a-z0-9]+/g, '_') + '_' + outCode + '.cube';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+    if (window.LamTelemetry) {
+      window.LamTelemetry.markFlag('cube');
+      window.LamTelemetry.track('sim_cube_export', { film_key: spec.filmStock, recipe_code: outCode });
+    }
   });
   var vfStage = document.getElementById('vfStage');
   if (vfStage) {
@@ -2512,7 +2588,7 @@ function applyLang(lang) {
   if (fGrid) fGrid.addEventListener('click', function (e) {
     var card = e.target.closest('article[data-load-film]');
     if (!card) return;
-    selectSimStockByKey(card.getAttribute('data-load-film'), true);
+    selectSimStockByKey(card.getAttribute('data-load-film'), true, 'film_card');
     var el = document.getElementById('simulator');
     if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
@@ -2526,12 +2602,14 @@ function applyLang(lang) {
     LAM_FILMS_OPEN = false;
     chips.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
     renderFilms(document.documentElement.lang || 'en');
+    if (window.LamTelemetry) window.LamTelemetry.track('catalog_filter', { catalog: 'films', filter_value: LAM_FILTER });
   });
   var fMore = document.getElementById('films-more');
   if (fMore) fMore.addEventListener('click', function (e) {
     if (!e.target.closest('#filmsToggleBtn')) return;
     LAM_FILMS_OPEN = !LAM_FILMS_OPEN;
     renderFilms(document.documentElement.lang || 'en');
+    if (window.LamTelemetry) window.LamTelemetry.track('catalog_filter', { catalog: 'films_expand', filter_value: LAM_FILMS_OPEN ? 'open' : 'closed' });
   });
   var bChips = document.getElementById('bodyChips');
   if (bChips) bChips.addEventListener('click', function (e) {
@@ -2540,6 +2618,7 @@ function applyLang(lang) {
     BODY_ERA = b.getAttribute('data-e');
     bChips.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
     renderBodies(document.documentElement.lang || 'en');
+    if (window.LamTelemetry) window.LamTelemetry.track('catalog_filter', { catalog: 'bodies', filter_value: BODY_ERA });
   });
 
   // Boutique Studio interactive pills + gentle auto-cycle
@@ -2552,6 +2631,11 @@ function applyLang(lang) {
     if (ab) { ab.setAttribute('aria-pressed', 'false'); ab.textContent = t(document.documentElement.lang || 'en', 'stuAutoPlay'); }
     STU_THEME_IDX = parseInt(b.getAttribute('data-stu-theme'), 10) || 0;
     applyStudioState();
+    if (window.LamTelemetry) {
+      var th = STUDIO_THEMES[STU_THEME_IDX];
+      window.LamTelemetry.updateContext({ stu_theme: th.id }, 'stu_' + th.id + '_' + STUDIO_SKINS[STU_SKIN_IDX].id);
+      window.LamTelemetry.track('studio_theme_select', { theme_id: th.id });
+    }
   });
   var stuSkins = document.getElementById('studioSkinPills');
   if (stuSkins) stuSkins.addEventListener('click', function (e) {
@@ -2562,6 +2646,11 @@ function applyLang(lang) {
     if (ab) { ab.setAttribute('aria-pressed', 'false'); ab.textContent = t(document.documentElement.lang || 'en', 'stuAutoPlay'); }
     STU_SKIN_IDX = parseInt(b.getAttribute('data-stu-skin'), 10) || 0;
     applyStudioState();
+    if (window.LamTelemetry) {
+      var sk = STUDIO_SKINS[STU_SKIN_IDX];
+      window.LamTelemetry.updateContext({ stu_skin: sk.id }, 'stu_' + STUDIO_THEMES[STU_THEME_IDX].id + '_' + sk.id);
+      window.LamTelemetry.track('studio_skin_select', { leather_id: sk.id, is_pro: sk.free ? 0 : 1 });
+    }
   });
   var stuAutoBtn = document.getElementById('stuAutoBtn');
   if (stuAutoBtn) stuAutoBtn.addEventListener('click', function () {
