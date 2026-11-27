@@ -14,38 +14,38 @@
 
   <url>
     <loc>https://brewkits.dev/lam/</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://brewkits.dev/lam/manual.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brewkits.dev/lam/privacy.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://brewkits.dev/lam/support.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://brewkits.dev/lam/terms.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://brewkits.dev/lam/guides/</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/"/>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/"/>
@@ -64,7 +64,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/sai-lech-2-lan-filter-hau-ky.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/sai-lech-2-lan-filter-hau-ky.html"/>
@@ -73,7 +73,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/the-double-processing-trap.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/sai-lech-2-lan-filter-hau-ky.html"/>
@@ -83,7 +83,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/khong-phai-filter-ai.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/khong-phai-filter-ai.html"/>
@@ -92,7 +92,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/not-a-filter-ai.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/khong-phai-filter-ai.html"/>
@@ -102,7 +102,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/true-skin-tong-da-chau-a.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/true-skin-tong-da-chau-a.html"/>
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/true-skin-for-asian-skin.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/true-skin-tong-da-chau-a.html"/>
@@ -121,7 +121,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/grain-halation-light-leak.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/grain-halation-light-leak.html"/>
@@ -130,7 +130,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/grain-halation-light-leak.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/grain-halation-light-leak.html"/>
@@ -140,7 +140,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/9-than-may-9-thoi-dai.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/9-than-may-9-thoi-dai.html"/>
@@ -149,7 +149,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/nine-bodies-nine-eras.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/9-than-may-9-thoi-dai.html"/>
@@ -159,7 +159,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html"/>
@@ -168,7 +168,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/pro-mode-peaking-zebra-log.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/pro-mode-peaking-zebra-log.html"/>
@@ -178,7 +178,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/5-theme-persona-la-gi.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/5-theme-persona-la-gi.html"/>
@@ -187,7 +187,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/five-theme-personas.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/5-theme-persona-la-gi.html"/>
@@ -197,7 +197,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/recipe-code-chia-se-look.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/recipe-code-chia-se-look.html"/>
@@ -206,7 +206,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/recipe-code-sharing-a-look.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/recipe-code-chia-se-look.html"/>
@@ -216,7 +216,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/xuat-lut-cube-resolve-premiere.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/xuat-lut-cube-resolve-premiere.html"/>
@@ -225,7 +225,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/export-cube-lut-resolve-premiere.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/xuat-lut-cube-resolve-premiere.html"/>
@@ -235,7 +235,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/cong-thuc-lightroom-sang-lam.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/cong-thuc-lightroom-sang-lam.html"/>
@@ -244,7 +244,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/lightroom-recipes-to-lam.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/cong-thuc-lightroom-sang-lam.html"/>
@@ -254,7 +254,7 @@
 
   <url>
     <loc>https://brewkits.dev/lam/guides/toc-do-man-trap-tren-dien-thoai.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/toc-do-man-trap-tren-dien-thoai.html"/>
@@ -263,7 +263,7 @@
   </url>
   <url>
     <loc>https://brewkits.dev/lam/guides/en/shutter-speed-on-a-phone.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://brewkits.dev/lam/guides/toc-do-man-trap-tren-dien-thoai.html"/>
