@@ -179,6 +179,15 @@
     return 'cta';
   }
 
+  // Which web price the visitor saw (28/11): the Black Friday window lives in /lam/promo.json and index.html exposes the
+  // active one as window.activePromo(). 'none' outside a window or on pages without prices.
+  function promoTag() {
+    try {
+      var p = typeof window.activePromo === 'function' ? window.activePromo() : null;
+      return p ? cleanToken((p.label || 'sale') + '_' + (p.percent || ''), 32) : 'none';
+    } catch (e) { return 'none'; }
+  }
+
   function wireAutoEvents() {
     refreshStoreLinks();
 
@@ -230,10 +239,31 @@
         sim_recipe: STATE.sim_recipe || 'custom',
         stu_theme: STATE.stu_theme,
         stu_skin: STATE.stu_skin,
+        promo: promoTag(),
         transport_type: 'beacon'
       });
     }
     document.addEventListener('click', handleStoreClick, true);
+
+    // Navigation clicks (28/11): in-page anchors (nav bar, pricing "see all" links) and links to the other LAM pages,
+    // so the funnel shows WHAT a visitor read before a download click. Store links are handled above.
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var raw = a.getAttribute('href') || '';
+      if (raw.charAt(0) === '#') {
+        var target = cleanToken(raw.slice(1), 32) || 'top';
+        var from = a.closest('#stickyNav') ? 'nav' : (a.closest('section[id]') ? cleanToken(a.closest('section[id]').id, 24) : 'page');
+        if (target === 'foodpack' || target === 'concertpack') updateContext(null, 'pack_' + target.replace('pack', ''));
+        track('web_nav_click', { target: target, from: from });
+        return;
+      }
+      var u;
+      try { u = new URL(a.href, cleanOrigin); } catch (err) { return; }
+      if (u.origin !== cleanOrigin && !/brewkits\.dev$/i.test(u.hostname)) return;
+      if (u.pathname.indexOf('/lam/') !== 0) return;
+      track('web_link_click', { target_path: u.pathname.slice(0, 80), transport_type: 'beacon' });
+    }, true);
     document.addEventListener('auxclick', handleStoreClick, true);
 
     // Passive Scroll Depth Milestones (50% and 90%, once per page load)
