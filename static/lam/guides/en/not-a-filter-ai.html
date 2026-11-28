@@ -167,17 +167,10 @@
   rather than one correct one.</p>
 
   <div class="card">
-    <p><strong>Stated plainly: LAM does not read RAW, and does not switch off your phone's HDR.</strong></p>
-    <p>LAM receives its frame from the phone's ISP like any other camera app. On iPhone it deliberately
-    asks for Deep Fusion and Smart HDR at the highest setting the device allows, because measured on real
-    hardware that frame is cleaner in the shadows and wider in range — turning it off makes the picture
-    worse, not better.</p>
-    <p>What makes LAM different is not "reading the raw sensor". It is three things we can measure:
-    <strong>(1)</strong> there is <em>one</em> grading layer instead of two stacked ones;
-    <strong>(2)</strong> you see that layer in the viewfinder <em>before</em> the shutter, so a wrong
-    choice is changed on the spot rather than discovered at home; <strong>(3)</strong> on Android, LAM
-    picks the capture mode that skips CameraX's extra multi-frame noise-reduction pass. We would rather state three things that are true
-    than one that sounds impressive.</p>
+    <p><strong>Stated plainly: LAM has two ways to capture a photo, and you choose between them in Settings.</strong></p>
+    <p><strong>Natural (on by default)</strong> shoots a single exposure instead of the phone's stacked computational image. On iPhone that is one Bayer RAW frame, developed by LAM itself, so Deep Fusion and Smart HDR are not involved; if the camera offers no RAW, LAM falls back to the ordinary photo and tells you. On Android, LAM asks the phone's ISP for its lightest processing (edge enhancement off, minimal noise reduction) and keeps its own highlight-guard merge out of the shot. LAM's film look is then applied once, on top. Night and burst remain your explicit choices.</p>
+    <p><strong>With Natural switched off</strong>, LAM receives its frame from the phone's ISP like any other camera app, and on iPhone it asks for Deep Fusion and Smart HDR at the highest setting the device allows, because that frame is cleaner in the shadows and wider in range. That is the trade-off: Natural gives you an unstacked, film-like base; the computational frame gives you more shadow detail.</p>
+    <p>Either way, what makes LAM different is one grading layer instead of two stacked ones, and a viewfinder that shows that layer <em>before</em> the shutter, so a wrong choice is changed on the spot rather than discovered at home. We would rather state what is true than one thing that sounds impressive.</p>
   </div>
 
 

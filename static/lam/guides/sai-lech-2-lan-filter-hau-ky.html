@@ -136,15 +136,10 @@
   sáng, nên kết quả là tổng của hai quyết định mâu thuẫn — chứ không phải một quyết định đúng.</p>
 
   <div class="card">
-    <p><strong>Nói rõ để khỏi hiểu nhầm: LAM không đọc RAW, và cũng không tắt HDR của máy.</strong></p>
-    <p>LAM nhận ảnh từ ISP của điện thoại như mọi app camera khác. Trên iPhone, LAM còn <em>cố ý bật</em>
-    Deep Fusion và Smart HDR ở mức cao nhất máy cho phép, vì đo trên máy thật thì ảnh ra sạch nhiễu hơn
-    và dải sáng rộng hơn — bỏ nó đi làm ảnh xấu hơn, không phải đẹp hơn.</p>
-    <p>Khác biệt của LAM không nằm ở chỗ "đọc được cảm biến thô". Nó nằm ở ba chỗ đo được:
-    <strong>(1)</strong> chỉ có <em>một</em> lớp nắn màu thay vì hai lớp chồng nhau;
-    <strong>(2)</strong> bạn nhìn thấy lớp đó trên viewfinder <em>trước</em> khi bấm, nên chọn sai thì
-    đổi ngay chứ không phải về nhà mới biết; <strong>(3)</strong> trên Android, LAM chọn chế độ chụp bỏ
-    qua lớp khử nhiễu đa khung phụ của CameraX. Chúng tôi thà nói đúng ba điều đo được còn hơn một điều nghe kêu.</p>
+    <p><strong>Nói rõ để khỏi hiểu nhầm: LAM có hai cách chụp ảnh, và bạn chọn trong Cài đặt.</strong></p>
+    <p><strong>Natural (bật sẵn)</strong> chụp một lần phơi sáng thay vì ảnh tính toán chồng nhiều lớp của điện thoại. Trên iPhone đó là một khung Bayer RAW do LAM tự tráng, nên không có Deep Fusion và Smart HDR; nếu máy không cho RAW, LAM quay về ảnh thường và báo cho bạn. Trên Android, LAM xin ISP của máy chế độ ít xử lý nhất (tắt làm nét viền, khử nhiễu tối thiểu) và không để bước ghép bảo vệ vùng sáng của LAM chen vào ảnh. Màu phim của LAM sau đó chỉ áp một lần. Chụp đêm và chụp liên tiếp vẫn là lựa chọn của riêng bạn.</p>
+    <p><strong>Khi tắt Natural</strong>, LAM nhận ảnh từ ISP của điện thoại như mọi app camera khác, và trên iPhone LAM bật Deep Fusion và Smart HDR ở mức cao nhất máy cho phép, vì khung đó sạch nhiễu ở vùng tối hơn và dải sáng rộng hơn. Đó là sự đánh đổi: Natural cho nền ảnh không bị chồng lớp, giống phim; ảnh tính toán cho nhiều chi tiết vùng tối hơn.</p>
+    <p>Dù chọn cách nào, điểm khác của LAM là chỉ có <em>một</em> lớp nắn màu thay vì hai lớp chồng nhau, và viewfinder cho thấy lớp đó <em>trước</em> khi bấm, nên chọn sai thì đổi ngay chứ không phải về nhà mới biết. Chúng tôi thà nói đúng sự thật còn hơn một điều nghe kêu.</p>
   </div>
 
 
